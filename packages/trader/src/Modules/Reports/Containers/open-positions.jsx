@@ -41,8 +41,9 @@ const getActionColumns = ({ onClickCancel, onClickSell, getPositionById }) => ({
 
 const EmptyPlaceholderWrapper = props => (
     <React.Fragment>
-        {props.is_empty ? (
+        {props.is_empty || props.is_loading ? (
             <PlaceholderComponent
+                is_loading={props.is_loading}
                 is_empty={props.is_empty}
                 empty_message_component={EmptyTradeHistoryMessage}
                 component_icon={props.component_icon}
@@ -65,7 +66,11 @@ const OpenPositionsTable = ({
     preloaderCheck,
     action_column,
 }) => (
-    <EmptyPlaceholderWrapper component_icon={component_icon} is_empty={data_source.length === 0}>
+    <EmptyPlaceholderWrapper
+        component_icon={component_icon}
+        is_loading={is_loading}
+        is_empty={data_source.length === 0}
+    >
         <DataTable
             className={className}
             columns={columns}

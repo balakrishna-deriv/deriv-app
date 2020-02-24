@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useLayoutEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { PositionsCardLoader } from 'App/Components/Elements/ContentLoader';
 import { isMultiplierContract } from 'Stores/Modules/Contract/Helpers/multiplier';
@@ -13,9 +13,12 @@ const PositionsDrawerCard = ({
     className,
     contract_info,
     currency,
+    index,
     is_sell_requested,
     is_unsupported,
+    height_type,
     profit_loss,
+    measure,
     onClickCancel,
     onClickSell,
     onClickRemove,
@@ -26,8 +29,12 @@ const PositionsDrawerCard = ({
     onMouseEnter,
     onMouseLeave,
 }) => {
+    useLayoutEffect(() => {
+        measure();
+    }, [index, height_type]);
+
     const loader_el = (
-        <div className='positions-drawer-card__content-loader'>
+        <div className='positions-drawer-card__content-loader' style={{ width: 218 }}>
             <PositionsCardLoader speed={2} />
         </div>
     );
@@ -113,12 +120,15 @@ PositionsDrawerCard.propTypes = {
     duration: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     duration_unit: PropTypes.string,
     exit_spot: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    height_type: PropTypes.number,
     id: PropTypes.number,
+    index: PropTypes.number,
     indicative: PropTypes.number,
     is_loading: PropTypes.bool,
     is_sell_requested: PropTypes.bool,
     is_unsupported: PropTypes.bool,
     is_valid_to_sell: PropTypes.oneOfType([PropTypes.number, PropTypes.bool]),
+    measure: PropTypes.func,
     onClickRemove: PropTypes.func,
     onClickSell: PropTypes.func,
     profit_loss: PropTypes.number,

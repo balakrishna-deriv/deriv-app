@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
-import { VariableSizeList as List } from 'react-window';
+import { AutoSizer, CellMeasurer, CellMeasurerCache, List } from 'react-virtualized';
 import { Icon, ThemedScrollbars } from '@deriv/components';
 import { localize } from '@deriv/translations';
 import routes from 'Constants/routes';
@@ -12,46 +12,28 @@ import EmptyPortfolioMessage from 'Modules/Reports/Components/empty-portfolio-me
 import Shortcode from 'Modules/Reports/Helpers/shortcode';
 import { connect } from 'Stores/connect';
 import { isEnded, isValidToSell } from 'Stores/Modules/Contract/Helpers/logic';
-import { isMultiplierContract } from 'Stores/Modules/Contract/Helpers/multiplier';
 import { getContractTypesConfig } from 'Stores/Modules/Trading/Constants/contract';
 import { isCallPut } from 'Stores/Modules/Contract/Helpers/contract-type';
 import PositionsDrawerCard from './PositionsDrawerCard';
 
 class PositionsDrawer extends React.Component {
-    state = {};
+    list_cell_measurer_cache = new CellMeasurerCache({
+        defaultHeight: 230,
+        fixedWidth: true,
+        keyMapper: index => this.positions[index] && this.positions[index].id,
+    });
+
+    positions_height_types = [];
 
     componentDidMount() {
         this.props.onMount();
-        this.ListScrollbar = this.getListScrollbar();
-
-        // Todo: Handle Resizing
-        this.setState({
-            drawer_height: this.drawer_ref.clientHeight,
-        });
-    }
-
-    componentWillReceiveProps(nextProps) {
-        if (
-            (this.props.symbol && nextProps.symbol !== this.props.symbol) ||
-            (this.props.trade_contract_type && nextProps.trade_contract_type !== this.props.trade_contract_type)
-        ) {
-            if (this.list_ref && this.scrollbar_ref) {
-                this.list_ref.scrollTo(0);
-                this.scrollbar_ref.scrollToTop();
-            }
-        }
     }
 
     componentWillUnmount() {
         this.props.onUnmount();
     }
 
-    itemRender = ({
-        data,
-        index, // Index of row
-        style,
-        isScrolling,
-    }) => {
+    itemRender = ({ index, parent, style, isScrolling }) => {
         const {
             currency,
             onClickCancel,
@@ -60,45 +42,61 @@ class PositionsDrawer extends React.Component {
             onHoverPosition,
             toggleUnsupportedContractModal,
         } = this.props;
-        const portfolio_position = data[index];
+        const portfolio_position = this.positions[index];
 
+        const height_type = this.getPositionHeightType(portfolio_position);
         return (
-            <div key={portfolio_position.id} style={style}>
-                <CSSTransition
-                    appear
-                    key={portfolio_position.id}
-                    in={true}
-                    timeout={isScrolling ? 0 : 150}
-                    classNames={
-                        isScrolling
-                            ? {}
-                            : {
-                                  appear: 'positions-drawer-card__wrapper--enter',
-                                  enter: 'positions-drawer-card__wrapper--enter',
-                                  enterDone: 'positions-drawer-card__wrapper--enter-done',
-                                  exit: 'positions-drawer-card__wrapper--exit',
-                              }
-                    }
-                    unmountOnExit
-                >
-                    <PositionsDrawerCard
-                        onClickCancel={onClickCancel}
-                        onClickSell={onClickSell}
-                        onClickRemove={onClickRemove}
-                        onMouseEnter={() => {
-                            onHoverPosition(true, portfolio_position);
-                        }}
-                        onMouseLeave={() => {
-                            onHoverPosition(false, portfolio_position);
-                        }}
-                        key={portfolio_position.id}
-                        currency={currency}
-                        show_transition={!isScrolling}
-                        toggleUnsupportedContractModal={toggleUnsupportedContractModal}
-                        {...portfolio_position}
-                    />
-                </CSSTransition>
-            </div>
+            <CellMeasurer
+                cache={this.list_cell_measurer_cache}
+                columnIndex={0}
+                key={portfolio_position.id}
+                parent={parent}
+                rowIndex={index}
+            >
+                {({ measure }) => {
+                    return (
+                        <div style={style}>
+                            <CSSTransition
+                                appear
+                                key={portfolio_position.id}
+                                in={true}
+                                timeout={isScrolling ? 0 : 150}
+                                classNames={
+                                    isScrolling
+                                        ? {}
+                                        : {
+                                              appear: 'positions-drawer-card__wrapper--enter',
+                                              enter: 'positions-drawer-card__wrapper--enter',
+                                              enterDone: 'positions-drawer-card__wrapper--enter-done',
+                                              exit: 'positions-drawer-card__wrapper--exit',
+                                          }
+                                }
+                                unmountOnExit
+                            >
+                                <PositionsDrawerCard
+                                    onClickCancel={onClickCancel}
+                                    onClickSell={onClickSell}
+                                    onClickRemove={onClickRemove}
+                                    onMouseEnter={() => {
+                                        onHoverPosition(true, portfolio_position);
+                                    }}
+                                    onMouseLeave={() => {
+                                        onHoverPosition(false, portfolio_position);
+                                    }}
+                                    key={portfolio_position.id}
+                                    currency={currency}
+                                    index={index}
+                                    height_type={height_type}
+                                    measure={measure}
+                                    show_transition={!isScrolling}
+                                    toggleUnsupportedContractModal={toggleUnsupportedContractModal}
+                                    {...portfolio_position}
+                                />
+                            </CSSTransition>
+                        </div>
+                    );
+                }}
+            </CellMeasurer>
         );
     };
 
@@ -114,104 +112,70 @@ class PositionsDrawer extends React.Component {
         return match && !is_high_low;
     };
 
-    hasPositionsHeightChanged = (newPositionsHeight, oldPositionsHeight) => {
-        if (newPositionsHeight.length !== oldPositionsHeight.length) {
-            return true;
-        }
-        for (let i = 0; i < newPositionsHeight.length; i++) {
-            if (newPositionsHeight[i] !== oldPositionsHeight[i]) {
-                return true;
-            }
-        }
-        return false;
-    };
-
-    calculatePositionsHeight() {
-        const newPositionsHeight = this.positions.map(position => this.getPositionHeight(position));
-        if (this.list_ref && this.hasPositionsHeightChanged(newPositionsHeight, this.positionsHeight)) {
-            // When there is a change in height of an item, this recalculates scroll height of the list and reapplies styles.
-            setTimeout(() => (this.list_ref ? this.list_ref.resetAfterIndex(0) : undefined));
-        }
-
-        this.positionsHeight = newPositionsHeight;
-    }
-
-    getCachedPositionHeight = index => {
-        return this.positionsHeight[index];
-    };
-
-    getPositionHeight = position => {
-        // React window doesn't work with dynamic height. This is a work around to get height of a position based on different combinations.
+    getPositionHeightType = position => {
+        // It is to notify the height of the position card has changed which helps in remeasuring the card
         const { contract_info } = position;
         const has_ended = isEnded(contract_info);
         const is_valid_to_sell = isValidToSell(contract_info);
-        const is_multiplier_contract = isMultiplierContract(contract_info.contract_type);
-        const is_tick_contract = contract_info.tick_count > 0;
-
-        if (has_ended) {
-            return is_multiplier_contract ? 198 : 158;
-        } else if (is_tick_contract) {
-            return 202;
+        if (!contract_info.underlying) {
+            return -1;
+        } else if (has_ended) {
+            return 1;
         }
 
-        const classic_contract_height = is_valid_to_sell ? 228 : 188;
-        return is_multiplier_contract ? 238 : classic_contract_height;
+        return is_valid_to_sell ? 2 : 3;
     };
 
-    getListScrollbar() {
-        const ListScrollbar = React.forwardRef((props, ref) => {
-            const { children, style, onScroll } = props;
+    getCachedPositionHeight = index => {
+        return this.positions_height_types[index];
+    };
 
-            const refCallback = forwardRef => {
-                this.scrollbar_ref = forwardRef;
-                ref.call(this, forwardRef);
-            };
-
-            return (
-                <ThemedScrollbars
-                    list_ref={refCallback}
-                    style={{ ...style, overflow: 'hidden' }}
-                    onScroll={onScroll}
-                    autoHide
-                >
-                    {children}
-                </ThemedScrollbars>
-            );
-        });
-        // Display name is required by Developer Tools to give a name to the components we use.
-        // If a component doesn't have a displayName is will be shown as <Unknown />. Hence, name is set.
-        ListScrollbar.displayName = 'ListScrollbar';
-
-        return ListScrollbar;
-    }
+    handleScroll = ({ target }) => {
+        const { scrollTop, scrollLeft } = target;
+        this.list_ref.Grid.handleScrollEvent({ scrollTop, scrollLeft });
+    };
 
     render() {
-        const { all_positions, error, is_empty, is_positions_drawer_on, symbol, toggleDrawer } = this.props;
+        const { all_positions, error, is_positions_drawer_on, symbol, toggleDrawer } = this.props;
 
-        this.positions = all_positions.filter(
-            p => p.contract_info && symbol === p.contract_info.underlying && this.filterByContractType(p.contract_info)
+        const positions = all_positions.filter(
+            p =>
+                !p.contract_info ||
+                !p.contract_info.underlying ||
+                (symbol === p.contract_info.underlying && this.filterByContractType(p.contract_info))
         );
-        this.calculatePositionsHeight();
+        this.positions = positions;
 
         const body_content = (
             <React.Fragment>
-                <div style={{ height: '100%' }}>
-                    {this.state.drawer_height > 0 && (
-                        <TransitionGroup component='div'>
-                            <List
-                                itemCount={this.positions.length}
-                                itemData={this.positions}
-                                itemSize={this.getCachedPositionHeight}
-                                height={this.state.drawer_height}
-                                outerElementType={is_empty ? null : this.ListScrollbar}
-                                ref={el => (this.list_ref = el)}
-                                useIsScrolling
-                            >
-                                {this.itemRender}
-                            </List>
-                        </TransitionGroup>
+                <AutoSizer>
+                    {({ width, height }) => (
+                        <ThemedScrollbars
+                            style={{
+                                height,
+                                width,
+                            }}
+                            onScroll={this.handleScroll}
+                            autoHide
+                        >
+                            <TransitionGroup component='div'>
+                                <List
+                                    ref={ref => (this.list_ref = ref)}
+                                    style={{ overflow: 'inherit' }}
+                                    containerStyle={{ marginBottom: 117 }}
+                                    estimatedRowSize={200}
+                                    deferredMeasurementCache={this.list_cell_measurer_cache}
+                                    height={height}
+                                    overscanRowCount={2}
+                                    rowCount={this.positions.length}
+                                    rowHeight={this.list_cell_measurer_cache.rowHeight}
+                                    rowRenderer={this.itemRender}
+                                    width={width}
+                                />
+                            </TransitionGroup>
+                        </ThemedScrollbars>
                     )}
-                </div>
+                </AutoSizer>
             </React.Fragment>
         );
 
@@ -238,12 +202,7 @@ class PositionsDrawer extends React.Component {
                             <Icon icon='IcMinusBold' />
                         </div>
                     </div>
-                    <div
-                        className='positions-drawer__body'
-                        ref={el => {
-                            this.drawer_ref = el;
-                        }}
-                    >
+                    <div className='positions-drawer__body' ref={ref => (this.drawer_ref = ref)}>
                         {this.positions.length === 0 || error ? <EmptyPortfolioMessage error={error} /> : body_content}
                     </div>
                     <div className='positions-drawer__footer'>

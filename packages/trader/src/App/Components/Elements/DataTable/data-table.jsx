@@ -1,9 +1,9 @@
 import classNames from 'classnames';
 import { PropTypes as MobxPropTypes } from 'mobx-react';
-import { VariableSizeList as List } from 'react-window';
+import { AutoSizer, List } from 'react-virtualized';
 import { ThemedScrollbars } from '@deriv/components';
 import PropTypes from 'prop-types';
-import React, { useCallback } from 'react';
+import React from 'react';
 import TableRow from './table-row.jsx';
 
 /* TODO:
@@ -11,55 +11,20 @@ import TableRow from './table-row.jsx';
       2. implement filtering per column
 */
 
-const ListScrollbar = React.forwardRef((props, ref) => <ExtendedScrollbars {...props} forwardedRef={ref} />);
-
-// Display name is required by Developer Tools to give a name to the components we use.
-// If a component doesn't have a displayName is will be shown as <Unknown />. Hence, name is set.
-ListScrollbar.displayName = 'ListScrollbar';
-
-const ExtendedScrollbars = ({ onScroll, forwardedRef, style, children }) => {
-    const refSetter = useCallback(scrollbarsRef => {
-        if (scrollbarsRef) {
-            forwardedRef(scrollbarsRef.view);
-        } else {
-            forwardedRef(null);
-        }
-    }, []);
-
-    return (
-        <ThemedScrollbars ref={refSetter} style={{ ...style, overflow: 'hidden' }} onScroll={onScroll} autoHide>
-            {children}
-        </ThemedScrollbars>
-    );
-};
-
 class DataTable extends React.PureComponent {
-    constructor(props) {
-        super(props);
-        this.state = {
-            height: 200,
-            width: 200,
-            window_width: 1024,
-        };
-    }
-
-    componentDidMount() {
-        this.setState({
-            height: this.props.custom_height || this.el_table_body.clientHeight,
-            width: this.props.custom_width || this.el_table_body.clientWidth,
-            window_width: window.innerWidth,
-        });
-    }
+    handleScroll = ({ target }) => {
+        const { scrollTop, scrollLeft } = target;
+        this.list_ref.Grid.handleScrollEvent({ scrollTop, scrollLeft });
+    };
 
     rowRenderer = ({
-        data,
         index, // Index of row
         style, // Style object to be applied to row (to position it);
     }) => {
-        const { className, getRowAction, columns, preloaderCheck, id, getActionColumns } = this.props;
-        const item = data[index];
+        const { className, getRowAction, columns, data_source, preloaderCheck, getActionColumns } = this.props;
+        const item = data_source[index];
         const action = getRowAction && getRowAction(item);
-        const contract_id = data[index].contract_id || data[index].id;
+        const contract_id = data_source[index].contract_id || data_source[index].id;
 
         // If row content is complex, consider rendering a light-weight placeholder while scrolling.
         const content = (
@@ -68,7 +33,7 @@ class DataTable extends React.PureComponent {
                 row_obj={item}
                 columns={columns}
                 id={contract_id}
-                key={id}
+                key={contract_id}
                 to={typeof action === 'string' ? action : undefined}
                 show_preloader={typeof preloaderCheck === 'function' ? preloaderCheck(item) : null}
                 replace={typeof action === 'object' ? action : undefined}
@@ -76,7 +41,11 @@ class DataTable extends React.PureComponent {
             />
         );
 
-        return <div style={style}>{content}</div>;
+        return (
+            <div key={contract_id} style={style}>
+                {content}
+            </div>
+        );
     };
 
     render() {
@@ -93,20 +62,34 @@ class DataTable extends React.PureComponent {
         } = this.props;
 
         const TableData = (
-            <React.Fragment>
-                <List
-                    className={className}
-                    height={this.state.height}
-                    itemCount={data_source.length}
-                    itemData={data_source}
-                    itemSize={getRowSize}
-                    width={this.state.width}
-                    outerElementType={is_empty ? null : ListScrollbar}
-                >
-                    {this.rowRenderer}
-                </List>
-                {children}
-            </React.Fragment>
+            <AutoSizer>
+                {({ width, height }) => (
+                    <React.Fragment>
+                        <ThemedScrollbars
+                            style={{
+                                height,
+                                width,
+                            }}
+                            onScroll={this.handleScroll}
+                            autoHide
+                        >
+                            <List
+                                ref={ref => (this.list_ref = ref)}
+                                style={{ overflow: 'inherit' }}
+                                className={className}
+                                containerStyle={{ marginBottom: 117 }}
+                                height={height}
+                                overscanRowCount={4}
+                                rowCount={data_source.length}
+                                rowHeight={getRowSize()}
+                                rowRenderer={this.rowRenderer}
+                                width={width}
+                            />
+                        </ThemedScrollbars>
+                        {children}
+                    </React.Fragment>
+                )}
+            </AutoSizer>
         );
 
         return (
