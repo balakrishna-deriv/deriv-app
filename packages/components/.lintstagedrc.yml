@@ -1,3 +1,0 @@
-./{utils,src,stories}/**/*.{js,jsx,scss}:
-  - prettier --write
-  - git add
