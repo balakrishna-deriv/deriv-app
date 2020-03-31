@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/br_financial-assessment-mobile/precache-manifest.4c6a0110daf9c2acb043d7e973badf8f.js"
+  "/br_financial-assessment-mobile/precache-manifest.3270be51de1c63bcdc397822349462f3.js"
 );
 
 workbox.core.skipWaiting();
