@@ -1120,8 +1120,9 @@ html,
   .account .account-limit-container {
     height: 100%;
     width: 100%; }
-    .account .account-limit-container-title {
-      padding-bottom: 0.8rem; }
+    @media (min-width: 320px) and (max-width: 767px) {
+      .account .account-limit-container-title {
+        padding-bottom: 0.8rem; } }
     .account .account-limit-container .account-management-table tr th:nth-child(2),
     .account .account-limit-container .account-management-table tr td:nth-child(2) {
       text-align: right; }
