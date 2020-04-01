@@ -1018,6 +1018,10 @@ html,
         font-size: 1.2rem; }
       .account-form__personal-details .date-of-birth-datepicker .datepicker-native__input {
         height: 3.8rem; } }
+    .account-form__occupation .dc-native-select__select,
+    .account-form__occupation .dc-dropdown__display-text {
+      line-height: 1.6rem;
+      text-align: left; }
   .account__intial-loader {
     height: calc(100vh - 240px); }
   .account__text {
@@ -1084,6 +1088,11 @@ html,
     display: flex; }
     .account .account-management-flex-wrapper--space-between {
       justify-content: space-between; }
+  @media (min-width: 1024px) {
+    .account .account-management-leave-confirm .dc-btn--primary,
+    .account .account-management-submit-success .dc-btn--primary {
+      width: 130px;
+      margin-left: 0.8rem; } }
   @media (min-width: 320px) and (max-width: 767px) {
     .account .account-management-leave-confirm,
     .account .account-management-submit-success {
@@ -1145,25 +1154,27 @@ html,
     align-items: center; }
   .account .account-limit-info * {
     padding-left: 8px; }
-  .account .leave-confirm__message-icon {
-    width: 93px;
-    height: 93px; }
-  .account .leave-confirm__message {
-    color: var(--text-prominent); }
-  .account .leave-confirm__text {
-    padding: 0 1.9rem; }
+  @media (min-width: 320px) and (max-width: 767px) {
+    .account .leave-confirm__message-icon {
+      width: 93px;
+      height: 93px; }
+    .account .leave-confirm__message {
+      color: var(--text-prominent); }
+    .account .leave-confirm__text {
+      padding: 0 1.9rem; } }
   .account .submit-success {
     margin-top: 100px; }
-    .account .submit-success__message-icon {
-      width: 96px;
-      height: 90px; }
-    .account .submit-success__message {
-      font-size: 1.4rem;
-      text-align: center;
-      margin-top: 1.6rem; }
-    .account .submit-success__text {
-      padding: 0 1.9rem;
-      font-size: 1rem; }
+    @media (min-width: 320px) and (max-width: 767px) {
+      .account .submit-success__message-icon {
+        width: 96px;
+        height: 90px; }
+      .account .submit-success__message {
+        font-size: 1.4rem;
+        text-align: center;
+        margin-top: 1.6rem; }
+      .account .submit-success__text {
+        padding: 0 1.9rem;
+        font-size: 1rem; } }
   .account-address__details-section {
     margin-top: 0.5em; }
     .account-address__details-section .account-form__fieldset {
