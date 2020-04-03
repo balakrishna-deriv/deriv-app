@@ -11115,7 +11115,7 @@ table {
   font-style: normal;
   font-weight: normal;
   font-display: fallback;
-  src: url(/br_account_limits_mobile/public/fonts/binary_symbols.woff) format("woff"); }
+  src: url(/public/fonts/binary_symbols.woff) format("woff"); }
 
 /** @define symbols */
 .symbols:before {
@@ -13411,7 +13411,7 @@ table {
   .cashier__no-balance-button {
     margin: 3.2rem auto; }
   .cashier__account-switch-icon {
-    background-image: url(/br_account_limits_mobile/public/images/app/cashier/account_switcher.png);
+    background-image: url(/public/images/app/cashier/account_switcher.png);
     width: 400px;
     height: 360px;
     background-repeat: no-repeat;
