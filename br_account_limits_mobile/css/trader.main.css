@@ -1178,11 +1178,8 @@ html,
       .account .account-limit-container__main-text {
         margin-top: 2.4rem;
         font-size: 1.2rem; }
-      .account .account-limit-container .account-management-table,
-      .account .account-limit-container .account__text_container {
-        margin-right: 0.8rem;
-        margin-left: 0.8rem;
-        width: auto; }
+      .account .account-limit-container__content {
+        padding: 0 0.8rem; }
       .account .account-limit-container .account__text {
         font-size: 1rem; } }
   .account .account-limit-popover {
