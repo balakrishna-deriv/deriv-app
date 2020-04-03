@@ -1141,6 +1141,9 @@ html,
             color: var(--text-general); } }
     .account .account-management-table tbody tr td {
       border-bottom: 1px solid var(--general-section-1); }
+    @media (min-width: 1024px) {
+      .account .account-management-table {
+        max-width: 546px; } }
   .account .account-limit-container {
     height: 100%;
     width: 100%; }
