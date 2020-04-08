@@ -2259,14 +2259,13 @@
   line-height: 1.25; }
 
 .dc-select-native {
-  height: 38px;
   width: 100%;
   position: relative; }
 
-.dc-select-native-wrapper {
-  margin-bottom: 3.2rem; }
+.dc-select-native__wrapper {
+  height: 38px; }
 
-.dc-select-native-wrapper .dc-input {
+.dc-select-native__wrapper .dc-input {
   margin-bottom: 0px; }
 
 .dc-select-native__arrow {
@@ -2309,6 +2308,9 @@
   transform: translate(0, -1.8rem) scale(0.75);
   color: var(--text-general); }
 
+.dc-select-native__placeholder--disabled {
+  color: var(--text-disabled); }
+
 .dc-select-native__picker {
   opacity: 0;
   width: 100%;
@@ -2323,13 +2325,17 @@
 .dc-select-native--disabled .dc-select-native__placeholder:not(.dc-select-native__placeholder--has-value) {
   color: var(--text-disabled); }
 
+.dc-select-native--disabled .dc-icon {
+  --fill-color1: var(--text-disabled); }
+
 .dc-select-native--error .dc-select-native__placeholder {
   color: var(--brand-red-coral); }
 
 .dc-select-native__hint {
   color: var(--text-less-prominent);
   font-size: 1.2rem;
-  margin-left: 1.2rem; }
+  margin-left: 1.2rem;
+  line-height: 1.8rem; }
 
 /*------------------------------------*
  *  # Constants
@@ -13660,9 +13666,6 @@ table {
   .account-transfer__currency-icon {
     align-self: center; }
 
-.account-transfer__balance {
-  color: var(--text-less-prominent); }
-
 .account-transfer__receipt-icon {
   margin: 5.6rem 0 1.6rem; }
   @media (min-width: 320px) and (max-width: 767px) {
@@ -13677,6 +13680,21 @@ table {
 .account-transfer__transfer-details-from, .account-transfer__transfer-details-to {
   display: flex;
   align-items: center; }
+
+.account-transfer__transfer-info {
+  font-size: 1.2rem;
+  margin-bottom: 1.8rem; }
+  .account-transfer__transfer-info .dc-btn {
+    padding: 0px;
+    height: 1.5rem; }
+  .account-transfer__transfer-info .dc-btn__text {
+    line-height: 1.2rem; }
+
+.account-transfer__transfer-from {
+  margin-bottom: 1.8rem; }
+
+.account-transfer__transfer-to {
+  margin-bottom: 3.2rem; }
 
 .account-transfer__actions {
   display: flex;
