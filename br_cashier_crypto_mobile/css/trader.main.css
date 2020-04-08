@@ -884,7 +884,8 @@ html,
     .account__scrollbars_container--grid-layout {
       display: grid;
       grid-gap: 4px; }
-      .account__scrollbars_container--grid-layout .dc-input {
+      .account__scrollbars_container--grid-layout .dc-input,
+      .account__scrollbars_container--grid-layout .dc-select-native-wrapper {
         margin-bottom: 0; }
       .account__scrollbars_container--grid-layout .dc-dropdown-container {
         margin-top: 0; }
