@@ -13087,7 +13087,8 @@ table {
     font-size: 1.6rem;
     line-height: 1.5;
     font-weight: bold;
-    margin-bottom: 16px;
+    margin-bottom: 1.6rem;
+    margin-top: 1.6rem;
     color: var(--text-prominent); }
     @media (min-width: 320px) and (max-width: 767px) {
       .cashier__header {

@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/br_cashier_crypto_mobile/precache-manifest.aae8e133a2afe0fcea073cea4d6c8f20.js"
+  "/br_cashier_crypto_mobile/precache-manifest.e6c0c27892569e3058d957ddecbb204b.js"
 );
 
 workbox.core.skipWaiting();
