@@ -5453,6 +5453,31 @@ html, body {
       color: #ffffff; }
 .sc-btn--outline-secondary:hover {
       background: transparent !important; }
+.sc-chart__status {
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  margin: 4px 0;
+  opacity: 1; }
+.smartcharts-light .sc-chart__status {
+    background: #f2f3f4; }
+.smartcharts-dark .sc-chart__status {
+    background: #f2f3f4; }
+.smartcharts-light .sc-chart__status--online {
+    background: #4bb4b3; }
+.smartcharts-dark .sc-chart__status--online {
+    background: #4bb4b3; }
+.sc-chart__status--blinker {
+    -webkit-animation: blinking-network-status 0.4s infinite alternate;
+            animation: blinking-network-status 0.4s infinite alternate; }
+.smartcharts-light .sc-chart__status--blinker {
+      background: #4bb4b3; }
+.smartcharts-dark .sc-chart__status--blinker {
+      background: #4bb4b3; }
+.smartcharts-light .sc-chart__status--offline {
+    background: #cc2e3d; }
+.smartcharts-dark .sc-chart__status--offline {
+    background: #cc2e3d; }
 .sc-input {
   border-radius: 4px 0 0 4px;
   height: 40px;
@@ -5487,6 +5512,16 @@ html, body {
     border-color: #85acb0 !important; }
 .smartcharts-dark .sc-input--active {
     border-color: #85acb0 !important; }
+@-webkit-keyframes blinking-network-status {
+  40% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+@keyframes blinking-network-status {
+  40% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
 /* Drag Lines and Prices */
 .chart-line {
   position: absolute;
@@ -5919,6 +5954,94 @@ html, body {
     display: none; }
 .smartcharts-1280 .smartcharts-desktop .cq-chart-controls .ciq-menu .notification-badge {
     left: 55px; }
+
+/* ------------------------ *\
+		Variables
+\* ------------------------ */
+/* --------- COLOR :: Border --------- */
+/* ------------------------ *\
+        Mixin
+\* ------------------------ */
+/* --------- Animation : dialog --------- */
+/* --------- CSS Properties --------- */
+/* stylelint-disable color-no-hex */
+/* stylelint-disable value-keyword-case */
+/* Brand Blue */
+/*****************************\
+ *****************************
+        COLOR PALETTE
+ *****************************
+\*****************************/
+/* Preserve legacy variables */
+/* Primary */
+.sc-chart-footer {
+  display: flex;
+  height: 31px;
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  justify-content: flex-end;
+  z-index: 9; }
+.smartcharts-light .sc-chart-footer {
+    color: #333333;
+    background: #ffffff;
+    border-top: 1px solid #f2f3f4; }
+.smartcharts-dark .sc-chart-footer {
+    color: #c2c2c2;
+    background: #0e0e0e;
+    border-top: 1px solid #151717; }
+.sc-chart-footer .ciq-menu {
+    padding: 8px;
+    cursor: pointer; }
+.sc-chart-footer .ciq-menu .cq-menu-btn .ic-icon {
+      width: 16px;
+      height: 16px;
+      line-height: 8px; }
+.smartcharts-light .sc-chart-footer .ciq-menu .cq-menu-btn .ic-icon svg {
+        fill: #333333; }
+.smartcharts-dark .sc-chart-footer .ciq-menu .cq-menu-btn .ic-icon svg {
+        fill: #c2c2c2; }
+.sc-chart-footer .ciq-menu .cq-menu-btn .ic-subtitle {
+      display: none; }
+.sc-chart-footer .ciq-menu .cq-menu-btn .ic-icon-with-sub {
+      line-height: 8px; }
+.sc-chart-footer .ciq-menu .sc-tooltip__inner {
+      display: none; }
+.smartcharts-light .sc-chart-footer .ciq-menu:hover {
+      background: #e6e9e9; }
+.smartcharts-dark .sc-chart-footer .ciq-menu:hover {
+      background: #242828; }
+.sc-chart-footer__item {
+    padding: 8px;
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-align: right;
+    position: relative; }
+.sc-chart-footer__item--status {
+      padding-right: 0px;
+      padding-left: 0px;
+      margin-right: 16px; }
+.sc-chart-footer__item--time {
+      padding-right: 0px;
+      padding-left: 0px;
+      margin-right: 8px; }
+.sc-chart-footer__item--time span {
+        padding-right: 16px;
+        padding-left: 16px; }
+.smartcharts-light .sc-chart-footer__item--time span {
+          border-right: 1px solid #f2f3f4;
+          border-left: 1px solid #f2f3f4; }
+.smartcharts-dark .sc-chart-footer__item--time span {
+          border-right: 1px solid #151717;
+          border-left: 1px solid #151717; }
+.sc-chart-footer__item .sc-tooltip__inner {
+      top: -35px; }
+.sc-chart-footer__item .sc-tooltip__inner:before {
+      display: none; }
 
 /* ------------------------ *\
 		Variables
