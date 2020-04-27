@@ -2562,6 +2562,7 @@
 .dc-select-native__display {
   height: 38px;
   width: 100%;
+  max-width: calc(100vw - 4rem);
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -2574,9 +2575,9 @@
   overflow: hidden;
   max-width: calc(100% - 4rem);
   text-overflow: ellipsis;
-  display: flex;
+  display: block;
   height: 100%;
-  align-items: center; }
+  line-height: 3.8rem; }
 
 .dc-select-native__placeholder {
   position: absolute;
