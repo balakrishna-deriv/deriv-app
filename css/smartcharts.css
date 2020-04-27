@@ -453,39 +453,20 @@
 \*****************************/
 /* Preserve legacy variables */
 /* Primary */
-.sc-studies .react-tabs__tab-list {
-  padding-top: 64px !important; }
 .sc-studies .react-tabs__tab-list .react-tabs__tab {
-    box-shadow: none !important;
-    outline: none !important; }
+  box-shadow: none !important;
+  outline: none !important; }
 .sc-studies .react-tabs__tab-list .react-tabs__tab:after {
-      display: none; }
-.sc-studies .react-tabs__tab-list .react-tabs__tab .budget {
-      width: 16px;
-      height: 16px;
-      border-radius: 10px;
-      font-size: 10px;
-      font-weight: bold;
-      font-style: normal;
-      line-height: 1.4;
-      letter-spacing: normal;
-      text-align: center;
-      margin-left: 4px; }
-.smartcharts-light .sc-studies .react-tabs__tab-list .react-tabs__tab .budget {
-        background: #ec3f3f;
-        color: #ffffff; }
-.smartcharts-dark .sc-studies .react-tabs__tab-list .react-tabs__tab .budget {
-        background: #ec3f3f;
-        color: #ffffff; }
+    display: none; }
 .sc-studies .hidden {
   display: none; }
 .sc-studies .cq-lookup-input {
-  width: 200px;
-  padding: 8px;
+  width: 100%;
+  padding: 0px;
   box-sizing: border-box;
-  position: absolute; }
+  position: relative; }
 .sc-studies .cq-lookup-input > input {
-    padding-left: 34px;
+    padding-left: 32px;
     line-height: 2em;
     font-size: 1.4em;
     border: none;
@@ -493,7 +474,8 @@
     background-color: transparent;
     border-radius: 4px;
     width: 100%;
-    box-sizing: border-box; }
+    box-sizing: border-box;
+    transition: border-color 0.2s ease-in-out; }
 .smartcharts-light .sc-studies .cq-lookup-input > input::-webkit-input-placeholder {
       color: #d6d6d6; }
 .smartcharts-dark .sc-studies .cq-lookup-input > input::-webkit-input-placeholder {
@@ -511,33 +493,40 @@
 .smartcharts-dark .sc-studies .cq-lookup-input > input:-ms-input-placeholder {
       color: #3e3e3e; }
 .smartcharts-light .sc-studies .cq-lookup-input > input {
-      border: 1px solid #d6dadb;
-      background: #f2f3f4; }
+      color: #333333;
+      border: 1px solid #ffffff;
+      background: #ffffff; }
 .smartcharts-dark .sc-studies .cq-lookup-input > input {
+      color: #ffffff;
       border: 1px solid #0e0e0e;
       background: #0e0e0e; }
+.smartcharts-light .sc-studies .cq-lookup-input > input:hover {
+      border-color: #999999; }
+.smartcharts-dark .sc-studies .cq-lookup-input > input:hover {
+      border-color: #999999; }
 .smartcharts-light .sc-studies .cq-lookup-input > input:focus {
       border-color: #85acb0; }
 .smartcharts-dark .sc-studies .cq-lookup-input > input:focus {
       border-color: #85acb0; }
 .sc-studies .cq-lookup-input .ic-icon {
     position: absolute;
-    top: 14px;
-    left: 17px;
+    top: 6px;
+    left: 8px;
     width: 16px;
     height: 16px; }
 .sc-studies .cq-lookup-input .ic-icon svg {
       width: 16px;
-      height: 16px; }
+      height: 16px;
+      top: -1px; }
 .smartcharts-light .sc-studies .cq-lookup-input .ic-icon svg {
         fill: #333333; }
 .smartcharts-dark .sc-studies .cq-lookup-input .ic-icon svg {
         fill: #c2c2c2; }
 .sc-studies .cq-lookup-input .ic-icon.icon-reset {
       left: auto;
-      right: 17px;
+      right: 8px;
       opacity: 0;
-      top: 13px;
+      top: 5px;
       pointer-events: none;
       cursor: pointer; }
 .sc-studies .cq-lookup-input .ic-icon.icon-reset svg {
@@ -547,11 +536,11 @@
 .smartcharts-dark .sc-studies .cq-lookup-input .ic-icon.icon-reset svg {
           fill: #333333; }
 .smartcharts-light .sc-studies .cq-lookup-input.active > input {
-    color: #333333;
-    border-color: #85acb0; }
+    color: #333333 !important;
+    border-color: #85acb0 !important; }
 .smartcharts-dark .sc-studies .cq-lookup-input.active > input {
-    color: #ffffff;
-    border-color: #85acb0; }
+    color: #ffffff !important;
+    border-color: #85acb0 !important; }
 .sc-studies .cq-lookup-input.active .ic-icon.icon-reset {
     opacity: 1;
     pointer-events: initial; }
@@ -560,29 +549,37 @@
 .sc-studies__panel {
   width: 360px;
   height: 392px;
-  padding: 16px 8px;
+  padding: 16px 0px 16px 8px;
   box-sizing: border-box; }
 .sc-studies__panel__head {
     display: flex;
     justify-content: space-between;
-    align-items: center; }
+    align-items: center;
+    margin-bottom: 16px; }
 .sc-studies__panel__head p {
       font-size: 12px;
       font-weight: normal;
       font-style: normal;
-      line-height: 1.5;
+      line-height: 0.1;
       letter-spacing: normal;
       padding: 0 8px; }
 .smartcharts-light .sc-studies__panel__head p {
         color: #333333; }
 .smartcharts-dark .sc-studies__panel__head p {
         color: #c2c2c2; }
-.sc-studies__panel__body {
+.sc-studies__panel__content {
     width: 100%; }
+.sc-studies__panel__content--active .sc-studies__list__item {
+      height: 48px;
+      padding: 4px 16px;
+      cursor: auto;
+      cursor: initial; }
+.sc-studies__panel--active {
+    padding-right: 8px; }
 .sc-studies--empty {
   display: flex;
   flex-direction: column;
-  padding: 24px;
+  padding: 8px;
   justify-content: center;
   align-content: center;
   text-align: center; }
@@ -590,6 +587,18 @@
     width: 130px;
     height: 130px;
     margin: 60px auto 24px; }
+.sc-studies--empty strong {
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: normal;
+    text-align: center;
+    margin-bottom: 8px; }
+.smartcharts-light .sc-studies--empty strong {
+      color: #333333; }
+.smartcharts-dark .sc-studies--empty strong {
+      color: #ffffff; }
 .sc-studies--empty p {
     font-size: 12px;
     font-weight: normal;
@@ -597,7 +606,7 @@
     line-height: 1.5;
     letter-spacing: normal;
     text-align: center;
-    margin: 0 0 46px; }
+    margin: 0px; }
 .smartcharts-light .sc-studies--empty p {
       color: #999999; }
 .smartcharts-dark .sc-studies--empty p {
@@ -605,15 +614,12 @@
 .sc-studies__list__item {
   height: 40px;
   display: flex;
+  margin-right: 8px;
   border-radius: 4px;
   box-sizing: border-box;
-  cursor: pointer;
   justify-content: space-between;
-  align-items: center; }
-.smartcharts-light .sc-studies__list__item {
-    color: #333333; }
-.smartcharts-dark .sc-studies__list__item {
-    color: #c2c2c2; }
+  align-items: center;
+  cursor: pointer; }
 .smartcharts-light .sc-studies__list__item:hover {
     background: #e6e9e9; }
 .smartcharts-dark .sc-studies__list__item:hover {
@@ -624,21 +630,42 @@
     display: flex;
     justify-content: start;
     align-items: center;
-    font-size: 14px;
-    font-weight: normal;
-    font-style: normal;
-    line-height: 1.43;
-    letter-spacing: normal;
-    margin-right: 16px;
     width: 100%;
     padding: 8px 0 8px 16px; }
 .sc-studies__list__item .info .ic-icon {
       margin-right: 16px; }
+.sc-studies__list__item .info .text {
+      display: flex;
+      flex-direction: column;
+      padding-left: 16px; }
+.sc-studies__list__item .info .text span {
+        font-size: 14px;
+        font-weight: normal;
+        font-style: normal;
+        line-height: 1.43;
+        letter-spacing: normal;
+        margin-right: 16px; }
+.smartcharts-light .sc-studies__list__item .info .text span {
+          color: #333333; }
+.smartcharts-dark .sc-studies__list__item .info .text span {
+          color: #c2c2c2; }
+.sc-studies__list__item .info .text small {
+        display: block;
+        font-size: 12px;
+        font-weight: normal;
+        font-style: normal;
+        line-height: 1.5;
+        letter-spacing: normal;
+        margin-top: 2px; }
+.smartcharts-light .sc-studies__list__item .info .text small {
+          color: #999999; }
+.smartcharts-dark .sc-studies__list__item .info .text small {
+          color: #6e6e6e; }
 .sc-studies__list__item .detail {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding: 8px 16px 8px 0px; }
+    padding: 0px; }
 .sc-studies__list__item .detail span {
       font-size: 14px;
       font-weight: normal;
@@ -649,7 +676,9 @@
       margin-left: 8px; }
 .sc-studies__list__item .detail .ic-icon {
       width: 16px;
-      height: 16px; }
+      height: 16px;
+      cursor: pointer;
+      transition: none; }
 .sc-studies__list__item .detail .ic-icon svg {
         width: 16px;
         height: 16px; }
@@ -657,6 +686,8 @@
           fill: #333333; }
 .smartcharts-dark .sc-studies__list__item .detail .ic-icon svg {
           fill: #c2c2c2; }
+.sc-studies__list__item .detail .ic-icon.ic-info {
+        margin-right: 16px; }
 .sc-studies__list__item .ic-info {
     opacity: 0; }
 .sc-studies__list__item--disabled {
@@ -734,7 +765,10 @@
     left: 0px;
     top: 0px;
     margin-bottom: 10px;
-    z-index: auto; }
+    z-index: auto;
+    display: flex; }
+.sc-studies-list .stx-panel-control .stx-panel-title {
+      width: 100%; }
 
 /* ------------------------ *\
 		Variables
@@ -1324,7 +1358,8 @@
 .cq-dropdown .option {
     display: inline-block;
     width: 100%;
-    pointer-events: none; }
+    pointer-events: none;
+    margin-right: 16px; }
 .cq-dropdown .solid-1 {
     border-top-style: solid;
     border-top-width: 1px; }
@@ -1751,13 +1786,13 @@
 .sc-dtools__panel {
   width: 360px;
   height: 392px;
-  padding: 16px 8px;
+  padding: 16px 0 16px 8px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column; }
 .sc-dtools__panel__head {
     text-align: right;
-    padding: 0 8px 16px; }
+    padding: 0 16px 16px; }
 .sc-dtools__panel__head .sc-btn {
       cursor: pointer; }
 .sc-dtools__panel__content {
@@ -1771,6 +1806,7 @@
   height: 40px;
   padding: 10px 16px;
   display: flex;
+  margin-right: 8px;
   border-radius: 4px;
   box-sizing: border-box;
   justify-content: space-between;
@@ -1885,6 +1921,8 @@
 \*****************************/
 /* Preserve legacy variables */
 /* Primary */
+.sc-chart-setting .tabs--vertical .react-tabs__tab-list {
+  padding-top: 0px !important; }
 .sc-chart-setting__panel {
   width: 536px;
   height: 564px;
@@ -2187,24 +2225,24 @@
       font-style: normal;
       line-height: 1.5;
       letter-spacing: normal;
-      min-width: 200px;
-      width: 200px;
+      min-width: 240px;
       padding: 16px;
       border-radius: 5px 0 0;
       position: relative;
       box-sizing: border-box; }
-.cq-dialog__head--subtitle {
+.cq-dialog__head--custom {
+      width: 100%; }
+.cq-dialog__head--info {
       display: flex;
       justify-content: start;
       align-items: center;
-      width: 100%;
       font-size: 16px;
       font-weight: bold;
       font-style: normal;
       line-height: 1.5;
       letter-spacing: normal;
-      padding: 10px 4px; }
-.cq-dialog__head--subtitle .ic-icon {
+      padding: 10px 8px 10px 16px; }
+.cq-dialog__head--info .ic-icon {
         width: 32px;
         height: 32px;
         display: flex;
@@ -2212,22 +2250,28 @@
         align-items: center;
         cursor: pointer;
         margin-right: 4px; }
-.smartcharts-light .cq-dialog__head--subtitle .ic-icon svg {
+.smartcharts-light .cq-dialog__head--info .ic-icon svg {
           fill: #333333; }
-.smartcharts-dark .cq-dialog__head--subtitle .ic-icon svg {
+.smartcharts-dark .cq-dialog__head--info .ic-icon svg {
           fill: #c2c2c2; }
+.smartcharts-light .cq-dialog__head--info .ic-icon:hover {
+          background: #e6e9e9; }
+.smartcharts-dark .cq-dialog__head--info .ic-icon:hover {
+          background: #242828; }
+.cq-dialog__head--search {
+      padding: 10px 0px 10px 12px; }
 .cq-dialog__head--action {
-      padding: 20px 16px;
+      padding: 16px;
       border-radius: 0 5px 0 0; }
 .cq-dialog__head--action .ic-icon {
-        width: 24px;
-        height: 24px;
-        line-height: 24px;
+        width: 32px;
+        height: 32px;
+        line-height: 34px;
         cursor: pointer;
         border-radius: 4px;
         padding: 4px;
         position: relative;
-        top: -5px; }
+        top: -6px; }
 .smartcharts-light .cq-dialog__head--action .ic-icon svg {
           fill: #333333; }
 .smartcharts-dark .cq-dialog__head--action .ic-icon svg {
@@ -2244,19 +2288,22 @@
 .smartcharts-dark .cq-dialog.cq-dialog--tabular .cq-dialog__head {
     background: #0e0e0e;
     border-color: #151717; }
+.cq-dialog.cq-dialog--tabular .cq-dialog__head .cq-dialog__head--title {
+    width: 200px; }
 .smartcharts-light .cq-dialog.cq-dialog--tabular .cq-dialog__head .cq-dialog__head--title {
-    background: #f2f3f4; }
+      background: #f2f3f4; }
 .smartcharts-dark .cq-dialog.cq-dialog--tabular .cq-dialog__head .cq-dialog__head--title {
-    background: #151717; }
+      background: #151717; }
 .tabs--vertical {
   display: flex;
   border-radius: 0 0 4px 4px; }
 .tabs--vertical .react-tabs__tab-list {
     margin: 0px;
-    width: 200px;
+    width: 240px;
+    min-width: 240px;
     border-radius: 0 0 0 5px;
     border-bottom: none;
-    padding: 16px 0 0; }
+    padding: 0; }
 .smartcharts-light .tabs--vertical .react-tabs__tab-list {
       background: #f2f3f4; }
 .smartcharts-dark .tabs--vertical .react-tabs__tab-list {
@@ -3305,96 +3352,6 @@
 \*****************************/
 /* Preserve legacy variables */
 /* Primary */
-/* Comparisons */
-.cq-comparison {
-  position: relative;
-  margin-top: 25px;
-  margin-left: 12px;
-  display: inline-block; }
-.cq-comparison .cq-comparison-label {
-    margin-left: 0.8em; }
-.smartcharts-light .cq-comparison .cq-comparison-label {
-      color: #7f8397; }
-.smartcharts-dark .cq-comparison .cq-comparison-label {
-      color: #ffffff; }
-.cq-comparison .cq-comparison-item {
-    position: relative;
-    justify-content: space-between;
-    padding: 5px 10px;
-    font-size: 1.2em;
-    height: 18px;
-    opacity: 1;
-    transition: background 0.2s 0s, padding 0.2s 0s, opacity 0.2s 0.2s, height 0.2s 0.4s, font-size 0s 0.4s, margin 0.2s 0.4s; }
-.cq-comparison .cq-comparison-item, .cq-comparison .cq-comparison-item .left, .cq-comparison .cq-comparison-item .right {
-      display: flex;
-      align-items: center; }
-.cq-comparison .cq-comparison-item .right {
-      justify-content: flex-end;
-      margin-left: 1.5em;
-      margin-right: 5px;
-      font-weight: bold; }
-.smartcharts-light .cq-comparison .cq-comparison-item .right {
-        color: #7f8397; }
-.smartcharts-dark .cq-comparison .cq-comparison-item .right {
-        color: #ffffff; }
-.cq-comparison .cq-comparison-item:hover {
-      box-shadow: 0 2px 8px 0 rgba(42, 48, 82, 0.14);
-      border-radius: 3px; }
-.smartcharts-light .cq-comparison .cq-comparison-item:hover {
-        background: #ffffff; }
-.smartcharts-dark .cq-comparison .cq-comparison-item:hover {
-        background: #2a3052; }
-.smartcharts-light .cq-comparison .cq-comparison-item:hover svg {
-        fill: #2a3052; }
-.smartcharts-dark .cq-comparison .cq-comparison-item:hover svg {
-        fill: #ffffff; }
-.cq-comparison .cq-comparison-swatch {
-    bottom: 1px;
-    width: 1.3em;
-    height: 1.3em; }
-.cq-comparison .cq-comparison-item .ciq-close {
-    transition: opacity 0.2s 0s;
-    cursor: pointer;
-    opacity: 0;
-    left: 7px;
-    position: relative;
-    width: 16px;
-    height: 16px;
-    line-height: 20px; }
-.cq-comparison .cq-comparison-item:hover .ciq-close {
-    opacity: 0.6; }
-.cq-comparison .cq-comparison-item .ciq-close:hover,
-  .cq-comparison .cq-comparison-item .ciq-close:active {
-    opacity: 1; }
-.cq-comparison .cq-comparison-loader {
-    display: none;
-    height: 16px;
-    width: 16px;
-    margin-left: 10px; }
-.cq-comparison .cq-comparison-loader.stx-show {
-    display: inline-flex; }
-.smartcharts-mobile .cq-comparison {
-  margin-top: 5px; }
-
-/* ------------------------ *\
-		Variables
-\* ------------------------ */
-/* --------- COLOR :: Border --------- */
-/* ------------------------ *\
-        Mixin
-\* ------------------------ */
-/* --------- Animation : dialog --------- */
-/* --------- CSS Properties --------- */
-/* stylelint-disable color-no-hex */
-/* stylelint-disable value-keyword-case */
-/* Brand Blue */
-/*****************************\
- *****************************
-        COLOR PALETTE
- *****************************
-\*****************************/
-/* Preserve legacy variables */
-/* Primary */
 .cq-chart-title {
   display: inline-block;
   top: 1em;
@@ -3579,64 +3536,6 @@
 \*****************************/
 /* Preserve legacy variables */
 /* Primary */
-.ciq-asset-information {
-  position: relative;
-  z-index: +1;
-  background: transparent;
-  display: flex;
-  margin: 15px 0px;
-  left: 10px;
-  top: 10px;
-  justify-content: flex-start;
-  opacity: 1;
-  height: 14px;
-  transition: all 0.1s; }
-.ciq-asset-information.hide {
-    height: 0;
-    opacity: 0;
-    margin: 0;
-    pointer-events: none; }
-.ciq-asset-information > div {
-    padding-right: 5px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    font-size: 1.2em; }
-.ciq-asset-information > div div:first-child {
-      padding: 0 8px; }
-.ciq-asset-information > div div:last-child {
-      font-weight: bold; }
-.smartcharts-light .ciq-asset-information > div {
-      color: #7f8397; }
-.smartcharts-dark .ciq-asset-information > div {
-      color: #eaeced; }
-.smartcharts-mobile .ciq-asset-information {
-  left: 2px;
-  flex-wrap: wrap; }
-.smartcharts-mobile .ciq-asset-information > div {
-    font-size: 1.2em; }
-.smartcharts-mobile .ciq-asset-information > div div:first-child {
-      padding: 0px 5px; }
-
-/* ------------------------ *\
-		Variables
-\* ------------------------ */
-/* --------- COLOR :: Border --------- */
-/* ------------------------ *\
-        Mixin
-\* ------------------------ */
-/* --------- Animation : dialog --------- */
-/* --------- CSS Properties --------- */
-/* stylelint-disable color-no-hex */
-/* stylelint-disable value-keyword-case */
-/* Brand Blue */
-/*****************************\
- *****************************
-        COLOR PALETTE
- *****************************
-\*****************************/
-/* Preserve legacy variables */
-/* Primary */
 .cq-last-digits {
   position: absolute;
   bottom: 45px;
@@ -3729,214 +3628,6 @@
 .cq-bottom-ui-widgets {
   position: absolute;
   width: 100%; }
-
-/* ------------------------ *\
-		Variables
-\* ------------------------ */
-/* --------- COLOR :: Border --------- */
-/* ------------------------ *\
-        Mixin
-\* ------------------------ */
-/* --------- Animation : dialog --------- */
-/* --------- CSS Properties --------- */
-/* stylelint-disable color-no-hex */
-/* stylelint-disable value-keyword-case */
-/* Brand Blue */
-/*****************************\
- *****************************
-        COLOR PALETTE
- *****************************
-\*****************************/
-/* Preserve legacy variables */
-/* Primary */
-/* stylelint-disable plugin/no-unsupported-browser-features */
-.ciq-chart-dialog {
-  width: var(--table-width);
-  left: auto;
-  overflow: hidden; }
-.cq-dialog-active {
-  visibility: visible;
-  z-index: 1; }
-.ciq-chart-table__panel {
-  position: relative;
-  overflow: hidden;
-  height: 80vh !important;
-  transform: translateZ(0); }
-.smartcharts-light .ciq-chart-table__panel {
-    background: #ffffff; }
-.smartcharts-dark .ciq-chart-table__panel {
-    background: #151717; }
-.ciq-chart-table__panel > div:last-child {
-    right: 10px !important; }
-.ciq-chart-table__panel__group {
-    position: relative;
-    padding-top: 44px;
-    overflow: hidden; }
-.ciq-chart-table__panel__group--title {
-      display: block;
-      position: absolute;
-      top: 0;
-      width: 100%;
-      padding: 16px 24px 8px;
-      font-weight: bold;
-      height: 44px;
-      box-sizing: border-box;
-      line-height: 1.43;
-      font-size: 14px;
-      transform: translate3d(0, 0, 0);
-      transition: none !important; }
-.smartcharts-light .ciq-chart-table__panel__group--title {
-        background: #f2f3f4;
-        color: #333333; }
-.smartcharts-dark .ciq-chart-table__panel__group--title {
-        background: #0e0e0e;
-        color: #c2c2c2; }
-.ciq-chart-table__panel__group--title.sticky-top, .ciq-chart-table__panel__group--title.sticky-bottom {
-        z-index: 8; }
-.ciq-chart-table__panel__group--title.sticky-bottom {
-        position: absolute;
-        top: auto !important;
-        bottom: 0px !important; }
-.ciq-chart-table__panel__group--title.sticky-top {
-        position: fixed;
-        top: 0px; }
-.ciq-chart-table {
-  width: 100%;
-  border-collapse: collapse;
-  table-layout: fixed; }
-.smartcharts-light .ciq-chart-table {
-    background: #ffffff; }
-.smartcharts-dark .ciq-chart-table {
-    background: #151717; }
-.smartcharts-light .ciq-chart-table tr {
-    border-bottom: 1px solid #f4f4f6; }
-.smartcharts-dark .ciq-chart-table tr {
-    border-bottom: 1px solid #1d1f20; }
-.ciq-chart-table tr:last-child {
-    border-bottom: none; }
-.ciq-chart-table tr th, .ciq-chart-table tr td {
-    text-align: right;
-    box-sizing: border-box;
-    padding: 16px 5px;
-    font-size: 14px;
-    font-weight: normal;
-    font-style: normal;
-    line-height: 1.43;
-    letter-spacing: normal; }
-.smartcharts-light .ciq-chart-table tr th, .smartcharts-light .ciq-chart-table tr td {
-      color: #333333; }
-.smartcharts-dark .ciq-chart-table tr th, .smartcharts-dark .ciq-chart-table tr td {
-      color: #c2c2c2; }
-.ciq-chart-table tr th .cq-change:after, .ciq-chart-table tr td .cq-change:after {
-      margin: 3px 0 0 5px; }
-.smartcharts-light .ciq-chart-table tr th .up, .smartcharts-light .ciq-chart-table tr td .up {
-      color: #39b19d; }
-.smartcharts-dark .ciq-chart-table tr th .up, .smartcharts-dark .ciq-chart-table tr td .up {
-      color: #39b19d; }
-.smartcharts-light .ciq-chart-table tr th .down, .smartcharts-light .ciq-chart-table tr td .down {
-      color: #e31c4b; }
-.smartcharts-dark .ciq-chart-table tr th .down, .smartcharts-dark .ciq-chart-table tr td .down {
-      color: #e31c4b; }
-.ciq-chart-table tr th.before-last-child, .ciq-chart-table tr td.before-last-child {
-      min-width: 105px !important;
-      max-width: 105px !important;
-      padding-right: 4px; }
-.ciq-chart-table tr th:first-child, .ciq-chart-table tr td:first-child {
-      min-width: 90px;
-      max-width: 90px;
-      padding-left: 24px;
-      text-align: left; }
-.ciq-chart-table tr th:nth-child(2), .ciq-chart-table tr th:nth-child(2), .ciq-chart-table tr td:nth-child(2), .ciq-chart-table tr td:nth-child(2) {
-      min-width: 120px;
-      max-width: 120px; }
-.ciq-chart-table tr th:nth-child(3), .ciq-chart-table tr th:nth-child(3), .ciq-chart-table tr td:nth-child(3), .ciq-chart-table tr td:nth-child(3) {
-      min-width: 120px;
-      max-width: 120px; }
-.ciq-chart-table tr th:nth-child(4), .ciq-chart-table tr th:nth-child(4), .ciq-chart-table tr td:nth-child(4), .ciq-chart-table tr td:nth-child(4) {
-      min-width: 110px;
-      max-width: 110px; }
-.ciq-chart-table tr th:nth-child(5), .ciq-chart-table tr th:nth-child(5), .ciq-chart-table tr td:nth-child(5), .ciq-chart-table tr td:nth-child(5) {
-      min-width: 110px;
-      max-width: 110px; }
-.ciq-chart-table tr th:nth-child(6), .ciq-chart-table tr th:nth-child(6), .ciq-chart-table tr td:nth-child(6), .ciq-chart-table tr td:nth-child(6) {
-      width: 40px;
-      padding-right: 4px; }
-.ciq-chart-table tr th:last-child, .ciq-chart-table tr td:last-child {
-      min-width: 42px !important;
-      max-width: 42px !important;
-      text-align: left;
-      padding-left: 4px; }
-.ciq-chart-table tr th:last-child {
-    text-align: center; }
-.ciq-chart-table tr th:last-child .ic-icon {
-      cursor: pointer;
-      position: absolute;
-      top: 13px;
-      border-radius: 4px;
-      right: 12px;
-      transition: background 0.2s 0.15s; }
-.smartcharts-light .ciq-chart-table tr th:last-child .ic-icon:hover {
-        background: rgba(0, 0, 0, 0.04); }
-.smartcharts-dark .ciq-chart-table tr th:last-child .ic-icon:hover {
-        background: #242828; }
-.ciq-chart-table tr th:last-child .ic-icon svg {
-        width: 16px;
-        height: 16px;
-        stroke: none; }
-.ciq-chart-table thead {
-    width: var(--table-width);
-    display: block;
-    height: 52px; }
-.smartcharts-light .ciq-chart-table thead {
-      background: #ffffff; }
-.smartcharts-dark .ciq-chart-table thead {
-      background: #151717; }
-.ciq-chart-table thead th {
-      font-size: 14px;
-      font-weight: bold;
-      font-style: normal;
-      line-height: 1.43;
-      letter-spacing: normal;
-      padding: 16px 5px; }
-.smartcharts-light .ciq-chart-table thead th {
-        color: #333333; }
-.smartcharts-dark .ciq-chart-table thead th {
-        color: #c2c2c2; }
-.ciq-chart-table tbody {
-    display: block; }
-.ciq-chart-table .cq-change-cell {
-    display: inline-flex; }
-.ciq-chart-table--tick tr td:nth-child(1), .ciq-chart-table--tick tr td:nth-child(1), .ciq-chart-table--tick tr th:nth-child(1), .ciq-chart-table--tick tr th:nth-child(1) {
-    min-width: 105px;
-    max-width: 105px;
-    padding-left: 24px;
-    text-align: left; }
-.smartcharts-mobile .ciq-chart-dialog {
-  width: calc(100% - 20px) !important;
-  height: calc(100% - 66px) !important;
-  top: 10px; }
-.smartcharts-mobile .ciq-chart-dialog .ciq-list > :last-child {
-    top: 2px !important; }
-.smartcharts-mobile .ciq-chart-table tbody {
-  display: table-row-group;
-  margin-top: 0; }
-.smartcharts-mobile .ciq-chart-table td, .smartcharts-mobile .ciq-chart-table th {
-  padding: 5px 5px 5px 20px !important;
-  text-align: left;
-  font-size: 1.2em;
-  height: 52px; }
-.smartcharts-mobile .ciq-chart-table td .ciq-table-date, .smartcharts-mobile .ciq-chart-table th .ciq-table-date {
-    flex: 1; }
-.smartcharts-mobile .ciq-chart-table td > div, .smartcharts-mobile .ciq-chart-table th > div {
-    padding-right: 5px; }
-.smartcharts-mobile .ciq-chart-table td > div > span, .smartcharts-mobile .ciq-chart-table th > div > span {
-      font-weight: bold;
-      padding-right: 5px; }
-.smartcharts-mobile .ciq-chart-table--tick tr td:nth-child(1), .smartcharts-mobile .ciq-chart-table--tick tr td:nth-child(1), .smartcharts-mobile .ciq-chart-table--tick tr th:nth-child(1), .smartcharts-mobile .ciq-chart-table--tick tr th:nth-child(1) {
-  min-width: 125px;
-  max-width: 125px;
-  padding-left: 24px;
-  text-align: left; }
 
 /* ------------------------ *\
 		Variables
@@ -4153,6 +3844,9 @@ html, body {
             hide it when PNG is exported.
             */
     display: none !important; }
+.ciq-chart.ciq-screenshot .sc-studies-list .stx-btn-panel,
+  .ciq-chart.ciq-screenshot .sc-studies-list .stx-btn-panel {
+    display: none !important; }
 /* The Chart */
 .cq-chart-control-left .stx-panel-control {
   left: 10px; }
@@ -4207,6 +3901,11 @@ html, body {
     background-color: #ffffff; }
 .smartcharts-dark .stx-btn-panel {
     background-color: #0e0e0e; }
+.stx-btn-panel > span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: no-repeat center; }
 .stx-btn-panel:hover span, .stx-btn-panel:active span {
     /* Make buttons full opacity on hover or hit */
     opacity: 1; }
@@ -4220,11 +3919,6 @@ html, body {
 .stx-btn-panel .stx-ico-close {
     width: 16px;
     height: 16px; }
-.stx-btn-panel > span {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: no-repeat center; }
 /* Up/Down Arrow indicators */
 .cq-change:after {
   float: right;
@@ -4272,8 +3966,8 @@ html, body {
   padding: 0px;
   margin-bottom: 17px;
   border-radius: 4px;
-  cursor: pointer;
-  z-index: 30; }
+  z-index: 12;
+  cursor: pointer; }
 .smartcharts-light .stx_jump_today {
     background: #f2f3f4; }
 .smartcharts-dark .stx_jump_today {
@@ -4325,6 +4019,8 @@ html, body {
 .smartcharts-dark .stx-panel-control .stx-btn-panel svg {
       fill: #c2c2c2;
       stroke: #c2c2c2; }
+.stx-panel-control .stx-btn-panel.stx_solo_lit svg {
+      stroke: transparent !important; }
 .stx-panel-control * {
     -webkit-user-select: none;
        -moz-user-select: none;
@@ -4552,11 +4248,6 @@ html, body {
   /* Divider between panels */
   width: 1px;
   color: #cccccc; }
-.stx_solo_lit span {
-  /* Add background to expand button when toggled on */
-  background-color: #b1b7b8;
-  color: #ffffff;
-  opacity: 1; }
 /* -------- Chart Grid -------- */
 .stx_grid {
   /* Default Grid */
@@ -4911,13 +4602,6 @@ html, body {
 .stx-chart-panel.stx-show {
   /* Hide default Chart Title and Icons */
   display: none; }
-.ciq-chart.ciq-screenshot .cq-menu-dropdown {
-  /*
-    There is a strange bug where dropdowns get displayed (partially)
-    when html is being rendered to canvas. So we set this to manually
-    hide it when PNG is exported.
-    */
-  display: none !important; }
 .ps--active-x > .ps__rail-x,
 .ps--active-y > .ps__rail-y {
   background-color: transparent !important; }
@@ -5011,8 +4695,6 @@ html, body {
     z-index: 99; }
 .smartcharts-mobile .mSticky .mStickyRightClick {
     margin-left: -2px !important; }
-.smartcharts-mobile .ciq-chart.ciq-screenshot .stx-btn-panel {
-  display: none !important; }
 /* --------------------------------------------------------- FIELDS, SELECTS, INPUTS --------------------------------------------------------- */
 /* Inputs */
 .stx-textarea {
@@ -5358,12 +5040,15 @@ html, body {
 .sc-tooltip--enable:hover .sc-tooltip__inner {
   opacity: 1;
   z-index: 3; }
-.ciq-scrollbar > div:nth-child(3) > div {
-  opacity: 0.16; }
-.smartcharts-light .ciq-scrollbar > div:nth-child(3) > div {
-    background-color: #333333 !important; }
-.smartcharts-dark .ciq-scrollbar > div:nth-child(3) > div {
-    background-color: #c2c2c2 !important; }
+.sc-scrollbar > div:nth-child(3) {
+  opacity: 1 !important; }
+.sc-scrollbar > div:nth-child(3) > div {
+    opacity: 0.16;
+    width: 4px !important; }
+.smartcharts-light .sc-scrollbar > div:nth-child(3) > div {
+      background-color: #333333 !important; }
+.smartcharts-dark .sc-scrollbar > div:nth-child(3) > div {
+      background-color: #c2c2c2 !important; }
 .sc-notification-badge {
   width: 16px;
   height: 16px;
@@ -5443,7 +5128,6 @@ html, body {
       border-color: #ff444f;
       background: #ff444f; }
 .sc-btn--outline-secondary {
-    padding: 3px 12px;
     background: transparent; }
 .smartcharts-light .sc-btn--outline-secondary {
       border-color: #999999;
@@ -5451,8 +5135,35 @@ html, body {
 .smartcharts-dark .sc-btn--outline-secondary {
       border-color: #6e6e6e;
       color: #ffffff; }
-.sc-btn--outline-secondary:hover {
-      background: transparent !important; }
+.smartcharts-light .sc-btn--outline-secondary:hover {
+      background: rgba(0, 0, 0, 0.08) !important; }
+.smartcharts-dark .sc-btn--outline-secondary:hover {
+      background: rgba(255, 255, 255, 0.08) !important; }
+.sc-chart__status {
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  margin: 4px 0;
+  opacity: 1; }
+.smartcharts-light .sc-chart__status {
+    background: #f2f3f4; }
+.smartcharts-dark .sc-chart__status {
+    background: #f2f3f4; }
+.smartcharts-light .sc-chart__status--online {
+    background: #4bb4b3; }
+.smartcharts-dark .sc-chart__status--online {
+    background: #4bb4b3; }
+.sc-chart__status--blinker {
+    -webkit-animation: blinking-network-status 0.4s infinite alternate;
+            animation: blinking-network-status 0.4s infinite alternate; }
+.smartcharts-light .sc-chart__status--blinker {
+      background: #4bb4b3; }
+.smartcharts-dark .sc-chart__status--blinker {
+      background: #4bb4b3; }
+.smartcharts-light .sc-chart__status--offline {
+    background: #cc2e3d; }
+.smartcharts-dark .sc-chart__status--offline {
+    background: #cc2e3d; }
 .sc-input {
   border-radius: 4px 0 0 4px;
   height: 40px;
@@ -5487,6 +5198,16 @@ html, body {
     border-color: #85acb0 !important; }
 .smartcharts-dark .sc-input--active {
     border-color: #85acb0 !important; }
+@-webkit-keyframes blinking-network-status {
+  40% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+@keyframes blinking-network-status {
+  40% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
 /* Drag Lines and Prices */
 .chart-line {
   position: absolute;
@@ -5510,8 +5231,7 @@ html, body {
       width: 100%;
       margin-left: -10px;
       position: relative;
-      border-color: inherit;
-      border-top-width: 1px; }
+      border-top-width: 0; }
 .chart-line.horizontal .title-wrapper {
       position: absolute;
       height: 24px;
@@ -5540,8 +5260,7 @@ html, body {
   top: -11px;
   position: absolute;
   right: -1px;
-  border: 1px solid inherit;
-  border-radius: 4px; }
+  border: 1px solid inherit; }
 .drag-price .arrow-icon {
     height: 39px;
     padding: 4px 0px;
@@ -5939,6 +5658,94 @@ html, body {
 \*****************************/
 /* Preserve legacy variables */
 /* Primary */
+.sc-chart-footer {
+  display: flex;
+  height: 31px;
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  justify-content: flex-end;
+  z-index: 9; }
+.smartcharts-light .sc-chart-footer {
+    color: #333333;
+    background: #ffffff;
+    border-top: 1px solid #f2f3f4; }
+.smartcharts-dark .sc-chart-footer {
+    color: #c2c2c2;
+    background: #0e0e0e;
+    border-top: 1px solid #151717; }
+.sc-chart-footer .ciq-menu {
+    padding: 8px;
+    cursor: pointer; }
+.sc-chart-footer .ciq-menu .cq-menu-btn .ic-icon {
+      width: 16px;
+      height: 16px;
+      line-height: 8px; }
+.smartcharts-light .sc-chart-footer .ciq-menu .cq-menu-btn .ic-icon svg {
+        fill: #333333; }
+.smartcharts-dark .sc-chart-footer .ciq-menu .cq-menu-btn .ic-icon svg {
+        fill: #c2c2c2; }
+.sc-chart-footer .ciq-menu .cq-menu-btn .ic-subtitle {
+      display: none; }
+.sc-chart-footer .ciq-menu .cq-menu-btn .ic-icon-with-sub {
+      line-height: 8px; }
+.sc-chart-footer .ciq-menu .sc-tooltip__inner {
+      display: none; }
+.smartcharts-light .sc-chart-footer .ciq-menu:hover {
+      background: #e6e9e9; }
+.smartcharts-dark .sc-chart-footer .ciq-menu:hover {
+      background: #242828; }
+.sc-chart-footer__item {
+    padding: 8px;
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-align: right;
+    position: relative; }
+.sc-chart-footer__item--status {
+      padding-right: 0px;
+      padding-left: 0px;
+      margin-right: 16px; }
+.sc-chart-footer__item--time {
+      padding-right: 0px;
+      padding-left: 0px;
+      margin-right: 8px; }
+.sc-chart-footer__item--time span {
+        padding-right: 16px;
+        padding-left: 16px; }
+.smartcharts-light .sc-chart-footer__item--time span {
+          border-right: 1px solid #f2f3f4;
+          border-left: 1px solid #f2f3f4; }
+.smartcharts-dark .sc-chart-footer__item--time span {
+          border-right: 1px solid #151717;
+          border-left: 1px solid #151717; }
+.sc-chart-footer__item .sc-tooltip__inner {
+      top: -35px; }
+.sc-chart-footer__item .sc-tooltip__inner:before {
+      display: none; }
+
+/* ------------------------ *\
+		Variables
+\* ------------------------ */
+/* --------- COLOR :: Border --------- */
+/* ------------------------ *\
+        Mixin
+\* ------------------------ */
+/* --------- Animation : dialog --------- */
+/* --------- CSS Properties --------- */
+/* stylelint-disable color-no-hex */
+/* stylelint-disable value-keyword-case */
+/* Brand Blue */
+/*****************************\
+ *****************************
+        COLOR PALETTE
+ *****************************
+\*****************************/
+/* Preserve legacy variables */
+/* Primary */
 .smartcharts-light .cq-crosshair-toggle:hover {
   background: #e6e9e9; }
 .smartcharts-dark .cq-crosshair-toggle:hover {
@@ -6076,6 +5883,154 @@ html, body {
         background: -webkit-repeating-linear-gradient(145deg, rgba(255, 0, 0, 0) 1px, #333333 2px, #333333 11px, rgba(255, 0, 0, 0) 12px, rgba(255, 0, 0, 0) 20px);
         background: repeating-linear-gradient(-55deg, rgba(255, 0, 0, 0) 1px, #333333 2px, #333333 11px, rgba(255, 0, 0, 0) 12px, rgba(255, 0, 0, 0) 20px);
         /* stylelint-enable */ }
+
+/* ------------------------ *\
+		Variables
+\* ------------------------ */
+/* --------- COLOR :: Border --------- */
+/* ------------------------ *\
+        Mixin
+\* ------------------------ */
+/* --------- Animation : dialog --------- */
+/* --------- CSS Properties --------- */
+/* stylelint-disable color-no-hex */
+/* stylelint-disable value-keyword-case */
+/* Brand Blue */
+/*****************************\
+ *****************************
+        COLOR PALETTE
+ *****************************
+\*****************************/
+/* Preserve legacy variables */
+/* Primary */
+/* Comparisons */
+.cq-comparison {
+  position: relative;
+  margin-top: 25px;
+  margin-left: 12px;
+  display: inline-block; }
+.cq-comparison .cq-comparison-label {
+    margin-left: 0.8em; }
+.smartcharts-light .cq-comparison .cq-comparison-label {
+      color: #7f8397; }
+.smartcharts-dark .cq-comparison .cq-comparison-label {
+      color: #ffffff; }
+.cq-comparison .cq-comparison-item {
+    position: relative;
+    justify-content: space-between;
+    padding: 5px 10px;
+    font-size: 1.2em;
+    height: 18px;
+    opacity: 1;
+    transition: background 0.2s 0s, padding 0.2s 0s, opacity 0.2s 0.2s, height 0.2s 0.4s, font-size 0s 0.4s, margin 0.2s 0.4s; }
+.cq-comparison .cq-comparison-item, .cq-comparison .cq-comparison-item .left, .cq-comparison .cq-comparison-item .right {
+      display: flex;
+      align-items: center; }
+.cq-comparison .cq-comparison-item .right {
+      justify-content: flex-end;
+      margin-left: 1.5em;
+      margin-right: 5px;
+      font-weight: bold; }
+.smartcharts-light .cq-comparison .cq-comparison-item .right {
+        color: #7f8397; }
+.smartcharts-dark .cq-comparison .cq-comparison-item .right {
+        color: #ffffff; }
+.cq-comparison .cq-comparison-item:hover {
+      box-shadow: 0 2px 8px 0 rgba(42, 48, 82, 0.14);
+      border-radius: 3px; }
+.smartcharts-light .cq-comparison .cq-comparison-item:hover {
+        background: #ffffff; }
+.smartcharts-dark .cq-comparison .cq-comparison-item:hover {
+        background: #2a3052; }
+.smartcharts-light .cq-comparison .cq-comparison-item:hover svg {
+        fill: #2a3052; }
+.smartcharts-dark .cq-comparison .cq-comparison-item:hover svg {
+        fill: #ffffff; }
+.cq-comparison .cq-comparison-swatch {
+    bottom: 1px;
+    width: 1.3em;
+    height: 1.3em; }
+.cq-comparison .cq-comparison-item .ciq-close {
+    transition: opacity 0.2s 0s;
+    cursor: pointer;
+    opacity: 0;
+    left: 7px;
+    position: relative;
+    width: 16px;
+    height: 16px;
+    line-height: 20px; }
+.cq-comparison .cq-comparison-item:hover .ciq-close {
+    opacity: 0.6; }
+.cq-comparison .cq-comparison-item .ciq-close:hover,
+  .cq-comparison .cq-comparison-item .ciq-close:active {
+    opacity: 1; }
+.cq-comparison .cq-comparison-loader {
+    display: none;
+    height: 16px;
+    width: 16px;
+    margin-left: 10px; }
+.cq-comparison .cq-comparison-loader.stx-show {
+    display: inline-flex; }
+.smartcharts-mobile .cq-comparison {
+  margin-top: 5px; }
+
+/* ------------------------ *\
+		Variables
+\* ------------------------ */
+/* --------- COLOR :: Border --------- */
+/* ------------------------ *\
+        Mixin
+\* ------------------------ */
+/* --------- Animation : dialog --------- */
+/* --------- CSS Properties --------- */
+/* stylelint-disable color-no-hex */
+/* stylelint-disable value-keyword-case */
+/* Brand Blue */
+/*****************************\
+ *****************************
+        COLOR PALETTE
+ *****************************
+\*****************************/
+/* Preserve legacy variables */
+/* Primary */
+.ciq-asset-information {
+  position: relative;
+  z-index: +1;
+  background: transparent;
+  display: flex;
+  margin: 15px 0px;
+  left: 10px;
+  top: 10px;
+  justify-content: flex-start;
+  opacity: 1;
+  height: 14px;
+  transition: all 0.1s; }
+.ciq-asset-information.hide {
+    height: 0;
+    opacity: 0;
+    margin: 0;
+    pointer-events: none; }
+.ciq-asset-information > div {
+    padding-right: 5px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 1.2em; }
+.ciq-asset-information > div div:first-child {
+      padding: 0 8px; }
+.ciq-asset-information > div div:last-child {
+      font-weight: bold; }
+.smartcharts-light .ciq-asset-information > div {
+      color: #7f8397; }
+.smartcharts-dark .ciq-asset-information > div {
+      color: #eaeced; }
+.smartcharts-mobile .ciq-asset-information {
+  left: 2px;
+  flex-wrap: wrap; }
+.smartcharts-mobile .ciq-asset-information > div {
+    font-size: 1.2em; }
+.smartcharts-mobile .ciq-asset-information > div div:first-child {
+      padding: 0px 5px; }
 
 /* ------------------------ *\
 		Variables
