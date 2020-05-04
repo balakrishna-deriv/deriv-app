@@ -646,6 +646,18 @@
   --fill-color2: var(--brand-secondary);
   --fill-color3: #fff; }
 
+.dc-popover__wrapper {
+  position: relative; }
+
+.dc-popover__container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 280px; }
+
+.dc-popover__container-relative {
+  position: relative; }
+
 .dc-popover__target__icon .counter {
   color: var(--brand-red-coral);
   font-size: 10px;
@@ -1505,6 +1517,18 @@
   --fill-color1: var(--brand-red-coral);
   --fill-color2: var(--brand-secondary);
   --fill-color3: #fff; }
+
+.dc-popover__wrapper {
+  position: relative; }
+
+.dc-popover__container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 280px; }
+
+.dc-popover__container-relative {
+  position: relative; }
 
 .dc-popover__target__icon .counter {
   color: var(--brand-red-coral);
@@ -8978,6 +9002,18 @@ html,
   --fill-color1: var(--brand-red-coral);
   --fill-color2: var(--brand-secondary);
   --fill-color3: #fff; }
+
+.dc-popover__wrapper {
+  position: relative; }
+
+.dc-popover__container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 280px; }
+
+.dc-popover__container-relative {
+  position: relative; }
 
 .dc-popover__target__icon .counter {
   color: var(--brand-red-coral);
