@@ -148,7 +148,7 @@
                         analytics.load = function(t, e) {
                             var n = document.createElement('script');
                             n.type = 'text/javascript';
-                            n.async = !0;
+                            n.defer = !0;
                             n.src = 'https://cdn.segment.com/analytics.js/v1/' + t + '/analytics.min.js';
                             var a = document.getElementsByTagName('script')[0];
                             a.parentNode.insertBefore(n, a);
@@ -171,7 +171,7 @@
                 var f = d.getElementsByTagName(s)[0],
                     j = d.createElement(s),
                     dl = l != 'dataLayer' ? '&l=' + l : '';
-                j.async = true;
+                j.defer = true;
                 j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
                 f.parentNode.insertBefore(j, f);
             })(window, document, 'script', 'dataLayer', 'GTM-NF7884S');
@@ -235,7 +235,8 @@
             content=" digital options, forex, forex trading, online trading, financial trading, binary trading, index trading, trading indices, forex trades, trading commodities, digital options strategy, binary broker, binary bet, digital options trading platform, binary strategy, finance, stocks, investment, trading"
         />
         <meta name="author" content="Deriv" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+        <!-- TODO: iOS zoom bug for input elements means we'll get a lower user accessibility score since we're not allowing deriv.app to be scalable on mobile -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
         <meta name="theme-color" content="#2a3052" />
         <meta name="dcterms.rightsHolder" content="Deriv" />
         <meta name="dcterms.rights" content="Deriv" />
@@ -253,7 +254,7 @@
         <title>Deriv App | Deriv</title>
         <meta charset="UTF-8" />
         <meta name="google-site-verification" content="g5u3TyEdmYJ_HKZ6EmpW1nlKwD4XPVeLMhN9leeMfuw" />
-    <link href="/br_accounts-form-dirty-check/css/smartcharts.css" rel="stylesheet"><link href="/br_accounts-form-dirty-check/css/bot-web-ui.main.css" rel="stylesheet"><link href="/br_accounts-form-dirty-check/manifest.json" rel="manifest"><link href="/br_accounts-form-dirty-check/public/images/favicons/apple-touch-icon-114.png" rel="icon"><link href="/br_accounts-form-dirty-check/public/images/favicons/apple-touch-icon-120.png" rel="icon"><link href="/br_accounts-form-dirty-check/public/images/favicons/apple-touch-icon-144.png" rel="icon"><link href="/br_accounts-form-dirty-check/public/images/favicons/apple-touch-icon-152.png" rel="icon"><link href="/br_accounts-form-dirty-check/public/images/favicons/apple-touch-icon-180.png" rel="icon"><link href="/br_accounts-form-dirty-check/public/images/favicons/apple-touch-icon-57.png" rel="icon"><link href="/br_accounts-form-dirty-check/public/images/favicons/apple-touch-icon-60.png" rel="icon"><link href="/br_accounts-form-dirty-check/public/images/favicons/apple-touch-icon-72.png" rel="icon"><link href="/br_accounts-form-dirty-check/public/images/favicons/apple-touch-icon-76.png" rel="icon"><link href="/br_accounts-form-dirty-check/public/images/favicons/favicon-16.png" rel="icon"><link href="/br_accounts-form-dirty-check/public/images/favicons/favicon-160.png" rel="icon"><link href="/br_accounts-form-dirty-check/public/images/favicons/favicon-192.png" rel="icon"><link href="/br_accounts-form-dirty-check/public/images/favicons/favicon-32.png" rel="icon"><link href="/br_accounts-form-dirty-check/public/images/favicons/favicon-96.png" rel="icon"><link href="/br_accounts-form-dirty-check/public/images/favicons/favicon.ico" rel="icon"><link href="/br_accounts-form-dirty-check/css/core.main.css" rel="stylesheet"></head>
+    <link href="/br_accounts-form-dirty-check/css/smartcharts.css" rel="stylesheet"><link href="/br_accounts-form-dirty-check/css/bot-web-ui.main.css" rel="stylesheet"><link href="/br_accounts-form-dirty-check/manifest.json" rel="manifest"><link href="/br_accounts-form-dirty-check/public/images/favicons/apple-touch-icon-114.png" rel="icon"><link href="/br_accounts-form-dirty-check/public/images/favicons/apple-touch-icon-120.png" rel="icon"><link href="/br_accounts-form-dirty-check/public/images/favicons/apple-touch-icon-144.png" rel="icon"><link href="/br_accounts-form-dirty-check/public/images/favicons/apple-touch-icon-152.png" rel="icon"><link href="/br_accounts-form-dirty-check/public/images/favicons/apple-touch-icon-180.png" rel="icon"><link href="/br_accounts-form-dirty-check/public/images/favicons/apple-touch-icon-57.png" rel="icon"><link href="/br_accounts-form-dirty-check/public/images/favicons/apple-touch-icon-60.png" rel="icon"><link href="/br_accounts-form-dirty-check/public/images/favicons/apple-touch-icon-72.png" rel="icon"><link href="/br_accounts-form-dirty-check/public/images/favicons/apple-touch-icon-76.png" rel="icon"><link href="/br_accounts-form-dirty-check/public/images/favicons/favicon-16.png" rel="icon"><link href="/br_accounts-form-dirty-check/public/images/favicons/favicon-160.png" rel="icon"><link href="/br_accounts-form-dirty-check/public/images/favicons/favicon-192.png" rel="icon"><link href="/br_accounts-form-dirty-check/public/images/favicons/favicon-32.png" rel="icon"><link href="/br_accounts-form-dirty-check/public/images/favicons/favicon-96.png" rel="icon"><link href="/br_accounts-form-dirty-check/public/images/favicons/favicon.ico" rel="icon"><link href="/br_accounts-form-dirty-check/public/fonts/binary_symbols.woff" rel="preload" as="font" crossorigin="crossorigin"><link href="/br_accounts-form-dirty-check/css/core.main.css" rel="stylesheet"><link as="style" href="/br_accounts-form-dirty-check/css/core.account-signup-modal.9c8fa31c812c56fb0c4c.css" rel="preload"><link as="style" href="/br_accounts-form-dirty-check/css/core.bot.1b0f0a1aad27c520b923.css" rel="preload"><link as="style" href="/br_accounts-form-dirty-check/css/core.cashier.b5a46d738f2fef7d890c.css" rel="preload"><link as="style" href="/br_accounts-form-dirty-check/css/core.default~account-info~~76995eb5.e91ea1a2c4fab6f53730.css" rel="preload"><link as="style" href="/br_accounts-form-dirty-check/css/core.default~account-signu~d615789e.a5d22f2151dd8180f91c.css" rel="preload"><link as="style" href="/br_accounts-form-dirty-check/css/core.set-residence-modal.1039c956b67dae3386a7.css" rel="preload"><link as="style" href="/br_accounts-form-dirty-check/css/core.trader.5a524ef4df065ad61a1b.css" rel="preload"></head>
     <body class="body theme">
         <!-- Start GTM NoScript -->
         <noscript
@@ -317,5 +318,5 @@
         <script>
             performance.mark('first-contentful-paint');
         </script>
-    <script type="text/javascript" src="/br_accounts-form-dirty-check/js/core.vendors~main.4302811ea334e53c43f6.js"></script><script type="text/javascript" src="/br_accounts-form-dirty-check/js/core.main.ec490fd27deb81b863db.js"></script></body>
+    <script type="text/javascript" src="/br_accounts-form-dirty-check/js/core.vendors~main.b9ec4c3e05b57b7809ff.js"></script><script type="text/javascript" src="/br_accounts-form-dirty-check/js/core.main.0b828735adf48eee3ad9.js"></script></body>
 </html>
