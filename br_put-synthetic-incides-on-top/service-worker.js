@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/br_put-synthetic-incides-on-top/precache-manifest.514506c08f74d10b4601d40e90b898d3.js"
+  "/br_put-synthetic-incides-on-top/precache-manifest.9c135f6feb4146bc3d819c47f6473afc.js"
 );
 
 workbox.core.skipWaiting();
