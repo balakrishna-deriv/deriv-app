@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/br_multiplier-visible-in-real-accounts-fix/precache-manifest.22fb9b98aa573161c55c319526d5c5da.js"
+  "/br_multiplier-visible-in-real-accounts-fix/precache-manifest.c774da6265cec46c9dd30c332761a08a.js"
 );
 
 workbox.core.skipWaiting();
