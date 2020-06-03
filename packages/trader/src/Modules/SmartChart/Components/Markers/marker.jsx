@@ -1,12 +1,12 @@
 import { toJS } from 'mobx';
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React from 'react';
 import { FastMarker } from 'Modules/SmartChart';
 import { MARKER_TYPES_CONFIG } from 'Stores/Modules/SmartChart/Constants/markers';
 
 const ChartMarker = ({ marker_config, marker_content_props, marker_type, is_bottom_widget_visible }) => {
     const { ContentComponent, ...marker_props } = marker_config;
-    const [, setState] = useState({});
+    const [, setState] = React.useState({});
 
     // TODO:
     //  - rename x to epoch
