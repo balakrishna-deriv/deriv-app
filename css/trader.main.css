@@ -105,7 +105,7 @@
   overflow: visible;
   height: 0;
   top: unset !important;
-  bottom: 80px !important; }
+  bottom: 80px; }
   .cq-bottom-ui-widgets .bottom-widgets {
     left: -3.5em; }
 
@@ -962,6 +962,10 @@
     transform: translate3d(248px, 0, 0); }
   .app-contents--show-positions-drawer:not(.app-contents--is-mobile) .trade-container .chart-container .cq-top-ui-widgets {
     transform: translate3d(248px, 0, 0); }
+  .app-contents--show-positions-drawer:not(.app-contents--is-mobile) .trade-container .chart-container .sc-toolbar-widget {
+    transform: translate3d(248px, 0, 0); }
+  .app-contents--show-positions-drawer:not(.app-contents--is-mobile) .trade-container .chart-container .stx-panel-control {
+    transform: translate3d(248px, 0, 0); }
   .app-contents--show-positions-drawer:not(.app-contents--is-mobile) .trade-container .chart-container .cq-chart-controls {
     transform: translate3d(130px, 0, 0) !important; }
   .app-contents--show-positions-drawer:not(.app-contents--is-mobile) .trade-container .chart-container .cq-bottom-ui-widgets .digits__container {
@@ -1006,7 +1010,7 @@
   position: relative;
   padding: 0.8em 1.2em 0;
   display: flex;
-  min-height: calc(100vh - 83px);
+  min-height: calc(100vh - 84px);
   transition: transform 0.25s ease;
   will-change: transform;
   overflow: hidden; }
@@ -1014,11 +1018,11 @@
     width: 100%;
     display: flex;
     flex-direction: row;
-    height: calc(100vh - 108px - 41px);
+    height: calc(100vh - 108px - 53px);
     padding-bottom: 2.4rem; }
     .trade-container__replay .contract-drawer {
       /* prettier-ignore */
-      height: calc(100vh - 48px - 36px - 41px - (8px * 6));
+      height: calc(100% + 2.4rem);
       border-bottom-right-radius: 0;
       border-top-right-radius: 0;
       z-index: 1;
@@ -1065,6 +1069,10 @@
             .trade-container__replay .replay-chart__container .smartcharts .ciq-chart .cq-top-ui-widgets .info-box-container .chart-close-btn,
             .trade-container__replay .replay-chart__container .smartcharts .ciq-chart .info-box .info-box-container .chart-close-btn {
               display: none; }
+        .trade-container__replay .replay-chart__container .smartcharts .ciq-chart .sc-toolbar-widget {
+          transition: transform 0.25s ease; }
+        .trade-container__replay .replay-chart__container .smartcharts .ciq-chart .stx-panel-control {
+          transition: transform 0.25s ease; }
         .trade-container__replay .replay-chart__container .smartcharts .ciq-chart .ciq-asset-information {
           top: 75px; }
         .trade-container__replay .replay-chart__container .smartcharts .ciq-chart .stx_jump_today.home > svg {
@@ -1184,6 +1192,10 @@
     left: 9em; }
     .chart-container .cq-chart-control-left .cq-top-ui-widgets .info-box {
       transform: translate3d(0, 0, 0); }
+  .chart-container .cq-chart-control-left .sc-toolbar-widget {
+    transform: translate3d(0, 0, 0); }
+  .chart-container .cq-chart-control-left .stx-panel-control {
+    transform: translate3d(0, 0, 0); }
   .chart-container .cq-chart-control-left .ciq-navigation-widget {
     transform: translate3d(0, 0, 0); }
   .chart-container .ciq-chart .cq-top-ui-widgets,
@@ -1222,29 +1234,33 @@
   .chart-container .ciq-chart .cq-chart-controls {
     transition: max-width 0.25s ease, transform 0.25s ease; }
   .chart-container .ciq-chart .ciq-navigation-widget {
-    transform: translate3d(0, 0, 0); }
-  @media (min-width: 320px) and (max-width: 767px) {
-    .chart-container .ciq-chart .ciq-toolbar-widget {
-      background: transparent;
-      border-width: 0;
-      bottom: 2.8rem;
-      /* postcss-bem-linter: ignore */ }
-      .chart-container .ciq-chart .ciq-toolbar-widget .ciq-chart-mode {
-        background: var(--general-section-1);
-        padding: 0.4rem 0.2rem;
-        width: 4rem;
-        height: 4rem;
-        display: flex;
-        border-radius: 50%;
-        justify-content: center;
-        align-items: center;
-        margin: 0.8rem;
-        opacity: 0.75; }
-        .chart-container .ciq-chart .ciq-toolbar-widget .ciq-chart-mode__menu__timeperiod {
-          top: 0.8rem;
-          left: 0.8rem; }
-        .chart-container .ciq-chart .ciq-toolbar-widget .ciq-chart-mode__menu > .ic-icon {
-          top: 0.6rem; } }
+    transition: transform 0.25s ease; }
+  .chart-container .ciq-chart .stx-panel-control {
+    transition: transform 0.25s ease; }
+  .chart-container .ciq-chart .sc-toolbar-widget {
+    transition: transform 0.25s ease; }
+    @media (min-width: 320px) and (max-width: 767px) {
+      .chart-container .ciq-chart .sc-toolbar-widget {
+        background: transparent;
+        border-width: 0;
+        bottom: 2.8rem;
+        /* postcss-bem-linter: ignore */ }
+        .chart-container .ciq-chart .sc-toolbar-widget .sc-chart-mode {
+          background: var(--general-section-1);
+          padding: 0.4rem 0.2rem;
+          width: 4rem;
+          height: 4rem;
+          display: flex;
+          border-radius: 50%;
+          justify-content: center;
+          align-items: center;
+          margin: 0.8rem;
+          opacity: 0.75; }
+          .chart-container .ciq-chart .sc-toolbar-widget .sc-chart-mode__menu__timeperiod {
+            top: 0.8rem;
+            left: 0.8rem; }
+          .chart-container .ciq-chart .sc-toolbar-widget .sc-chart-mode__menu > .ic-icon {
+            top: 0.6rem; } }
   .chart-container .chartContainer {
     background: transparent;
     min-height: 100%; }
@@ -1309,87 +1325,38 @@
       /* postcss-bem-linter: ignore */ }
       .smartcharts-dark .cq-dialog-portal .cq-dialog, .smartcharts-light .cq-dialog-portal .cq-dialog {
         max-width: calc(100% - 36px); }
-    .smartcharts-dark .ciq-chart-type__item, .smartcharts-light .ciq-chart-type__item {
+    .smartcharts-dark .sc-chart-type__item, .smartcharts-light .sc-chart-type__item {
       /* postcss-bem-linter: ignore */ }
-      .smartcharts-dark .ciq-chart-type__item .sc-tooltip,
-      .smartcharts-dark .ciq-chart-type__item .dc-tooltip, .smartcharts-light .ciq-chart-type__item .sc-tooltip,
-      .smartcharts-light .ciq-chart-type__item .dc-tooltip {
+      .smartcharts-dark .sc-chart-type__item .sc-tooltip,
+      .smartcharts-dark .sc-chart-type__item .dc-tooltip, .smartcharts-light .sc-chart-type__item .sc-tooltip,
+      .smartcharts-light .sc-chart-type__item .dc-tooltip {
         display: none; }
-    .smartcharts-dark .ciq-chart-mode, .smartcharts-light .ciq-chart-mode {
+    .smartcharts-dark .sc-chart-mode, .smartcharts-light .sc-chart-mode {
       /* postcss-bem-linter: ignore */ }
-      .smartcharts-dark .ciq-chart-mode__section__item, .smartcharts-light .ciq-chart-mode__section__item {
+      .smartcharts-dark .sc-chart-mode__section__item, .smartcharts-light .sc-chart-mode__section__item {
         /* postcss-bem-linter: ignore */ }
-        .smartcharts-dark .ciq-chart-mode__section__item .cq-interval, .smartcharts-light .ciq-chart-mode__section__item .cq-interval {
+        .smartcharts-dark .sc-chart-mode__section__item .sc-interval, .smartcharts-light .sc-chart-mode__section__item .sc-interval {
           display: grid;
           padding: 1.6rem;
           grid-template-columns: 1fr;
           /* postcss-bem-linter: ignore */
           /* postcss-bem-linter: ignore */
           /* postcss-bem-linter: ignore */ }
-          .smartcharts-dark .ciq-chart-mode__section__item .cq-interval__content, .smartcharts-light .ciq-chart-mode__section__item .cq-interval__content {
+          .smartcharts-dark .sc-chart-mode__section__item .sc-interval__content, .smartcharts-light .sc-chart-mode__section__item .sc-interval__content {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
             padding-top: 16px; }
-          .smartcharts-dark .ciq-chart-mode__section__item .cq-interval__item, .smartcharts-light .ciq-chart-mode__section__item .cq-interval__item {
+          .smartcharts-dark .sc-chart-mode__section__item .sc-interval__item, .smartcharts-light .sc-chart-mode__section__item .sc-interval__item {
             width: 100% !important;
             margin: 0;
             /* postcss-bem-linter: ignore */ }
-            .smartcharts-dark .ciq-chart-mode__section__item .cq-interval__item .sc-tooltip,
-            .smartcharts-dark .ciq-chart-mode__section__item .cq-interval__item .dc-tooltip, .smartcharts-light .ciq-chart-mode__section__item .cq-interval__item .sc-tooltip,
-            .smartcharts-light .ciq-chart-mode__section__item .cq-interval__item .dc-tooltip {
+            .smartcharts-dark .sc-chart-mode__section__item .sc-interval__item .sc-tooltip,
+            .smartcharts-dark .sc-chart-mode__section__item .sc-interval__item .dc-tooltip, .smartcharts-light .sc-chart-mode__section__item .sc-interval__item .sc-tooltip,
+            .smartcharts-light .sc-chart-mode__section__item .sc-interval__item .dc-tooltip {
               display: none; }
-          .smartcharts-dark .ciq-chart-mode__section__item .cq-interval__info, .smartcharts-light .ciq-chart-mode__section__item .cq-interval__info {
+          .smartcharts-dark .sc-chart-mode__section__item .sc-interval__info, .smartcharts-light .sc-chart-mode__section__item .sc-interval__info {
             margin-top: 0.4rem;
             padding-left: 0.2rem; } }
-
-/** @define multistep; weak */
-.multistep {
-  width: inherit;
-  height: inherit; }
-  .multistep__header {
-    display: flex;
-    align-items: center;
-    margin: 2.4rem 1.6rem; }
-  .multistep__btn {
-    display: flex;
-    font-size: 1.4rem;
-    font-weight: bold;
-    cursor: pointer;
-    color: var(--text-general); }
-    .multistep__btn-icon {
-      margin-right: 8px; }
-      .multistep__btn-icon .color1-fill {
-        fill: var(--text-general); }
-  .multistep__component {
-    width: 100%;
-    height: 100%; }
-
-/** @define send-email-template */
-.send-email-template {
-  padding: 0 16px; }
-  .send-email-template__title {
-    color: var(--text-prominent);
-    font-size: 1.6rem;
-    font-weight: bold;
-    margin-bottom: 0.8rem;
-    line-height: 1.5; }
-  .send-email-template__subtitle {
-    font-size: 1.4rem;
-    margin-bottom: 1.6rem;
-    color: var(--text-general);
-    line-height: 20px; }
-  .send-email-template__icon {
-    margin-top: 5.6rem;
-    margin-bottom: 1.6rem; }
-  .send-email-template__sent, .send-email-template__cta {
-    text-align: center; }
-  .send-email-template__cta-btn {
-    margin: 3.2rem auto 0; }
-  .send-email-template__btn {
-    margin: 0 auto; }
-  @media (min-width: 320px) and (max-width: 767px) {
-    .send-email-template {
-      margin-bottom: 1.6rem; } }
 
 .contract-drawer {
   width: 240px;
@@ -2598,8 +2565,6 @@
     touch-action: manipulation; }
   .input[readonly] {
     cursor: pointer; }
-  .input::-webkit-input-placeholder {
-    border-color: var(--border-normal); }
   .input::-moz-placeholder {
     border-color: var(--border-normal); }
   .input:-ms-input-placeholder {
@@ -3104,7 +3069,8 @@
     width: 100%;
     height: 100%; }
   .contract-type-info__card {
-    min-height: calc(100vh - 268px);
+    min-height: calc(100vh - 210px);
+    max-height: calc(100vh - 268px);
     width: 272px;
     margin-right: 2.4rem;
     display: flex;
@@ -3117,8 +3083,6 @@
       .contract-type-info__card {
         min-height: 535px; } }
   .contract-type-info__content {
-    margin-top: 2.4rem;
-    margin-bottom: auto;
     overflow: hidden;
     /* postcss-bem-linter: ignore */
     /* postcss-bem-linter: ignore */
@@ -3197,6 +3161,9 @@
         background-color: var(--brand-red-coral); }
   .contract-type-info__icon {
     cursor: pointer; }
+  .contract-type-info__scrollbars {
+    margin-top: 2.4rem;
+    margin-bottom: auto; }
 
 /** @define .market-is-closed-overlay */
 .market-is-closed-overlay {
@@ -3562,6 +3529,7 @@
       border-radius: 100%;
       border: 0;
       cursor: pointer;
+      -webkit-transition: box-shadow 0.2s;
       transition: box-shadow 0.2s;
       box-shadow: 0 0 0 0px rgba(0, 0, 0, 0);
       background: var(--state-active); }
@@ -3575,6 +3543,7 @@
       border-radius: 100%;
       border: 0;
       cursor: pointer;
+      -moz-transition: box-shadow 0.2s;
       transition: box-shadow 0.2s;
       box-shadow: 0 0 0 0px rgba(0, 0, 0, 0);
       background: var(--state-active); }
@@ -3587,6 +3556,7 @@
       border-radius: 100%;
       border: 0;
       cursor: pointer;
+      -ms-transition: box-shadow 0.2s;
       transition: box-shadow 0.2s;
       box-shadow: 0 0 0 0px rgba(0, 0, 0, 0);
       background: var(--state-active); }
@@ -4163,6 +4133,25 @@
   .chart-marker-line--dash {
     border-left-style: dashed; }
 
+/** @define sc-toolbar-widget; weak */
+.sc-toolbar-widget--bottom .ciq-menu {
+  margin: 0px; }
+
+/** @define smartcharts-mobile; weak */
+.smartcharts-mobile .cq-modal-dropdown {
+  left: 0px;
+  top: 0px; }
+
+.smartcharts-mobile .sc-chart-type .sc-tooltip__inner,
+.smartcharts-mobile .sc-interval .sc-tooltip__inner {
+  display: none; }
+
+.smartcharts-mobile .cq-chart-title .sc-dialog__body {
+  height: 100% !important; }
+
+.smartcharts-mobile .cq-categorical-display {
+  height: calc(100% - 38px) !important; }
+
 @-webkit-keyframes slide {
   0% {
     transform: translateX(-100%); }
@@ -4384,7 +4373,7 @@
             font-weight: 400;
             text-transform: none;
             text-align: left;
-            line-height: unset;
+            line-height: 1.4;
             color: var(--text-colored-background); } }
       .trade-container__price-info-currency, .trade-container__order-input-info-currency {
         margin-left: 4px;
@@ -4538,4 +4527,11 @@
     .popup-root .dc-toast-error {
       z-index: 9999;
       top: 2em; } }
+
+/** @define market-unavailable-modal */
+@media (min-width: 320px) and (max-width: 767px) {
+  .market-unavailable-modal {
+    /* postcss-bem-linter: ignore */ }
+    .market-unavailable-modal .dc-dialog__footer {
+      flex-wrap: nowrap; } }
 
