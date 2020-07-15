@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/br_multiplier-trade-params-mobile/precache-manifest.777228153b4c48d2f0841b3dd45b0d36.js"
+  "/br_multiplier-trade-params-mobile/precache-manifest.b9e5bc9404b8453b9189d8a9d14f58b2.js"
 );
 
 workbox.core.skipWaiting();
