@@ -151,7 +151,7 @@ export default class ContractTradeStore extends BaseStore {
 
         // The following contains logic to should highlight on chart.
         const is_hover_index = markers.findIndex(marker => marker.contract_info.is_hover);
-        const is_not_sold_index = markers.findIndex(marker => !marker.contract_info.is_sold);
+        const is_not_sold_index = markers.reverse().findIndex(marker => !marker.contract_info.is_sold);
 
         if (markers.length) {
             markers.map(marker => (marker.should_highlight_contract = false));

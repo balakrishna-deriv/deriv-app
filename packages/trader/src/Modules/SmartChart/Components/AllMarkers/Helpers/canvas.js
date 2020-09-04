@@ -172,7 +172,7 @@ const CanvasCompounds = (() => {
 })();
 
 const Canvas = (() => {
-    const draw_queue = [];
+    let draw_queue = [];
 
     const addToQueue = (type, layer, parameter) => {
         const draw_item = { type, layer, parameter };
@@ -203,7 +203,7 @@ const Canvas = (() => {
             if (canvas_compound) canvas_compound(...draw_item.parameter);
         });
 
-        draw_queue.length = 0;
+        draw_queue = [];
     };
 
     return {

@@ -133,7 +133,6 @@ const TickContract = RawMarkerMaker(
             const points = is_reset_barrier_expired
                 ? [reset_time.left, reset_time.top, exit.left, exit.top]
                 : [entry.left, entry.top, exit.left, exit.top];
-
             Canvas.drawShade(0, [ctx, points, status_color]);
         }
 

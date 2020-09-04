@@ -9,7 +9,7 @@ import MarketIsClosedOverlay from 'App/Components/Elements/market-is-closed-over
 import Test from './test.jsx';
 import { ChartBottomWidgets, ChartToolbarWidgets, ChartTopWidgets, DigitsWidget } from './chart-widgets.jsx';
 import FormLayout from '../Components/Form/form-layout.jsx';
-import AllMarkers from '../../SmartChart/Components/all-markers.jsx';
+import AllMarkers from '../../SmartChart/Components/AllMarkers';
 
 class Trade extends React.Component {
     state = {
