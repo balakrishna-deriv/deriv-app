@@ -7,7 +7,7 @@ on:
 
 jobs:
   generate_app_id:
-    timeout-minutes: 5 # Kill job after this amount of minutes.
+    timeout-minutes: 5 # Kill job after this amount of minutes. test
     runs-on: ubuntu-latest
     steps:
       - name: Generate Deriv App ID for deployment Preview URLs
