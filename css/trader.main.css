@@ -658,7 +658,7 @@
       margin: 1.6rem 0.8rem;
       width: calc(100% - 1.6rem); }
   .positions-modal .dc-contract-card-dialog-toggle {
-    top: 60px;
+    top: 77px;
     right: 8px;
     width: 33%; }
 
@@ -1086,22 +1086,22 @@
           .trade-container__replay .contract-drawer .dc-contract-card__underlying-name {
             max-width: none; }
           .trade-container__replay .contract-drawer--is-multiplier .dc-contract-card-dialog-toggle {
-            top: 60px;
+            top: 81px;
             width: 124px;
             height: 82px;
             right: 8px; } }
     @media only screen and (min-width: 320px) and (max-width: 767px) and (max-width: 380px) {
       .trade-container__replay .contract-drawer--is-multiplier .dc-contract-card-dialog-toggle {
-        width: 115px;
-        height: 73px; } }
+        width: 109px;
+        top: 77px; } }
     @media only screen and (min-width: 320px) and (max-width: 767px) and (max-width: 320px) {
       .trade-container__replay .contract-drawer--is-multiplier .dc-contract-card-dialog-toggle {
-        top: 46px;
+        top: 69px;
         width: 98px;
         height: 78px; } }
     @media (min-width: 320px) and (max-width: 767px) and (max-width: 320px) and (max-height: 480px) {
       .trade-container__replay .contract-drawer--is-multiplier .dc-contract-card-dialog-toggle {
-        top: 43px;
+        top: 66px;
         height: 65px; } }
       @media (min-width: 320px) and (max-width: 767px) {
           .trade-container__replay .contract-drawer--is-multiplier .dc-contract-card__body-wrapper {
@@ -1240,7 +1240,7 @@
           .trade-container__replay .replay-chart__container .smartcharts-mobile .stx-holder.stx-panel-chart {
             z-index: 14; }
             .trade-container__replay .replay-chart__container .smartcharts-mobile .stx-holder.stx-panel-chart .cq-inchart-holder {
-              z-index: 109;
+              z-index: 107;
               position: relative; }
       @media (min-width: 320px) and (max-width: 767px) {
         .trade-container__replay .replay-chart__container {
@@ -1573,8 +1573,7 @@
     left: -3px;
     width: calc(100% + 6px);
     height: calc(100% - 32px);
-    -webkit-filter: blur(3px);
-            filter: blur(3px); }
+    filter: blur(3px); }
   .contract-drawer__heading {
     display: flex;
     justify-content: flex-start;
@@ -1603,7 +1602,7 @@
     display: flex;
     flex-direction: column; }
   .contract-drawer .dc-contract-card-dialog-toggle {
-    top: 97px;
+    top: 114px;
     right: 8px;
     width: 108px; }
 
@@ -1628,7 +1627,6 @@
   align-items: center;
   justify-content: center;
   transition: transform 0.25s ease, opacity 0.25s linear;
-  padding-top: 8px;
   border-top: 1px solid var(--general-section-1); }
   .contract-card__sell-button--enter-done {
     opacity: 1;
@@ -1645,11 +1643,16 @@
     font-size: 1.2rem;
     margin-left: 0.8rem;
     padding-top: 0.2rem; }
-  .contract-card__sell-button .dc-btn--sell {
-    height: 32px; }
+  @media (min-width: 320px) and (max-width: 767px) {
+    .contract-card__sell-button .dc-btn--sell {
+      width: 100%; } }
+  .contract-card__sell-button .dc-btn--sell,
+  .contract-card__sell-button .dc-btn--cancel {
+    height: 2.4rem; }
     @media (min-width: 320px) and (max-width: 767px) {
-      .contract-card__sell-button .dc-btn--sell {
-        width: 100%; } }
+      .contract-card__sell-button .dc-btn--sell,
+      .contract-card__sell-button .dc-btn--cancel {
+        height: 3.2rem; } }
 
 .trade-container + .positions-drawer {
   transition: opacity 0.4s ease; }
@@ -1745,6 +1748,10 @@
     .positions-drawer__icon-close svg {
       height: 1.6em;
       width: 1.6em; }
+  .positions-drawer .dc-contract-card__result {
+    max-height: 157px; }
+    .positions-drawer .dc-contract-card__result--lg {
+      max-height: 254px; }
 
 /** @define positions-modal-card; weak */
 .positions-modal-card {
@@ -2082,8 +2089,6 @@
     border-color: var(--border-normal); }
   .input:-ms-input-placeholder {
     border-color: var(--border-normal); }
-  .input::-ms-input-placeholder {
-    border-color: var(--border-normal); }
   .input::placeholder {
     border-color: var(--border-normal); }
   .input:hover, .input-wrapper__button:hover ~ .dc-input-wrapper__input {
@@ -2094,7 +2099,7 @@
     border-color: var(--border-active);
     color: var(--text-prominent); }
   .input--has-inline-prefix {
-    padding-left: 50px !important;
+    padding-right: 60px !important;
     border-radius: 4px !important; }
   .input--error {
     color: #e31c4b;
@@ -2234,6 +2239,7 @@
   background-color: var(--general-main-1);
   color: var(--text-prominent);
   display: flex;
+  /* postcss-bem-linter: ignore */
   /* postcss-bem-linter: ignore */ }
   .contract-audit__wrapper .dc-tabs {
     height: 100%;
@@ -2243,7 +2249,12 @@
     /* postcss-bem-linter: ignore */ }
     .contract-audit__wrapper .dc-tabs__content {
       display: flex;
-      height: calc(100% - 4rem); }
+      height: calc(100% - 4rem);
+      /* postcss-bem-linter: ignore */ }
+      .contract-audit__wrapper .dc-tabs__content .dc-themed-scrollbars {
+        flex: 1; }
+  .contract-audit__wrapper .dc-themed-scrollbars {
+    width: 100%; }
 
 .contract-audit__grid {
   display: flex;
@@ -2362,11 +2373,15 @@
     box-shadow: 0 2px 8px 0 var(--shadow-menu);
     min-width: 560px;
     height: 680px;
-    max-height: calc(100vh - 116px);
+    max-height: 680px;
     overflow: hidden;
     /* postcss-bem-linter: ignore */
     /* postcss-bem-linter: ignore */
+    /* postcss-bem-linter: ignore */
+    /* postcss-bem-linter: ignore */
     /* postcss-bem-linter: ignore */ }
+    .contract-type-dialog__wrapper .dc-vertical-tab {
+      max-height: 680px; }
     .contract-type-dialog__wrapper .dc-vertical-tab__action-bar {
       flex-flow: row;
       border-bottom: 2px solid var(--general-section-1);
@@ -2389,12 +2404,18 @@
         .contract-type-dialog__wrapper .dc-vertical-tab__action-bar .dc-input__trailing-icon {
           cursor: pointer; }
     .contract-type-dialog__wrapper .dc-vertical-tab__content {
-      padding: 0 !important; }
+      padding: 0 !important;
+      /* postcss-bem-linter: ignore */ }
+      .contract-type-dialog__wrapper .dc-vertical-tab__content-container {
+        max-height: calc(100% - 56px);
+        height: calc(100% - 56px); }
     .contract-type-dialog__wrapper .dc-vertical-tab__tab {
       min-width: 240px;
       /* postcss-bem-linter: ignore */ }
       .contract-type-dialog__wrapper .dc-vertical-tab__tab .dc-vertical-tab__header-title {
         height: 56px; }
+    .contract-type-dialog__wrapper .contract-type-info__wrapper {
+      height: calc(100% - 2.4rem - 18px); }
   .contract-type-dialog--enter, .contract-type-dialog--exit {
     transform: translate3d(20%, 0, 0);
     pointer-events: none;
@@ -2494,8 +2515,7 @@
 
 /** @define contract-type-list; */
 .contract-type-list {
-  padding: 1.6rem;
-  border-bottom: 4px solid var(--general-section-1); }
+  padding: 1.6rem; }
   .contract-type-list__label {
     font-size: 1.4rem;
     color: var(--text-general);
@@ -2592,11 +2612,9 @@
   .contract-type-info__card {
     min-height: calc(100vh - 210px);
     max-height: calc(100vh - 268px);
-    width: 272px;
-    margin-right: 2.4rem;
     display: flex;
     flex-direction: column;
-    padding-bottom: 0.8rem; }
+    padding: 0.5rem 1rem; }
     @media screen and (min-height: 768px) and (max-height: 820px) {
       .contract-type-info__card {
         min-height: calc(100vh - 288px); } }
@@ -2740,6 +2758,15 @@
     text-transform: none; }
   .market-is-closed-overlay__button {
     height: 4em; }
+
+/** @define .currency-badge */
+.currency-badge {
+  align-self: flex-start;
+  padding: 0.3rem;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #85acb0;
+  border-radius: 4px; }
 
 /** @define .market-symbol-icon; weak */
 .market-symbol-icon {
@@ -3323,8 +3350,7 @@
         position: absolute;
         content: '';
         background: rgba(51, 51, 51, 0.06);
-        -webkit-filter: blur(2px);
-                filter: blur(2px);
+        filter: blur(2px);
         z-index: 0;
         top: -2px;
         left: -2px;
@@ -3470,9 +3496,6 @@
       color: var(--text-loss-danger); }
     .portfolio .indicative--no-resale {
       color: var(--text-general); }
-    .portfolio .indicative__no-resale-msg {
-      font-size: 1em;
-      font-weight: 400; }
 
 /** @define portfolio-empty */
 .portfolio-empty {
@@ -3858,10 +3881,10 @@
       border-radius: 4px; }
   .trade-container__currency {
     position: absolute;
-    float: left;
+    float: right;
     font-size: 10px;
     height: 32px;
-    left: 48px;
+    right: 50px;
     align-items: center;
     justify-content: center;
     width: 20px;
@@ -3961,6 +3984,9 @@
         height: 16px;
         bottom: 1px;
         position: relative; }
+  @media (min-width: 320px) and (max-width: 767px) {
+    .trade-container__price-info-currency {
+      font-size: 0.9rem; } }
   .trade-container__barriers {
     display: flex;
     flex-direction: column; }
@@ -3989,7 +4015,7 @@
       color: var(--text-general); }
   .trade-container__currency-options {
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 3fr 1.5fr;
     grid-gap: 0.2em; }
     .trade-container__currency-options .dc-dropdown-container {
       /* postcss-bem-linter: ignore */ }
@@ -4030,6 +4056,8 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center; }
+    .trade-container__cancel-deal-info .trade-container__price-info-currency {
+      font-size: 1.1rem; }
     @media (min-width: 320px) and (max-width: 767px) {
       .trade-container__cancel-deal-info {
         padding: 0rem 0.4rem;
@@ -4048,6 +4076,11 @@
         font-size: inherit; }
   .trade-container .symbols.disabled {
     color: var(--text-disabled); }
+  .trade-container .dc-dropdown--left .dc-dropdown__display-text {
+    padding-left: 15px;
+    padding-right: unset; }
+  .trade-container .dc-dropdown--left .dc-dropdown__select-arrow {
+    left: 0.3rem; }
 
 /** @define input-field; weak */
 .input-field .input-wrapper__icon {

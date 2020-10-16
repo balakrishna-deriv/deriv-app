@@ -537,11 +537,6 @@
       opacity: 0;
       -ms-transition: opacity 0.25s;
       transition: opacity 0.25s; }
-    .dc-input__field::-ms-input-placeholder {
-      line-height: 1.5;
-      opacity: 0;
-      -ms-transition: opacity 0.25s;
-      transition: opacity 0.25s; }
     .dc-input__field::placeholder {
       line-height: 1.5;
       opacity: 0;
@@ -549,8 +544,6 @@
     .dc-input__field--placeholder-visible::-moz-placeholder {
       opacity: 0.2; }
     .dc-input__field--placeholder-visible:-ms-input-placeholder {
-      opacity: 0.2; }
-    .dc-input__field--placeholder-visible::-ms-input-placeholder {
       opacity: 0.2; }
     .dc-input__field--placeholder-visible::placeholder {
       opacity: 0.2; }
@@ -579,8 +572,6 @@
         opacity: 0.4; }
       .dc-input__field:focus:-ms-input-placeholder {
         opacity: 0.4; }
-      .dc-input__field:focus::-ms-input-placeholder {
-        opacity: 0.4; }
       .dc-input__field:focus::placeholder {
         opacity: 0.4; }
     .dc-input__field:not(.dc-input--no-placeholder):not(:focus):not([value='']) ~ label {
@@ -602,6 +593,8 @@
       -webkit-text-fill-color: var(--text-prominent) !important; }
       .dc-input__field:-webkit-autofill:hover, .dc-input__field:-webkit-autofill:focus, .dc-input__field:-webkit-autofill:active {
         -webkit-box-shadow: 0 0 0 30px var(--fill-normal) inset !important; }
+    .dc-input__field::-ms-reveal {
+      display: none; }
   .dc-input__textarea:not(.dc-input--no-placeholder):not(:focus):empty ~ label {
     transform: none;
     color: var(--text-less-prominent);
@@ -617,23 +610,10 @@
     .dc-input__leading-icon.symbols {
       top: 0.9rem; }
       .dc-input__leading-icon.symbols + .dc-input__field {
-        padding-left: calc(1.6rem + 15px); }
-      .dc-input__leading-icon.symbols--usd + .dc-input__field {
-        padding-left: calc(1.6rem + 3px); }
-      .dc-input__leading-icon.symbols--eur + .dc-input__field,
-      .dc-input__leading-icon.symbols--gbp + .dc-input__field,
-      .dc-input__leading-icon.symbols--eth + .dc-input__field,
-      .dc-input__leading-icon.symbols--etc + .dc-input__field {
-        padding-left: calc(1.6rem + 4px); }
-      .dc-input__leading-icon.symbols--btc + .dc-input__field,
-      .dc-input__leading-icon.symbols--ltc + .dc-input__field {
-        padding-left: calc(1.6rem + 5px); }
+        padding-left: calc(1.6rem + 2.4rem); }
+      .dc-input__leading-icon.symbols--usdc + .dc-input__field,
       .dc-input__leading-icon.symbols--ust + .dc-input__field {
-        padding-left: calc(1.6rem + 7px); }
-      .dc-input__leading-icon.symbols--bch + .dc-input__field {
-        padding-left: calc(1.6rem + 10px); }
-      .dc-input__leading-icon.symbols--aud + .dc-input__field {
-        padding-left: calc(1.6rem + 15px); }
+        padding-left: calc(1.6rem + 3.2rem); }
   .dc-input__trailing-icon {
     margin: 0 1.2rem 0 0 !important; }
     .dc-input__trailing-icon .color1-fill {
@@ -2271,6 +2251,283 @@
 /**
  * Define Breakpoints here.
  */
+.dc-card {
+  font-size: 1.4rem;
+  color: var(--text-general);
+  font-weight: 400;
+  text-transform: none;
+  text-align: left;
+  line-height: 1.5;
+  border: 1px solid var(--border-normal);
+  padding: 1.6rem;
+  border-radius: 4px; }
+  .dc-card__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: auto;
+    margin: 1.6rem; }
+
+/*------------------------------------*
+ *  # Constants
+ *------------------------------------*/
+/* stylelint-disable color-no-hex */
+/* COLOR PALETTE */
+/* colors */
+/* alpha colors */
+/* gradient colors */
+/* Preserve legacy variables */
+/* Primary */
+/* stylelint-enable color-no-hex */
+/*------------------------------------*
+ *  # SASS Mixins and Functions
+ *------------------------------------*/
+/*
+ * SASS interpolation
+ */
+/*
+ * PX to EM
+ * @param $px - px value to be converted
+ * @param $base - base font size (in `em`)
+ * Note: 'em' values are calculate based on the element font-size
+ *       to properly converts 'px' to 'em', please pass in the element font-size with it
+ * Usage example:
+    padding: em(16px, 1.6em); // font-size in 'em'
+ */
+/*
+ * Set property by passing a property name, and values.
+ * @param $property name - padding, margin etc.
+ * @param $values        - values in `px` (space separated for multiple values)
+ * @param $font-size     - base font-size in `em`
+ * Usage example:
+   @include toEm(padding, 8px 16px 8px, 1.6em);
+ */
+/*
+ * Generate typefaces key-value pair of variable name and config
+ * Example:
+   --paragraph-center-bold-black: (14px, center, bold, black)
+ */
+/*
+ * Sets font-size, font-weight, color, text-transform, text-align and line-height
+ * Usage example:
+   @include setTypeface(16px, bold, black, uppercase);
+ */
+/*
+ * Set typefaces by passing a typeface variable name
+ * @param $var   - typeface variable
+ * @param $tt    - text-transform property
+ * @param $align - text-align property
+ * Usage example:
+   @include typeface(--paragraph-bold-black, uppercase, center);
+ */
+/*
+ * Range Slider Thumb styling is set here
+ */
+/*
+ * SVG icons colors
+ */
+/*
+ * Bar Spinner Animation
+ * @param $count    - number of bars
+ * @param $duration - duration of animation
+ * @param $phase    - each bar phase change delay
+ * Usage example:
+   @include createBarspinnerAnimation(5, 1.2s, 0,1);
+ */
+/*
+ * Tooltip colors
+ * @param $color - color property
+ * Usage example:
+   @include tooltipColor($COLOR_RED);
+ */
+/*
+ * Convert Tooltip colors
+ * @param $color - css color property
+ * Usage example:
+   @include convertTooltipColor(var(--status-default));
+ */
+/*
+    Constants
+*/
+/*
+    Variables
+*/
+/*
+    List of all typefaces variables in the format: --$FONT_SIZES-$TEXT_ALIGN-$FONT_WEIGHTS-COLORS.
+    See $FONT_SIZES, $TEXT_ALIGN, $FONT_WEIGHTS, $COLORS maps above for references.
+    Variables name example: --title-center-semibold-red
+ */
+/*
+    to use styles without modifier class on .inline-icon
+    use @extend
+
+    e.g. style icon on parent hover:
+        a:hover .inline-icon {
+            @extend %inline-icon.active;
+        }
+*/
+/**
+ * Define Breakpoints here.
+ */
+.dc-carousel {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; }
+  .dc-carousel__container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center; }
+  .dc-carousel__box {
+    overflow: hidden; }
+  .dc-carousel__wrapper {
+    display: flex;
+    flex-direction: row;
+    transition: transform 0.3s linear;
+    padding: 0.5rem 0;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    height: 100%; }
+  .dc-carousel__card {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 0.8rem; }
+  .dc-carousel__nav {
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    width: 100%;
+    padding: 0 2.4rem;
+    overflow: hidden;
+    margin-bottom: 2.4rem;
+    justify-content: space-between; }
+    .dc-carousel__nav--upper {
+      margin-bottom: 0; }
+    .dc-carousel__nav-list {
+      display: inline-block;
+      text-align: center;
+      margin: 0 auto;
+      position: relative; }
+    .dc-carousel__nav-item {
+      width: 0.8rem;
+      height: 0.8rem;
+      border-radius: 50%;
+      display: inline-block;
+      margin: 0 0.8rem;
+      cursor: pointer; }
+      .dc-carousel__nav-item--active {
+        position: absolute;
+        top: 0;
+        left: 0;
+        cursor: auto;
+        cursor: initial;
+        transition: transform 0.3s linear; }
+  .dc-carousel__icon {
+    cursor: pointer; }
+
+/*------------------------------------*
+ *  # Constants
+ *------------------------------------*/
+/* stylelint-disable color-no-hex */
+/* COLOR PALETTE */
+/* colors */
+/* alpha colors */
+/* gradient colors */
+/* Preserve legacy variables */
+/* Primary */
+/* stylelint-enable color-no-hex */
+/*------------------------------------*
+ *  # SASS Mixins and Functions
+ *------------------------------------*/
+/*
+ * SASS interpolation
+ */
+/*
+ * PX to EM
+ * @param $px - px value to be converted
+ * @param $base - base font size (in `em`)
+ * Note: 'em' values are calculate based on the element font-size
+ *       to properly converts 'px' to 'em', please pass in the element font-size with it
+ * Usage example:
+    padding: em(16px, 1.6em); // font-size in 'em'
+ */
+/*
+ * Set property by passing a property name, and values.
+ * @param $property name - padding, margin etc.
+ * @param $values        - values in `px` (space separated for multiple values)
+ * @param $font-size     - base font-size in `em`
+ * Usage example:
+   @include toEm(padding, 8px 16px 8px, 1.6em);
+ */
+/*
+ * Generate typefaces key-value pair of variable name and config
+ * Example:
+   --paragraph-center-bold-black: (14px, center, bold, black)
+ */
+/*
+ * Sets font-size, font-weight, color, text-transform, text-align and line-height
+ * Usage example:
+   @include setTypeface(16px, bold, black, uppercase);
+ */
+/*
+ * Set typefaces by passing a typeface variable name
+ * @param $var   - typeface variable
+ * @param $tt    - text-transform property
+ * @param $align - text-align property
+ * Usage example:
+   @include typeface(--paragraph-bold-black, uppercase, center);
+ */
+/*
+ * Range Slider Thumb styling is set here
+ */
+/*
+ * SVG icons colors
+ */
+/*
+ * Bar Spinner Animation
+ * @param $count    - number of bars
+ * @param $duration - duration of animation
+ * @param $phase    - each bar phase change delay
+ * Usage example:
+   @include createBarspinnerAnimation(5, 1.2s, 0,1);
+ */
+/*
+ * Tooltip colors
+ * @param $color - color property
+ * Usage example:
+   @include tooltipColor($COLOR_RED);
+ */
+/*
+ * Convert Tooltip colors
+ * @param $color - css color property
+ * Usage example:
+   @include convertTooltipColor(var(--status-default));
+ */
+/*
+    Constants
+*/
+/*
+    Variables
+*/
+/*
+    List of all typefaces variables in the format: --$FONT_SIZES-$TEXT_ALIGN-$FONT_WEIGHTS-COLORS.
+    See $FONT_SIZES, $TEXT_ALIGN, $FONT_WEIGHTS, $COLORS maps above for references.
+    Variables name example: --title-center-semibold-red
+ */
+/*
+    to use styles without modifier class on .inline-icon
+    use @extend
+
+    e.g. style icon on parent hover:
+        a:hover .inline-icon {
+            @extend %inline-icon.active;
+        }
+*/
+/**
+ * Define Breakpoints here.
+ */
 .dc-clipboard {
   cursor: pointer; }
 
@@ -2520,11 +2777,15 @@
     justify-content: space-between;
     align-items: center;
     border-bottom: solid 1px var(--border-normal);
-    padding: 12px 4px; }
+    padding: 12px; }
     .dc-checklist__item-text {
       max-width: 80%;
+      font-size: 1.4rem;
       color: var(--text-general);
-      font-size: var(--text-size-xs); }
+      font-weight: 400;
+      text-transform: none;
+      text-align: left;
+      line-height: 1.5; }
     .dc-checklist__item-status {
       display: flex;
       justify-content: center;
@@ -3360,11 +3621,11 @@
     .dc-progress-slider__line--ticks {
       height: 2px; }
     .dc-progress-slider__line--green {
-      background: var(--brand-secondary) !important; }
-    .dc-progress-slider__line--orange {
-      background: var(--brand-orange) !important; }
+      background: var(--status-success) !important; }
+    .dc-progress-slider__line--yellow {
+      background: var(--status-warning) !important; }
     .dc-progress-slider__line--red {
-      background: var(--brand-red-coral) !important; }
+      background: var(--status-danger) !important; }
   .dc-progress-slider__infinite-loader {
     position: relative;
     height: 4px;
@@ -4192,7 +4453,7 @@
   width: 108px;
   height: 80px;
   right: 4px;
-  top: 96px;
+  top: 115px;
   border: 1px solid var(--general-section-1);
   border-radius: 4px; }
   .dc-contract-card-dialog-toggle__wrapper {
@@ -4507,8 +4768,6 @@
   .input::-moz-placeholder {
     border-color: var(--border-normal); }
   .input:-ms-input-placeholder {
-    border-color: var(--border-normal); }
-  .input::-ms-input-placeholder {
     border-color: var(--border-normal); }
   .input::placeholder {
     border-color: var(--border-normal); }
@@ -5175,7 +5434,8 @@
   border-radius: 4px;
   padding: 0.8rem;
   background-color: var(--general-main-1);
-  color: var(--text-prominent); }
+  color: var(--text-prominent);
+  padding-bottom: 0.8rem; }
   .dc-contract-card:before {
     content: '';
     position: absolute;
@@ -5445,15 +5705,13 @@
     align-items: center;
     justify-content: center;
     transition: transform 0.25s ease, opacity 0.25s linear;
-    padding-top: 0.8rem;
+    padding-top: 0.4rem;
     margin-top: 0.8rem;
-    border-top: 1px solid var(--general-section-1); }
+    border-top: 1px solid var(--general-section-1);
+    min-height: 4rem; }
     .dc-contract-card__sell-button--positions {
       padding: 0.8rem 0;
       margin: 0 0.8rem; }
-    .dc-contract-card__sell-button--enter-done {
-      opacity: 1;
-      transform: translateY(0); }
     .dc-contract-card__sell-button--enter, .dc-contract-card__sell-button--exit {
       opacity: 0;
       transform: translateY(-8px); }
@@ -5468,6 +5726,13 @@
       font-size: 1.2rem;
       margin-left: 0.8rem;
       padding-top: 0.2rem; }
+    .dc-contract-card__sell-button .dc-btn--sell,
+    .dc-contract-card__sell-button .dc-btn--cancel {
+      height: 2.4rem; }
+      @media (min-width: 320px) and (max-width: 767px) {
+        .dc-contract-card__sell-button .dc-btn--sell,
+        .dc-contract-card__sell-button .dc-btn--cancel {
+          height: 3.2rem; } }
   .dc-contract-card__indicative--movement {
     margin-left: 2px;
     width: 16px;
@@ -5489,6 +5754,8 @@
     align-self: center; }
     .dc-contract-card__sell-button-mobile .dc-btn--sell {
       height: 3.2rem !important; }
+  .dc-contract-card__no-resale-msg {
+    font-size: 1.2rem; }
   .dc-contract-card .contract-audit__wrapper {
     padding: 2px 0;
     width: 100%; }
@@ -5998,6 +6265,12 @@
       @media (min-width: 320px) and (max-width: 767px) {
         .data-list__row-title {
           font-size: 1.2rem; } }
+    .data-list__row-divider {
+      margin: 0 1.6rem; }
+      .data-list__row-divider:after {
+        content: '';
+        display: block;
+        border-top: 1px solid var(--general-main-1); }
 
 /*------------------------------------*
  *  # Constants
@@ -6419,16 +6692,20 @@
     align-items: center;
     justify-content: center;
     z-index: 999;
-    transition: transform 0.25s cubic-bezier(0.25, 0.1, 0.1, 0.25), opacity 0.25s cubic-bezier(0.25, 0.1, 0.1, 0.25);
+    transition: opacity 0.25s cubic-bezier(0.25, 0.1, 0.1, 0.25);
     background-color: var(--overlay-outside-dialog); }
     .dc-dialog__wrapper--enter, .dc-dialog__wrapper--exit {
-      transform: translate3d(0, 50px, 0);
       opacity: 0; }
+      .dc-dialog__wrapper--enter .dc-dialog__dialog, .dc-dialog__wrapper--exit .dc-dialog__dialog {
+        transform: translate3d(0, 50px, 0);
+        opacity: 0; }
     .dc-dialog__wrapper--enter-done {
-      transform: translate3d(0, 0, 0);
       opacity: 1; }
-    .dc-dialog__wrapper--fixed {
-      position: fixed; }
+      .dc-dialog__wrapper--enter-done .dc-dialog__dialog {
+        transform: translate3d(0, 0, 0);
+        opacity: 1; }
+    .dc-dialog__wrapper--has-portal {
+      background-color: transparent; }
   .dc-dialog__dialog {
     max-width: 560px;
     max-height: 320px;
@@ -6443,7 +6720,8 @@
     flex-direction: column;
     align-items: center;
     box-shadow: 0 2px 8px 0 var(--shadow-menu);
-    background-color: var(--general-main-2); }
+    background-color: var(--general-main-2);
+    transition: transform 0.25s cubic-bezier(0.25, 0.1, 0.1, 0.25), opacity 0.25s cubic-bezier(0.25, 0.1, 0.1, 0.25); }
   .dc-dialog__header {
     align-self: flex-start;
     font-size: 1.6rem;
@@ -7046,8 +7324,8 @@
 
 .dc-dropdown-container {
   position: relative;
-  margin-top: 8px;
-  min-width: 180px;
+  margin-top: 0.8rem;
+  min-width: 15rem;
   width: 100%; }
   .dc-dropdown-container .dc-native-select {
     position: absolute;
@@ -7056,11 +7334,11 @@
     @supports not (-webkit-touch-callout: none) {
       .dc-dropdown-container .dc-native-select {
         /* non-iOS devices hack
-                 *  because .focus() doesn't open <select /> in Android OS,
-                 *  here we make the <select /> element to fit the dropdown container
-                 *  so user clicks on the <select /> element itself
-                 *  [TODO]: find alternative solution to trigger open <select /> with JS
-                 */
+    * because .focus() doesn't open <select /> in Android OS,
+    * here we make the <select /> element to fit the dropdown container
+    * so user clicks on the <select /> element itself
+    * [TODO]: find alternative solution to trigger open <select /> with JS
+    */
         width: 100%;
         height: 100%; }
         .dc-dropdown-container .dc-native-select__select {
@@ -7294,14 +7572,14 @@
     @supports (-webkit-appearance: none) {
       .dc-list {
         /* postcss-bem-linter: ignore */ }
-        .dc-list > div:nth-child(1) > div:nth-child(1) {
-          overflow-y: scroll !important;
+        .dc-list > div:nth-child(1) .dc-list > div:nth-child(1) {
+          overflow-y: auto;
           overflow-x: hidden !important;
           /* postcss-bem-linter: ignore */
           /* postcss-bem-linter: ignore */ }
-          .dc-list > div:nth-child(1) > div:nth-child(1)::-webkit-scrollbar {
+          .dc-list > div:nth-child(1) .dc-list > div:nth-child(1)::-webkit-scrollbar {
             -webkit-appearance: none; }
-          .dc-list > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) {
+          .dc-list > div:nth-child(1) .dc-list > div:nth-child(1) > div:nth-child(1) {
             padding-bottom: 11.5em !important; } } }
 
 /*------------------------------------*
@@ -8392,84 +8670,49 @@
   margin: 0 2px;
   position: relative;
   /* TODO: change all :after to normal background color once styleguide ready */ }
-  .dc-label--default {
+  .dc-label:after {
+    opacity: 0.16;
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    border-radius: 12px; }
+  .dc-label--general--default {
     color: var(--status-default); }
-    .dc-label--default:after {
-      background-color: var(--status-default);
-      opacity: 0.16;
-      content: '';
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      position: absolute;
-      border-radius: 12px; }
-  .dc-label--danger {
+    .dc-label--general--default:after {
+      background-color: var(--status-default); }
+  .dc-label--general--adjustment {
+    color: var(--status-adjustment); }
+    .dc-label--general--adjustment:after {
+      background-color: var(--status-adjustment); }
+  .dc-label--general--danger {
     color: var(--status-danger); }
-    .dc-label--danger:after {
-      background-color: var(--status-danger);
-      opacity: 0.16;
-      content: '';
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      position: absolute;
-      border-radius: 12px; }
-  .dc-label--warn {
+    .dc-label--general--danger:after {
+      background-color: var(--status-danger); }
+  .dc-label--general--warn {
     color: var(--status-warning); }
-    .dc-label--warn:after {
-      background-color: var(--status-warning);
-      opacity: 0.16;
-      content: '';
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      position: absolute;
-      border-radius: 12px; }
-  .dc-label--success {
+    .dc-label--general--warn:after {
+      background-color: var(--status-warning); }
+  .dc-label--general--success {
     color: var(--status-success); }
-    .dc-label--success:after {
-      background-color: var(--status-success);
-      opacity: 0.16;
-      content: '';
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      position: absolute;
-      border-radius: 12px; }
-  .dc-label--default-invert {
-    color: var(--text-less-prominent); }
-    .dc-label--default-invert:after {
-      background-color: var(--text-less-prominent);
-      opacity: 0.16;
-      content: '';
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      position: absolute;
-      border-radius: 12px; }
-  .dc-label--success-invert {
+    .dc-label--general--success:after {
+      background-color: var(--status-success); }
+  .dc-label--general--default-invert {
+    color: var(--status-less-prominent); }
+    .dc-label--general--default-invert:after {
+      background-color: var(--status-less-prominent); }
+  .dc-label--general--success-invert {
     color: var(--text-colored-background);
     background-color: var(--status-success); }
-  .dc-label--warn-invert {
+  .dc-label--general--warn-invert {
     color: var(--text-colored-background);
     background-color: var(--status-warning); }
-  .dc-label--info {
+  .dc-label--general--info {
     color: var(--status-info); }
-    .dc-label--info:after {
-      background-color: var(--status-info);
-      opacity: 0.16;
-      content: '';
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      position: absolute;
-      border-radius: 12px; }
+    .dc-label--general--info:after {
+      background-color: var(--status-info); }
   .dc-label--large {
     height: 28px;
     border-radius: 20px;
@@ -8862,7 +9105,7 @@
   .dc-mobile-drawer__header {
     display: flex;
     width: 100%;
-    height: 40px;
+    height: 50px;
     z-index: 4;
     line-height: 24px;
     align-items: center;
@@ -9007,6 +9250,140 @@
   .dc-mobile-drawer__wrapper {
     z-index: 9999 !important;
     background-color: var(--overlay-outside-dialog) !important; }
+
+/*------------------------------------*
+ *  # Constants
+ *------------------------------------*/
+/* stylelint-disable color-no-hex */
+/* COLOR PALETTE */
+/* colors */
+/* alpha colors */
+/* gradient colors */
+/* Preserve legacy variables */
+/* Primary */
+/* stylelint-enable color-no-hex */
+/*------------------------------------*
+ *  # SASS Mixins and Functions
+ *------------------------------------*/
+/*
+ * SASS interpolation
+ */
+/*
+ * PX to EM
+ * @param $px - px value to be converted
+ * @param $base - base font size (in `em`)
+ * Note: 'em' values are calculate based on the element font-size
+ *       to properly converts 'px' to 'em', please pass in the element font-size with it
+ * Usage example:
+    padding: em(16px, 1.6em); // font-size in 'em'
+ */
+/*
+ * Set property by passing a property name, and values.
+ * @param $property name - padding, margin etc.
+ * @param $values        - values in `px` (space separated for multiple values)
+ * @param $font-size     - base font-size in `em`
+ * Usage example:
+   @include toEm(padding, 8px 16px 8px, 1.6em);
+ */
+/*
+ * Generate typefaces key-value pair of variable name and config
+ * Example:
+   --paragraph-center-bold-black: (14px, center, bold, black)
+ */
+/*
+ * Sets font-size, font-weight, color, text-transform, text-align and line-height
+ * Usage example:
+   @include setTypeface(16px, bold, black, uppercase);
+ */
+/*
+ * Set typefaces by passing a typeface variable name
+ * @param $var   - typeface variable
+ * @param $tt    - text-transform property
+ * @param $align - text-align property
+ * Usage example:
+   @include typeface(--paragraph-bold-black, uppercase, center);
+ */
+/*
+ * Range Slider Thumb styling is set here
+ */
+/*
+ * SVG icons colors
+ */
+/*
+ * Bar Spinner Animation
+ * @param $count    - number of bars
+ * @param $duration - duration of animation
+ * @param $phase    - each bar phase change delay
+ * Usage example:
+   @include createBarspinnerAnimation(5, 1.2s, 0,1);
+ */
+/*
+ * Tooltip colors
+ * @param $color - color property
+ * Usage example:
+   @include tooltipColor($COLOR_RED);
+ */
+/*
+ * Convert Tooltip colors
+ * @param $color - css color property
+ * Usage example:
+   @include convertTooltipColor(var(--status-default));
+ */
+/*
+    Constants
+*/
+/*
+    Variables
+*/
+/*
+    List of all typefaces variables in the format: --$FONT_SIZES-$TEXT_ALIGN-$FONT_WEIGHTS-COLORS.
+    See $FONT_SIZES, $TEXT_ALIGN, $FONT_WEIGHTS, $COLORS maps above for references.
+    Variables name example: --title-center-semibold-red
+ */
+/*
+    to use styles without modifier class on .inline-icon
+    use @extend
+
+    e.g. style icon on parent hover:
+        a:hover .inline-icon {
+            @extend %inline-icon.active;
+        }
+*/
+/**
+ * Define Breakpoints here.
+ */
+.dc-mobile-full-page-modal {
+  height: calc(100% - 40px - 40px);
+  position: fixed;
+  z-index: 6;
+  width: 100%;
+  left: 0px;
+  top: calc(40px + 40px);
+  background: var(--general-main-1); }
+  .dc-mobile-full-page-modal form {
+    height: 100%; }
+  .dc-mobile-full-page-modal .dc-page-overlay__content {
+    position: fixed;
+    top: calc(40px + 40px);
+    width: 100%;
+    height: 100%; }
+  .dc-mobile-full-page-modal .dc-page-overlay__header {
+    position: fixed;
+    top: 40px;
+    width: 100%;
+    height: 40px; }
+  .dc-mobile-full-page-modal .dc-tabs {
+    display: flex;
+    flex-direction: column;
+    height: 100%; }
+    .dc-mobile-full-page-modal .dc-tabs__list {
+      width: 100%;
+      height: 4rem; }
+    .dc-mobile-full-page-modal .dc-tabs__item {
+      width: 50%; }
+    .dc-mobile-full-page-modal .dc-tabs__content {
+      height: calc(100% - 40px);
+      z-index: 5; }
 
 /*------------------------------------*
  *  # Constants
@@ -10717,7 +11094,7 @@
     padding: 0 0.4rem;
     font-size: 1.4rem;
     transform: none;
-    background-color: var(--general-section-2);
+    background-color: var(--fill-normal);
     color: var(--text-less-prominent);
     transform-origin: top left;
     line-height: 1.43;
@@ -11468,6 +11845,117 @@
         width: 120px; } }
     .dc-tabs__active-line:not(.dc-tabs__active-line--header-fit-content) {
       width: var(--tab-width); }
+
+/*------------------------------------*
+ *  # Constants
+ *------------------------------------*/
+/* stylelint-disable color-no-hex */
+/* COLOR PALETTE */
+/* colors */
+/* alpha colors */
+/* gradient colors */
+/* Preserve legacy variables */
+/* Primary */
+/* stylelint-enable color-no-hex */
+/*------------------------------------*
+ *  # SASS Mixins and Functions
+ *------------------------------------*/
+/*
+ * SASS interpolation
+ */
+/*
+ * PX to EM
+ * @param $px - px value to be converted
+ * @param $base - base font size (in `em`)
+ * Note: 'em' values are calculate based on the element font-size
+ *       to properly converts 'px' to 'em', please pass in the element font-size with it
+ * Usage example:
+    padding: em(16px, 1.6em); // font-size in 'em'
+ */
+/*
+ * Set property by passing a property name, and values.
+ * @param $property name - padding, margin etc.
+ * @param $values        - values in `px` (space separated for multiple values)
+ * @param $font-size     - base font-size in `em`
+ * Usage example:
+   @include toEm(padding, 8px 16px 8px, 1.6em);
+ */
+/*
+ * Generate typefaces key-value pair of variable name and config
+ * Example:
+   --paragraph-center-bold-black: (14px, center, bold, black)
+ */
+/*
+ * Sets font-size, font-weight, color, text-transform, text-align and line-height
+ * Usage example:
+   @include setTypeface(16px, bold, black, uppercase);
+ */
+/*
+ * Set typefaces by passing a typeface variable name
+ * @param $var   - typeface variable
+ * @param $tt    - text-transform property
+ * @param $align - text-align property
+ * Usage example:
+   @include typeface(--paragraph-bold-black, uppercase, center);
+ */
+/*
+ * Range Slider Thumb styling is set here
+ */
+/*
+ * SVG icons colors
+ */
+/*
+ * Bar Spinner Animation
+ * @param $count    - number of bars
+ * @param $duration - duration of animation
+ * @param $phase    - each bar phase change delay
+ * Usage example:
+   @include createBarspinnerAnimation(5, 1.2s, 0,1);
+ */
+/*
+ * Tooltip colors
+ * @param $color - color property
+ * Usage example:
+   @include tooltipColor($COLOR_RED);
+ */
+/*
+ * Convert Tooltip colors
+ * @param $color - css color property
+ * Usage example:
+   @include convertTooltipColor(var(--status-default));
+ */
+/*
+    Constants
+*/
+/*
+    Variables
+*/
+/*
+    List of all typefaces variables in the format: --$FONT_SIZES-$TEXT_ALIGN-$FONT_WEIGHTS-COLORS.
+    See $FONT_SIZES, $TEXT_ALIGN, $FONT_WEIGHTS, $COLORS maps above for references.
+    Variables name example: --title-center-semibold-red
+ */
+/*
+    to use styles without modifier class on .inline-icon
+    use @extend
+
+    e.g. style icon on parent hover:
+        a:hover .inline-icon {
+            @extend %inline-icon.active;
+        }
+*/
+/**
+ * Define Breakpoints here.
+ */
+.dc-text {
+  font-size: var(--text-size);
+  color: var(--text-color);
+  line-height: var(--text-lh);
+  font-weight: var(--text-weight); }
+  .dc-text--left {
+    text-align: left; }
+  .dc-text--right {
+    text-align: right; }
 
 /*------------------------------------*
  *  # Constants
@@ -12433,7 +12921,7 @@
     color: var(--text-general);
     font-weight: 700;
     text-transform: none;
-    text-align: center;
+    text-align: left;
     line-height: 1.5;
     line-height: 1.5;
     color: var(--text-general);
@@ -12503,7 +12991,8 @@
         padding: 1.6rem 2.4rem;
         color: var(--text-general);
         font-size: var(--text-size-xxs);
-        line-height: 1.5; }
+        line-height: 1.5;
+        margin-bottom: 1rem; }
     .dc-vertical-tab__content.dc-vertical-tab:not(.dc-vertical-tab--full-screen) {
       padding: 2.4rem;
       height: 100%; }
@@ -12511,6 +13000,140 @@
       max-width: 952px;
       min-width: 672px;
       margin-left: 2.4rem; }
+
+/*------------------------------------*
+ *  # Constants
+ *------------------------------------*/
+/* stylelint-disable color-no-hex */
+/* COLOR PALETTE */
+/* colors */
+/* alpha colors */
+/* gradient colors */
+/* Preserve legacy variables */
+/* Primary */
+/* stylelint-enable color-no-hex */
+/*------------------------------------*
+ *  # SASS Mixins and Functions
+ *------------------------------------*/
+/*
+ * SASS interpolation
+ */
+/*
+ * PX to EM
+ * @param $px - px value to be converted
+ * @param $base - base font size (in `em`)
+ * Note: 'em' values are calculate based on the element font-size
+ *       to properly converts 'px' to 'em', please pass in the element font-size with it
+ * Usage example:
+    padding: em(16px, 1.6em); // font-size in 'em'
+ */
+/*
+ * Set property by passing a property name, and values.
+ * @param $property name - padding, margin etc.
+ * @param $values        - values in `px` (space separated for multiple values)
+ * @param $font-size     - base font-size in `em`
+ * Usage example:
+   @include toEm(padding, 8px 16px 8px, 1.6em);
+ */
+/*
+ * Generate typefaces key-value pair of variable name and config
+ * Example:
+   --paragraph-center-bold-black: (14px, center, bold, black)
+ */
+/*
+ * Sets font-size, font-weight, color, text-transform, text-align and line-height
+ * Usage example:
+   @include setTypeface(16px, bold, black, uppercase);
+ */
+/*
+ * Set typefaces by passing a typeface variable name
+ * @param $var   - typeface variable
+ * @param $tt    - text-transform property
+ * @param $align - text-align property
+ * Usage example:
+   @include typeface(--paragraph-bold-black, uppercase, center);
+ */
+/*
+ * Range Slider Thumb styling is set here
+ */
+/*
+ * SVG icons colors
+ */
+/*
+ * Bar Spinner Animation
+ * @param $count    - number of bars
+ * @param $duration - duration of animation
+ * @param $phase    - each bar phase change delay
+ * Usage example:
+   @include createBarspinnerAnimation(5, 1.2s, 0,1);
+ */
+/*
+ * Tooltip colors
+ * @param $color - color property
+ * Usage example:
+   @include tooltipColor($COLOR_RED);
+ */
+/*
+ * Convert Tooltip colors
+ * @param $color - css color property
+ * Usage example:
+   @include convertTooltipColor(var(--status-default));
+ */
+/*
+    Constants
+*/
+/*
+    Variables
+*/
+/*
+    List of all typefaces variables in the format: --$FONT_SIZES-$TEXT_ALIGN-$FONT_WEIGHTS-COLORS.
+    See $FONT_SIZES, $TEXT_ALIGN, $FONT_WEIGHTS, $COLORS maps above for references.
+    Variables name example: --title-center-semibold-red
+ */
+/*
+    to use styles without modifier class on .inline-icon
+    use @extend
+
+    e.g. style icon on parent hover:
+        a:hover .inline-icon {
+            @extend %inline-icon.active;
+        }
+*/
+/**
+ * Define Breakpoints here.
+ */
+.wizard {
+  width: inherit;
+  height: inherit; }
+  .wizard__step {
+    width: 100%;
+    align-items: center; }
+  .wizard__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; }
+  .wizard__placeholder {
+    width: 6.3rem; }
+  .wizard__btn {
+    display: flex;
+    font-size: 1.2rem;
+    color: var(--text-prominent);
+    font-weight: 700;
+    text-transform: none;
+    text-align: left;
+    line-height: 1.25;
+    cursor: pointer;
+    color: var(--text-general); }
+    .wizard__btn-right {
+      margin: 2.4rem 1.6rem 2.4rem 0; }
+    .wizard__btn-left {
+      margin: 2.4rem 0 2.4rem 1.6rem; }
+    .wizard__btn-icon-right {
+      margin-left: 8px; }
+    .wizard__btn-icon-left {
+      margin-right: 8px; }
+    .wizard__btn-icon .color1-fill {
+      fill: var(--text-general); }
 
 /*------------------------------------*
  *  # Constants
@@ -12780,8 +13403,8 @@
 
 .settings-language__language-container {
   display: grid;
-  grid-template-columns: repeat(5, 80px);
-  grid-template-rows: repeat(5, 84px);
+  grid-template-columns: repeat(4, minmax(90px, 1fr));
+  grid-template-rows: repeat(5, auto);
   grid-gap: 16px; }
 
 .settings-language__language-link {
@@ -12793,7 +13416,8 @@
   border-radius: 4px;
   padding: 16px;
   text-decoration: none;
-  background-color: var(--state-normal); }
+  background-color: var(--state-normal);
+  cursor: pointer; }
   .settings-language__language-link--active {
     border: 1px solid var(--border-active);
     color: var(--text-prominent); }
@@ -12809,7 +13433,8 @@
   text-transform: none;
   text-align: left;
   line-height: 1.5;
-  color: var(--text-prominent); }
+  color: var(--text-prominent);
+  margin-top: 0.8rem; }
   .settings-language__language-name--active {
     font-weight: bold;
     color: var(--text-prominent); }
@@ -13075,7 +13700,7 @@
     .notifications-item__cta-button {
       margin: 8px 0 0 auto;
       height: 24px !important;
-      width: 106px; }
+      width: auto; }
       .notifications-item__cta-button .dc-btn__text {
         font-size: 1.2rem; }
       @media (min-width: 320px) and (max-width: 767px) {
@@ -13104,6 +13729,9 @@
         text-decoration: none;
         font-weight: bold;
         color: var(--text-prominent); }
+    .notifications-item__action {
+      display: flex;
+      justify-content: flex-end; }
     @media (min-width: 320px) and (max-width: 767px) {
       .notifications-item {
         display: flex;
@@ -13362,9 +13990,10 @@
       .acc-info:hover:not(.show):not(.acc-info--is-disabled) .symbols {
         background: transparent; } }
   @media (min-width: 320px) and (max-width: 767px) {
-    .acc-info__balance--no-currency {
-      white-space: nowrap;
-      font-size: 1.4rem; } }
+    .acc-info__balance {
+      font-size: 1.4rem; }
+      .acc-info__balance--no-currency {
+        white-space: nowrap; } }
   .acc-info--is-virtual .acc-info__balance {
     color: var(--text-profit-success); }
   .acc-info--is-disabled {
@@ -13435,6 +14064,9 @@
       color: var(--text-general); }
     .acc-switcher__new-account-btn {
       margin-left: auto; }
+    .acc-switcher__new-account--disabled {
+      opacity: 0.5;
+      cursor: default; }
   .acc-switcher__list {
     border-radius: 4px;
     display: flex;
@@ -13466,6 +14098,7 @@
     background: var(--general-main-2);
     position: relative; }
     .acc-switcher__accounts .acc-switcher__account {
+      margin-bottom: 2px;
       background: var(--general-main-2); }
       .acc-switcher__accounts .acc-switcher__account:hover:not(.acc-switcher__account--selected) {
         background-color: var(--state-hover);
@@ -14175,8 +14808,10 @@
     width: 100%; }
   .currency-list__items {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly; }
+    flex-wrap: wrap; }
+    @media (min-width: 1024px) {
+      .currency-list__items {
+        justify-content: center; } }
     @media (min-width: 320px) and (max-width: 767px) {
       .currency-list__items {
         display: grid;
@@ -14191,7 +14826,7 @@
     height: 128px;
     justify-content: space-around;
     margin: 1.6rem 2rem 0;
-    width: 128px; }
+    min-width: 170px; }
     .currency-list__item:hover:not(.currency-list__item--selected) {
       cursor: pointer;
       border: 1px solid var(--border-hover); }
@@ -14237,7 +14872,9 @@
     @media (min-width: 320px) and (max-width: 767px) {
       .currency-list__item {
         margin: 1.6rem 2rem 0.8rem;
-        padding: 0.8rem 0; } }
+        padding: 0.8rem 0;
+        width: 85%;
+        min-width: unset; } }
   @media only screen and (min-width: 320px) and (max-width: 767px) and (max-width: 340px) {
     .currency-list__item {
       width: 120px; } }
@@ -14255,9 +14892,9 @@
 
 .currency-hr {
   height: 2px;
-  margin: 1.6rem 0 0;
-  width: 100%;
-  border-top: 1px solid var(--general-section-2); }
+  margin: 1.6rem auto;
+  width: 90%;
+  border-top: 1px solid var(--general-section-1); }
   @media (min-width: 320px) and (max-width: 767px) {
     .currency-hr {
       border-top-width: 2px;
@@ -14443,10 +15080,10 @@
         .details-form__tax .dc-popover {
           right: -5px; } }
   .details-form__tin-warn-divider {
-    height: 3rem; }
+    height: 5rem; }
     @media (min-width: 320px) and (max-width: 767px) {
       .details-form__tin-warn-divider {
-        height: 4.5rem; } }
+        height: 6rem; } }
   .details-form__tin-confirm {
     margin-left: -5px; }
     .details-form__tin-confirm .dc-checkbox__box {
@@ -14460,7 +15097,7 @@
     font-size: var(--text-size-xxs);
     line-height: 1.8rem;
     margin: 1.6rem auto;
-    width: 40%;
+    width: 45%;
     color: var(--text-general); }
     @media (min-width: 1024px) {
       .details-form__description {
@@ -14593,7 +15230,17 @@
     text-transform: none;
     color: var(--text-general); }
   .terms-of-use__checkbox {
-    margin-top: 2rem; }
+    margin-top: 1.6rem; }
+  .terms-of-use__hr {
+    height: 2px;
+    margin: 1.6rem 0 0;
+    width: 100%;
+    border-top: 1px solid var(--general-section-1); }
+    @media (min-width: 320px) and (max-width: 767px) {
+      .terms-of-use__hr {
+        border-top-width: 2px;
+        border-color: var(--border-disabled);
+        width: 100%; } }
   .terms-of-use h4 {
     font-size: 1.4rem;
     color: var(--text-general);
@@ -14735,6 +15382,62 @@
   flex-wrap: wrap; }
   .add-or-manage form {
     flex-direction: column; }
+  .add-or-manage .dc-tabs__list--header-fit-content {
+    margin: 0 auto; }
+  .add-or-manage .account-wizard--disabled .currency-list__items {
+    margin-top: 6rem; }
+  .add-or-manage .account-wizard--disabled-message p:first-child {
+    margin-top: 6rem;
+    background-color: var(--general-section-1);
+    font-size: 1.2rem;
+    height: 58px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px; }
+  .add-or-manage .currency-selector__radio-group--is-header {
+    font-size: 1.6rem;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    color: var(--text-general);
+    text-align: center; }
+  .add-or-manage .currency-selector__description {
+    display: none; }
+  .add-or-manage .currency-selector__deposit-warn {
+    width: 70%;
+    margin: 2.8rem auto 0;
+    padding: 10px;
+    font-size: 1.4rem;
+    color: var(--text-prominent);
+    font-weight: 400;
+    text-transform: none;
+    text-align: center;
+    line-height: 1.5;
+    font-size: 1.2rem;
+    background-color: var(--general-section-1);
+    border-radius: 4px; }
+  .add-or-manage .with-margin--is-header {
+    font-size: 1.6rem;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    color: var(--text-general);
+    text-align: center; }
+  @media (min-width: 1024px) {
+    .add-or-manage .currency-selector__radio-group.with-margin {
+      margin-bottom: 6rem; }
+    .add-or-manage .add-crypto-currency {
+      padding: 0 20px 20px 0; }
+    .add-or-manage .dc-form-submit-button--absolute {
+      position: fixed;
+      padding: 1.4rem;
+      width: 100%;
+      right: 0; } }
   @media (min-width: 320px) and (max-width: 767px) {
     .add-or-manage {
       flex-direction: column;
@@ -14745,11 +15448,31 @@
       .add-or-manage .account-wizard__btn-area .dc-btn:last-child {
         min-width: unset;
         margin: 0 1.6rem; }
-      .add-or-manage .change-currency {
-        margin-bottom: 1.6rem; }
+      .add-or-manage .currency-selector__radio-group.with-margin {
+        margin-bottom: 7rem; }
+      .add-or-manage .change-currency .currency-list__items {
+        margin-bottom: 12rem; }
+      .add-or-manage .change-currency .dc-form-submit-button--relative {
+        position: fixed;
+        background-color: unset;
+        right: 0; }
+      .add-or-manage .account-wizard--disabled-message p:first-child {
+        width: 100%;
+        height: 75px;
+        padding-left: 1rem;
+        padding-right: 1rem; }
+      .add-or-manage .account-wizard--disabled .currency-list__items {
+        margin-top: 8rem; }
       .add-or-manage .dc-form-submit-button {
-        position: relative;
-        border: none; } }
+        position: fixed;
+        padding: 15px;
+        height: 72px;
+        bottom: 0;
+        width: 100%;
+        background-color: var(--general-main-1);
+        border: 2px solid var(--general-section-1); }
+        .add-or-manage .dc-form-submit-button button {
+          width: 100%; } }
 
 .status-dialog {
   display: flex;
@@ -14770,7 +15493,7 @@
     position: relative; }
     .status-dialog__icon-area .bottom-right-overlay {
       position: absolute;
-      bottom: 0;
+      bottom: 2rem;
       right: 0;
       width: 3rem;
       height: 3rem; }
@@ -14804,7 +15527,12 @@
       height: 120px; }
     .status-dialog__icon-area--center {
       justify-content: center;
-      width: auto; }
+      width: auto;
+      margin-top: 3rem; }
+  .status-dialog__icon-area.set-currency svg:first-child {
+    margin: 0 auto; }
+  .status-dialog__icon-area.set-currency .bottom-right-overlay {
+    bottom: 2rem; }
   .status-dialog__body-area {
     flex-grow: 1; }
     .status-dialog__body-area h2 {
@@ -14814,7 +15542,8 @@
       text-transform: none;
       text-align: center;
       line-height: 1.75;
-      margin-top: 2rem;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
       color: var(--text-general); }
       @media (min-width: 320px) and (max-width: 767px) {
         .status-dialog__body-area h2 {
@@ -14827,15 +15556,18 @@
       text-transform: none;
       text-align: left;
       line-height: 1.5;
-      padding: 1rem;
+      padding: 0.3rem;
+      line-height: unset;
       text-align: center;
       text-transform: none;
       color: var(--text-general); }
       @media (min-width: 320px) and (max-width: 767px) {
         .status-dialog__body-area p {
-          padding: 0 1rem; } }
+          padding: 0 1rem;
+          line-height: 2rem; } }
     .status-dialog__body-area--no-grow {
-      flex-grow: 0; }
+      flex-grow: 0;
+      margin-bottom: 2rem; }
   .status-dialog__btn-area {
     margin: 2rem 0 1rem;
     width: 100%;
@@ -14843,23 +15575,29 @@
     justify-content: center; }
     .status-dialog__btn-area .dc-btn {
       margin: 0 0.5rem;
-      height: 4rem; }
+      height: 4rem;
+      border-width: 2px; }
       @media (min-width: 320px) and (max-width: 767px) {
         .status-dialog__btn-area .dc-btn {
           width: 100%;
           margin: 0 0.8rem; } }
     @media (min-width: 320px) and (max-width: 767px) {
       .status-dialog__btn-area {
+        margin: 0 0 1rem;
         height: 88px;
-        align-items: center;
-        border-top: 2px solid var(--border-disabled);
-        margin: 0; } }
+        align-items: center; } }
+  @media (min-width: 1024px) {
+    .status-dialog {
+      min-width: 440px; } }
   @media (min-width: 320px) and (max-width: 767px) {
     .status-dialog {
       justify-content: flex-start;
       width: 100%;
       height: 100%;
       padding: 2rem 0 0; } }
+
+.dc-mobile-dialog--enter-done .dc-mobile-dialog__content {
+  transform: unset; }
 
 /*------------------------------------*
  *  # Constants
@@ -14963,11 +15701,194 @@
  * Define Breakpoints here.
  */
 .change-currency {
-  background-color: var(--general-section-1);
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px; }
-  .change-currency h1 {
+  .change-currency__title, .change-currency__sub-title {
     text-transform: none; }
+  .change-currency__title {
+    font-size: 1.6rem;
+    color: var(--text-general);
+    font-weight: 700;
+    text-transform: none;
+    text-align: center;
+    line-height: 1.75;
+    color: var(--text-prominent);
+    margin-top: 3rem; }
+  .change-currency__sub-title {
+    font-size: 1.2rem;
+    color: var(--text-general);
+    font-weight: 400;
+    text-transform: none;
+    text-align: center;
+    line-height: 1.25;
+    color: var(--text-general);
+    margin-bottom: 1.6rem; }
+
+/*------------------------------------*
+ *  # Constants
+ *------------------------------------*/
+/* stylelint-disable color-no-hex */
+/* COLOR PALETTE */
+/* colors */
+/* alpha colors */
+/* gradient colors */
+/* Preserve legacy variables */
+/* Primary */
+/* stylelint-enable color-no-hex */
+/*------------------------------------*
+ *  # SASS Mixins and Functions
+ *------------------------------------*/
+/*
+ * SASS interpolation
+ */
+/*
+ * PX to EM
+ * @param $px - px value to be converted
+ * @param $base - base font size (in `em`)
+ * Note: 'em' values are calculate based on the element font-size
+ *       to properly converts 'px' to 'em', please pass in the element font-size with it
+ * Usage example:
+    padding: em(16px, 1.6em); // font-size in 'em'
+ */
+/*
+ * Set property by passing a property name, and values.
+ * @param $property name - padding, margin etc.
+ * @param $values        - values in `px` (space separated for multiple values)
+ * @param $font-size     - base font-size in `em`
+ * Usage example:
+   @include toEm(padding, 8px 16px 8px, 1.6em);
+ */
+/*
+ * Generate typefaces key-value pair of variable name and config
+ * Example:
+   --paragraph-center-bold-black: (14px, center, bold, black)
+ */
+/*
+ * Sets font-size, font-weight, color, text-transform, text-align and line-height
+ * Usage example:
+   @include setTypeface(16px, bold, black, uppercase);
+ */
+/*
+ * Set typefaces by passing a typeface variable name
+ * @param $var   - typeface variable
+ * @param $tt    - text-transform property
+ * @param $align - text-align property
+ * Usage example:
+   @include typeface(--paragraph-bold-black, uppercase, center);
+ */
+/*
+ * Range Slider Thumb styling is set here
+ */
+/*
+ * SVG icons colors
+ */
+/*
+ * Bar Spinner Animation
+ * @param $count    - number of bars
+ * @param $duration - duration of animation
+ * @param $phase    - each bar phase change delay
+ * Usage example:
+   @include createBarspinnerAnimation(5, 1.2s, 0,1);
+ */
+/*
+ * Tooltip colors
+ * @param $color - color property
+ * Usage example:
+   @include tooltipColor($COLOR_RED);
+ */
+/*
+ * Convert Tooltip colors
+ * @param $color - css color property
+ * Usage example:
+   @include convertTooltipColor(var(--status-default));
+ */
+/*
+    Constants
+*/
+/*
+    Variables
+*/
+/*
+    List of all typefaces variables in the format: --$FONT_SIZES-$TEXT_ALIGN-$FONT_WEIGHTS-COLORS.
+    See $FONT_SIZES, $TEXT_ALIGN, $FONT_WEIGHTS, $COLORS maps above for references.
+    Variables name example: --title-center-semibold-red
+ */
+/*
+    to use styles without modifier class on .inline-icon
+    use @extend
+
+    e.g. style icon on parent hover:
+        a:hover .inline-icon {
+            @extend %inline-icon.active;
+        }
+*/
+/**
+ * Define Breakpoints here.
+ */
+.set-currency-modal {
+  text-align: center; }
+  .set-currency-modal__heading-container {
+    margin: 2rem auto;
+    color: var(--text-general); }
+    .set-currency-modal__heading-container__main-heading {
+      font-size: 1.4rem;
+      line-height: 1.43; }
+      @media (min-width: 320px) and (max-width: 767px) {
+        .set-currency-modal__heading-container__main-heading {
+          padding: 0 3rem; } }
+    .set-currency-modal__heading-container__sub-heading {
+      font-size: 1.6rem;
+      font-weight: bold;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.5;
+      letter-spacing: normal;
+      margin-top: 2rem; }
+  .set-currency-modal .currency-selector {
+    min-height: 330px; }
+    .set-currency-modal .currency-selector__radio-group--is-header {
+      font-size: 1.6rem;
+      font-weight: bold;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.5;
+      letter-spacing: normal;
+      color: var(--text-general); }
+    .set-currency-modal .currency-selector__description {
+      display: none; }
+    @media (min-width: 1024px) {
+      .set-currency-modal .currency-selector__crypto .currency-list__items {
+        margin-bottom: 9rem; }
+      .set-currency-modal .currency-selector .dc-form-submit-button {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        padding: 1.3rem;
+        background-color: var(--general-main-1); }
+        .set-currency-modal .currency-selector .dc-form-submit-button--center {
+          justify-content: flex-end;
+          height: unset; }
+      .set-currency-modal .currency-selector .dc-modal-footer {
+        background-color: var(--general-main-1);
+        position: fixed;
+        right: 0;
+        width: 100%;
+        bottom: 3.5rem; } }
+    @media (min-width: 320px) and (max-width: 767px) {
+      .set-currency-modal .currency-selector {
+        overflow-y: auto; }
+        .set-currency-modal .currency-selector__container--no-top-margin {
+          height: unset; }
+        .set-currency-modal .currency-selector .dc-form-submit-button {
+          position: fixed; }
+          .set-currency-modal .currency-selector .dc-form-submit-button button {
+            width: 100%; }
+        .set-currency-modal .currency-selector .dc-modal-footer {
+          background-color: var(--general-main-1);
+          position: fixed;
+          right: 0;
+          bottom: 0;
+          width: 100%; } }
 
 /*------------------------------------*
  *  # Constants
@@ -15073,7 +15994,8 @@
 .dc-modal__container_real-account-signup-modal {
   display: flex;
   flex-direction: column;
-  transition: all 0.3s ease-in-out; }
+  transition: all 0.3s ease-in-out;
+  background-color: var(--general-main-1); }
   @media (min-width: 768px) and (max-width: 1023px) {
     .dc-modal__container_real-account-signup-modal {
       max-height: calc(100vh - 102px) !important; } }
@@ -15172,6 +16094,14 @@
   height: calc(100% - 57px);
   position: relative;
   width: 100%; }
+  @media (min-width: 1024px) {
+    .account-wizard .currency-list__items__is-fiat {
+      width: 100%; }
+    .account-wizard .currency-list__items__is-crypto {
+      margin-bottom: 9rem; }
+    .account-wizard .dc-modal-footer {
+      background-color: var(--general-main-1);
+      z-index: 1; } }
   @media (min-width: 320px) and (max-width: 767px) {
     .account-wizard {
       grid-template-rows: 7rem minmax(10rem, 1fr);
@@ -15230,7 +16160,7 @@
         font-size: 1.6rem;
         margin: 2rem 0 0;
         font-weight: bold;
-        color: var(--text-less-prominent); }
+        color: var(--text-prominent); }
     .account-wizard form .currency-selector__description {
       margin-top: 2.4rem;
       font-size: 1.4rem;
@@ -15252,6 +16182,13 @@
             margin-top: 0; } }
     .account-wizard form .currency-selector__button {
       margin-top: 1.6rem; }
+    @media (min-width: 320px) and (max-width: 767px) {
+      .account-wizard form .currency-selector--deriv-account {
+        border-top: 2px solid var(--general-section-1);
+        padding-top: 10px; }
+        .account-wizard form .currency-selector--deriv-account .dc-btn:last-child {
+          width: 90%;
+          margin: 0 auto; } }
   .account-wizard__body {
     display: flex; }
     @media (min-width: 768px) and (max-width: 1023px) {
@@ -15302,9 +16239,7 @@
       text-transform: none; }
   .account-wizard--disabled {
     position: relative; }
-    .account-wizard--disabled h1,
     .account-wizard--disabled h2,
-    .account-wizard--disabled h3,
     .account-wizard--disabled p {
       color: var(--text-disabled); }
     .account-wizard--disabled .currency-list__item {
@@ -15321,7 +16256,6 @@
       height: 100%;
       z-index: 99;
       display: flex;
-      align-items: center;
       justify-content: center; }
       .account-wizard--disabled-message p {
         color: var(--text-general);
@@ -15657,6 +16591,110 @@
 /**
  * Define Breakpoints here.
  */
+#dt_set_account_currency_modal .dc-btn--secondary {
+  margin-right: 1rem; }
+
+/*------------------------------------*
+ *  # Constants
+ *------------------------------------*/
+/* stylelint-disable color-no-hex */
+/* COLOR PALETTE */
+/* colors */
+/* alpha colors */
+/* gradient colors */
+/* Preserve legacy variables */
+/* Primary */
+/* stylelint-enable color-no-hex */
+/*------------------------------------*
+ *  # SASS Mixins and Functions
+ *------------------------------------*/
+/*
+ * SASS interpolation
+ */
+/*
+ * PX to EM
+ * @param $px - px value to be converted
+ * @param $base - base font size (in `em`)
+ * Note: 'em' values are calculate based on the element font-size
+ *       to properly converts 'px' to 'em', please pass in the element font-size with it
+ * Usage example:
+    padding: em(16px, 1.6em); // font-size in 'em'
+ */
+/*
+ * Set property by passing a property name, and values.
+ * @param $property name - padding, margin etc.
+ * @param $values        - values in `px` (space separated for multiple values)
+ * @param $font-size     - base font-size in `em`
+ * Usage example:
+   @include toEm(padding, 8px 16px 8px, 1.6em);
+ */
+/*
+ * Generate typefaces key-value pair of variable name and config
+ * Example:
+   --paragraph-center-bold-black: (14px, center, bold, black)
+ */
+/*
+ * Sets font-size, font-weight, color, text-transform, text-align and line-height
+ * Usage example:
+   @include setTypeface(16px, bold, black, uppercase);
+ */
+/*
+ * Set typefaces by passing a typeface variable name
+ * @param $var   - typeface variable
+ * @param $tt    - text-transform property
+ * @param $align - text-align property
+ * Usage example:
+   @include typeface(--paragraph-bold-black, uppercase, center);
+ */
+/*
+ * Range Slider Thumb styling is set here
+ */
+/*
+ * SVG icons colors
+ */
+/*
+ * Bar Spinner Animation
+ * @param $count    - number of bars
+ * @param $duration - duration of animation
+ * @param $phase    - each bar phase change delay
+ * Usage example:
+   @include createBarspinnerAnimation(5, 1.2s, 0,1);
+ */
+/*
+ * Tooltip colors
+ * @param $color - color property
+ * Usage example:
+   @include tooltipColor($COLOR_RED);
+ */
+/*
+ * Convert Tooltip colors
+ * @param $color - css color property
+ * Usage example:
+   @include convertTooltipColor(var(--status-default));
+ */
+/*
+    Constants
+*/
+/*
+    Variables
+*/
+/*
+    List of all typefaces variables in the format: --$FONT_SIZES-$TEXT_ALIGN-$FONT_WEIGHTS-COLORS.
+    See $FONT_SIZES, $TEXT_ALIGN, $FONT_WEIGHTS, $COLORS maps above for references.
+    Variables name example: --title-center-semibold-red
+ */
+/*
+    to use styles without modifier class on .inline-icon
+    use @extend
+
+    e.g. style icon on parent hover:
+        a:hover .inline-icon {
+            @extend %inline-icon.active;
+        }
+*/
+/**
+ * Define Breakpoints here.
+ */
 /** @define notification-messages; */
 .notification-messages {
   z-index: 4;
@@ -15703,6 +16741,9 @@
   .notification__text-body {
     font-size: 1.4rem;
     line-height: 1.43; }
+  .notification__action {
+    display: flex;
+    justify-content: flex-end; }
   .notification__header {
     font-size: 1.6rem;
     font-weight: bold;
@@ -16189,6 +17230,14 @@ strong {
   --text-size-l: 3.2rem;
   --text-size-xl: 4.8rem;
   --text-size-xxl: 6.4rem;
+  --text-lh-l: 1.75;
+  --text-lh-m: 1.5;
+  --text-lh-s: 1.25;
+  --text-lh-x: 1.4;
+  --text-weight-l: 300;
+  --text-weight-n: 400;
+  --text-weight-s: 500;
+  --text-weight-b: 700;
   --brand-dark-grey: #0e0e0e;
   --brand-red-coral: #ff444f;
   --brand-orange: #ff6444;
@@ -16239,6 +17288,7 @@ strong {
     --fill-active: var(--brand-secondary);
     --fill-disabled: #eaeced;
     --status-default: #eaeced;
+    --status-adjustment: #999999;
     --status-danger: #ec3f3f;
     --status-success: #4bb4b3;
     --status-warning: #ffad3a;
@@ -16295,6 +17345,7 @@ strong {
     --fill-active: var(--brand-secondary);
     --fill-disabled: #1d1f20;
     --status-default: #eaeced;
+    --status-adjustment: #999999;
     --status-danger: #cc2e3d;
     --status-warning: #ffad3a;
     --status-success: #00a79e;
@@ -16305,58 +17356,6 @@ strong {
     /* TODO: change to styleguide later */
     --gradient-success: linear-gradient(to top, #0e0e0e, rgba(0, 167, 158, 0.16));
     --gradient-danger: linear-gradient(to top, #0e0e0e, rgba(255, 68, 79, 0.16)); }
-
-@font-face {
-  font-family: 'BinarySymbols';
-  font-style: normal;
-  font-weight: normal;
-  font-display: fallback;
-  src: url(/public/fonts/binary_symbols.woff) format("woff"); }
-
-/** @define symbols */
-.symbols:before {
-  font-family: 'BinarySymbols';
-  font-style: normal;
-  pointer-events: none;
-  padding-right: 0.05em; }
-
-.symbols, .symbols:before {
-  transition: none;
-  -webkit-animation: none;
-          animation: none; }
-
-.symbols--aud:before {
-  content: '\0041\0024'; }
-
-.symbols--eur:before {
-  content: '\20AC'; }
-
-.symbols--gbp:before {
-  content: '\00A3'; }
-
-.symbols--jpy:before {
-  content: '\00A5'; }
-
-.symbols--usd:before {
-  content: '\0024'; }
-
-.symbols--btc:before {
-  content: '\0042'; }
-
-.symbols--bch:before {
-  content: '\e901'; }
-
-.symbols--eth:before {
-  content: '\0045'; }
-
-.symbols--etc:before {
-  content: '\e900'; }
-
-.symbols--ltc:before {
-  content: '\004c'; }
-
-.symbols--ust:before {
-  content: '\e903'; }
 
 @media (min-width: 320px) and (max-width: 767px) {
   /** disabling pull to refresh on iOS / Android browsers */
@@ -16483,7 +17482,8 @@ strong {
         top: 0; }
       .app-contents .contract-details-wrapper {
         height: inherit;
-        position: relative; }
+        position: relative;
+        z-index: 1; }
       .app-contents .contract-audit-card {
         background-color: var(--general-section-1);
         border-radius: 4px; }
@@ -16679,6 +17679,8 @@ strong {
       margin-right: 16px;
       width: 16px;
       height: 16px; }
+    .header__menu-mobile-link-flag-icon {
+      margin-right: 16px; }
     .header__menu-mobile-link-suffix-icon {
       width: 16px;
       height: 16px;
@@ -17141,13 +18143,18 @@ strong {
   padding-right: 1.6rem; }
   .livechat__icon {
     margin-right: 0.8rem; }
+    .livechat__icon-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center; }
   .livechat__title {
     font-size: 1.4rem;
     color: var(--text-general);
     font-weight: 400;
     text-transform: none;
     text-align: left;
-    line-height: 1.5; }
+    line-height: 1.5;
+    line-height: 1.25; }
 
 /** @define cookie-banner; weak */
 .cookie-banner {
@@ -17385,4 +18392,185 @@ strong {
 
 .redirect-notice {
   z-index: 50000; }
+
+.dc-modal__container_welcome {
+  overflow: visible; }
+  @media (min-width: 320px) and (max-width: 767px) {
+    .dc-modal__container_welcome {
+      overflow: auto;
+      max-height: 95vh; } }
+
+.welcome__title {
+  font-size: 1.6rem;
+  color: var(--text-prominent);
+  font-weight: 700;
+  text-transform: none;
+  text-align: center;
+  line-height: 1.75;
+  margin: 2.4rem; }
+
+.welcome__message {
+  display: none;
+  flex-direction: row;
+  position: fixed;
+  align-items: center; }
+  .welcome__message__text {
+    font-size: 1.6rem;
+    color: var(--text-colored-background);
+    font-weight: 700;
+    text-transform: none;
+    text-align: left;
+    line-height: 1.75;
+    padding-left: 0.8rem; }
+  .welcome__message--left {
+    top: 50%;
+    left: -1.6rem;
+    transform: translate(-100%, -50%); }
+    .welcome__message--left .welcome__message__text {
+      width: 12rem; }
+  .welcome__message--right {
+    top: 50%;
+    right: -1.6rem;
+    transform: translate(100%, -50%); }
+  @media (min-width: 1024px) {
+    .welcome__message--visible {
+      display: flex; } }
+
+.welcome__carousel {
+  width: 100%; }
+
+.welcome-column {
+  width: 32rem;
+  height: 46.3rem;
+  position: relative;
+  padding: 1.6rem 3.2rem;
+  background-repeat: no-repeat;
+  background-position: top right; }
+  @media (min-width: 320px) and (max-width: 767px) {
+    .welcome-column {
+      width: 100%;
+      box-shadow: none; }
+      .welcome-column:not(:last-child) {
+        margin-bottom: 3rem; } }
+  .welcome-column:hover {
+    box-shadow: 0 0 3rem 0.5rem var(--shadow-drop); }
+  .welcome-column--left:hover {
+    background-image: url(/public/images/common/welcome-bg-blue.svg); }
+  @media (min-width: 320px) and (max-width: 767px) {
+    .welcome-column--left {
+      background-image: url(/public/images/common/welcome-bg-blue.svg); } }
+  .welcome-column--right:hover {
+    background-image: url(/public/images/common/welcome-bg-red.svg); }
+  @media (min-width: 320px) and (max-width: 767px) {
+    .welcome-column--right {
+      background-image: url(/public/images/common/welcome-bg-red.svg); } }
+  .welcome-column__icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; }
+  .welcome-column__icon {
+    margin: 0.8rem 0.6rem 1.6rem; }
+  .welcome-column__title {
+    font-size: 1.6rem;
+    color: var(--text-prominent);
+    font-weight: 700;
+    text-transform: none;
+    text-align: center;
+    line-height: 1.75; }
+  .welcome-column__description {
+    font-size: 1.2rem;
+    color: var(--text-prominent);
+    font-weight: 400;
+    text-transform: none;
+    text-align: center;
+    line-height: 1.25;
+    line-height: 1.5;
+    height: 7.8rem;
+    padding: 0.8rem 0 1.6rem;
+    border-bottom: 1px solid var(--general-section-1); }
+  .welcome-column__footer {
+    position: absolute;
+    bottom: 1.6rem;
+    left: 1.6rem;
+    width: calc(100% - 3.2rem); }
+    @media (min-width: 320px) and (max-width: 767px) {
+      .welcome-column__footer {
+        left: 3.2rem;
+        width: calc(100% - 6.4rem);
+        bottom: 0.6rem; } }
+    .welcome-column__footer__text {
+      font-size: 1.2rem;
+      color: var(--text-less-prominent);
+      font-weight: 400;
+      text-transform: none;
+      text-align: center;
+      line-height: 1.25;
+      padding-top: 0.8rem; }
+      @media (min-width: 1024px) {
+        .welcome-column__footer__text {
+          display: none; } }
+  .welcome-column__button {
+    width: 100%; }
+  .welcome-column__platforms__title {
+    font-size: 1.4rem;
+    color: var(--text-prominent);
+    font-weight: 700;
+    text-transform: none;
+    text-align: center;
+    line-height: 1.5;
+    padding: 2.4rem 1.6rem 1.6rem; }
+  .welcome-column__platforms__container {
+    display: flex;
+    flex-direction: column; }
+  .welcome-column__platform {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    grid-column-gap: 0.8rem;
+    grid-row-gap: 0.4rem;
+    margin-bottom: 1.6rem; }
+    @media (min-width: 320px) and (max-width: 767px) {
+      .welcome-column__platform {
+        margin-bottom: 0.6rem; } }
+    .welcome-column__platform__icon {
+      grid-row: 1 / -1;
+      grid-column: 1; }
+    .welcome-column__platform__title {
+      font-size: 1.2rem;
+      color: var(--text-prominent);
+      font-weight: 700;
+      text-transform: none;
+      text-align: left;
+      line-height: 1.25;
+      grid-row: 1;
+      grid-column: 2; }
+    .welcome-column__platform__description {
+      font-size: 1.2rem;
+      color: var(--text-less-prominent);
+      font-weight: 400;
+      text-transform: none;
+      text-align: left;
+      line-height: 1.25;
+      grid-row: 2;
+      grid-column: 2; }
+
+.welcome__body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly; }
+  @media (min-width: 320px) and (max-width: 767px) {
+    .welcome__body {
+      flex-wrap: wrap; } }
+
+.welcome__footer {
+  font-size: 1.2rem;
+  color: var(--text-less-prominent);
+  font-weight: 400;
+  text-transform: none;
+  text-align: center;
+  line-height: 1.25;
+  padding: 2.4rem; }
+  @media (min-width: 320px) and (max-width: 767px) {
+    .welcome__footer {
+      display: none; } }
 
