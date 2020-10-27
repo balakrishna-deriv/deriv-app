@@ -657,10 +657,6 @@
     .positions-modal__footer-btn {
       margin: 1.6rem 0.8rem;
       width: calc(100% - 1.6rem); }
-  .positions-modal .dc-contract-card-dialog-toggle {
-    top: 77px;
-    right: 8px;
-    width: 33%; }
 
 /*------------------------------------*
  *  # Constants
@@ -760,225 +756,70 @@
             @extend %inline-icon.active;
         }
 */
-.contract-drawer svg, .positions-drawer__icon-close svg, .input-wrapper__icon, .time-picker__icon, .contract-type-widget__select-arrow, .info-box-container .info-box-longcode-icon {
+.contract-drawer svg, .positions-drawer__icon-close svg, .time-picker__icon, .contract-type-widget__select-arrow, .info-box-container .info-box-longcode-icon {
   /* postcss-bem-linter: ignore */
   /* postcss-bem-linter: ignore */
   /* postcss-bem-linter: ignore */
   /* postcss-bem-linter: ignore */ }
-  .contract-drawer svg .color1-fill, .positions-drawer__icon-close svg .color1-fill, .input-wrapper__icon .color1-fill, .time-picker__icon .color1-fill, .contract-type-widget__select-arrow .color1-fill, .info-box-container .info-box-longcode-icon .color1-fill {
+  .contract-drawer svg .color1-fill, .positions-drawer__icon-close svg .color1-fill, .time-picker__icon .color1-fill, .contract-type-widget__select-arrow .color1-fill, .info-box-container .info-box-longcode-icon .color1-fill {
     fill: var(--text-general); }
-  .contract-drawer svg .color1-stroke, .positions-drawer__icon-close svg .color1-stroke, .input-wrapper__icon .color1-stroke, .time-picker__icon .color1-stroke, .contract-type-widget__select-arrow .color1-stroke, .info-box-container .info-box-longcode-icon .color1-stroke {
+  .contract-drawer svg .color1-stroke, .positions-drawer__icon-close svg .color1-stroke, .time-picker__icon .color1-stroke, .contract-type-widget__select-arrow .color1-stroke, .info-box-container .info-box-longcode-icon .color1-stroke {
     stroke: var(--text-general); }
-  .contract-drawer svg .color2-fill, .positions-drawer__icon-close svg .color2-fill, .input-wrapper__icon .color2-fill, .time-picker__icon .color2-fill, .contract-type-widget__select-arrow .color2-fill, .info-box-container .info-box-longcode-icon .color2-fill {
+  .contract-drawer svg .color2-fill, .positions-drawer__icon-close svg .color2-fill, .time-picker__icon .color2-fill, .contract-type-widget__select-arrow .color2-fill, .info-box-container .info-box-longcode-icon .color2-fill {
     fill: none; }
-  .contract-drawer svg .color2-stroke, .positions-drawer__icon-close svg .color2-stroke, .input-wrapper__icon .color2-stroke, .time-picker__icon .color2-stroke, .contract-type-widget__select-arrow .color2-stroke, .info-box-container .info-box-longcode-icon .color2-stroke {
+  .contract-drawer svg .color2-stroke, .positions-drawer__icon-close svg .color2-stroke, .time-picker__icon .color2-stroke, .contract-type-widget__select-arrow .color2-stroke, .info-box-container .info-box-longcode-icon .color2-stroke {
     stroke: none; }
-  .contract-drawer svg.active, .positions-drawer__icon-close svg.active, .active.input-wrapper__icon, .active.time-picker__icon, .active.contract-type-widget__select-arrow, .info-box-container .active.info-box-longcode-icon {
+  .contract-drawer svg.active, .positions-drawer__icon-close svg.active, .active.time-picker__icon, .active.contract-type-widget__select-arrow, .info-box-container .active.info-box-longcode-icon {
     /* postcss-bem-linter: ignore */
     /* postcss-bem-linter: ignore */
     /* postcss-bem-linter: ignore */
     /* postcss-bem-linter: ignore */ }
-    .contract-drawer svg.active .color1-fill, .positions-drawer__icon-close svg.active .color1-fill, .active.input-wrapper__icon .color1-fill, .active.time-picker__icon .color1-fill, .active.contract-type-widget__select-arrow .color1-fill, .info-box-container .active.info-box-longcode-icon .color1-fill {
+    .contract-drawer svg.active .color1-fill, .positions-drawer__icon-close svg.active .color1-fill, .active.time-picker__icon .color1-fill, .active.contract-type-widget__select-arrow .color1-fill, .info-box-container .active.info-box-longcode-icon .color1-fill {
       fill: var(--text-prominent); }
-    .contract-drawer svg.active .color1-stroke, .positions-drawer__icon-close svg.active .color1-stroke, .active.input-wrapper__icon .color1-stroke, .active.time-picker__icon .color1-stroke, .active.contract-type-widget__select-arrow .color1-stroke, .info-box-container .active.info-box-longcode-icon .color1-stroke {
+    .contract-drawer svg.active .color1-stroke, .positions-drawer__icon-close svg.active .color1-stroke, .active.time-picker__icon .color1-stroke, .active.contract-type-widget__select-arrow .color1-stroke, .info-box-container .active.info-box-longcode-icon .color1-stroke {
       stroke: var(--text-prominent); }
-    .contract-drawer svg.active .color2-fill, .positions-drawer__icon-close svg.active .color2-fill, .active.input-wrapper__icon .color2-fill, .active.time-picker__icon .color2-fill, .active.contract-type-widget__select-arrow .color2-fill, .info-box-container .active.info-box-longcode-icon .color2-fill {
+    .contract-drawer svg.active .color2-fill, .positions-drawer__icon-close svg.active .color2-fill, .active.time-picker__icon .color2-fill, .active.contract-type-widget__select-arrow .color2-fill, .info-box-container .active.info-box-longcode-icon .color2-fill {
       fill: none; }
-    .contract-drawer svg.active .color2-stroke, .positions-drawer__icon-close svg.active .color2-stroke, .active.input-wrapper__icon .color2-stroke, .active.time-picker__icon .color2-stroke, .active.contract-type-widget__select-arrow .color2-stroke, .info-box-container .active.info-box-longcode-icon .color2-stroke {
+    .contract-drawer svg.active .color2-stroke, .positions-drawer__icon-close svg.active .color2-stroke, .active.time-picker__icon .color2-stroke, .active.contract-type-widget__select-arrow .color2-stroke, .info-box-container .active.info-box-longcode-icon .color2-stroke {
       stroke: none; }
-  .contract-drawer svg.disabled, .positions-drawer__icon-close svg.disabled, .disabled.input-wrapper__icon, .disabled.time-picker__icon, .disabled.contract-type-widget__select-arrow, .info-box-container .disabled.info-box-longcode-icon, .portfolio-empty__icon {
+  .contract-drawer svg.disabled, .positions-drawer__icon-close svg.disabled, .disabled.time-picker__icon, .disabled.contract-type-widget__select-arrow, .info-box-container .disabled.info-box-longcode-icon, .portfolio-empty__icon {
     /* postcss-bem-linter: ignore */
     /* postcss-bem-linter: ignore */
     /* postcss-bem-linter: ignore */
     /* postcss-bem-linter: ignore */ }
-    .contract-drawer svg.disabled .color1-fill, .positions-drawer__icon-close svg.disabled .color1-fill, .disabled.input-wrapper__icon .color1-fill, .disabled.time-picker__icon .color1-fill, .disabled.contract-type-widget__select-arrow .color1-fill, .info-box-container .disabled.info-box-longcode-icon .color1-fill, .portfolio-empty__icon .color1-fill {
+    .contract-drawer svg.disabled .color1-fill, .positions-drawer__icon-close svg.disabled .color1-fill, .disabled.time-picker__icon .color1-fill, .disabled.contract-type-widget__select-arrow .color1-fill, .info-box-container .disabled.info-box-longcode-icon .color1-fill, .portfolio-empty__icon .color1-fill {
       fill: var(--text-disabled); }
-    .contract-drawer svg.disabled .color1-stroke, .positions-drawer__icon-close svg.disabled .color1-stroke, .disabled.input-wrapper__icon .color1-stroke, .disabled.time-picker__icon .color1-stroke, .disabled.contract-type-widget__select-arrow .color1-stroke, .info-box-container .disabled.info-box-longcode-icon .color1-stroke, .portfolio-empty__icon .color1-stroke {
+    .contract-drawer svg.disabled .color1-stroke, .positions-drawer__icon-close svg.disabled .color1-stroke, .disabled.time-picker__icon .color1-stroke, .disabled.contract-type-widget__select-arrow .color1-stroke, .info-box-container .disabled.info-box-longcode-icon .color1-stroke, .portfolio-empty__icon .color1-stroke {
       stroke: var(--text-disabled); }
-    .contract-drawer svg.disabled .color2-fill, .positions-drawer__icon-close svg.disabled .color2-fill, .disabled.input-wrapper__icon .color2-fill, .disabled.time-picker__icon .color2-fill, .disabled.contract-type-widget__select-arrow .color2-fill, .info-box-container .disabled.info-box-longcode-icon .color2-fill, .portfolio-empty__icon .color2-fill {
+    .contract-drawer svg.disabled .color2-fill, .positions-drawer__icon-close svg.disabled .color2-fill, .disabled.time-picker__icon .color2-fill, .disabled.contract-type-widget__select-arrow .color2-fill, .info-box-container .disabled.info-box-longcode-icon .color2-fill, .portfolio-empty__icon .color2-fill {
       fill: none; }
-    .contract-drawer svg.disabled .color2-stroke, .positions-drawer__icon-close svg.disabled .color2-stroke, .disabled.input-wrapper__icon .color2-stroke, .disabled.time-picker__icon .color2-stroke, .disabled.contract-type-widget__select-arrow .color2-stroke, .info-box-container .disabled.info-box-longcode-icon .color2-stroke, .portfolio-empty__icon .color2-stroke {
+    .contract-drawer svg.disabled .color2-stroke, .positions-drawer__icon-close svg.disabled .color2-stroke, .disabled.time-picker__icon .color2-stroke, .disabled.contract-type-widget__select-arrow .color2-stroke, .info-box-container .disabled.info-box-longcode-icon .color2-stroke, .portfolio-empty__icon .color2-stroke {
       stroke: none; }
-  .contract-drawer svg.white, .positions-drawer__icon-close svg.white, .white.input-wrapper__icon, .white.time-picker__icon, .white.contract-type-widget__select-arrow, .btn-purchase__icon_wrapper, .info-box-container .white.info-box-longcode-icon {
+  .contract-drawer svg.white, .positions-drawer__icon-close svg.white, .white.time-picker__icon, .white.contract-type-widget__select-arrow, .btn-purchase__icon_wrapper, .info-box-container .white.info-box-longcode-icon {
     /* postcss-bem-linter: ignore */
     /* postcss-bem-linter: ignore */ }
-    .contract-drawer svg.white .color1-fill, .positions-drawer__icon-close svg.white .color1-fill, .white.input-wrapper__icon .color1-fill, .white.time-picker__icon .color1-fill, .white.contract-type-widget__select-arrow .color1-fill, .btn-purchase__icon_wrapper .color1-fill, .info-box-container .white.info-box-longcode-icon .color1-fill {
+    .contract-drawer svg.white .color1-fill, .positions-drawer__icon-close svg.white .color1-fill, .white.time-picker__icon .color1-fill, .white.contract-type-widget__select-arrow .color1-fill, .btn-purchase__icon_wrapper .color1-fill, .info-box-container .white.info-box-longcode-icon .color1-fill {
       fill: var(--text-prominent); }
-    .contract-drawer svg.white .color1-stroke, .positions-drawer__icon-close svg.white .color1-stroke, .white.input-wrapper__icon .color1-stroke, .white.time-picker__icon .color1-stroke, .white.contract-type-widget__select-arrow .color1-stroke, .btn-purchase__icon_wrapper .color1-stroke, .info-box-container .white.info-box-longcode-icon .color1-stroke {
+    .contract-drawer svg.white .color1-stroke, .positions-drawer__icon-close svg.white .color1-stroke, .white.time-picker__icon .color1-stroke, .white.contract-type-widget__select-arrow .color1-stroke, .btn-purchase__icon_wrapper .color1-stroke, .info-box-container .white.info-box-longcode-icon .color1-stroke {
       stroke: var(--text-prominent); }
-  .contract-drawer svg.border_hover_color, .positions-drawer__icon-close svg.border_hover_color, .border_hover_color.input-wrapper__icon, .border_hover_color.time-picker__icon, .border_hover_color.contract-type-widget__select-arrow, .info-box-container .border_hover_color.info-box-longcode-icon {
+  .contract-drawer svg.border_hover_color, .positions-drawer__icon-close svg.border_hover_color, .border_hover_color.time-picker__icon, .border_hover_color.contract-type-widget__select-arrow, .info-box-container .border_hover_color.info-box-longcode-icon {
     /* postcss-bem-linter: ignore */
     /* postcss-bem-linter: ignore */ }
-    .contract-drawer svg.border_hover_color .color1-fill, .positions-drawer__icon-close svg.border_hover_color .color1-fill, .border_hover_color.input-wrapper__icon .color1-fill, .border_hover_color.time-picker__icon .color1-fill, .border_hover_color.contract-type-widget__select-arrow .color1-fill, .info-box-container .border_hover_color.info-box-longcode-icon .color1-fill {
+    .contract-drawer svg.border_hover_color .color1-fill, .positions-drawer__icon-close svg.border_hover_color .color1-fill, .border_hover_color.time-picker__icon .color1-fill, .border_hover_color.contract-type-widget__select-arrow .color1-fill, .info-box-container .border_hover_color.info-box-longcode-icon .color1-fill {
       fill: var(--text-prominent); }
-    .contract-drawer svg.border_hover_color .color1-stroke, .positions-drawer__icon-close svg.border_hover_color .color1-stroke, .border_hover_color.input-wrapper__icon .color1-stroke, .border_hover_color.time-picker__icon .color1-stroke, .border_hover_color.contract-type-widget__select-arrow .color1-stroke, .info-box-container .border_hover_color.info-box-longcode-icon .color1-stroke {
+    .contract-drawer svg.border_hover_color .color1-stroke, .positions-drawer__icon-close svg.border_hover_color .color1-stroke, .border_hover_color.time-picker__icon .color1-stroke, .border_hover_color.contract-type-widget__select-arrow .color1-stroke, .info-box-container .border_hover_color.info-box-longcode-icon .color1-stroke {
       stroke: var(--text-prominent); }
-  .contract-drawer svg.secondary, .positions-drawer__icon-close svg.secondary, .secondary.input-wrapper__icon, .secondary.time-picker__icon, .secondary.contract-type-widget__select-arrow, .info-box-container .secondary.info-box-longcode-icon {
+  .contract-drawer svg.secondary, .positions-drawer__icon-close svg.secondary, .secondary.time-picker__icon, .secondary.contract-type-widget__select-arrow, .info-box-container .secondary.info-box-longcode-icon {
     /* postcss-bem-linter: ignore */
     /* postcss-bem-linter: ignore */ }
-    .contract-drawer svg.secondary .color1-fill, .positions-drawer__icon-close svg.secondary .color1-fill, .secondary.input-wrapper__icon .color1-fill, .secondary.time-picker__icon .color1-fill, .secondary.contract-type-widget__select-arrow .color1-fill, .info-box-container .secondary.info-box-longcode-icon .color1-fill {
+    .contract-drawer svg.secondary .color1-fill, .positions-drawer__icon-close svg.secondary .color1-fill, .secondary.time-picker__icon .color1-fill, .secondary.contract-type-widget__select-arrow .color1-fill, .info-box-container .secondary.info-box-longcode-icon .color1-fill {
       fill: var(--text-less-prominent); }
-    .contract-drawer svg.secondary .color1-stroke, .positions-drawer__icon-close svg.secondary .color1-stroke, .secondary.input-wrapper__icon .color1-stroke, .secondary.time-picker__icon .color1-stroke, .secondary.contract-type-widget__select-arrow .color1-stroke, .info-box-container .secondary.info-box-longcode-icon .color1-stroke {
+    .contract-drawer svg.secondary .color1-stroke, .positions-drawer__icon-close svg.secondary .color1-stroke, .secondary.time-picker__icon .color1-stroke, .secondary.contract-type-widget__select-arrow .color1-stroke, .info-box-container .secondary.info-box-longcode-icon .color1-stroke {
       stroke: var(--text-less-prominent); }
 
 /**
  * Define Breakpoints here.
  */
-.dc-tooltip {
-  text-decoration: none;
-  font-size: inherit;
-  color: var(--text-prominent); }
-  .dc-tooltip:before {
-    background: var(--status-default); }
-  .dc-tooltip:after, .dc-tooltip[data-tooltip-pos='top']:after {
-    border-top-color: var(--status-default); }
-  .dc-tooltip[data-tooltip-pos='right']:after {
-    border-top-color: transparent;
-    border-right-color: var(--status-default); }
-  .dc-tooltip[data-tooltip-pos='left']:after {
-    border-top-color: transparent;
-    border-left-color: var(--status-default); }
-  .dc-tooltip[data-tooltip-pos='bottom']:after {
-    border-top-color: transparent;
-    border-bottom-color: var(--status-default); }
-  .dc-tooltip__balloon-icon {
-    position: absolute;
-    top: 0;
-    left: -319px;
-    z-index: 999;
-    opacity: 0;
-    transition: opacity 0.3s;
-    pointer-events: none; }
-    .dc-tooltip__balloon-icon--show {
-      transition: opacity 0.3s 0.2s;
-      opacity: 1; }
-  .dc-tooltip[data-tooltip] {
-    cursor: auto;
-    cursor: initial;
-    display: block; }
-    .dc-tooltip[data-tooltip]:before {
-      background: var(--status-default); }
-    .dc-tooltip[data-tooltip]:after, .dc-tooltip[data-tooltip][data-tooltip-pos='top']:after {
-      border-top-color: var(--status-default); }
-    .dc-tooltip[data-tooltip][data-tooltip-pos='right']:after {
-      border-top-color: transparent;
-      border-right-color: var(--status-default); }
-    .dc-tooltip[data-tooltip][data-tooltip-pos='left']:after {
-      border-top-color: transparent;
-      border-left-color: var(--status-default); }
-    .dc-tooltip[data-tooltip][data-tooltip-pos='bottom']:after {
-      border-top-color: transparent;
-      border-bottom-color: var(--status-default); }
-    .dc-tooltip[data-tooltip]:hover:after, .dc-tooltip[data-tooltip]:hover:before {
-      opacity: 0.96;
-      pointer-events: auto;
-      transform: translate(-50%, 0); }
-    .dc-tooltip[data-tooltip]:before, .dc-tooltip[data-tooltip]:after {
-      opacity: 0;
-      pointer-events: none;
-      transition: all 0.18s ease-out 0.18s;
-      bottom: 100%;
-      left: 50%;
-      position: absolute;
-      z-index: 1;
-      transform: translate(-50%, 1em);
-      transform-origin: top; }
-    .dc-tooltip[data-tooltip]:before {
-      font-size: 1.2rem;
-      color: var(--text-colored-background);
-      font-weight: 400;
-      text-transform: none;
-      text-align: left;
-      line-height: 1.25;
-      line-height: 1.5;
-      text-decoration: none;
-      letter-spacing: normal;
-      border-radius: 4px;
-      content: attr(data-tooltip);
-      padding: 0.7em;
-      margin-bottom: 10px;
-      width: -webkit-max-content;
-      width: -moz-max-content;
-      width: max-content;
-      width: 220px;
-      max-width: 280px; }
-    .dc-tooltip[data-tooltip]:after {
-      border: solid transparent;
-      content: '';
-      height: 0;
-      width: 0;
-      position: absolute;
-      pointer-events: none;
-      border-width: 6px;
-      margin-bottom: -2px; }
-    .dc-tooltip[data-tooltip][data-tooltip-pos='right']:before, .dc-tooltip[data-tooltip][data-tooltip-pos='right']:after {
-      bottom: auto;
-      left: 100%;
-      top: 50%;
-      transform: translate(-1em, -50%); }
-    .dc-tooltip[data-tooltip][data-tooltip-pos='right']:before {
-      margin-left: 1em; }
-    .dc-tooltip[data-tooltip][data-tooltip-pos='right']:hover:after, .dc-tooltip[data-tooltip][data-tooltip-pos='right']:hover:before {
-      transform: translate(0, -50%); }
-    .dc-tooltip[data-tooltip][data-tooltip-pos='left']:before, .dc-tooltip[data-tooltip][data-tooltip-pos='left']:after {
-      bottom: auto;
-      left: auto;
-      right: 100%;
-      top: 50%;
-      transform: translate(1em, -50%); }
-    .dc-tooltip[data-tooltip][data-tooltip-pos='left']:before {
-      margin-right: 1em; }
-    .dc-tooltip[data-tooltip][data-tooltip-pos='left']:hover:after, .dc-tooltip[data-tooltip][data-tooltip-pos='left']:hover:before {
-      transform: translate(0, -50%); }
-    .dc-tooltip[data-tooltip][data-tooltip-pos='bottom']:before, .dc-tooltip[data-tooltip][data-tooltip-pos='bottom']:after {
-      bottom: auto;
-      left: 50%;
-      top: 100%;
-      transform: translate(-50%, -1em); }
-    .dc-tooltip[data-tooltip][data-tooltip-pos='bottom']:before {
-      margin-top: 1.1em; }
-    .dc-tooltip[data-tooltip][data-tooltip-pos='bottom']:hover:after, .dc-tooltip[data-tooltip][data-tooltip-pos='bottom']:hover:before {
-      transform: translate(-50%, 0); }
-  .dc-tooltip--with-label[data-tooltip]:before, .dc-tooltip--with-label[data-tooltip]:after {
-    margin-top: 1em; }
-  .dc-tooltip--error[data-tooltip]:before {
-    background: var(--status-danger); }
-  .dc-tooltip--error[data-tooltip]:after, .dc-tooltip--error[data-tooltip][data-tooltip-pos='top']:after {
-    border-top-color: var(--status-danger); }
-  .dc-tooltip--error[data-tooltip][data-tooltip-pos='right']:after {
-    border-top-color: transparent;
-    border-right-color: var(--status-danger); }
-  .dc-tooltip--error[data-tooltip][data-tooltip-pos='left']:after {
-    border-top-color: transparent;
-    border-left-color: var(--status-danger); }
-  .dc-tooltip--error[data-tooltip][data-tooltip-pos='bottom']:after {
-    border-top-color: transparent;
-    border-bottom-color: var(--status-danger); }
-  .dc-tooltip--error[data-tooltip]:after, .dc-tooltip--error[data-tooltip]:before, .dc-tooltip--error[data-tooltip][data-tooltip-pos='left']:after, .dc-tooltip--error[data-tooltip][data-tooltip-pos='left']:before {
-    opacity: 0.96;
-    pointer-events: auto;
-    transform: translate(0, -50%); }
-  .dc-tooltip--error[data-tooltip]:before, .dc-tooltip--error[data-tooltip][data-tooltip-pos='left']:before {
-    width: 180px; }
-  .dc-tooltip--error-secondary[data-tooltip]:before {
-    background: var(--status-danger); }
-  .dc-tooltip--error-secondary[data-tooltip]:after, .dc-tooltip--error-secondary[data-tooltip][data-tooltip-pos='top']:after {
-    border-top-color: var(--status-danger); }
-  .dc-tooltip--error-secondary[data-tooltip][data-tooltip-pos='right']:after {
-    border-top-color: transparent;
-    border-right-color: var(--status-danger); }
-  .dc-tooltip--error-secondary[data-tooltip][data-tooltip-pos='left']:after {
-    border-top-color: transparent;
-    border-left-color: var(--status-danger); }
-  .dc-tooltip--error-secondary[data-tooltip][data-tooltip-pos='bottom']:after {
-    border-top-color: transparent;
-    border-bottom-color: var(--status-danger); }
-  .dc-tooltip--error-secondary[data-tooltip]:after, .dc-tooltip--error-secondary[data-tooltip]:before, .dc-tooltip--error-secondary[data-tooltip][data-tooltip-pos='left']:after, .dc-tooltip--error-secondary[data-tooltip][data-tooltip-pos='left']:before {
-    opacity: 0.96;
-    pointer-events: auto;
-    transform: translate(0, -50%);
-    top: 55%; }
-
 /** @define app-contents; weak */
 .app-contents--show-positions-drawer:not(.app-contents--is-mobile) .trade-container .chart-container {
   width: 100%; }
@@ -1085,25 +926,6 @@
             grid-template-columns: 2fr 1fr !important; }
           .trade-container__replay .contract-drawer .dc-contract-card__underlying-name {
             max-width: none; }
-          .trade-container__replay .contract-drawer--is-multiplier .dc-contract-card-dialog-toggle {
-            top: 81px;
-            width: 124px;
-            height: 82px;
-            right: 8px; } }
-    @media only screen and (min-width: 320px) and (max-width: 767px) and (max-width: 380px) {
-      .trade-container__replay .contract-drawer--is-multiplier .dc-contract-card-dialog-toggle {
-        width: 109px;
-        top: 77px; } }
-    @media only screen and (min-width: 320px) and (max-width: 767px) and (max-width: 320px) {
-      .trade-container__replay .contract-drawer--is-multiplier .dc-contract-card-dialog-toggle {
-        top: 69px;
-        width: 98px;
-        height: 78px; } }
-    @media (min-width: 320px) and (max-width: 767px) and (max-width: 320px) and (max-height: 480px) {
-      .trade-container__replay .contract-drawer--is-multiplier .dc-contract-card-dialog-toggle {
-        top: 66px;
-        height: 65px; } }
-      @media (min-width: 320px) and (max-width: 767px) {
           .trade-container__replay .contract-drawer--is-multiplier .dc-contract-card__body-wrapper {
             flex-direction: column;
             padding-top: 0.4rem; }
@@ -1601,51 +1423,14 @@
     height: 100%;
     display: flex;
     flex-direction: column; }
-  .contract-drawer .dc-contract-card-dialog-toggle {
-    top: 114px;
-    right: 8px;
-    width: 108px; }
 
 /** @define .contract-card; weak */
-.contract-card__footer {
-  margin-bottom: 0.5em;
-  padding: 0 4px; }
-  .contract-card__footer-wrapper {
-    font-size: 1.2rem;
-    color: var(--text-general);
-    font-weight: 400;
-    text-transform: none;
-    text-align: center;
-    line-height: 1.25;
-    color: var(--text-prominent);
-    padding: 8px 8px 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr; }
-
 .contract-card__sell-button {
   display: flex;
   align-items: center;
   justify-content: center;
   transition: transform 0.25s ease, opacity 0.25s linear;
   border-top: 1px solid var(--general-section-1); }
-  .contract-card__sell-button--enter-done {
-    opacity: 1;
-    transform: translateY(0); }
-  .contract-card__sell-button--enter, .contract-card__sell-button--exit {
-    opacity: 0;
-    transform: translateY(-8px); }
-  .contract-card__sell-button--has-cancel-btn {
-    justify-content: space-between; }
-    .contract-card__sell-button--has-cancel-btn .dc-btn--cancel {
-      margin-left: 0.8rem; }
-  .contract-card__sell-button .dc-remaining-time {
-    border-radius: 0.4rem;
-    font-size: 1.2rem;
-    margin-left: 0.8rem;
-    padding-top: 0.2rem; }
-  @media (min-width: 320px) and (max-width: 767px) {
-    .contract-card__sell-button .dc-btn--sell {
-      width: 100%; } }
   .contract-card__sell-button .dc-btn--sell,
   .contract-card__sell-button .dc-btn--cancel {
     height: 2.4rem; }
@@ -1748,10 +1533,6 @@
     .positions-drawer__icon-close svg {
       height: 1.6em;
       width: 1.6em; }
-  .positions-drawer .dc-contract-card__result {
-    max-height: 157px; }
-    .positions-drawer .dc-contract-card__result--lg {
-      max-height: 254px; }
 
 /** @define positions-modal-card; weak */
 .positions-modal-card {
@@ -1805,7 +1586,8 @@
     .positions-modal-card__grid-header {
       border-bottom: 1px solid var(--general-section-1);
       grid-template-columns: 1fr 1fr 1fr;
-      padding-bottom: 1rem; }
+      padding-bottom: 1rem;
+      margin-bottom: 0.8rem; }
     .positions-modal-card__grid-body {
       grid-template-columns: 2fr 1fr;
       grid-template-rows: auto auto;
@@ -1947,165 +1729,6 @@
   @media (min-width: 320px) and (max-width: 767px) {
     .dc-remaining-time {
       font-size: 0.9rem; } }
-
-/** @define input-field; weak */
-.input-field {
-  margin: 0.8em 0 0;
-  position: relative; }
-  .input-field__label {
-    font-size: 1.4rem;
-    color: var(--text-general);
-    font-weight: 400;
-    text-transform: none;
-    text-align: left;
-    line-height: 1.5;
-    color: var(--text-general);
-    margin-bottom: 0.2em;
-    display: inline-block;
-    text-align: center;
-    width: 100%; }
-  .input-field .inline-icon {
-    position: absolute;
-    top: 8px;
-    left: 8px;
-    z-index: 1;
-    cursor: pointer; }
-  .input-field__helper {
-    font-size: 1.2rem;
-    color: var(--text-less-prominent);
-    font-weight: 300;
-    text-transform: none;
-    text-align: left;
-    line-height: 1.25; }
-
-/** @define input-wrapper */
-.input-wrapper {
-  position: relative; }
-  .input-wrapper__input::-ms-clear {
-    display: none; }
-  .input-wrapper__button {
-    position: absolute;
-    z-index: 1;
-    top: 2px;
-    height: 28px;
-    border: none;
-    padding: 0;
-    margin: 0;
-    margin: initial;
-    min-width: 3.2em;
-    border-radius: 3px;
-    background-color: transparent;
-    background-color: initial;
-    display: flex;
-    justify-content: center;
-    align-items: center; }
-    .input-wrapper__button--increment {
-      right: 2px; }
-    .input-wrapper__button--decrement {
-      left: 2px; }
-    .input-wrapper__button:hover {
-      background: var(--state-hover);
-      cursor: pointer; }
-    .input-wrapper__button:disabled:hover {
-      cursor: not-allowed;
-      background: transparent; }
-  .input-wrapper--disabled {
-    pointer-events: none;
-    color: var(--text-disabled); }
-  .input-wrapper--inline {
-    display: flex;
-    justify-content: space-between;
-    align-items: center; }
-
-/** @define input */
-.input {
-  font-size: 1.4rem;
-  color: var(--text-general);
-  font-weight: 400;
-  text-transform: none;
-  text-align: center;
-  line-height: 1.5;
-  list-style: none;
-  position: relative;
-  display: inline-block;
-  width: 100%;
-  height: 32px;
-  padding-left: 0.8em;
-  border-radius: 4px;
-  transition: transform 0.3s;
-  background-color: var(--fill-normal);
-  border: 1px solid var(--fill-normal);
-  color: var(--text-prominent); }
-  .input[type='checkbox'] {
-    font-size: 1.2em;
-    cursor: pointer;
-    display: inline-block;
-    vertical-align: middle;
-    width: 16px;
-    height: 16px;
-    border-radius: 0;
-    padding: 0;
-    background-color: var(--general-section-1);
-    border: 1px solid var(--text-less-prominent); }
-    .input[type='checkbox']:active {
-      border-radius: 0;
-      box-shadow: none;
-      border-color: var(--brand-red-coral); }
-    .input[type='checkbox']:hover, .input-wrapper__button:hover ~ .dc-input-wrapper__input[type='checkbox'] {
-      border-color: var(--border-hover); }
-    .input[type='checkbox']:focus {
-      border-radius: 0;
-      box-shadow: none;
-      border-color: var(--border-active); }
-    .input[type='checkbox']:checked {
-      background: var(--brand-red-coral);
-      border-color: var(--brand-red-coral); }
-      .input[type='checkbox']:checked:after {
-        display: inline-block; }
-      .input[type='checkbox']:checked:hover, .input-wrapper__button:hover ~ .dc-input-wrapper__input[type='checkbox']:checked {
-        border-color: var(--brand-red-coral); }
-    .input[type='checkbox']::-ms-check {
-      background: transparent;
-      border-color: transparent;
-      color: #ffffff; }
-    .input[type='checkbox']:after {
-      font-size: 1.2rem;
-      color: var(--text-colored-background);
-      font-weight: 400;
-      text-transform: none;
-      text-align: left;
-      line-height: 1.25;
-      content: 'L';
-      transform: scaleX(-1) rotate(-40deg);
-      position: absolute;
-      top: -10%;
-      left: 25%;
-      display: none; }
-  .input:not([type='range']) {
-    touch-action: manipulation; }
-  .input[readonly] {
-    cursor: pointer; }
-  .input::-moz-placeholder {
-    border-color: var(--border-normal); }
-  .input:-ms-input-placeholder {
-    border-color: var(--border-normal); }
-  .input::placeholder {
-    border-color: var(--border-normal); }
-  .input:hover, .input-wrapper__button:hover ~ .dc-input-wrapper__input {
-    border-color: var(--border-hover); }
-  .input:active, .input:focus {
-    outline: 0;
-    border-radius: 4px;
-    border-color: var(--border-active);
-    color: var(--text-prominent); }
-  .input--has-inline-prefix {
-    padding-right: 60px !important;
-    border-radius: 4px !important; }
-  .input--error {
-    color: #e31c4b;
-    border: 1px solid #e31c4b !important; }
-  .input:disabled {
-    color: var(--text-disabled); }
 
 /** @define time-picker */
 .time-picker {
@@ -2602,19 +2225,14 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between; }
-  .contract-type-info__wrapper {
-    display: flex;
-    flex-direction: row;
-    transition: transform 0.3s linear;
-    padding: 2.4rem;
-    width: 100%;
-    height: 100%; }
+  .contract-type-info .dc-carousel {
+    width: 100%; }
   .contract-type-info__card {
     min-height: calc(100vh - 210px);
     max-height: calc(100vh - 268px);
     display: flex;
     flex-direction: column;
-    padding: 0.5rem 1rem; }
+    padding: 0.4rem 1rem; }
     @media screen and (min-height: 768px) and (max-height: 820px) {
       .contract-type-info__card {
         min-height: calc(100vh - 288px); } }
@@ -2758,15 +2376,6 @@
     text-transform: none; }
   .market-is-closed-overlay__button {
     height: 4em; }
-
-/** @define .currency-badge */
-.currency-badge {
-  align-self: flex-start;
-  padding: 0.3rem;
-  font-weight: bold;
-  color: #ffffff;
-  background-color: #85acb0;
-  border-radius: 4px; }
 
 /** @define .market-symbol-icon; weak */
 .market-symbol-icon {
@@ -4082,11 +3691,11 @@
   .trade-container .dc-dropdown--left .dc-dropdown__select-arrow {
     left: 0.3rem; }
 
-/** @define input-field; weak */
-.input-field .input-wrapper__icon {
+/** @define dc-input-field; weak */
+.dc-input-field .dc-input-wrapper__icon {
   top: 6px; }
 
-.input-field--has-error .dc-input {
+.dc-input-field--has-error .dc-input {
   border: 1px solid #e31c4b !important; }
 
 /** @define purchase-container; weak */
