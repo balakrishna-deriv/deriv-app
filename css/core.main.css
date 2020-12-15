@@ -502,7 +502,7 @@
   align-items: center;
   margin-bottom: 3.2rem;
   line-height: 1.43; }
-  .dc-input:hover:not(.dc-input__disabled) {
+  .dc-input:hover:not(.dc-input--disabled) {
     border-color: var(--border-hover); }
   .dc-input[focus-within] {
     border-color: var(--brand-secondary); }
@@ -512,7 +512,7 @@
       border-color: var(--brand-secondary); }
     .dc-input:focus-within:hover {
       border-color: var(--brand-secondary); }
-  .dc-input__disabled {
+  .dc-input--disabled {
     border-color: var(--general-disabled);
     color: var(--text-disabled); }
   .dc-input__field {
@@ -537,11 +537,6 @@
       opacity: 0;
       -ms-transition: opacity 0.25s;
       transition: opacity 0.25s; }
-    .dc-input__field::-ms-input-placeholder {
-      line-height: 1.5;
-      opacity: 0;
-      -ms-transition: opacity 0.25s;
-      transition: opacity 0.25s; }
     .dc-input__field::placeholder {
       line-height: 1.5;
       opacity: 0;
@@ -549,8 +544,6 @@
     .dc-input__field--placeholder-visible::-moz-placeholder {
       opacity: 0.2; }
     .dc-input__field--placeholder-visible:-ms-input-placeholder {
-      opacity: 0.2; }
-    .dc-input__field--placeholder-visible::-ms-input-placeholder {
       opacity: 0.2; }
     .dc-input__field--placeholder-visible::placeholder {
       opacity: 0.2; }
@@ -578,8 +571,6 @@
       .dc-input__field:focus::-moz-placeholder {
         opacity: 0.4; }
       .dc-input__field:focus:-ms-input-placeholder {
-        opacity: 0.4; }
-      .dc-input__field:focus::-ms-input-placeholder {
         opacity: 0.4; }
       .dc-input__field:focus::placeholder {
         opacity: 0.4; }
@@ -624,11 +615,17 @@
       .dc-input__leading-icon.symbols--ust + .dc-input__field {
         padding-left: calc(1.6rem + 3.2rem); }
   .dc-input__trailing-icon {
-    margin: 0 1.2rem 0 0 !important; }
-    .dc-input__trailing-icon .color1-fill {
-      fill: var(--text-less-prominent); }
-    .dc-input__trailing-icon .color1-stroke {
-      fill: var(--text-less-prominent); }
+    margin-right: 1rem;
+    position: absolute;
+    right: 0;
+    font-size: var(--text-size-xs); }
+    .dc-input__trailing-icon.symbols {
+      top: 0.9rem; }
+      .dc-input__trailing-icon.symbols + .dc-input__field {
+        padding-right: calc(1.6rem + 2.4rem); }
+      .dc-input__trailing-icon.symbols--usdc + .dc-input__field,
+      .dc-input__trailing-icon.symbols--ust + .dc-input__field {
+        padding-right: calc(1.6rem + 3.2rem); }
   .dc-input__label {
     color: var(--text-less-prominent);
     font-size: var(--text-size-xs);
@@ -1659,7 +1656,11 @@
     display: flex; }
     .dc-button-menu__wrapper .dc-button-menu__button, .dc-button-menu__wrapper .dc-button-menu__button--active {
       background-color: rgba(0, 0, 0, 0) !important;
-      z-index: 1; }
+      z-index: 1;
+      padding: 0.8rem 0.6rem;
+      white-space: normal; }
+      .dc-button-menu__wrapper .dc-button-menu__button .dc-btn__text, .dc-button-menu__wrapper .dc-button-menu__button--active .dc-btn__text {
+        line-height: normal; }
     .dc-button-menu__wrapper .dc-button-menu__button:nth-last-child(2) {
       border-top-right-radius: 4px;
       border-bottom-right-radius: 4px; }
@@ -1961,8 +1962,6 @@
  */
 /** @define dc-calendar */
 .dc-calendar {
-  position: absolute;
-  top: 0;
   outline: 0;
   border-radius: 5px;
   z-index: 999;
@@ -3113,6 +3112,205 @@
     color: var(--text-prominent);
     margin-left: 0;
     margin-right: auto; }
+
+/*------------------------------------*
+ *  # Constants
+ *------------------------------------*/
+/* stylelint-disable color-no-hex */
+/* COLOR PALETTE */
+/* colors */
+/* alpha colors */
+/* gradient colors */
+/* Preserve legacy variables */
+/* Primary */
+/* stylelint-enable color-no-hex */
+/*------------------------------------*
+ *  # SASS Mixins and Functions
+ *------------------------------------*/
+/*
+ * SASS interpolation
+ */
+/*
+ * PX to EM
+ * @param $px - px value to be converted
+ * @param $base - base font size (in `em`)
+ * Note: 'em' values are calculate based on the element font-size
+ *       to properly converts 'px' to 'em', please pass in the element font-size with it
+ * Usage example:
+    padding: em(16px, 1.6em); // font-size in 'em'
+ */
+/*
+ * Set property by passing a property name, and values.
+ * @param $property name - padding, margin etc.
+ * @param $values        - values in `px` (space separated for multiple values)
+ * @param $font-size     - base font-size in `em`
+ * Usage example:
+   @include toEm(padding, 8px 16px 8px, 1.6em);
+ */
+/*
+ * Generate typefaces key-value pair of variable name and config
+ * Example:
+   --paragraph-center-bold-black: (14px, center, bold, black)
+ */
+/*
+ * Sets font-size, font-weight, color, text-transform, text-align and line-height
+ * Usage example:
+   @include setTypeface(16px, bold, black, uppercase);
+ */
+/*
+ * Set typefaces by passing a typeface variable name
+ * @param $var   - typeface variable
+ * @param $tt    - text-transform property
+ * @param $align - text-align property
+ * Usage example:
+   @include typeface(--paragraph-bold-black, uppercase, center);
+ */
+/*
+ * Range Slider Thumb styling is set here
+ */
+/*
+ * SVG icons colors
+ */
+/*
+ * Bar Spinner Animation
+ * @param $count    - number of bars
+ * @param $duration - duration of animation
+ * @param $phase    - each bar phase change delay
+ * Usage example:
+   @include createBarspinnerAnimation(5, 1.2s, 0,1);
+ */
+/*
+ * Tooltip colors
+ * @param $color - color property
+ * Usage example:
+   @include tooltipColor($COLOR_RED);
+ */
+/*
+ * Convert Tooltip colors
+ * @param $color - css color property
+ * Usage example:
+   @include convertTooltipColor(var(--status-default));
+ */
+/*
+    Constants
+*/
+/*
+    Variables
+*/
+/*
+    List of all typefaces variables in the format: --$FONT_SIZES-$TEXT_ALIGN-$FONT_WEIGHTS-COLORS.
+    See $FONT_SIZES, $TEXT_ALIGN, $FONT_WEIGHTS, $COLORS maps above for references.
+    Variables name example: --title-center-semibold-red
+ */
+/*
+    to use styles without modifier class on .inline-icon
+    use @extend
+
+    e.g. style icon on parent hover:
+        a:hover .inline-icon {
+            @extend %inline-icon.active;
+        }
+*/
+.dc-content-expander__select-arrow {
+  /* postcss-bem-linter: ignore */
+  /* postcss-bem-linter: ignore */
+  /* postcss-bem-linter: ignore */
+  /* postcss-bem-linter: ignore */ }
+  .dc-content-expander__select-arrow .color1-fill {
+    fill: var(--text-general); }
+  .dc-content-expander__select-arrow .color1-stroke {
+    stroke: var(--text-general); }
+  .dc-content-expander__select-arrow .color2-fill {
+    fill: none; }
+  .dc-content-expander__select-arrow .color2-stroke {
+    stroke: none; }
+  .active.dc-content-expander__select-arrow {
+    /* postcss-bem-linter: ignore */
+    /* postcss-bem-linter: ignore */
+    /* postcss-bem-linter: ignore */
+    /* postcss-bem-linter: ignore */ }
+    .active.dc-content-expander__select-arrow .color1-fill {
+      fill: var(--text-prominent); }
+    .active.dc-content-expander__select-arrow .color1-stroke {
+      stroke: var(--text-prominent); }
+    .active.dc-content-expander__select-arrow .color2-fill {
+      fill: none; }
+    .active.dc-content-expander__select-arrow .color2-stroke {
+      stroke: none; }
+  .disabled.dc-content-expander__select-arrow {
+    /* postcss-bem-linter: ignore */
+    /* postcss-bem-linter: ignore */
+    /* postcss-bem-linter: ignore */
+    /* postcss-bem-linter: ignore */ }
+    .disabled.dc-content-expander__select-arrow .color1-fill {
+      fill: var(--text-disabled); }
+    .disabled.dc-content-expander__select-arrow .color1-stroke {
+      stroke: var(--text-disabled); }
+    .disabled.dc-content-expander__select-arrow .color2-fill {
+      fill: none; }
+    .disabled.dc-content-expander__select-arrow .color2-stroke {
+      stroke: none; }
+  .white.dc-content-expander__select-arrow {
+    /* postcss-bem-linter: ignore */
+    /* postcss-bem-linter: ignore */ }
+    .white.dc-content-expander__select-arrow .color1-fill {
+      fill: var(--text-prominent); }
+    .white.dc-content-expander__select-arrow .color1-stroke {
+      stroke: var(--text-prominent); }
+  .border_hover_color.dc-content-expander__select-arrow {
+    /* postcss-bem-linter: ignore */
+    /* postcss-bem-linter: ignore */ }
+    .border_hover_color.dc-content-expander__select-arrow .color1-fill {
+      fill: var(--text-prominent); }
+    .border_hover_color.dc-content-expander__select-arrow .color1-stroke {
+      stroke: var(--text-prominent); }
+  .secondary.dc-content-expander__select-arrow {
+    /* postcss-bem-linter: ignore */
+    /* postcss-bem-linter: ignore */ }
+    .secondary.dc-content-expander__select-arrow .color1-fill {
+      fill: var(--text-less-prominent); }
+    .secondary.dc-content-expander__select-arrow .color1-stroke {
+      stroke: var(--text-less-prominent); }
+
+/**
+ * Define Breakpoints here.
+ */
+.dc-content-expander {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0 0.8rem;
+  height: 4rem;
+  position: relative; }
+  .dc-content-expander__content {
+    transition: opacity 0.25s linear; }
+    .dc-content-expander__content--enter {
+      opacity: 0; }
+    .dc-content-expander__content--enter-done {
+      opacity: 1; }
+    .dc-content-expander__content--exit {
+      opacity: 0; }
+  .dc-content-expander__title {
+    display: block;
+    padding-right: 0.8rem; }
+    .dc-content-expander__title--spaced {
+      flex: 1; }
+  .dc-content-expander--expanded .dc-content-expander__select-arrow {
+    transform: rotate(180deg); }
+    .dc-content-expander--expanded .dc-content-expander__select-arrow--invert {
+      transform: rotate(0deg); }
+  .dc-content-expander__select-arrow {
+    pointer-events: none;
+    transform: rotate(0);
+    transform-origin: 50% 45%;
+    transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1); }
+    .dc-content-expander__select-arrow--invert {
+      transform: rotate(180deg); }
+  .dc-content-expander__wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%; }
 
 /*------------------------------------*
  *  # Constants
@@ -4600,7 +4798,7 @@
  */
 /** @define dc-input-field; weak */
 .dc-input-field {
-  margin: 0.8em 0 0;
+  margin: 0.8rem 0 0;
   position: relative; }
   .dc-input-field__label {
     font-size: 1.4rem;
@@ -4610,7 +4808,7 @@
     text-align: left;
     line-height: 1.5;
     color: var(--text-general);
-    margin-bottom: 0.2em;
+    margin-bottom: 0.2rem;
     display: inline-block;
     text-align: center;
     width: 100%; }
@@ -4642,7 +4840,7 @@
     padding: 0;
     margin: 0;
     margin: initial;
-    min-width: 3.2em;
+    min-width: 3.2rem;
     border-radius: 3px;
     background-color: transparent;
     background-color: initial;
@@ -4680,14 +4878,14 @@
   display: inline-block;
   width: 100%;
   height: 32px;
-  padding-left: 0.8em;
+  padding-left: 0.8rem;
   border-radius: 4px;
   transition: transform 0.3s;
   background-color: var(--fill-normal);
   border: 1px solid var(--fill-normal);
   color: var(--text-prominent); }
   .input[type='checkbox'] {
-    font-size: 1.2em;
+    font-size: 1.2rem;
     cursor: pointer;
     display: inline-block;
     vertical-align: middle;
@@ -4738,8 +4936,6 @@
   .input::-moz-placeholder {
     border-color: var(--border-normal); }
   .input:-ms-input-placeholder {
-    border-color: var(--border-normal); }
-  .input::-ms-input-placeholder {
     border-color: var(--border-normal); }
   .input::placeholder {
     border-color: var(--border-normal); }
@@ -5902,6 +6098,8 @@
     transition: transform 0.25s ease, opacity 0.25s linear;
     position: relative;
     background: var(--general-main-1); }
+    .dc-contract-card__wrapper .currency-badge {
+      margin-bottom: 5px; }
     .dc-contract-card__wrapper--active:before {
       content: '';
       top: -1px;
@@ -6030,6 +6228,7 @@
         content: '+';
         color: inherit; }
   .dc-contract-card-item__header {
+    max-width: calc(100% - 2.4rem);
     line-height: 1.4; }
   .dc-contract-card-item__body {
     font-size: 1.2rem;
@@ -6128,8 +6327,10 @@
   .dc-contract-card__limit-order-info {
     grid-area: limit-order-info;
     display: grid;
-    grid-gap: 0.4rem 0rem;
+    grid-gap: 0.4rem 0;
     position: relative; }
+    .dc-contract-card__limit-order-info .dc-contract-card__stop-loss {
+      padding-bottom: 0.4rem; }
   .dc-contract-card__buy-price {
     grid-area: buy-price; }
   .dc-contract-card__deal-cancel-fee {
@@ -6331,7 +6532,6 @@
     cursor: pointer; }
   .dc-datepicker__picker {
     position: absolute;
-    top: 0;
     z-index: 2;
     transform: translate3d(0, 0, 0);
     opacity: 1; }
@@ -6343,11 +6543,19 @@
       opacity: 1; }
     .dc-datepicker__picker--left-enter-done, .dc-datepicker__picker--left-exit {
       transition: transform 0.25s ease, opacity 0.25s linear; }
+    .dc-datepicker__picker--top-enter, .dc-datepicker__picker--top-exit {
+      transform: translate3d(0, 0, 0);
+      opacity: 0; }
+    .dc-datepicker__picker--top-enter-done {
+      transform: translate3d(0, -40px, 0);
+      opacity: 1; }
+    .dc-datepicker__picker--top-enter-done, .dc-datepicker__picker--top-exit {
+      transition: transform 0.25s ease, opacity 0.25s linear; }
     .dc-datepicker__picker--bottom-enter, .dc-datepicker__picker--bottom-exit {
       transform: translate3d(0, 0, 0);
       opacity: 0; }
     .dc-datepicker__picker--bottom-enter-done {
-      transform: translate3d(0, 48px, 0);
+      transform: translate3d(0, 40px, 0);
       opacity: 1; }
     .dc-datepicker__picker--bottom-enter-done, .dc-datepicker__picker--bottom-exit {
       transition: transform 0.25s ease, opacity 0.25s linear; }
@@ -6743,6 +6951,10 @@
   flex-direction: column; }
   .data-list__body {
     flex: 1; }
+    .data-list__body-wrapper {
+      display: flex;
+      flex-direction: column;
+      height: 100%; }
   .data-list__footer {
     width: 100%;
     background: var(--general-main-1);
@@ -7687,6 +7899,11 @@
       opacity: 0; }
     .dc-dropdown__list--left--enter-done {
       opacity: 1; }
+  .dc-dropdown__list--portal {
+    height: auto;
+    margin: 0.4rem 0; }
+    .dc-dropdown__list--portal .dc-list {
+      position: static; }
 
 .dc-dropdown--left .dc-dropdown__display {
   text-align: center; }
@@ -9755,7 +9972,39 @@
   width: 100%;
   left: 0px;
   top: calc(40px + 40px);
-  background: var(--general-main-1); }
+  background: var(--general-main-1);
+  max-height: 100%; }
+  .dc-mobile-full-page-modal--flex {
+    display: flex;
+    flex-direction: column;
+    flex: 1; }
+  .dc-mobile-full-page-modal__header {
+    align-items: center;
+    border-bottom: 2px solid var(--general-section-2);
+    display: flex;
+    flex-direction: row;
+    padding: 1.6rem; }
+    .dc-mobile-full-page-modal__header-return {
+      display: flex;
+      align-items: center;
+      margin-right: 1.6rem; }
+    .dc-mobile-full-page-modal__header-text {
+      display: flex;
+      flex-direction: row; }
+    .dc-mobile-full-page-modal__header-trailing-icon {
+      align-items: center;
+      display: flex;
+      margin-left: auto; }
+  .dc-mobile-full-page-modal__body {
+    flex: 1;
+    overflow-y: auto; }
+  .dc-mobile-full-page-modal__footer {
+    border-top: 2px solid var(--general-section-1);
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-top: auto;
+    padding: 1.6rem; }
   .dc-mobile-full-page-modal form {
     height: 100%; }
   .dc-mobile-full-page-modal .dc-page-overlay__content {
@@ -10256,6 +10505,148 @@
 /**
  * Define Breakpoints here.
  */
+@-webkit-keyframes dc-news-ticker {
+  0% {
+    transform: translate3d(100%, 0, 0); }
+  100% {
+    transform: translate3d(-100%, 0, 0); } }
+@keyframes dc-news-ticker {
+  0% {
+    transform: translate3d(100%, 0, 0); }
+  100% {
+    transform: translate3d(-100%, 0, 0); } }
+
+@-webkit-keyframes dc-news-ticker-2 {
+  0% {
+    transform: translate3d(0, 0, 0); }
+  100% {
+    transform: translate3d(-200%, 0, 0); } }
+
+@keyframes dc-news-ticker-2 {
+  0% {
+    transform: translate3d(0, 0, 0); }
+  100% {
+    transform: translate3d(-200%, 0, 0); } }
+
+.dc-news-ticker {
+  display: flex;
+  white-space: nowrap;
+  overflow: hidden; }
+  .dc-news-ticker__children {
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+    -webkit-animation-name: dc-news-ticker;
+            animation-name: dc-news-ticker;
+    -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+    will-change: transform; }
+    .dc-news-ticker__children:nth-child(2) {
+      -webkit-animation-name: dc-news-ticker-2;
+              animation-name: dc-news-ticker-2; }
+  .dc-news-ticker__item {
+    display: inline-block; }
+
+/*------------------------------------*
+ *  # Constants
+ *------------------------------------*/
+/* stylelint-disable color-no-hex */
+/* COLOR PALETTE */
+/* colors */
+/* alpha colors */
+/* gradient colors */
+/* Preserve legacy variables */
+/* Primary */
+/* stylelint-enable color-no-hex */
+/*------------------------------------*
+ *  # SASS Mixins and Functions
+ *------------------------------------*/
+/*
+ * SASS interpolation
+ */
+/*
+ * PX to EM
+ * @param $px - px value to be converted
+ * @param $base - base font size (in `em`)
+ * Note: 'em' values are calculate based on the element font-size
+ *       to properly converts 'px' to 'em', please pass in the element font-size with it
+ * Usage example:
+    padding: em(16px, 1.6em); // font-size in 'em'
+ */
+/*
+ * Set property by passing a property name, and values.
+ * @param $property name - padding, margin etc.
+ * @param $values        - values in `px` (space separated for multiple values)
+ * @param $font-size     - base font-size in `em`
+ * Usage example:
+   @include toEm(padding, 8px 16px 8px, 1.6em);
+ */
+/*
+ * Generate typefaces key-value pair of variable name and config
+ * Example:
+   --paragraph-center-bold-black: (14px, center, bold, black)
+ */
+/*
+ * Sets font-size, font-weight, color, text-transform, text-align and line-height
+ * Usage example:
+   @include setTypeface(16px, bold, black, uppercase);
+ */
+/*
+ * Set typefaces by passing a typeface variable name
+ * @param $var   - typeface variable
+ * @param $tt    - text-transform property
+ * @param $align - text-align property
+ * Usage example:
+   @include typeface(--paragraph-bold-black, uppercase, center);
+ */
+/*
+ * Range Slider Thumb styling is set here
+ */
+/*
+ * SVG icons colors
+ */
+/*
+ * Bar Spinner Animation
+ * @param $count    - number of bars
+ * @param $duration - duration of animation
+ * @param $phase    - each bar phase change delay
+ * Usage example:
+   @include createBarspinnerAnimation(5, 1.2s, 0,1);
+ */
+/*
+ * Tooltip colors
+ * @param $color - color property
+ * Usage example:
+   @include tooltipColor($COLOR_RED);
+ */
+/*
+ * Convert Tooltip colors
+ * @param $color - css color property
+ * Usage example:
+   @include convertTooltipColor(var(--status-default));
+ */
+/*
+    Constants
+*/
+/*
+    Variables
+*/
+/*
+    List of all typefaces variables in the format: --$FONT_SIZES-$TEXT_ALIGN-$FONT_WEIGHTS-COLORS.
+    See $FONT_SIZES, $TEXT_ALIGN, $FONT_WEIGHTS, $COLORS maps above for references.
+    Variables name example: --title-center-semibold-red
+ */
+/*
+    to use styles without modifier class on .inline-icon
+    use @extend
+
+    e.g. style icon on parent hover:
+        a:hover .inline-icon {
+            @extend %inline-icon.active;
+        }
+*/
+/**
+ * Define Breakpoints here.
+ */
 /* S: Steps
    N: Number
    B: Backspace
@@ -10480,7 +10871,7 @@
 .dc-page-error__box {
   background: var(--general-main-1);
   border: var(--general-main-1);
-  padding: 5em;
+  padding: 2rem;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -10512,8 +10903,6 @@
   text-transform: none;
   text-align: center;
   line-height: 1.75;
-  color: var(--text-prominent);
-  line-height: 1.5;
   max-width: 502px;
   margin: 1.6rem 0 2.4rem; }
   .dc-page-error__message-wrapper {
@@ -10523,10 +10912,23 @@
       .dc-page-error__message-wrapper--left {
         justify-content: left; } }
     .dc-page-error__message-wrapper--left .dc-page-error__message-paragraph:not(:last-child) {
-      margin-bottom: 1.6rem; }
+      margin-bottom: 1.6rem;
+      max-width: 38rem; }
   @media (min-width: 1024px) {
     .dc-page-error__message--left {
       text-align: left; } }
+
+.dc-page-error__btn {
+  margin: 0 1rem;
+  min-width: 14rem; }
+  .dc-page-error__btn-wrapper {
+    display: flex;
+    justify-content: center; }
+  @media (min-width: 320px) and (max-width: 767px) {
+    .dc-page-error__btn {
+      margin: 0 0 1.6rem; }
+      .dc-page-error__btn-wrapper {
+        flex-direction: column; } }
 
 /*------------------------------------*
  *  # Constants
@@ -11351,6 +11753,111 @@
     .dc-radio-group__circle--selected {
       border-width: 4px;
       border-color: var(--brand-red-coral); }
+
+/*------------------------------------*
+ *  # Constants
+ *------------------------------------*/
+/* stylelint-disable color-no-hex */
+/* COLOR PALETTE */
+/* colors */
+/* alpha colors */
+/* gradient colors */
+/* Preserve legacy variables */
+/* Primary */
+/* stylelint-enable color-no-hex */
+/*------------------------------------*
+ *  # SASS Mixins and Functions
+ *------------------------------------*/
+/*
+ * SASS interpolation
+ */
+/*
+ * PX to EM
+ * @param $px - px value to be converted
+ * @param $base - base font size (in `em`)
+ * Note: 'em' values are calculate based on the element font-size
+ *       to properly converts 'px' to 'em', please pass in the element font-size with it
+ * Usage example:
+    padding: em(16px, 1.6em); // font-size in 'em'
+ */
+/*
+ * Set property by passing a property name, and values.
+ * @param $property name - padding, margin etc.
+ * @param $values        - values in `px` (space separated for multiple values)
+ * @param $font-size     - base font-size in `em`
+ * Usage example:
+   @include toEm(padding, 8px 16px 8px, 1.6em);
+ */
+/*
+ * Generate typefaces key-value pair of variable name and config
+ * Example:
+   --paragraph-center-bold-black: (14px, center, bold, black)
+ */
+/*
+ * Sets font-size, font-weight, color, text-transform, text-align and line-height
+ * Usage example:
+   @include setTypeface(16px, bold, black, uppercase);
+ */
+/*
+ * Set typefaces by passing a typeface variable name
+ * @param $var   - typeface variable
+ * @param $tt    - text-transform property
+ * @param $align - text-align property
+ * Usage example:
+   @include typeface(--paragraph-bold-black, uppercase, center);
+ */
+/*
+ * Range Slider Thumb styling is set here
+ */
+/*
+ * SVG icons colors
+ */
+/*
+ * Bar Spinner Animation
+ * @param $count    - number of bars
+ * @param $duration - duration of animation
+ * @param $phase    - each bar phase change delay
+ * Usage example:
+   @include createBarspinnerAnimation(5, 1.2s, 0,1);
+ */
+/*
+ * Tooltip colors
+ * @param $color - color property
+ * Usage example:
+   @include tooltipColor($COLOR_RED);
+ */
+/*
+ * Convert Tooltip colors
+ * @param $color - css color property
+ * Usage example:
+   @include convertTooltipColor(var(--status-default));
+ */
+/*
+    Constants
+*/
+/*
+    Variables
+*/
+/*
+    List of all typefaces variables in the format: --$FONT_SIZES-$TEXT_ALIGN-$FONT_WEIGHTS-COLORS.
+    See $FONT_SIZES, $TEXT_ALIGN, $FONT_WEIGHTS, $COLORS maps above for references.
+    Variables name example: --title-center-semibold-red
+ */
+/*
+    to use styles without modifier class on .inline-icon
+    use @extend
+
+    e.g. style icon on parent hover:
+        a:hover .inline-icon {
+            @extend %inline-icon.active;
+        }
+*/
+/**
+ * Define Breakpoints here.
+ */
+.dc-read-more__toggle {
+  color: var(--status-danger);
+  font-weight: var(--text-weight-bold); }
 
 /*------------------------------------*
  *  # Constants
@@ -12350,10 +12857,10 @@
   color: var(--text-color);
   line-height: var(--text-lh);
   font-weight: var(--text-weight); }
-  .dc-text--left {
-    text-align: left; }
   .dc-text--right {
     text-align: right; }
+  .dc-text--center {
+    text-align: center; }
 
 /*------------------------------------*
  *  # Constants
@@ -12497,7 +13004,7 @@
   .dc-toast--blinker .dc-toast__message {
     -webkit-animation: toast_blinking 0.4s alternate infinite;
             animation: toast_blinking 0.4s alternate infinite; }
-  .dc-toast:not(:first-child) .dc-toast__message {
+  .dc-toast:not(:first-child) {
     margin-top: 1rem; }
 
 @-webkit-keyframes toast_blinking {
@@ -13383,7 +13890,7 @@
     .dc-vertical-tab__content-side-note {
       max-width: 256px;
       margin-left: 2.4rem; }
-      .dc-vertical-tab__content-side-note-wrapper {
+      .dc-vertical-tab__content-side-note-item {
         background-color: var(--general-section-1);
         border-radius: 8px;
         padding: 1.6rem 2.4rem;
@@ -13765,10 +14272,7 @@
 
 /** @define settings-language */
 .settings-language__language-header {
-  font-size: 14px;
-  font-weight: bold;
-  margin-bottom: 16px;
-  color: var(--text-prominent); }
+  margin-bottom: 16px; }
 
 .settings-language__language-container {
   display: grid;
@@ -13814,7 +14318,8 @@
 
 .dc-modal-header__title--modal-settings {
   min-width: 28%;
-  background-color: var(--general-section-1); }
+  background-color: var(--general-section-1);
+  max-width: 206px; }
 
 /** @define dc-modal; */
 .dc-modal__container_modal-settings {
@@ -14048,17 +14553,12 @@
       text-align: center;
       color: var(--text-less-prominent);
       padding: 8px; }
-    .notifications-empty__message {
-      line-height: 1.5;
-      font-size: 1.2rem;
-      text-align: center;
-      color: var(--text-less-prominent); }
   .notifications-item {
     padding: 0.8rem;
     margin-left: 3.2rem;
     margin-right: 0.8rem;
     position: relative; }
-    .notifications-item:after {
+    .notifications-item:not(:last-child):after {
       position: absolute;
       content: '';
       bottom: 0;
@@ -14067,14 +14567,16 @@
       height: 1px;
       background: var(--border-disabled); }
     .notifications-item__cta-button {
-      margin: 8px 0 0 auto;
-      height: 24px !important;
+      padding: 0.3rem 0.8rem;
+      margin: 0.8rem 0 0.8rem auto;
+      height: 2.4rem;
       width: auto; }
-      .notifications-item__cta-button .dc-btn__text {
-        font-size: 1.2rem; }
       @media (min-width: 320px) and (max-width: 767px) {
         .notifications-item__cta-button {
-          margin: 8px 0 16px auto; } }
+          margin: 0.8rem 0 1.6rem auto; } }
+    .notifications-item__link-wrapper {
+      display: flex;
+      justify-content: flex-end; }
     .notifications-item__title {
       font-size: 1.4rem;
       font-weight: bold;
@@ -14280,7 +14782,7 @@
   flex-direction: row;
   height: 100%;
   justify-content: center;
-  padding: 0 1.6em 0 1.7em; }
+  padding: 0 1.6rem 0 1.7rem; }
   .acc-info__preloader {
     position: absolute;
     top: 0;
@@ -14303,7 +14805,7 @@
     @media (min-width: 320px) and (max-width: 767px) {
       .acc-info__preloader {
         width: 216px;
-        height: 40px;
+        height: 42px;
         top: -3px; }
         .acc-info__preloader:before {
           display: none; }
@@ -14359,10 +14861,15 @@
       .acc-info:hover:not(.show):not(.acc-info--is-disabled) .symbols {
         background: transparent; } }
   @media (min-width: 320px) and (max-width: 767px) {
-    .acc-info__balance {
-      font-size: 1.4rem; }
-      .acc-info__balance--no-currency {
-        white-space: nowrap; } }
+    .acc-info {
+      padding: 0 1rem;
+      margin-right: -0.8rem; }
+      .acc-info__id {
+        margin-right: -0.8rem; }
+      .acc-info__balance {
+        font-size: 1.4rem; }
+        .acc-info__balance--no-currency {
+          white-space: nowrap; } }
   .acc-info--is-virtual .acc-info__balance {
     color: var(--text-profit-success); }
   .acc-info--is-disabled {
@@ -14429,31 +14936,24 @@
     padding: 1rem 1.6rem 1.8rem;
     font-size: var(--text-size-xs); }
     .acc-switcher__new-account-text {
-      margin-left: 0.8rem;
-      color: var(--text-general); }
+      margin-left: 0.8rem; }
     .acc-switcher__new-account-btn {
       margin-left: auto; }
     .acc-switcher__new-account--disabled {
       opacity: 0.5;
       cursor: default; }
+  .acc-switcher__reset-account-btn {
+    margin-left: auto; }
   .acc-switcher__list {
     border-radius: 4px;
     display: flex;
     flex-flow: column nowrap;
     height: 100%;
     background: var(--general-main-2); }
-    .acc-switcher__list-title {
-      font-size: 1.6rem;
-      color: var(--text-general);
-      font-weight: 700;
-      text-transform: none;
-      text-align: left;
-      line-height: 1.75;
-      display: block;
-      color: var(--text-prominent);
-      flex: 1; }
     .acc-switcher__list-wrapper {
       padding: 0.4rem 0.8rem 0; }
+    .acc-switcher__list-title {
+      flex: 1; }
     .acc-switcher__list-container {
       height: auto;
       overflow-x: hidden;
@@ -14493,6 +14993,8 @@
         border-radius: 4px; }
       .acc-switcher__accounts .acc-switcher__account:last-child {
         margin-bottom: 8px; }
+    .acc-switcher__accounts--is-loading {
+      padding-bottom: 0.8rem; }
   .acc-switcher__account {
     display: flex;
     align-items: center;
@@ -14551,21 +15053,12 @@
     justify-self: start;
     padding: 1.6em 1.3em; }
     .acc-switcher__logout-text {
-      font-size: 1.4rem;
-      color: var(--text-general);
-      font-weight: 400;
-      text-transform: none;
-      text-align: left;
-      line-height: 1.5;
-      color: var(--text-prominent);
       cursor: pointer; }
     .acc-switcher__logout-icon {
       margin-left: 8px;
       cursor: pointer; }
   .acc-switcher__balance {
-    color: var(--text-prominent);
-    margin-left: auto;
-    font-weight: normal; }
+    margin-left: auto; }
   .acc-switcher__separator {
     height: 4px;
     background-color: var(--general-section-2); }
@@ -14576,17 +15069,10 @@
   .acc-switcher__total {
     height: 2.6rem;
     margin: 0.4rem 1.6rem;
-    font-size: 1.4rem;
-    font-weight: bold;
-    color: var(--text-prominent);
     align-items: center;
     display: flex; }
     .acc-switcher__total-subtitle {
-      margin: 0 1.6rem 1.2rem;
-      font-size: 1rem;
-      line-height: 1.4rem;
-      font-weight: normal;
-      color: var(--text-less-prominent); }
+      margin: 0 1.6rem 1.2rem; }
   .acc-switcher__loginid-text {
     font-size: 1rem;
     color: var(--text-less-prominent);
@@ -15177,13 +15663,17 @@
     width: 100%; }
   .currency-list__items {
     display: flex;
-    flex-wrap: wrap; }
+    flex-wrap: wrap;
+    width: 768px; }
+    .currency-list__items__center {
+      justify-content: center !important; }
     @media (min-width: 1024px) {
       .currency-list__items {
-        justify-content: center; } }
+        justify-content: flex-start; } }
     @media (min-width: 320px) and (max-width: 767px) {
       .currency-list__items {
         display: grid;
+        margin-bottom: 5rem;
         grid-template-columns: 1fr 1fr;
         justify-items: center;
         width: 100%; } }
@@ -15193,9 +15683,10 @@
     display: inline-flex;
     flex-direction: column;
     height: 128px;
+    width: 128px;
     justify-content: space-around;
-    margin: 1.6rem 2rem 0;
-    min-width: 170px; }
+    margin: 1.6rem 3.2rem 0;
+    min-width: 128px; }
     .currency-list__item:hover:not(.currency-list__item--selected) {
       cursor: pointer;
       border: 1px solid var(--border-hover); }
@@ -15272,6 +15763,23 @@
       border-color: var(--border-disabled);
       margin-left: -2.4rem;
       width: calc(100% + 2.4rem); } }
+
+.currency-selector__radio-group--with-margin--is-header {
+  font-size: 1.6rem;
+  margin: 2rem 0 0;
+  font-weight: bold;
+  color: var(--text-prominent); }
+
+@media (min-width: 1024px) {
+  .currency-selector__radio-group--with-margin {
+    margin-bottom: 6rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 768px; } }
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .currency-selector__radio-group--with-margin {
+    margin-bottom: 7rem; } }
 
 /*------------------------------------*
  *  # Constants
@@ -15422,6 +15930,8 @@
       background-color: var(--general-main-2); }
     .details-form__elements .dc-select-native {
       margin-bottom: 3.2rem; }
+      .details-form__elements .dc-select-native__placeholder {
+        background-color: var(--general-section-2); }
     .details-form__elements .dc-dropdown__display {
       background-color: var(--general-main-2); }
       .details-form__elements .dc-dropdown__display-placeholder-text {
@@ -15432,8 +15942,8 @@
       .details-form__elements {
         width: 100%;
         margin: 0;
-        padding: 1rem 1.6rem 0;
-        overflow-y: scroll; } }
+        padding: 1rem 1.6rem 6rem;
+        overflow-y: auto; } }
   .details-form__loader .barspinner {
     margin-top: 0.4rem;
     margin-bottom: 3.2rem; }
@@ -15464,12 +15974,8 @@
   .details-form .dc-page-error__container {
     height: 100%; }
   .details-form__description {
-    text-align: left;
-    font-size: var(--text-size-xxs);
-    line-height: 1.8rem;
     margin: 1.6rem auto;
-    width: 45%;
-    color: var(--text-general); }
+    width: 45%; }
     @media (min-width: 1024px) {
       .details-form__description {
         display: flex;
@@ -15637,7 +16143,7 @@
     .terms-of-use {
       overflow-x: hidden;
       margin: 0;
-      padding: 0 2.4rem 4rem;
+      padding: 0 2.4rem 10rem;
       overflow-y: auto; }
       .terms-of-use .dc-checkbox__box {
         width: 2.4rem;
@@ -15781,16 +16287,9 @@
     width: 70%;
     margin: 2.8rem auto 0;
     padding: 10px;
-    font-size: 1.4rem;
-    color: var(--text-prominent);
-    font-weight: 400;
-    text-transform: none;
-    text-align: center;
-    line-height: 1.5;
-    font-size: 1.2rem;
     background-color: var(--general-section-1);
     border-radius: 4px; }
-  .add-or-manage .with-margin--is-header {
+  .add-or-manage__with-margin--is-header {
     font-size: 1.6rem;
     font-weight: bold;
     font-stretch: normal;
@@ -15800,10 +16299,13 @@
     color: var(--text-general);
     text-align: center; }
   @media (min-width: 1024px) {
-    .add-or-manage .currency-selector__radio-group.with-margin {
-      margin-bottom: 6rem; }
+    .add-or-manage .currency-selector__radio-group--with-margin {
+      margin-bottom: 6rem;
+      margin-left: auto;
+      margin-right: auto;
+      width: 768px; }
     .add-or-manage .add-crypto-currency {
-      padding: 0 20px 20px 0; }
+      padding-bottom: 2rem; }
     .add-or-manage .dc-form-submit-button--absolute {
       position: fixed;
       padding: 1.4rem;
@@ -15819,7 +16321,7 @@
       .add-or-manage .account-wizard__btn-area .dc-btn:last-child {
         min-width: unset;
         margin: 0 1.6rem; }
-      .add-or-manage .currency-selector__radio-group.with-margin {
+      .add-or-manage .currency-selector__radio-group--with-margin {
         margin-bottom: 7rem; }
       .add-or-manage .change-currency .currency-list__items {
         margin-bottom: 12rem; }
@@ -15852,9 +16354,6 @@
   flex-direction: column;
   position: relative;
   flex-grow: 1;
-  width: -webkit-min-content;
-  width: -moz-min-content;
-  width: min-content;
   padding: 2rem 2rem 1rem; }
   .status-dialog__icon-area {
     display: flex;
@@ -15938,7 +16437,7 @@
           line-height: 2rem; } }
     .status-dialog__body-area--no-grow {
       flex-grow: 0;
-      margin-bottom: 2rem; }
+      margin-bottom: 3.2rem; }
   .status-dialog__btn-area {
     margin: 2rem 0 1rem;
     width: 100%;
@@ -15950,12 +16449,11 @@
       border-width: 2px; }
       @media (min-width: 320px) and (max-width: 767px) {
         .status-dialog__btn-area .dc-btn {
-          width: 100%;
-          margin: 0 0.8rem; } }
+          margin: 0 0.8rem;
+          width: 15.6rem; } }
     @media (min-width: 320px) and (max-width: 767px) {
       .status-dialog__btn-area {
         margin: 0 0 1rem;
-        height: 88px;
         align-items: center; } }
   @media (min-width: 1024px) {
     .status-dialog {
@@ -16201,22 +16699,16 @@
   .set-currency-modal__heading-container {
     margin: 2rem auto;
     color: var(--text-general); }
-    .set-currency-modal__heading-container__main-heading {
-      font-size: 1.4rem;
-      line-height: 1.43; }
-      @media (min-width: 320px) and (max-width: 767px) {
-        .set-currency-modal__heading-container__main-heading {
-          padding: 0 3rem; } }
+    @media (min-width: 320px) and (max-width: 767px) {
+      .set-currency-modal__heading-container__main-heading {
+        padding: 0 3rem; } }
     .set-currency-modal__heading-container__sub-heading {
-      font-size: 1.6rem;
-      font-weight: bold;
       font-stretch: normal;
       font-style: normal;
-      line-height: 1.5;
       letter-spacing: normal;
       margin-top: 2rem; }
   .set-currency-modal .currency-selector {
-    min-height: 330px; }
+    min-height: 390px; }
     .set-currency-modal .currency-selector__radio-group--is-header {
       font-size: 1.6rem;
       font-weight: bold;
@@ -16468,8 +16960,6 @@
   @media (min-width: 1024px) {
     .account-wizard--deriv-crypto {
       grid-template-rows: 0 !important; }
-    .account-wizard .currency-list__items__is-fiat {
-      width: 100%; }
     .account-wizard .currency-list__items__is-crypto {
       margin-bottom: 9rem; }
     .account-wizard .dc-modal-footer {
@@ -16518,7 +17008,8 @@
     color: var(--text-general);
     margin-bottom: 1.6rem; }
   .account-wizard form {
-    width: 100%; }
+    width: 100%;
+    height: 100%; }
     @media (min-width: 768px) {
       .account-wizard form {
         display: grid;
@@ -17070,11 +17561,17 @@
  */
 /** @define notification-messages; */
 .notification-messages {
+  width: 40rem;
   z-index: 4;
   position: absolute;
   right: 0; }
+  .notification-messages > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; }
   @media (min-width: 320px) and (max-width: 767px) {
     .notification-messages {
+      max-width: calc(100% - 3.2rem);
       left: 1.6rem;
       right: 1.6rem; } }
 
@@ -17083,8 +17580,9 @@
   position: relative;
   display: flex;
   border-radius: 4px;
-  max-width: 348px;
-  padding: 16px;
+  width: 100%;
+  max-width: 40rem;
+  padding: 1.6rem;
   color: var(--text-prominent);
   background-color: var(--general-main-2);
   box-shadow: 0 4px 6px 0 var(--shadow-menu), 0 4px 6px 0 var(--shadow-menu);
@@ -17097,11 +17595,14 @@
     opacity: 0;
     transform: translateY(-16px); }
   .notification--small {
-    max-width: 240px; }
+    max-width: 28rem; }
   .notification__cta-button {
-    margin-top: 0.8rem;
-    flex-grow: 1;
+    padding: 0 0.8rem;
+    margin-top: 1.6rem;
     height: 24px;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
     max-width: 150px;
     align-self: flex-end; }
     .notification__cta-button .dc-btn__text {
@@ -17121,7 +17622,7 @@
     font-size: 1.6rem;
     font-weight: bold;
     line-height: 1.5;
-    margin-bottom: 8px; }
+    margin-bottom: 1.2rem; }
   .notification__close-button {
     position: absolute;
     top: -4px;
@@ -17140,17 +17641,17 @@
       font-weight: 300;
       color: var(--text-prominent); }
   .notification__icon-type {
-    margin-right: 15px;
-    margin-top: 0.5rem;
-    width: 1.4rem;
-    height: 1.4rem; }
+    margin-right: 1.6rem;
+    margin-top: 0.4rem;
+    width: 1.6rem;
+    height: 1.6rem; }
     .notification__icon-type--is-background {
-      width: 160px;
-      height: 160px; }
+      width: 21rem;
+      height: 21rem; }
   .notification__icon-background {
     position: absolute;
-    left: -20px;
-    bottom: -20px;
+    left: -25px;
+    bottom: -5px;
     pointer-events: none;
     opacity: 0.07;
     z-index: 0; }
@@ -17158,9 +17659,9 @@
     margin-bottom: 16px; }
   @media (min-width: 320px) and (max-width: 767px) {
     .notification {
-      max-width: unset; }
-      .notification--small {
-        max-width: unset; } }
+      max-width: 328px;
+      width: calc(100% - 0.8rem);
+      margin-right: 0.4rem; } }
 
 /*------------------------------------*
  *  # Constants
@@ -17603,10 +18104,10 @@ strong {
   --text-size-l: 3.2rem;
   --text-size-xl: 4.8rem;
   --text-size-xxl: 6.4rem;
-  --text-lh-l: 1.75;
+  --text-lh-xs: 1.25;
+  --text-lh-s: 1.4;
   --text-lh-m: 1.5;
-  --text-lh-s: 1.25;
-  --text-lh-x: 1.4;
+  --text-lh-l: 1.75;
   --text-weight-lighter: lighter;
   --text-weight-normal: normal;
   --text-weight-bold: bold;
@@ -17863,8 +18364,7 @@ strong {
         background-color: var(--general-section-1);
         border-radius: 4px; }
         .app-contents .contract-audit-card .contract-audit__wrapper {
-          height: 100%;
-          max-height: calc(100% - 38px); } }
+          height: 100%; } }
 
 /** @define sidebar; weak; */
 .sidebar__container {
@@ -18106,6 +18606,8 @@ strong {
     display: inline-flex;
     height: 47px;
     position: relative; }
+    .header__menu-right--hidden {
+      display: none; }
     @media (min-width: 320px) and (max-width: 767px) {
       .header__menu-right .acc-info__separator {
         display: none; }
@@ -18558,7 +19060,9 @@ strong {
     .cookie-banner {
       font-size: 12px;
       font-weight: bold;
-      height: 168px;
+      height: -webkit-fit-content;
+      height: -moz-fit-content;
+      height: fit-content;
       padding: 2.4rem 0; } }
   .cookie-banner--theme-dark {
     box-shadow: 0 24px 24px 0 rgba(0, 0, 0, 0.64), 0 0 24px 0 rgba(0, 0, 0, 0.64); }
@@ -18577,7 +19081,7 @@ strong {
         max-width: 296px; } }
   .cookie-banner__btn-dont-accept, .cookie-banner__btn-dont-accept:hover, .cookie-banner__btn-accept, .cookie-banner__btn-accept:hover {
     display: inline-block;
-    margin: 20px auto;
+    margin: 20px auto 0;
     height: 40px;
     border-width: 2px;
     border-radius: 4px;
@@ -18595,10 +19099,82 @@ strong {
   .cookie-banner__btn-accept {
     width: 78px; }
 
+.notification-banner {
+  position: relative;
+  display: flex;
+  background-color: var(--general-main-1);
+  color: var(--text-prominent);
+  border-radius: 4px;
+  box-shadow: 0 4px 6px 0 var(--shadow-menu), 0 4px 6px 0 var(--shadow-menu);
+  width: 100%;
+  max-width: 348px;
+  height: 124px;
+  transition: transform 0.25s ease, opacity 0.25s linear;
+  z-index: 10;
+  margin-bottom: 16px; }
+  .notification-banner--enter-done {
+    opacity: 1;
+    transform: translateY(0); }
+  .notification-banner--enter, .notification-banner--exit {
+    opacity: 0;
+    transform: translateY(-16px); }
+  .notification-banner--left {
+    padding: 1.6rem 0 1.6rem 1.6rem;
+    width: 210px; }
+  .notification-banner--right {
+    position: relative;
+    width: 138px; }
+  .notification-banner__title {
+    font-size: 1.6rem;
+    font-weight: bold;
+    line-height: 1.5; }
+  .notification-banner__description {
+    font-size: 1.4rem;
+    margin-top: 0.8rem;
+    line-height: 1.43; }
+  .notification-banner__btn {
+    display: inline-block;
+    border-width: 1px;
+    border-radius: 4px;
+    width: 80px;
+    height: 24px;
+    margin-top: 19px;
+    padding: 0 7px; }
+    .notification-banner__btn > span {
+      font-size: 1.2rem; }
+  .notification-banner__bg {
+    position: absolute;
+    right: 0;
+    background-color: #ff6444;
+    width: 100%;
+    height: 100%;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%);
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    z-index: 11; }
+  .notification-banner__img {
+    position: absolute;
+    right: 10px;
+    -o-object-fit: contain;
+       object-fit: contain;
+    height: 100%;
+    z-index: 12; }
+  .notification-banner__icon {
+    position: absolute;
+    z-index: 12;
+    right: 16px;
+    top: 16px;
+    cursor: pointer; }
+  @media (min-width: 320px) and (max-width: 767px) {
+    .notification-banner {
+      max-width: 328px;
+      width: calc(100% - 0.8rem);
+      margin-right: 0.4rem; } }
+
 /** @define page-404 */
 .page-404__image {
-  margin-right: 1.6rem;
-  margin-left: -19rem; }
+  margin-right: 1.6rem; }
 
 /** @define account-deactivated */
 .account-deactivated {
@@ -18612,20 +19188,18 @@ strong {
   font-size: var(--text-size-s); }
 
 /* @define reality-check */
-.reality-check__text {
-  font-size: 1.4rem;
-  line-height: 1.5;
-  color: var(--text-general); }
-  .reality-check__text:not(:last-child) {
-    margin-bottom: 1.2rem; }
-  .reality-check__text--center {
-    text-align: center; }
-    @media (min-width: 320px) and (max-width: 767px) {
-      .reality-check__text--center {
-        text-align: left; } }
+.reality-check__text:not(:last-child) {
+  margin-bottom: 1.2rem; }
+
+.reality-check__text--center {
+  text-align: center; }
   @media (min-width: 320px) and (max-width: 767px) {
-    .reality-check__text--description {
-      font-size: 1.2rem; } }
+    .reality-check__text--center {
+      text-align: left; } }
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .reality-check__text--description {
+    font-size: 1.2rem; } }
 
 .reality-check__separator {
   width: 100%;
@@ -18681,7 +19255,8 @@ strong {
     margin-bottom: 0.8rem;
     border-radius: 0 0 8px 8px; }
   .reality-check__row :first-child {
-    width: 11.8rem; }
+    width: 12.8rem;
+    padding-right: 0.8rem; }
     @media (min-width: 320px) and (max-width: 767px) {
       .reality-check__row :first-child {
         width: 16.8rem; } }
@@ -18732,15 +19307,11 @@ strong {
   .reset-password__password-selection .reset-password__heading {
     margin-bottom: 3.3rem; }
   .reset-password__heading {
-    font-weight: bold;
-    text-align: center;
     margin-bottom: 0.8rem; }
   .reset-password__text {
     text-align: center;
     margin-bottom: 3.3rem; }
   .reset-password__subtext {
-    font-size: 1.2rem;
-    text-align: center;
     margin: 1rem 0 2.4rem; }
   .reset-password__btn {
     margin: 0;
