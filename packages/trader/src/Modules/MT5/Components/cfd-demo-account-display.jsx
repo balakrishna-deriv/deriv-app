@@ -1,10 +1,10 @@
 import React from 'react';
 import { localize } from '@deriv/translations';
-import { eu_real_financial_specs } from 'Modules/MT5/Constants/mt5-specifications';
-import { MT5AccountCard } from './mt5-account-card.jsx';
+import specifications from 'Modules/MT5/Constants/cfd-specifications';
+import { CFDAccountCard } from './cfd-account-card.jsx';
 import Loading from '../../../templates/_common/components/loading.jsx';
 
-const MT5DemoAccountDisplay = ({
+const CFDDemoAccountDisplay = ({
     is_eu,
     is_eu_country,
     has_maltainvest_account,
@@ -19,8 +19,9 @@ const MT5DemoAccountDisplay = ({
     current_list,
     has_mt5_account,
     openPasswordManager,
+    platform = 'mt5',
 }) => {
-    const openMt5Account = () => {
+    const openCFDAccount = () => {
         if (is_eu && !has_maltainvest_account && standpoint.iom) {
             openAccountNeededModal('maltainvest', localize('Deriv Financial'), localize('DMT5 Demo Financial'));
         } else {
@@ -32,18 +33,19 @@ const MT5DemoAccountDisplay = ({
     };
 
     return is_loading ? (
-        <div className='mt5-demo-accounts-display'>
+        <div className='cfd-demo-accounts-display'>
             <Loading />
         </div>
     ) : (
-        <div className='mt5-demo-accounts-display'>
+        <div className='cfd-demo-accounts-display'>
             {(landing_companies?.mt_gaming_company?.financial || !is_logged_in) && (
-                <MT5AccountCard
+                <CFDAccountCard
                     has_mt5_account={has_mt5_account}
                     title={localize('Synthetic')}
                     type={{
                         category: 'demo',
                         type: 'synthetic',
+                        platform,
                     }}
                     is_disabled={has_mt5_account_error}
                     is_logged_in={is_logged_in}
@@ -80,7 +82,7 @@ const MT5DemoAccountDisplay = ({
             )}
 
             {(landing_companies?.mt_financial_company?.financial || !is_logged_in) && (
-                <MT5AccountCard
+                <CFDAccountCard
                     has_mt5_account={has_mt5_account}
                     title={localize('Financial')}
                     is_disabled={has_mt5_account_error}
@@ -88,12 +90,13 @@ const MT5DemoAccountDisplay = ({
                     type={{
                         category: 'demo',
                         type: 'financial',
+                        platform,
                     }}
                     existing_data={
                         current_list[Object.keys(current_list).find(key => key.startsWith('demo.financial@'))]
                     }
                     commission_message={localize('No commission')}
-                    onSelectAccount={openMt5Account}
+                    onSelectAccount={openCFDAccount}
                     onPasswordManager={openPasswordManager}
                     onClickFund={() =>
                         openAccountTransfer(
@@ -115,7 +118,7 @@ const MT5DemoAccountDisplay = ({
                     }
                     specs={
                         is_eu || is_eu_country
-                            ? eu_real_financial_specs
+                            ? specifications[platform].eu_real_financial_specs
                             : {
                                   [localize('Leverage')]: localize('Up to 1:1000'),
                                   [localize('Margin call')]: localize('150%'),
@@ -126,12 +129,13 @@ const MT5DemoAccountDisplay = ({
                 />
             )}
             {(landing_companies?.mt_financial_company?.financial_stp || !is_logged_in) && (
-                <MT5AccountCard
+                <CFDAccountCard
                     has_mt5_account={has_mt5_account}
                     title={localize('Financial STP')}
                     type={{
                         category: 'demo',
                         type: 'financial_stp',
+                        platform,
                     }}
                     is_disabled={has_mt5_account_error}
                     is_logged_in={is_logged_in}
@@ -170,4 +174,4 @@ const MT5DemoAccountDisplay = ({
     );
 };
 
-export { MT5DemoAccountDisplay };
+export { CFDDemoAccountDisplay };
