@@ -318,6 +318,8 @@ import './dashboard/ic-dashboard-currency.svg';
 import './dashboard/ic-dashboard-personal-details.svg';
 import './dashboard/ic-dashboard-terms-of-use.svg';
 import './dashboard/ic-dashboard-wallet.svg';
+import './dxtrade/ic-dxtrade-financial-platform.svg';
+import './dxtrade/ic-dxtrade-synthetic-platform.svg';
 import './flag/ic-flag-de.svg';
 import './flag/ic-flag-en.svg';
 import './flag/ic-flag-es.svg';

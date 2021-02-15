@@ -331,6 +331,7 @@ export const icons = {
         'IcDashboardTermsOfUse',
         'IcDashboardWallet',
     ],
+    dxtrade: ['IcDxtradeFinancialPlatform', 'IcDxtradeSyntheticPlatform'],
     flag: [
         'IcFlagDe',
         'IcFlagEn',
