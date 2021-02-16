@@ -1,7 +1,7 @@
 import React from 'react';
 import { localize, Localize } from '@deriv/translations';
 import { DesktopWrapper, MobileWrapper, Carousel } from '@deriv/components';
-import { getAccountTypeFields } from '@deriv/shared';
+import { getAccountTypeFields, getMT5AccountListKey, getMT5AccountKey } from '@deriv/shared';
 import specifications from 'Modules/MT5/Constants/cfd-specifications';
 import { CFDAccountCard } from './cfd-account-card.jsx';
 
@@ -85,20 +85,10 @@ const CFDRealAccountDisplay = ({
         }
     };
 
-    const onClickFundRealSynthetic = () =>
-        openAccountTransfer(current_list['real.synthetic'], {
-            category: 'real',
-            type: 'synthetic',
-        });
-    const onClickFundRealFinancial = () =>
-        openAccountTransfer(current_list['real.financial'], {
-            category: 'real',
-            type: 'financial',
-        });
-    const onClickFundRealFinancialStp = () =>
-        openAccountTransfer(current_list['real.financial_stp'], {
-            category: 'real',
-            type: 'financial_stp',
+    const onClickFundReal = account =>
+        openAccountTransfer(current_list[getMT5AccountListKey(account)], {
+            category: account.account_type,
+            type: getMT5AccountKey(account.market_type, account.sub_account_type),
         });
 
     const handleHoverCard = name => {
@@ -155,7 +145,7 @@ const CFDRealAccountDisplay = ({
                               commission_message={localize('No commission')}
                               onSelectAccount={onSelectRealSynthetic}
                               onPasswordManager={openPasswordManager}
-                              onClickFund={onClickFundRealSynthetic}
+                              onClickFund={onClickFundReal}
                               descriptor={localize(
                                   'Trade CFDs on our Synthetic Indices that simulate real-world market movement.'
                               )}
@@ -182,7 +172,7 @@ const CFDRealAccountDisplay = ({
                       commission_message={localize('No commission')}
                       onSelectAccount={onSelectRealSynthetic}
                       onPasswordManager={openPasswordManager}
-                      onClickFund={onClickFundRealSynthetic}
+                      onClickFund={onClickFundReal}
                       descriptor={localize(
                           'Trade CFDs on our Synthetic Indices that simulate real-world market movement.'
                       )}
@@ -209,7 +199,7 @@ const CFDRealAccountDisplay = ({
             button_label={button_label}
             is_button_primary={is_pending_authentication}
             onPasswordManager={openPasswordManager}
-            onClickFund={onClickFundRealFinancialStp}
+            onClickFund={onClickFundReal}
             descriptor={localize(
                 'Trade major, minor, exotic currency pairs, and cryptocurrencies with Straight-Through Processing (STP) of your orders direct to the market.'
             )}
@@ -238,7 +228,7 @@ const CFDRealAccountDisplay = ({
             commission_message={localize('No commission')}
             onSelectAccount={onSelectRealFinancial}
             onPasswordManager={openPasswordManager}
-            onClickFund={onClickFundRealFinancial}
+            onClickFund={onClickFundReal}
             descriptor={
                 is_eu || is_eu_country
                     ? localize(
