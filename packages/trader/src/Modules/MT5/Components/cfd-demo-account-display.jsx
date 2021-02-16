@@ -16,10 +16,10 @@ const CFDDemoAccountDisplay = ({
     landing_companies,
     onSelectAccount,
     openAccountTransfer,
+    platform,
     current_list,
     has_mt5_account,
     openPasswordManager,
-    platform = 'mt5',
 }) => {
     const openCFDAccount = () => {
         if (is_eu && !has_maltainvest_account && standpoint.iom) {
@@ -128,7 +128,7 @@ const CFDDemoAccountDisplay = ({
                     }
                 />
             )}
-            {(landing_companies?.mt_financial_company?.financial_stp || !is_logged_in) && (
+            {(landing_companies?.mt_financial_company?.financial_stp || !is_logged_in) && platform === 'mt5' && (
                 <CFDAccountCard
                     has_mt5_account={has_mt5_account}
                     title={localize('Financial STP')}

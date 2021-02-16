@@ -33,7 +33,16 @@ const filterAvailableAccounts = (landing_companies, table, is_logged_in, platfor
                 attribute,
                 ...(landing_companies?.mt_gaming_company?.financial ? { synthetic } : {}),
                 ...(landing_companies?.mt_financial_company?.financial ? { financial } : {}),
-                ...(landing_companies?.mt_financial_company?.financial_stp ? { financial_stp } : {}),
+                ...(landing_companies?.mt_financial_company?.financial_stp && platform === 'mt5'
+                    ? { financial_stp }
+                    : {}),
+            };
+        }
+        if (platform === 'dxtrade') {
+            return {
+                attribute,
+                ...{ synthetic },
+                ...{ financial },
             };
         }
         return {
@@ -273,8 +282,8 @@ const ModalContent = ({ is_eu, landing_companies, is_eu_country, is_logged_in, p
             );
         }
     }, [
-        landing_companies.mt_financial_company,
-        landing_companies.mt_gaming_company,
+        landing_companies?.mt_financial_company,
+        landing_companies?.mt_gaming_company,
         is_eu,
         is_logged_in,
         is_eu_country,
@@ -307,7 +316,7 @@ const ModalContent = ({ is_eu, landing_companies, is_eu_country, is_logged_in, p
                                             </Text>
                                         </Table.Head>
                                     )}
-                                    {landing_companies?.mt_financial_company?.financial_stp && (
+                                    {landing_companies?.mt_financial_company?.financial_stp && platform === 'mt5' && (
                                         <Table.Head>
                                             {localize('Financial STP')}
                                             <Text size='s' weight='bold' className='cfd-compare-accounts__star'>
@@ -325,12 +334,14 @@ const ModalContent = ({ is_eu, landing_companies, is_eu_country, is_logged_in, p
                                             *
                                         </Text>
                                     </Table.Head>
-                                    <Table.Head>
-                                        {localize('Financial STP')}
-                                        <Text size='s' weight='bold' className='cfd-compare-accounts__star'>
-                                            *
-                                        </Text>
-                                    </Table.Head>
+                                    {platform === 'mt5' && (
+                                        <Table.Head>
+                                            {localize('Financial STP')}
+                                            <Text size='s' weight='bold' className='cfd-compare-accounts__star'>
+                                                *
+                                            </Text>
+                                        </Table.Head>
+                                    )}
                                 </React.Fragment>
                             )}
                         </Table.Row>
@@ -347,7 +358,6 @@ const ModalContent = ({ is_eu, landing_companies, is_eu_country, is_logged_in, p
                         ))}
                     </Table.Body>
                 </Table>
-
                 <CompareAccountFooter />
             </ThemedScrollbars>
         </div>
