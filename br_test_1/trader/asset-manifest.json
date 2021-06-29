@@ -1,0 +1,21 @@
+{
+  "trader.js": "/br_test_1/trader/js/trader.js",
+  "CFDStore.js": "/br_test_1/trader/js/CFDStore.js",
+  "trader-app.css": "/br_test_1/trader/css/trader.trader-app.ce0a03308e453c00b2f1.css",
+  "trader-app.js": "/br_test_1/trader/js/trader.trader-app.29450b74e3506dab1ef5.js",
+  "trade-modals.js": "/br_test_1/trader/js/trader.trade-modals.7fea16926dd365d037c8.js",
+  "error-component.js": "/br_test_1/trader/js/trader.error-component.82cb227571aafb3ef745.js",
+  "contract.js": "/br_test_1/trader/js/trader.contract.6c380dac274ba7e53645.js",
+  "cfd.css": "/br_test_1/trader/css/trader.cfd.87385422bee075531a22.css",
+  "cfd.js": "/br_test_1/trader/js/trader.cfd.4ac788f5d2b2e53e2029.js",
+  "reports.css": "/br_test_1/trader/css/trader.reports.076029ce9158b6efff54.css",
+  "reports.js": "/br_test_1/trader/js/trader.reports.74882767a70c8c439568.js",
+  "screen-small.css": "/br_test_1/trader/css/trader.screen-small.595e66a4b584ab577670.css",
+  "screen-small.js": "/br_test_1/trader/js/trader.screen-small.18be65c6a62c6037cf1d.js",
+  "screen-large.js": "/br_test_1/trader/js/trader.screen-large.76ab4cd0c6623ff44db1.js",
+  "settings-chart.js": "/br_test_1/trader/js/trader.settings-chart.c3b029283e524868acd4.js",
+  "two-month-picker.js": "/br_test_1/trader/js/trader.two-month-picker.82fb1089e45862d80f9e.js",
+  "trader/js/trader.vendors-node_modules_formik_dist_formik_esm_js.3ec1e4b2a609d1778d36.js": "/br_test_1/trader/js/trader.vendors-node_modules_formik_dist_formik_esm_js.3ec1e4b2a609d1778d36.js",
+  "trader/js/trader.vendors-node_modules_classnames_index_js-node_modules_extend_index_js-node_modules_lodash_deb-c9ff82.328e2af5bb025f3fd045.js": "/br_test_1/trader/js/trader.vendors-node_modules_classnames_index_js-node_modules_extend_index_js-node_modules_lodash_deb-c9ff82.328e2af5bb025f3fd045.js",
+  "trader/js/trader.Modules_Trading_Components_Form_TradeParams_Multiplier_expiration_jsx-Modules_Trading_Compone-90e657.f585fecb44f438efe3dd.js": "/br_test_1/trader/js/trader.Modules_Trading_Components_Form_TradeParams_Multiplier_expiration_jsx-Modules_Trading_Compone-90e657.f585fecb44f438efe3dd.js"
+}
