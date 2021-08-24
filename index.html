@@ -1,19 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" translate="no">
     <head>
-        <script src="https://www.datadoghq-browser-agent.com/datadog-rum-us.js" type="text/javascript"></script>
-        <script>
-            // TODO: [app-link-refactor] - Remove backwards compatibility for `deriv.app`
-            (window.location.hostname === 'www.deriv.app' ||
-                window.location.hostname === 'deriv.app' ||
-                window.location.hostname === 'app.deriv.com') &&
-                window.DD_RUM &&
-                window.DD_RUM.init({
-                    clientToken: 'pub6f67be9c67c8693a214336c89a1623fd',
-                    applicationId: '34461589-53a5-4f9f-aa85-5d0e994ee1a4',
-                    sampleRate: 25,
-                });
-        </script>
         <!-- Set skeleton theme color properties -->
         <style>
             :root {
@@ -35,13 +22,16 @@
                 background-color: var(--general-main-1);
                 border-bottom: var(--general-main-1);
             }
+
             .deriv-app > .app-contents__loading {
                 background-color: var(--general-main-1);
             }
+
             .deriv-app > .footer__loading {
                 background-color: var(--general-main-1);
                 border-bottom: var(--general-main-1);
             }
+
             .initial-loader__loading {
                 background-color: var(--general-main-1);
             }
@@ -91,68 +81,51 @@
 
         <noscript>Your browser does not support JavaScript!</noscript>
 
-        <!-- Start Segment Script -->
+        <!-- Start RudderStack Script -->
         <script type="text/javascript">
-            !(function() {
-                var analytics = (window.analytics = window.analytics || []);
-                if (!analytics.initialize)
-                    if (analytics.invoked)
-                        window.console && console.error && console.error('Segment snippet included twice.');
-                    else {
-                        analytics.invoked = !0;
-                        analytics.methods = [
-                            'trackSubmit',
-                            'trackClick',
-                            'trackLink',
-                            'trackForm',
-                            'pageview',
-                            'identify',
-                            'reset',
-                            'group',
-                            'track',
-                            'ready',
-                            'alias',
-                            'debug',
-                            'page',
-                            'once',
-                            'off',
-                            'on',
-                        ];
-                        analytics.factory = function(t) {
-                            return function() {
-                                var e = Array.prototype.slice.call(arguments);
-                                e.unshift(t);
-                                analytics.push(e);
-                                return analytics;
-                            };
-                        };
-                        for (var t = 0; t < analytics.methods.length; t++) {
-                            var e = analytics.methods[t];
-                            analytics[e] = analytics.factory(e);
-                        }
-                        analytics.load = function(t, e) {
-                            var n = document.createElement('script');
-                            n.type = 'text/javascript';
-                            n.defer = !0;
-                            n.src = 'https://cdn.segment.com/analytics.js/v1/' + t + '/analytics.min.js';
-                            var a = document.getElementsByTagName('script')[0];
-                            a.parentNode.insertBefore(n, a);
-                            analytics._loadOptions = e;
-                        };
-                        analytics.SNIPPET_VERSION = '4.1.0';
-                        /* IMPORTANT: upon development, make sure to use the Development Token */
-                        // analytics.load("KD5463ad4XabNttNNaAC0zMLie7g9GIM"); // Development Token
-                        analytics.load('TSvHCi93nNiBjfezt24XMMDa2YOwUoqS'); // Production Token
-                    }
-            })();
+            const isProduction = () => {
+                return window.location.hostname === 'app.deriv.com' || window.location.hostname === 'app.deriv.me';
+            };
+
+            rudderanalytics = window.rudderanalytics = [];
+
+            var methods = [
+                'load',
+                'page',
+                'track',
+                'identify',
+                'alias',
+                'group',
+                'ready',
+                'reset',
+                'getAnonymousId',
+                'setAnonymousId',
+            ];
+
+            for (var i = 0; i < methods.length; i++) {
+                var method = methods[i];
+                rudderanalytics[method] = (function (methodName) {
+                    return function () {
+                        rudderanalytics.push([methodName].concat(Array.prototype.slice.call(arguments)));
+                    };
+                })(method);
+            }
+            if (isProduction()) {
+                // Production key
+                rudderanalytics.load('1oV5agvlcnCZ6IH94wCKM1oR8Pd', 'https://deriv-dataplane.rudderstack.com');
+            } else {
+                // Staging keys
+                rudderanalytics.load('1lN3tsFD2nruGFgM5F074DC2hMB', 'https://deriv-dataplane.rudderstack.com');
+            }
         </script>
-        <!-- End Segment Script -->
+        <script async src="https://cdn.rudderlabs.com/rudder-analytics.min.js"></script>
+        <!-- End RudderStack Script -->
 
         <!-- Start GTM Script -->
         <script>
             var gtm_id = 'GTM-NF7884S';
             if (window.location.hostname === 'deriv-app.binary.sx') gtm_id = 'GTM-TNX2ZKH';
-            (function(w, d, s, l, i) {
+            (function (w, d, s, l, i) {
                 w[l] = w[l] || [];
                 w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
                 var f = d.getElementsByTagName(s)[0],
@@ -174,13 +147,13 @@
         <script>
             var gtm_id = 'GTM-NF7884S';
             if (window.location.hostname === 'deriv-app.binary.sx') gtm_id = 'GTM-TNX2ZKH';
-            (function(a, s, y, n, c, h, i, d, e) {
+            (function (a, s, y, n, c, h, i, d, e) {
                 s.className += ' ' + y;
-                h.end = i = function() {
+                h.end = i = function () {
                     s.className = s.className.replace(RegExp(' ?' + y), '');
                 };
                 (a[n] = a[n] || []).hide = h;
-                setTimeout(function() {
+                setTimeout(function () {
                     i();
                     h.end = null;
                 }, c);
@@ -190,18 +163,15 @@
 
         <!-- Start URL Handler -->
         <script type="text/javascript">
-            (function(l) {
+            (function (l) {
                 if (l.search) {
                     var q = {};
                     l.search
                         .slice(1)
                         .split('&')
-                        .forEach(function(v) {
+                        .forEach(function (v) {
                             var a = v.split('=');
-                            q[a[0]] = a
-                                .slice(1)
-                                .join('=')
-                                .replace(/~and~/g, '&');
+                            q[a[0]] = a.slice(1).join('=').replace(/~and~/g, '&');
                         });
                     if (q.p !== undefined) {
                         window.history.replaceState(
@@ -214,6 +184,10 @@
             })(window.location);
         </script>
         <!-- End URL Handler -->
+
+        <!-- Start Cookies script -->
+        <script src="https://static.deriv.com/scripts/cookie.js" async></script>
+        <!-- End Cookies script -->
 
         <meta
             name="description"
@@ -237,6 +211,8 @@
         <meta name="google" content="notranslate" />
         <meta name="referrer" content="origin" />
 
+        <link rel="manifest" href="/manifest.json" />
+
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://browser-update.org" />
@@ -244,7 +220,8 @@
         <title>Deriv App | Deriv</title>
         <meta charset="UTF-8" />
         <meta name="google-site-verification" content="g5u3TyEdmYJ_HKZ6EmpW1nlKwD4XPVeLMhN9leeMfuw" />
-    <link href="/css/smartcharts.css" rel="stylesheet"><link href="/css/bot-web-ui.main.css" rel="stylesheet"><link href="/manifest.json" rel="manifest"><link href="/public/images/favicons/apple-touch-icon-114.png" rel="icon"><link href="/public/images/favicons/apple-touch-icon-120.png" rel="icon"><link href="/public/images/favicons/apple-touch-icon-144.png" rel="icon"><link href="/public/images/favicons/apple-touch-icon-152.png" rel="icon"><link href="/public/images/favicons/apple-touch-icon-180.png" rel="icon"><link href="/public/images/favicons/apple-touch-icon-57.png" rel="icon"><link href="/public/images/favicons/apple-touch-icon-60.png" rel="icon"><link href="/public/images/favicons/apple-touch-icon-72.png" rel="icon"><link href="/public/images/favicons/apple-touch-icon-76.png" rel="icon"><link href="/public/images/favicons/favicon-16.png" rel="icon"><link href="/public/images/favicons/favicon-160.png" rel="icon"><link href="/public/images/favicons/favicon-192.png" rel="icon"><link href="/public/images/favicons/favicon-32.png" rel="icon"><link href="/public/images/favicons/favicon-96.png" rel="icon"><link href="/public/images/favicons/favicon.ico" rel="icon"><link href="/css/core.main.css" rel="stylesheet"><link as="style" href="/css/core.main.css" rel="preload"></head>
+    <script defer src="/js/core.vendors-node_modules_babel_runtime_helpers_classCallCheck__index_mjs-node_modules_babel_runti-de8f93.9b80a183a80d072943b8.js"></script><script defer src="/js/core.vendors-node_modules_core-js_fn_regexp_escape_js-node_modules_core-js_shim_js-node_modules_cr-1e24ef.2746b411622a4b8d3ef2.js"></script><script defer src="/js/core.vendors-node_modules_deriv_deriv-onboarding_dist_reactour_esm_js-node_modules_emotion_is-prop-d79aaa.bdb8ce0855b8940834c4.js"></script><script defer src="/js/core.vendors-node_modules_deriv_deriv-api_dist_DerivAPIBasic_js.b8ef8a3e9615aa207a1a.js"></script><script defer src="/js/core.vendors-node_modules_deriv_web-push-notifications_lib_index_js.da2db3d18693cf421e0a.js"></script><script defer src="/js/core.vendors-node_modules_file-selector_dist_es5_index_js-node_modules_focus-outline-manager_focus-01e913.0f499d2004e66ec9abad.js"></script><script defer src="/js/core.vendors-node_modules_is-callable_index_js-node_modules_is-date-object_index_js-node_modules_i-b97f84.a1caf6dc36de44610379.js"></script><script defer src="/js/core.vendors-node_modules_mini-create-react-context_dist_esm_index_js-node_modules_mobx-react_dist-7803fa.de2eed3557e7ba14cb45.js"></script><script defer src="/js/core.vendors-node_modules_moment_moment_js.ce4c1eb5e5406ed785b9.js"></script><script defer src="/js/core.vendors-node_modules_object-assign_index_js-node_modules_object-inspect_index_js-node_modules-47ff9e.31f4cf684424973dc665.js"></script><script defer src="/js/core.vendors-node_modules_promise-polyfill_src_index_js-node_modules_prop-types_index_js.8758afbae05178c25296.js"></script><script defer src="/js/core.vendors-node_modules_raf_index_js-node_modules_react-clientside-effect_lib_index_es_js-node_m-bb6d63.9d86b43c2517c8e5fde5.js"></script><script defer src="/js/core.vendors-node_modules_react-dom_cjs_react-dom_development_js.d1c47ed87ab29c080744.js"></script><script defer src="/js/core.vendors-node_modules_react-lifecycles-compat_react-lifecycles-compat_es_js-node_modules_react-b45a5f.866f5b2d37ef79f64a47.js"></script><script defer src="/js/core.vendors-node_modules_react-transition-group_esm_CSSTransition_js-node_modules_react-transitio-85c8d7.2be5aa3225eec0554ba7.js"></script><script defer src="/js/core.vendors-node_modules_react_index_js.2c20c09470d4d2a36fa2.js"></script><script defer src="/js/core.vendors-node_modules_rooks_use-mutation-observer_lib_index_esm_js-node_modules_scheduler_inde-a1a9fe.2fc817252c0b6d8a57ed.js"></script><script defer src="/js/core.vendors-node_modules_scroll-smooth_dist_index_js-node_modules_scrollparent_scrollparent_js-no-e650d6.2bddf106fa6bbf6c02d6.js"></script><script defer src="/js/core.main~App_Components_E.a9de777a9992131a292a.js"></script><script defer src="/js/core.main~App_C.2e89fd7932ad7ff9c5aa.js"></script><script defer src="/js/core.main~A.44fcd626e6dc08348fe9.js"></script><script defer src="/js/core.main~Se.4428ae955bbb284104d9.js"></script><script defer src="/js/core.main~Stores_b.48dd87a642eafbf33e43.js"></script><script defer src="/js/core.main~Stores_m.cedadbd803ebaf072aea.js"></script><script defer src="/js/core.main~U.1aaea785b25b62b6ca7d.js"></script><script defer src="/js/core.main~ac.395d7ec207665840cca4.js"></script><script defer src="/js/core.main~account_dist_account_js_address-details_js_0928415f.1c04194db1703eba3bbc.js"></script><script defer src="/js/core.main~account_dist_account_js_api-token_js_a71678f7.a865dbd122faf56fcea2.js"></script><script defer src="/js/core.main~account_dist_account_js_currency-selector_js_f2f9c8d9.faaf0b3bd80dbef5dcb9.js"></script><script defer src="/js/core.main~account_dist_account_js_financial-details_js_0e7eaa58.8e871bceefec96beab75.js"></script><script defer src="/js/core.main~account_dist_account_js_personal-details_js_21b2d6f5.69758611a0ddebf1dbca.js"></script><script defer src="/js/core.main~account_dist_account_js_self-exclusion_js_6be4b9cc.c60adc629d2d444b5a8d.js"></script><script defer src="/js/core.main~account_dist_account_js_terms-of-use_js_d9e09153.d700de390c7d6e5c7b09.js"></script><script defer src="/js/core.main~cashier_dist_cashier_js_cashier-store_js_77e8332f.6e6439c836b928aeb46f.js"></script><script defer src="/js/core.main~components_src_components_a.8fc6f3568b53586cf7a1.js"></script><script defer src="/js/core.main~components_src_components_c.72c6d2a92da2955efaa4.js"></script><script defer src="/js/core.main~components_src_components_l.557ec7b545fdbdd61ce4.js"></script><script defer src="/js/core.main~c.ffd49a15e9e3cd6f052a.js"></script><script defer src="/js/core.main~s.1dc439bbe13e2fe1d0f2.js"></script><link href="/manifest.json" rel="manifest"><link href="/public/images/favicons/apple-touch-icon-114.png" rel="icon"><link href="/public/images/favicons/apple-touch-icon-120.png" rel="icon"><link href="/public/images/favicons/apple-touch-icon-144.png" rel="icon"><link href="/public/images/favicons/apple-touch-icon-152.png" rel="icon"><link href="/public/images/favicons/apple-touch-icon-180.png" rel="icon"><link href="/public/images/favicons/apple-touch-icon-57.png" rel="icon"><link href="/public/images/favicons/apple-touch-icon-60.png" rel="icon"><link href="/public/images/favicons/apple-touch-icon-72.png" rel="icon"><link href="/public/images/favicons/apple-touch-icon-76.png" rel="icon"><link href="/public/images/favicons/favicon-16.png" rel="icon"><link href="/public/images/favicons/favicon-160.png" rel="icon"><link href="/public/images/favicons/favicon-192.png" rel="icon"><link href="/public/images/favicons/favicon-32.png" rel="icon"><link href="/public/images/favicons/favicon-96.png" rel="icon"><link href="/public/images/favicons/favicon.ico" rel="icon"><link href="/css/core.vendors-node_modules_deriv_deriv-onboarding_dist_reactour_esm_js-node_modules_emotion_is-prop-d79aaa.071ac930a7d15060d2fb.main.css" rel="stylesheet"><link href="/css/core.main~App_C.0a66d5c811c6b67425d5.main.css" rel="stylesheet"><link href="/css/core.main~ac.4bbba49b6c0f839b216c.main.css" rel="stylesheet"><link href="/css/core.main~components_src_components_a.e7a8be161de29549efaa.main.css" rel="stylesheet"><link href="/css/core.main~components_src_components_c.a079f9f80b8fdc113b8d.main.css" rel="stylesheet"><link href="/css/core.main~components_src_components_l.259503779668d5cba515.main.css" rel="stylesheet"><link href="/css/core.main~c.8f369a35ac8797849774.main.css" rel="stylesheet"><link href="/css/core.main~s.9abfa68f6620efaedf7c.main.css" rel="stylesheet"><link as="style" href="/css/core.main~App_C.0a66d5c811c6b67425d5.main.css" rel="preload"><link as="style" href="/css/core.main~ac.4bbba49b6c0f839b216c.main.css" rel="preload"><link as="style" href="/css/core.main~c.8f369a35ac8797849774.main.css" rel="preload"><link as="style" href="/css/core.main~components_src_components_a.e7a8be161de29549efaa.main.css" rel="preload"><link as="style" href="/css/core.main~components_src_components_c.a079f9f80b8fdc113b8d.main.css" rel="preload"><link as="style" href="/css/core.main~components_src_components_l.259503779668d5cba515.main.css" rel="preload"><link as="style" href="/css/core.main~s.9abfa68f6620efaedf7c.main.css" rel="preload"><link as="style" href="/css/core.vendors-node_modules_deriv_deriv-onboarding_dist_reactour_esm_js-node_modules_emotion_is-prop-d79aaa.071ac930a7d15060d2fb.main.css" rel="preload"></head>
+
     <body class="body theme">
         <!-- Start GTM NoScript -->
         <noscript
@@ -252,7 +229,7 @@
                 src="https://www.googletagmanager.com/ns.html?id=GTM-NF7884S"
                 height="0"
                 width="0"
-                style="display: none; visibility: hidden;"
+                style="display: none; visibility: hidden"
             ></iframe
         ></noscript>
         <!-- End GTM NoScript -->
@@ -262,7 +239,7 @@
                 src="https://www.googletagmanager.com/ns.html?id=GTM-TNX2ZKH"
                 height="0"
                 width="0"
-                style="display: none; visibility: hidden;"
+                style="display: none; visibility: hidden"
             ></iframe
         ></noscript>
         <!-- End GTM NoScript of GTM Test Environment -->
@@ -272,9 +249,18 @@
         <div id="deriv_app" class="deriv-app">
             <header
                 class="header__loading"
-                style="background: var(--general-main-1); border-bottom: 1px solid var(--general-section-1); position: fixed; z-index: 99; box-sizing: border-box; height: 48px; width: 100%; top: 0;"
+                style="
+                    background: var(--general-main-1);
+                    border-bottom: 1px solid var(--general-section-1);
+                    position: fixed;
+                    z-index: 99;
+                    box-sizing: border-box;
+                    height: 48px;
+                    width: 100%;
+                    top: 0;
+                "
             ></header>
-            <div class="app-contents app-contents__loading" style="margin-bottom: 0; overflow: hidden;">
+            <div class="app-contents app-contents__loading" style="margin-bottom: 0; overflow: hidden">
                 <div class="initial-loader initial-loader__loading">
                     <div class="initial-loader__barspinner barspinner barspinner-light">
                         <div class="initial-loader__barspinner--rect barspinner__rect barspinner__rect--1 rect1"></div>
@@ -287,7 +273,15 @@
             </div>
             <footer
                 class="footer__loading"
-                style="background: var(--general-main-1); border-top: 1px solid var(--general-section-1); position: fixed; bottom: 0; width: 100%; height: 37px; z-index: 3;"
+                style="
+                    background: var(--general-main-1);
+                    border-top: 1px solid var(--general-section-1);
+                    position: fixed;
+                    bottom: 0;
+                    width: 100%;
+                    height: 37px;
+                    z-index: 3;
+                "
             ></footer>
         </div>
         <div id="modal_root" class="modal-root"></div>
@@ -322,7 +316,7 @@
         <script type="text/javascript">
             window.__lc = window.__lc || {};
             window.__lc.license = 12049137;
-            (function(n, t, c) {
+            (function (n, t, c) {
                 function i(n) {
                     return e._h ? e._h.apply(null, n) : e._q.push(n);
                 }
@@ -330,23 +324,23 @@
                     _q: [],
                     _h: null,
                     _v: '2.0',
-                    on: function() {
+                    on: function () {
                         i(['on', c.call(arguments)]);
                     },
-                    once: function() {
+                    once: function () {
                         i(['once', c.call(arguments)]);
                     },
-                    off: function() {
+                    off: function () {
                         i(['off', c.call(arguments)]);
                     },
-                    get: function() {
+                    get: function () {
                         if (!e._h) throw new Error('[LiveChatWidget] You can’t use getters before load.');
                         return i(['get', c.call(arguments)]);
                     },
-                    call: function() {
+                    call: function () {
                         i(['call', c.call(arguments)]);
                     },
-                    init: function() {
+                    init: function () {
                         var n = t.createElement('script');
                         (n.async = !0),
                             (n.type = 'text/javascript'),
@@ -358,5 +352,5 @@
             })(window, document, [].slice);
         </script>
         <!-- End LiveChat script -->
-    <script type="text/javascript" src="/js/core.vendors~main.adcac982d389bb57bc78.js"></script><script type="text/javascript" src="/js/core.main.b216c1cd46791599f957.js"></script></body>
+    </body>
 </html>
