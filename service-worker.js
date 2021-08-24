@@ -285,7 +285,7 @@ define("./service-worker.js",['./workbox-c5a866fd'], function (workbox) { 'use s
     "revision": "e7338723e6e60715a5fcd579abd013a7"
   }, {
     "url": "/bot/js/bot-web-ui.main.js",
-    "revision": "7efbbf8e36b3af1bcaa8ee3a8a5a6b3c"
+    "revision": "be2d97963bdf4fc5fb7ee14f3c159c25"
   }, {
     "url": "/bot/js/bot.dalembert-xml.0eec93dcff0e44a79831.js",
     "revision": "d05429f8a2c254794fcabbe5c8122496"
@@ -359,7 +359,7 @@ define("./service-worker.js",['./workbox-c5a866fd'], function (workbox) { 'use s
     "url": "/css/core.main~s.9abfa68f6620efaedf7c.main.css",
     "revision": null
   }, {
-    "url": "/css/core.vendors-node_modules_deriv_deriv-onboarding_dist_reactour_esm_js-node_modules_emotion_is-prop-d79aaa.071ac930a7d15060d2fb.main.css",
+    "url": "/css/core.vendors-node_modules_deriv_deriv-onboarding_dist_reactour_esm_js-node_modules_emotion_is-prop-d79aaa.d0c68d1b0c5965b1545a.main.css",
     "revision": null
   }, {
     "url": "/favicon.ico",
@@ -380,7 +380,7 @@ define("./service-worker.js",['./workbox-c5a866fd'], function (workbox) { 'use s
     "url": "/js/core.ach-json.a8624c98f5539fd5936a.js",
     "revision": null
   }, {
-    "url": "/js/core.bot.eb265dcb606d1aece099.js",
+    "url": "/js/core.bot.9cd3489de2bb31d9358f.js",
     "revision": null
   }, {
     "url": "/js/core.cashier.b2d2ef39b917b33742e6.js",
@@ -464,7 +464,7 @@ define("./service-worker.js",['./workbox-c5a866fd'], function (workbox) { 'use s
     "url": "/js/core.main~components_src_components_l.557ec7b545fdbdd61ce4.js",
     "revision": null
   }, {
-    "url": "/js/core.main~s.1dc439bbe13e2fe1d0f2.js",
+    "url": "/js/core.main~s.9fc64bd3ef422104be6a.js",
     "revision": null
   }, {
     "url": "/js/core.pl-json.00b61cc38b2b9d689701.js",
@@ -519,6 +519,9 @@ define("./service-worker.js",['./workbox-c5a866fd'], function (workbox) { 'use s
     "revision": null
   }, {
     "url": "/js/core.vendors-node_modules_core-js_fn_regexp_escape_js-node_modules_core-js_shim_js-node_modules_cr-1e24ef.2746b411622a4b8d3ef2.js",
+    "revision": null
+  }, {
+    "url": "/js/core.vendors-node_modules_deriv_deriv-charts_dist_smartcharts_js.5883da0176cd95f165c0.js",
     "revision": null
   }, {
     "url": "/js/core.vendors-node_modules_deriv_deriv-onboarding_dist_reactour_esm_js-node_modules_emotion_is-prop-d79aaa.bdb8ce0855b8940834c4.js",
@@ -596,20 +599,41 @@ define("./service-worker.js",['./workbox-c5a866fd'], function (workbox) { 'use s
     "url": "/js/core.zh_tw-json.7196bc252cf5c1143ec7.js",
     "revision": null
   }, {
+    "url": "/js/smartcharts/chartiq-2fce5b.smartcharts.js",
+    "revision": "a9c3bce8a9f4828d4ef3f4cbd5e8873c"
+  }, {
+    "url": "/js/smartcharts/de-json-3f635c.smartcharts.js",
+    "revision": "748bd6a416e50da7eb098d5eeed06493"
+  }, {
     "url": "/js/smartcharts/de-json-f7e5ae.smartcharts.js",
     "revision": "84afc8c6e774c8c5b53ca06b1de9f8b5"
   }, {
     "url": "/js/smartcharts/es-json-633a64.smartcharts.js",
     "revision": "c9961f98c6150ab93c35e8640e785ce8"
   }, {
+    "url": "/js/smartcharts/es-json-d06d5e.smartcharts.js",
+    "revision": "dae32059103e9ad08e214da830b9ee04"
+  }, {
     "url": "/js/smartcharts/fr-json-069264.smartcharts.js",
     "revision": "b31458cec7c094388d6d52e72d146ed6"
+  }, {
+    "url": "/js/smartcharts/fr-json-7e8a62.smartcharts.js",
+    "revision": "352670a822f2b4f1e6c8398002aee56b"
+  }, {
+    "url": "/js/smartcharts/html2canvas-023b06.smartcharts.js",
+    "revision": "3e3dd0b5a3035a831556a4f5e746ae0d"
   }, {
     "url": "/js/smartcharts/html2canvas-f92cd2.smartcharts.js",
     "revision": "c19ca991e3e1a16cba94e3bbee45cb00"
   }, {
+    "url": "/js/smartcharts/id-json-57cccd.smartcharts.js",
+    "revision": "bb4c176c7695f503ca31658096729682"
+  }, {
     "url": "/js/smartcharts/id-json-d17334.smartcharts.js",
     "revision": "ee9f1f1e8026bef0769b48202758a780"
+  }, {
+    "url": "/js/smartcharts/it-json-35406a.smartcharts.js",
+    "revision": "d94b25629d320d27e2a1d4f6502c3ab3"
   }, {
     "url": "/js/smartcharts/it-json-8cd36e.smartcharts.js",
     "revision": "f5129caf5320a33dbafd79c17bfdb4a7"
@@ -617,11 +641,23 @@ define("./service-worker.js",['./workbox-c5a866fd'], function (workbox) { 'use s
     "url": "/js/smartcharts/messages-json-609e83.smartcharts.js",
     "revision": "da30ba797d1b0de44caa92d65ec3d955"
   }, {
+    "url": "/js/smartcharts/messages-json-93e047.smartcharts.js",
+    "revision": "359ffb83951e8bf3f74ef586a5872426"
+  }, {
+    "url": "/js/smartcharts/nl-json-43a490.smartcharts.js",
+    "revision": "d2f0f950e37e506751085d512e87893f"
+  }, {
     "url": "/js/smartcharts/nl-json-a996b6.smartcharts.js",
     "revision": "c64af1c917784e2aeadc3e961f31c21a"
   }, {
+    "url": "/js/smartcharts/pl-json-863a07.smartcharts.js",
+    "revision": "7eef01f791d77cea6d221d1baf9b3479"
+  }, {
     "url": "/js/smartcharts/pl-json-b1938e.smartcharts.js",
     "revision": "c5d1ea23b6d61f7ff011d86d29370a2f"
+  }, {
+    "url": "/js/smartcharts/pt-json-11a065.smartcharts.js",
+    "revision": "7c8dd81e61329871f55843a5fc67181e"
   }, {
     "url": "/js/smartcharts/pt-json-cc3ed0.smartcharts.js",
     "revision": "707c06609715ab75922ce6d4996b9728"
@@ -629,17 +665,32 @@ define("./service-worker.js",['./workbox-c5a866fd'], function (workbox) { 'use s
     "url": "/js/smartcharts/ru-json-60758c.smartcharts.js",
     "revision": "e0193ef0f16f53f5add04316ed0f86cc"
   }, {
+    "url": "/js/smartcharts/ru-json-81bd3b.smartcharts.js",
+    "revision": "dfc9766f7c70d8cbeec01143b43783fe"
+  }, {
     "url": "/js/smartcharts/sprite-ac4965.smartcharts.svg",
     "revision": "53452e786b612340bccffef5dd33f7a8"
   }, {
     "url": "/js/smartcharts/th-json-e33836.smartcharts.js",
     "revision": "158994396b4ee21bd9ea01f46ca5ae9a"
   }, {
+    "url": "/js/smartcharts/th-json-fabe11.smartcharts.js",
+    "revision": "9944f0d51301ab84ca80f706d87205e2"
+  }, {
     "url": "/js/smartcharts/vendors~resize-observer-polyfill-358f59.smartcharts.js",
     "revision": "7cc03f6cea9d826c6829915288d857c5"
   }, {
+    "url": "/js/smartcharts/vendors~resize-observer-polyfill-58be58.smartcharts.js",
+    "revision": "a120c347eb86290afbd9355ee009b045"
+  }, {
     "url": "/js/smartcharts/vi-json-64e1fb.smartcharts.js",
     "revision": "2e17218c5a7aa03e58bc86f1aafc98c4"
+  }, {
+    "url": "/js/smartcharts/vi-json-b805b5.smartcharts.js",
+    "revision": "b7dca5cc1b23ad8efebc36eb40d3390c"
+  }, {
+    "url": "/js/smartcharts/zh-json-28d3e2.smartcharts.js",
+    "revision": "1033b80ed61a252bc4d14a8654e3b6aa"
   }, {
     "url": "/js/smartcharts/zh-json-5deb3d.smartcharts.js",
     "revision": "ff7840cc7fc49a9bf6ddc152eb4466a2"
@@ -647,8 +698,14 @@ define("./service-worker.js",['./workbox-c5a866fd'], function (workbox) { 'use s
     "url": "/js/smartcharts/zh_cn-json-001ee3.smartcharts.js",
     "revision": "fa20876e3d11272e0a2ce6b335b5a4b4"
   }, {
+    "url": "/js/smartcharts/zh_cn-json-f23084.smartcharts.js",
+    "revision": "5b4f67e821eef1d00c4f63af85a785f1"
+  }, {
     "url": "/js/smartcharts/zh_tw-json-a0c0c4.smartcharts.js",
     "revision": "f43c947400826909f8ffbadc5159acd8"
+  }, {
+    "url": "/js/smartcharts/zh_tw-json-cf80db.smartcharts.js",
+    "revision": "960fbe4cc07f731ed80987b90ffdbb96"
   }, {
     "url": "/manifest.json",
     "revision": "978702155e434434609cf6dfdc5448df"
