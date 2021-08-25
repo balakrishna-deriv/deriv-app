@@ -285,7 +285,7 @@ define("./service-worker.js",['./workbox-c5a866fd'], function (workbox) { 'use s
     "revision": "e7338723e6e60715a5fcd579abd013a7"
   }, {
     "url": "/bot/js/bot-web-ui.main.js",
-    "revision": "be2d97963bdf4fc5fb7ee14f3c159c25"
+    "revision": "a8659cce2fd5d2b53c92e5102bd48695"
   }, {
     "url": "/bot/js/bot.dalembert-xml.0eec93dcff0e44a79831.js",
     "revision": "d05429f8a2c254794fcabbe5c8122496"
@@ -359,7 +359,7 @@ define("./service-worker.js",['./workbox-c5a866fd'], function (workbox) { 'use s
     "url": "/css/core.main~s.9abfa68f6620efaedf7c.main.css",
     "revision": null
   }, {
-    "url": "/css/core.vendors-node_modules_deriv_deriv-onboarding_dist_reactour_esm_js-node_modules_emotion_is-prop-d79aaa.d0c68d1b0c5965b1545a.main.css",
+    "url": "/css/core.vendors-node_modules_deriv_deriv-onboarding_dist_reactour_esm_js-node_modules_emotion_is-prop-d79aaa.071ac930a7d15060d2fb.main.css",
     "revision": null
   }, {
     "url": "/favicon.ico",
@@ -380,7 +380,7 @@ define("./service-worker.js",['./workbox-c5a866fd'], function (workbox) { 'use s
     "url": "/js/core.ach-json.a8624c98f5539fd5936a.js",
     "revision": null
   }, {
-    "url": "/js/core.bot.9cd3489de2bb31d9358f.js",
+    "url": "/js/core.bot.e4bac30aee6eb83e1b0d.js",
     "revision": null
   }, {
     "url": "/js/core.cashier.b2d2ef39b917b33742e6.js",
@@ -464,7 +464,7 @@ define("./service-worker.js",['./workbox-c5a866fd'], function (workbox) { 'use s
     "url": "/js/core.main~components_src_components_l.557ec7b545fdbdd61ce4.js",
     "revision": null
   }, {
-    "url": "/js/core.main~s.9fc64bd3ef422104be6a.js",
+    "url": "/js/core.main~s.f9510c81d365240f4c3c.js",
     "revision": null
   }, {
     "url": "/js/core.pl-json.00b61cc38b2b9d689701.js",
@@ -521,9 +521,6 @@ define("./service-worker.js",['./workbox-c5a866fd'], function (workbox) { 'use s
     "url": "/js/core.vendors-node_modules_core-js_fn_regexp_escape_js-node_modules_core-js_shim_js-node_modules_cr-1e24ef.2746b411622a4b8d3ef2.js",
     "revision": null
   }, {
-    "url": "/js/core.vendors-node_modules_deriv_deriv-charts_dist_smartcharts_js.5883da0176cd95f165c0.js",
-    "revision": null
-  }, {
     "url": "/js/core.vendors-node_modules_deriv_deriv-onboarding_dist_reactour_esm_js-node_modules_emotion_is-prop-d79aaa.bdb8ce0855b8940834c4.js",
     "revision": null
   }, {
@@ -575,10 +572,10 @@ define("./service-worker.js",['./workbox-c5a866fd'], function (workbox) { 'use s
     "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_cfds_svg_af25ac66.147285bbec28895e2681.js",
     "revision": null
   }, {
-    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_digital-options-mobile_svg_a765406b.50ee8c80d79d665e656c.js",
+    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_digital-options-mobile_svg_a765406b.2273f79bbcb911d924f7.js",
     "revision": null
   }, {
-    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_digital-options_svg_6a6a8cad.3f076158b31e483514d3.js",
+    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_digital-options_svg_6a6a8cad.354fdfd3037f8bef45e2.js",
     "revision": null
   }, {
     "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_multipliers-mobile_svg_48db1f53.a535629de715112465ab.js",
@@ -587,10 +584,10 @@ define("./service-worker.js",['./workbox-c5a866fd'], function (workbox) { 'use s
     "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_multipliers_svg_67df4c4b.6abb88bebdc085950401.js",
     "revision": null
   }, {
-    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_not-sure-mobile_svg_9ad91f0b.e7936a1256f5f8e09184.js",
+    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_not-sure-mobile_svg_9ad91f0b.43085c28eb041e5caa48.js",
     "revision": null
   }, {
-    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_not-sure_svg_a469acfa.ac3c58af4715d181ec41.js",
+    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_not-sure_svg_a469acfa.d1e64cda062c0633500e.js",
     "revision": null
   }, {
     "url": "/js/core.zh_cn-json.b4fb028a0c2a1cbadc0a.js",
