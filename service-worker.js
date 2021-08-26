@@ -285,7 +285,7 @@ define("./service-worker.js",['./workbox-c5a866fd'], function (workbox) { 'use s
     "revision": "879919af80bac9935888e8e9c4d96b78"
   }, {
     "url": "/bot/js/bot-web-ui.main.js",
-    "revision": "2ae94dffc0a9be74171bf050aac41911"
+    "revision": "242ba17966bd7106d1cf4a07341e2d5c"
   }, {
     "url": "/bot/js/bot.dalembert-xml.0eec93dcff0e44a79831.js",
     "revision": "d05429f8a2c254794fcabbe5c8122496"
@@ -380,7 +380,7 @@ define("./service-worker.js",['./workbox-c5a866fd'], function (workbox) { 'use s
     "url": "/js/core.ach-json.61aeaab8c5b57c1d50dc.js",
     "revision": null
   }, {
-    "url": "/js/core.bot.eaa02ec0f63fd9303aa2.js",
+    "url": "/js/core.bot.0593f2323d4a38a68ae9.js",
     "revision": null
   }, {
     "url": "/js/core.cashier.a2ca91ca049cbc69bd27.js",
@@ -422,7 +422,7 @@ define("./service-worker.js",['./workbox-c5a866fd'], function (workbox) { 'use s
     "url": "/js/core.main~Stores_m.cedadbd803ebaf072aea.js",
     "revision": null
   }, {
-    "url": "/js/core.main~U.1aaea785b25b62b6ca7d.js",
+    "url": "/js/core.main~U.6fcde79689e45ecb5f5d.js",
     "revision": null
   }, {
     "url": "/js/core.main~ac.395d7ec207665840cca4.js",
@@ -464,7 +464,7 @@ define("./service-worker.js",['./workbox-c5a866fd'], function (workbox) { 'use s
     "url": "/js/core.main~components_src_components_l.557ec7b545fdbdd61ce4.js",
     "revision": null
   }, {
-    "url": "/js/core.main~s.1459ae9e44aa5f1aec92.js",
+    "url": "/js/core.main~s.be7aeb2049d1c3c0967e.js",
     "revision": null
   }, {
     "url": "/js/core.pl-json.beef1ba16397aefe0605.js",
@@ -506,7 +506,7 @@ define("./service-worker.js",['./workbox-c5a866fd'], function (workbox) { 'use s
     "url": "/js/core.trader~account_dist_account_js_reset-trading-password-modal_js_ff517517.6794204eea5ce426b1fd.js",
     "revision": null
   }, {
-    "url": "/js/core.trader~trader_dist_trader_js_trader_js_4e59f282.2b61f4e9493255575134.js",
+    "url": "/js/core.trader~trader_dist_trader_js_trader_js_4e59f282.818793fb562343d8ce4c.js",
     "revision": null
   }, {
     "url": "/js/core.vendors-node_modules_babel_runtime_helpers_classCallCheck__index_mjs-node_modules_babel_runti-de8f93.9b80a183a80d072943b8.js",
@@ -578,16 +578,16 @@ define("./service-worker.js",['./workbox-c5a866fd'], function (workbox) { 'use s
     "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_digital-options_svg_6a6a8cad.3f076158b31e483514d3.js",
     "revision": null
   }, {
-    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_multipliers-mobile_svg_48db1f53.a535629de715112465ab.js",
+    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_multipliers-mobile_svg_48db1f53.effdcbdcc265c65471ff.js",
     "revision": null
   }, {
     "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_multipliers_svg_67df4c4b.6abb88bebdc085950401.js",
     "revision": null
   }, {
-    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_not-sure-mobile_svg_9ad91f0b.e7936a1256f5f8e09184.js",
+    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_not-sure-mobile_svg_9ad91f0b.43085c28eb041e5caa48.js",
     "revision": null
   }, {
-    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_not-sure_svg_a469acfa.ac3c58af4715d181ec41.js",
+    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_not-sure_svg_a469acfa.7b85d6d0257edb63b143.js",
     "revision": null
   }, {
     "url": "/js/core.zh_cn-json.ee03578bf0a52fb49016.js",
@@ -1110,7 +1110,7 @@ define("./service-worker.js",['./workbox-c5a866fd'], function (workbox) { 'use s
     "revision": "4f36bf94ff485e6aeb5881b5166a137f"
   }, {
     "url": "/trader/asset-manifest.json",
-    "revision": "64e12fe7d25c9119203e57814068b897"
+    "revision": "94c37d2344fe91556f858dd7f0d94c66"
   }, {
     "url": "/trader/css/trader.cfd.c761ce2fdc8c0e7ea86b.css",
     "revision": "e608fc0abf7e57a16f61f23f916472e0"
@@ -1140,7 +1140,7 @@ define("./service-worker.js",['./workbox-c5a866fd'], function (workbox) { 'use s
     "revision": "ff5de341c2df4cc31e731deb3a4d65d6"
   }, {
     "url": "/trader/js/trader.js",
-    "revision": "a31e79cad3d125fd54f1aa60de02ab2f"
+    "revision": "01baeaaab4a6fa2f6269e509f03a2f9c"
   }, {
     "url": "/trader/js/trader.reports.ac43c8a811a32800981e.js",
     "revision": "a973275fedb45fe93847bca5d4cef971"
@@ -1157,8 +1157,8 @@ define("./service-worker.js",['./workbox-c5a866fd'], function (workbox) { 'use s
     "url": "/trader/js/trader.trade-modals.7fea16926dd365d037c8.js",
     "revision": "5366c48f70886beee0487b948fed5bf1"
   }, {
-    "url": "/trader/js/trader.trader-app.50402c13ea903d8e21f2.js",
-    "revision": "ed0d87c80f9c92fe9d72751bd428fdcb"
+    "url": "/trader/js/trader.trader-app.a1513ff79cb844d44114.js",
+    "revision": "4b2b8e40f8a7401d2515cf6fe3594b71"
   }, {
     "url": "/trader/js/trader.two-month-picker.82fb1089e45862d80f9e.js",
     "revision": "f000d4ebd163ff893c234bcffbcfafed"
