@@ -285,7 +285,7 @@ define("./service-worker.js",['./workbox-c5a866fd'], function (workbox) { 'use s
     "revision": "879919af80bac9935888e8e9c4d96b78"
   }, {
     "url": "/bot/js/bot-web-ui.main.js",
-    "revision": "f4d84f89640d2c92c6c303132fdfe532"
+    "revision": "3bf639d22ae458c056925020b24a12c1"
   }, {
     "url": "/bot/js/bot.dalembert-xml.0eec93dcff0e44a79831.js",
     "revision": "d05429f8a2c254794fcabbe5c8122496"
@@ -380,7 +380,7 @@ define("./service-worker.js",['./workbox-c5a866fd'], function (workbox) { 'use s
     "url": "/js/core.ach-json.61aeaab8c5b57c1d50dc.js",
     "revision": null
   }, {
-    "url": "/js/core.bot.aa71ab10f05b63f1f34a.js",
+    "url": "/js/core.bot.c1d732c991aa8463d645.js",
     "revision": null
   }, {
     "url": "/js/core.cashier.a2ca91ca049cbc69bd27.js",
@@ -410,7 +410,7 @@ define("./service-worker.js",['./workbox-c5a866fd'], function (workbox) { 'use s
     "url": "/js/core.main~App_C.140e1308cf3ca18edcfd.js",
     "revision": null
   }, {
-    "url": "/js/core.main~App_Components_E.a9de777a9992131a292a.js",
+    "url": "/js/core.main~App_Components_E.08326cbe60d05a47f499.js",
     "revision": null
   }, {
     "url": "/js/core.main~Se.4428ae955bbb284104d9.js",
@@ -458,13 +458,13 @@ define("./service-worker.js",['./workbox-c5a866fd'], function (workbox) { 'use s
     "url": "/js/core.main~components_src_components_a.1a72177ddd0e80084fa3.js",
     "revision": null
   }, {
-    "url": "/js/core.main~components_src_components_c.e7159b854da77485f6e4.js",
+    "url": "/js/core.main~components_src_components_c.b2c0a87b9079d83643d6.js",
     "revision": null
   }, {
     "url": "/js/core.main~components_src_components_l.557ec7b545fdbdd61ce4.js",
     "revision": null
   }, {
-    "url": "/js/core.main~s.6e8ace9997bc4dc556f1.js",
+    "url": "/js/core.main~s.67b782cac56fb4f286ec.js",
     "revision": null
   }, {
     "url": "/js/core.pl-json.beef1ba16397aefe0605.js",
@@ -506,7 +506,7 @@ define("./service-worker.js",['./workbox-c5a866fd'], function (workbox) { 'use s
     "url": "/js/core.trader~account_dist_account_js_reset-trading-password-modal_js_ff517517.6794204eea5ce426b1fd.js",
     "revision": null
   }, {
-    "url": "/js/core.trader~trader_dist_trader_js_trader_js_4e59f282.522ac1f4637600c9e1f2.js",
+    "url": "/js/core.trader~trader_dist_trader_js_trader_js_4e59f282.2b61f4e9493255575134.js",
     "revision": null
   }, {
     "url": "/js/core.vendors-node_modules_babel_runtime_helpers_classCallCheck__index_mjs-node_modules_babel_runti-de8f93.9b80a183a80d072943b8.js",
@@ -1110,7 +1110,7 @@ define("./service-worker.js",['./workbox-c5a866fd'], function (workbox) { 'use s
     "revision": "4f36bf94ff485e6aeb5881b5166a137f"
   }, {
     "url": "/trader/asset-manifest.json",
-    "revision": "ae5f857f346b3d3d01a24556d3d9de03"
+    "revision": "64e12fe7d25c9119203e57814068b897"
   }, {
     "url": "/trader/css/trader.cfd.c761ce2fdc8c0e7ea86b.css",
     "revision": "e608fc0abf7e57a16f61f23f916472e0"
@@ -1140,7 +1140,7 @@ define("./service-worker.js",['./workbox-c5a866fd'], function (workbox) { 'use s
     "revision": "ff5de341c2df4cc31e731deb3a4d65d6"
   }, {
     "url": "/trader/js/trader.js",
-    "revision": "a5592645d038adeee6f76d82be07706b"
+    "revision": "a31e79cad3d125fd54f1aa60de02ab2f"
   }, {
     "url": "/trader/js/trader.reports.ac43c8a811a32800981e.js",
     "revision": "a973275fedb45fe93847bca5d4cef971"
@@ -1157,8 +1157,8 @@ define("./service-worker.js",['./workbox-c5a866fd'], function (workbox) { 'use s
     "url": "/trader/js/trader.trade-modals.7fea16926dd365d037c8.js",
     "revision": "5366c48f70886beee0487b948fed5bf1"
   }, {
-    "url": "/trader/js/trader.trader-app.81a6557dfa8f4b9673db.js",
-    "revision": "f145b213ef815d79a5c04a90fb530074"
+    "url": "/trader/js/trader.trader-app.50402c13ea903d8e21f2.js",
+    "revision": "ed0d87c80f9c92fe9d72751bd428fdcb"
   }, {
     "url": "/trader/js/trader.two-month-picker.82fb1089e45862d80f9e.js",
     "revision": "f000d4ebd163ff893c234bcffbcfafed"
