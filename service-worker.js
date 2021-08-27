@@ -285,7 +285,7 @@ define("./service-worker.js",['./workbox-c5a866fd'], function (workbox) { 'use s
     "revision": "e7338723e6e60715a5fcd579abd013a7"
   }, {
     "url": "/bot/js/bot-web-ui.main.js",
-    "revision": "21671164368530bebdb2ec849ad48748"
+    "revision": "1665d88e1a81893ab3e17668a994fe76"
   }, {
     "url": "/bot/js/bot.dalembert-xml.0eec93dcff0e44a79831.js",
     "revision": "d05429f8a2c254794fcabbe5c8122496"
@@ -380,7 +380,7 @@ define("./service-worker.js",['./workbox-c5a866fd'], function (workbox) { 'use s
     "url": "/js/core.ach-json.a8624c98f5539fd5936a.js",
     "revision": null
   }, {
-    "url": "/js/core.bot.3b08dff419191854a061.js",
+    "url": "/js/core.bot.05a8b357235ef5727878.js",
     "revision": null
   }, {
     "url": "/js/core.cashier.b2d2ef39b917b33742e6.js",
@@ -458,13 +458,13 @@ define("./service-worker.js",['./workbox-c5a866fd'], function (workbox) { 'use s
     "url": "/js/core.main~components_src_components_a.8fc6f3568b53586cf7a1.js",
     "revision": null
   }, {
-    "url": "/js/core.main~components_src_components_c.aa31cb63b790b6a80f28.js",
+    "url": "/js/core.main~components_src_components_c.72c6d2a92da2955efaa4.js",
     "revision": null
   }, {
     "url": "/js/core.main~components_src_components_l.557ec7b545fdbdd61ce4.js",
     "revision": null
   }, {
-    "url": "/js/core.main~s.a766d9c0de9dd0f79468.js",
+    "url": "/js/core.main~s.a1b2dd155086b001eb34.js",
     "revision": null
   }, {
     "url": "/js/core.pl-json.00b61cc38b2b9d689701.js",
