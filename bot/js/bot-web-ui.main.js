@@ -234,7 +234,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_react_dom__;
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames based on template
-/******/ 			return "bot/js/bot." + chunkId + "." + {"vendors-node_modules_deriv_deriv-api_dist_DerivAPIBasic_js-node_modules_binary-utils_lib_inde-45e269":"9eac2de8e91b11a23ec6","bot-web-ui-app":"f91c98c59d892945c98e","dalembert-xml":"0eec93dcff0e44a79831","martingale-xml":"8246dc2f418dc0aa3a2a","oscars_grind-xml":"70fd8ad1bfcfa2abff44","dbot-collection":"f4b5326973c20bebfb00"}[chunkId] + ".js";
+/******/ 			return "bot/js/bot." + chunkId + "." + {"vendors-node_modules_deriv_deriv-api_dist_DerivAPIBasic_js-node_modules_binary-utils_lib_inde-45e269":"9eac2de8e91b11a23ec6","bot-web-ui-app":"386ff377877907ac7a1b","dalembert-xml":"0eec93dcff0e44a79831","martingale-xml":"8246dc2f418dc0aa3a2a","oscars_grind-xml":"70fd8ad1bfcfa2abff44","dbot-collection":"f4b5326973c20bebfb00"}[chunkId] + ".js";
 /******/ 		};
 /******/ 	})();
 /******/ 	
@@ -243,7 +243,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_react_dom__;
 /******/ 		// This function allow to reference all chunks
 /******/ 		__webpack_require__.miniCssF = (chunkId) => {
 /******/ 			// return url for filenames based on template
-/******/ 			return "bot/css/bot." + chunkId + "." + "b0b92b8ba1d6431633f1" + ".css";
+/******/ 			return "bot/css/bot." + chunkId + "." + "0dd4bcc0e3d0b3038dc8" + ".css";
 /******/ 		};
 /******/ 	})();
 /******/ 	
