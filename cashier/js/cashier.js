@@ -8,14 +8,14 @@
  */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("@deriv/components"), require("@deriv/shared"), require("@deriv/translations"), require("mobx-react"), require("react"), require("react-dom"), require("react-router"), require("react-router-dom"));
+		module.exports = factory(require("@deriv/components"), require("@deriv/components/src/hooks"), require("@deriv/shared"), require("@deriv/translations"), require("mobx"), require("mobx-react"), require("react"), require("react-dom"), require("react-router"), require("react-router-dom"));
 	else if(typeof define === 'function' && define.amd)
-		define(["@deriv/components", "@deriv/shared", "@deriv/translations", "mobx-react", "react", "react-dom", "react-router", "react-router-dom"], factory);
+		define(["@deriv/components", "@deriv/components/src/hooks", "@deriv/shared", "@deriv/translations", "mobx", "mobx-react", "react", "react-dom", "react-router", "react-router-dom"], factory);
 	else if(typeof exports === 'object')
-		exports["@deriv/cashier"] = factory(require("@deriv/components"), require("@deriv/shared"), require("@deriv/translations"), require("mobx-react"), require("react"), require("react-dom"), require("react-router"), require("react-router-dom"));
+		exports["@deriv/cashier"] = factory(require("@deriv/components"), require("@deriv/components/src/hooks"), require("@deriv/shared"), require("@deriv/translations"), require("mobx"), require("mobx-react"), require("react"), require("react-dom"), require("react-router"), require("react-router-dom"));
 	else
-		root["@deriv/cashier"] = factory(root["@deriv/components"], root["@deriv/shared"], root["@deriv/translations"], root["mobx-react"], root["react"], root["react-dom"], root["react-router"], root["react-router-dom"]);
-})(self, function(__WEBPACK_EXTERNAL_MODULE__deriv_components__, __WEBPACK_EXTERNAL_MODULE__deriv_shared__, __WEBPACK_EXTERNAL_MODULE__deriv_translations__, __WEBPACK_EXTERNAL_MODULE_mobx_react__, __WEBPACK_EXTERNAL_MODULE_react__, __WEBPACK_EXTERNAL_MODULE_react_dom__, __WEBPACK_EXTERNAL_MODULE_react_router__, __WEBPACK_EXTERNAL_MODULE_react_router_dom__) {
+		root["@deriv/cashier"] = factory(root["@deriv/components"], root["@deriv/components/src/hooks"], root["@deriv/shared"], root["@deriv/translations"], root["mobx"], root["mobx-react"], root["react"], root["react-dom"], root["react-router"], root["react-router-dom"]);
+})(self, function(__WEBPACK_EXTERNAL_MODULE__deriv_components__, __WEBPACK_EXTERNAL_MODULE__deriv_components_src_hooks__, __WEBPACK_EXTERNAL_MODULE__deriv_shared__, __WEBPACK_EXTERNAL_MODULE__deriv_translations__, __WEBPACK_EXTERNAL_MODULE_mobx__, __WEBPACK_EXTERNAL_MODULE_mobx_react__, __WEBPACK_EXTERNAL_MODULE_react__, __WEBPACK_EXTERNAL_MODULE_react_dom__, __WEBPACK_EXTERNAL_MODULE_react_router__, __WEBPACK_EXTERNAL_MODULE_react_router_dom__) {
 return /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
@@ -23,7 +23,7 @@ return /******/ (() => { // webpackBootstrap
 /***/ "./index.js":
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(\"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _deriv_shared__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(\"@deriv/shared\");\n/* harmony import */ var _deriv_shared__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_deriv_shared__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _deriv_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(\"@deriv/components\");\n/* harmony import */ var _deriv_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_deriv_components__WEBPACK_IMPORTED_MODULE_2__);\n\n\n\nvar App = (0,_deriv_shared__WEBPACK_IMPORTED_MODULE_1__.makeLazyLoader)(function () {\n  return Promise.all(/* import() | cashier-app */[__webpack_require__.e(\"vendors-node_modules_classnames_index_js-node_modules_formik_dist_formik_esm_js-node_modules_-1f0af7\"), __webpack_require__.e(\"cashier-app\")]).then(__webpack_require__.bind(__webpack_require__, \"./App.jsx\"));\n}, function () {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_deriv_components__WEBPACK_IMPORTED_MODULE_2__.Loading, null);\n})();\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9pbmRleC5qcy5qcyIsInNvdXJjZXMiOlsid2VicGFjazovL0BkZXJpdi9jYXNoaWVyLy4vaW5kZXguanM/NDFmNSJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QgZnJvbSAncmVhY3QnO1xuaW1wb3J0IHsgbWFrZUxhenlMb2FkZXIgfSBmcm9tICdAZGVyaXYvc2hhcmVkJztcbmltcG9ydCB7IExvYWRpbmcgfSBmcm9tICdAZGVyaXYvY29tcG9uZW50cyc7XG5cbmNvbnN0IEFwcCA9IG1ha2VMYXp5TG9hZGVyKFxuICAgICgpID0+IGltcG9ydCgvKiB3ZWJwYWNrQ2h1bmtOYW1lOiBcImNhc2hpZXItYXBwXCIsIHdlYnBhY2tQcmVsb2FkOiB0cnVlICovICcuL0FwcC5qc3gnKSxcbiAgICAoKSA9PiA8TG9hZGluZyAvPlxuKSgpO1xuXG5leHBvcnQgZGVmYXVsdCBBcHA7XG4iXSwibWFwcGluZ3MiOiI7Ozs7Ozs7OztBQUFBO0FBQ0E7QUFDQTtBQUVBO0FBQ0Esd1JBQUE7QUFBQTtBQUNBO0FBQUE7QUFHQSIsInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./index.js\n");
+eval("/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(\"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _deriv_shared__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(\"@deriv/shared\");\n/* harmony import */ var _deriv_shared__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_deriv_shared__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _deriv_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(\"@deriv/components\");\n/* harmony import */ var _deriv_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_deriv_components__WEBPACK_IMPORTED_MODULE_2__);\n\n\n\nvar App = (0,_deriv_shared__WEBPACK_IMPORTED_MODULE_1__.makeLazyLoader)(function () {\n  return Promise.all(/* import() | cashier-app */[__webpack_require__.e(\"vendors-node_modules_classnames_index_js-node_modules_formik_dist_formik_esm_js-node_modules_-0c3e08\"), __webpack_require__.e(\"cashier-app\")]).then(__webpack_require__.bind(__webpack_require__, \"./App.jsx\"));\n}, function () {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_deriv_components__WEBPACK_IMPORTED_MODULE_2__.Loading, null);\n})();\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9pbmRleC5qcy5qcyIsIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7QUFBQTtBQUNBO0FBQ0E7QUFFQTtBQUNBO0FBQUE7QUFDQTtBQUFBO0FBR0EiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9AZGVyaXYvY2FzaGllci8uL2luZGV4LmpzPzQxZjUiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IFJlYWN0IGZyb20gJ3JlYWN0JztcbmltcG9ydCB7IG1ha2VMYXp5TG9hZGVyIH0gZnJvbSAnQGRlcml2L3NoYXJlZCc7XG5pbXBvcnQgeyBMb2FkaW5nIH0gZnJvbSAnQGRlcml2L2NvbXBvbmVudHMnO1xuXG5jb25zdCBBcHAgPSBtYWtlTGF6eUxvYWRlcihcbiAgICAoKSA9PiBpbXBvcnQoLyogd2VicGFja0NodW5rTmFtZTogXCJjYXNoaWVyLWFwcFwiLCB3ZWJwYWNrUHJlbG9hZDogdHJ1ZSAqLyAnLi9BcHAuanN4JyksXG4gICAgKCkgPT4gPExvYWRpbmcgLz5cbikoKTtcblxuZXhwb3J0IGRlZmF1bHQgQXBwO1xuIl0sIm5hbWVzIjpbIlJlYWN0IiwibWFrZUxhenlMb2FkZXIiLCJMb2FkaW5nIiwiQXBwIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./index.js\n");
 
 /***/ }),
 
@@ -31,6 +31,13 @@ eval("/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harm
 /***/ ((module) => {
 
 module.exports = __WEBPACK_EXTERNAL_MODULE__deriv_components__;
+
+/***/ }),
+
+/***/ "@deriv/components/src/hooks":
+/***/ ((module) => {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE__deriv_components_src_hooks__;
 
 /***/ }),
 
@@ -45,6 +52,13 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__deriv_shared__;
 /***/ ((module) => {
 
 module.exports = __WEBPACK_EXTERNAL_MODULE__deriv_translations__;
+
+/***/ }),
+
+/***/ "mobx":
+/***/ ((module) => {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE_mobx__;
 
 /***/ }),
 
@@ -91,8 +105,9 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_react_router_dom__;
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
-/******/ 		if(__webpack_module_cache__[moduleId]) {
-/******/ 			return __webpack_module_cache__[moduleId].exports;
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
 /******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = __webpack_module_cache__[moduleId] = {
@@ -157,7 +172,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_react_router_dom__;
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames based on template
-/******/ 			return "cashier/js/cashier." + chunkId + "." + {"404":"e1682700ebb209be6cec","vendors-node_modules_classnames_index_js-node_modules_formik_dist_formik_esm_js-node_modules_-1f0af7":"bd74d784b1431d700ec3","cashier-app":"cf640e8d5a65fb65fa22"}[chunkId] + ".js";
+/******/ 			return "cashier/js/cashier." + chunkId + "." + {"404":"d6f9c8b8809c4c15bfb7","vendors-node_modules_classnames_index_js-node_modules_formik_dist_formik_esm_js-node_modules_-0c3e08":"362a2b2e4863ee9e2bea","cashier-app":"26676f5e697493e49912"}[chunkId] + ".js";
 /******/ 		};
 /******/ 	})();
 /******/ 	
@@ -166,7 +181,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_react_router_dom__;
 /******/ 		// This function allow to reference all chunks
 /******/ 		__webpack_require__.miniCssF = (chunkId) => {
 /******/ 			// return url for filenames based on template
-/******/ 			return "cashier/css/" + chunkId + "." + "4fbbc5dcbe3adfb73f26" + ".css";
+/******/ 			return "cashier/css/" + chunkId + "." + "73f37c8de4bace0b93ff" + ".css";
 /******/ 		};
 /******/ 	})();
 /******/ 	
@@ -336,11 +351,10 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_react_router_dom__;
 /******/ 		
 /******/ 		// object to store loaded and loading chunks
 /******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
-/******/ 		// Promise = chunk loading, 0 = chunk loaded
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"cashier": 0
 /******/ 		};
-/******/ 		
 /******/ 		
 /******/ 		__webpack_require__.f.j = (chunkId, promises) => {
 /******/ 				// JSONP chunk loading for javascript
@@ -353,9 +367,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_react_router_dom__;
 /******/ 					} else {
 /******/ 						if(true) { // all chunks have JS
 /******/ 							// setup Promise in chunk cache
-/******/ 							var promise = new Promise((resolve, reject) => {
-/******/ 								installedChunkData = installedChunks[chunkId] = [resolve, reject];
-/******/ 							});
+/******/ 							var promise = new Promise((resolve, reject) => (installedChunkData = installedChunks[chunkId] = [resolve, reject]));
 /******/ 							promises.push(installedChunkData[2] = promise);
 /******/ 		
 /******/ 							// start chunk loading
@@ -391,30 +403,27 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_react_router_dom__;
 /******/ 		
 /******/ 		// no HMR manifest
 /******/ 		
-/******/ 		// no deferred startup
+/******/ 		// no on chunks loaded
 /******/ 		
 /******/ 		// install a JSONP callback for chunk loading
 /******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
 /******/ 			var [chunkIds, moreModules, runtime] = data;
 /******/ 			// add "moreModules" to the modules object,
 /******/ 			// then flag all "chunkIds" as loaded and fire callback
-/******/ 			var moduleId, chunkId, i = 0, resolves = [];
-/******/ 			for(;i < chunkIds.length; i++) {
-/******/ 				chunkId = chunkIds[i];
-/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
-/******/ 					resolves.push(installedChunks[chunkId][0]);
-/******/ 				}
-/******/ 				installedChunks[chunkId] = 0;
-/******/ 			}
+/******/ 			var moduleId, chunkId, i = 0;
 /******/ 			for(moduleId in moreModules) {
 /******/ 				if(__webpack_require__.o(moreModules, moduleId)) {
 /******/ 					__webpack_require__.m[moduleId] = moreModules[moduleId];
 /******/ 				}
 /******/ 			}
-/******/ 			if(runtime) runtime(__webpack_require__);
+/******/ 			if(runtime) var result = runtime(__webpack_require__);
 /******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
-/******/ 			while(resolves.length) {
-/******/ 				resolves.shift()();
+/******/ 			for(;i < chunkIds.length; i++) {
+/******/ 				chunkId = chunkIds[i];
+/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 					installedChunks[chunkId][0]();
+/******/ 				}
+/******/ 				installedChunks[chunkIds[i]] = 0;
 /******/ 			}
 /******/ 		
 /******/ 		}
@@ -422,8 +431,6 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_react_router_dom__;
 /******/ 		var chunkLoadingGlobal = self["webpackChunk_deriv_cashier"] = self["webpackChunk_deriv_cashier"] || [];
 /******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
 /******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
-/******/ 		
-/******/ 		// no deferred startup
 /******/ 	})();
 /******/ 	
 /************************************************************************/

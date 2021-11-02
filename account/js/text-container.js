@@ -23,7 +23,7 @@ return /******/ (() => { // webpackBootstrap
 /***/ "./Components/text-container/index.js":
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("\n// EXPORTS\n__webpack_require__.d(__webpack_exports__, {\n  \"default\": () => (/* binding */ text_container)\n});\n\n// EXTERNAL MODULE: external \"react\"\nvar external_react_ = __webpack_require__(\"react\");\nvar external_react_default = /*#__PURE__*/__webpack_require__.n(external_react_);\n;// CONCATENATED MODULE: ./Components/text-container/text-container.jsx\n\nvar TextContainer = function TextContainer(_ref) {\n  var children = _ref.children;\n  return /*#__PURE__*/external_react_default().createElement(\"div\", {\n    className: \"account__text_container\"\n  }, children);\n};\n;// CONCATENATED MODULE: ./Components/text-container/index.js\n\n/* harmony default export */ const text_container = (TextContainer);//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9Db21wb25lbnRzL3RleHQtY29udGFpbmVyL2luZGV4LmpzLmpzIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vQGRlcml2L2FjY291bnQvLi9Db21wb25lbnRzL3RleHQtY29udGFpbmVyL3RleHQtY29udGFpbmVyLmpzeD83ZmYxIiwid2VicGFjazovL0BkZXJpdi9hY2NvdW50Ly4vQ29tcG9uZW50cy90ZXh0LWNvbnRhaW5lci9pbmRleC5qcz85Njc3Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBSZWFjdCBmcm9tICdyZWFjdCc7XG5cbmV4cG9ydCBjb25zdCBUZXh0Q29udGFpbmVyID0gKHsgY2hpbGRyZW4gfSkgPT4gPGRpdiBjbGFzc05hbWU9J2FjY291bnRfX3RleHRfY29udGFpbmVyJz57Y2hpbGRyZW59PC9kaXY+O1xuIiwiaW1wb3J0IHsgVGV4dENvbnRhaW5lciB9IGZyb20gJy4vdGV4dC1jb250YWluZXIuanN4JztcblxuZXhwb3J0IGRlZmF1bHQgVGV4dENvbnRhaW5lcjtcbiJdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7OztBQUFBO0FBRUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBOztBQ0ZBO0FBRUEiLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./Components/text-container/index.js\n");
+eval("\n// EXPORTS\n__webpack_require__.d(__webpack_exports__, {\n  \"default\": () => (/* binding */ text_container)\n});\n\n// EXTERNAL MODULE: external \"react\"\nvar external_react_ = __webpack_require__(\"react\");\nvar external_react_default = /*#__PURE__*/__webpack_require__.n(external_react_);\n;// CONCATENATED MODULE: ./Components/text-container/text-container.jsx\n\nvar TextContainer = function TextContainer(_ref) {\n  var children = _ref.children;\n  return /*#__PURE__*/external_react_default().createElement(\"div\", {\n    className: \"account__text_container\"\n  }, children);\n};\n;// CONCATENATED MODULE: ./Components/text-container/index.js\n\n/* harmony default export */ const text_container = (TextContainer);//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9Db21wb25lbnRzL3RleHQtY29udGFpbmVyL2luZGV4LmpzLmpzIiwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7QUFBQTtBQUVBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTs7QUNGQTtBQUVBIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vQGRlcml2L2FjY291bnQvLi9Db21wb25lbnRzL3RleHQtY29udGFpbmVyL3RleHQtY29udGFpbmVyLmpzeD83ZmYxIiwid2VicGFjazovL0BkZXJpdi9hY2NvdW50Ly4vQ29tcG9uZW50cy90ZXh0LWNvbnRhaW5lci9pbmRleC5qcz85Njc3Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBSZWFjdCBmcm9tICdyZWFjdCc7XG5cbmV4cG9ydCBjb25zdCBUZXh0Q29udGFpbmVyID0gKHsgY2hpbGRyZW4gfSkgPT4gPGRpdiBjbGFzc05hbWU9J2FjY291bnRfX3RleHRfY29udGFpbmVyJz57Y2hpbGRyZW59PC9kaXY+O1xuIiwiaW1wb3J0IHsgVGV4dENvbnRhaW5lciB9IGZyb20gJy4vdGV4dC1jb250YWluZXIuanN4JztcblxuZXhwb3J0IGRlZmF1bHQgVGV4dENvbnRhaW5lcjtcbiJdLCJuYW1lcyI6WyJSZWFjdCIsIlRleHRDb250YWluZXIiLCJjaGlsZHJlbiJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./Components/text-container/index.js\n");
 
 /***/ }),
 
@@ -42,8 +42,9 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_react__;
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
-/******/ 		if(__webpack_module_cache__[moduleId]) {
-/******/ 			return __webpack_module_cache__[moduleId].exports;
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
 /******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = __webpack_module_cache__[moduleId] = {
