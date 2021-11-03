@@ -430,7 +430,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_react_router_dom__;
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames based on template
-/******/ 			return "trader/js/trader." + chunkId + "." + {"vendors-node_modules_classnames_index_js-node_modules_extend_index_js-node_modules_lodash_deb-c9ff82":"be9b1fa99cbe332f7880","trader-app":"f83349fa2b0c01678007","trade-modals":"8c911ff7eed2602e0f88","error-component":"2fda8d1dcbcfeada2297","contract":"2e699744fc76bd604313","vendors-node_modules_formik_dist_formik_esm_js":"781da5ac72d286b9bb4c","cfd":"5423cc605969f204608b","reports":"f507b710320f91d13fc1","Modules_Trading_Components_Form_TradeParams_Multiplier_expiration_jsx-Modules_Trading_Compone-90e657":"1272bc7aa11bb66a7e1f","screen-small":"745e36dce20c65ee5f32","screen-large":"e6ba79fab59dfc2dab21","settings-chart":"4ca2eadf24318416afe6","two-month-picker":"73796c6d17ac1cf0a81b"}[chunkId] + ".js";
+/******/ 			return "trader/js/trader." + chunkId + "." + {"vendors-node_modules_classnames_index_js-node_modules_extend_index_js-node_modules_lodash_deb-c9ff82":"be9b1fa99cbe332f7880","trader-app":"f83349fa2b0c01678007","trade-modals":"8c911ff7eed2602e0f88","error-component":"2fda8d1dcbcfeada2297","contract":"b6d40fec4b08ba124a25","vendors-node_modules_formik_dist_formik_esm_js":"781da5ac72d286b9bb4c","cfd":"3be24cb93f653c1bcbe2","reports":"f507b710320f91d13fc1","Modules_Trading_Components_Form_TradeParams_Multiplier_expiration_jsx-Modules_Trading_Compone-90e657":"1272bc7aa11bb66a7e1f","screen-small":"745e36dce20c65ee5f32","screen-large":"e6ba79fab59dfc2dab21","settings-chart":"4ca2eadf24318416afe6","two-month-picker":"73796c6d17ac1cf0a81b"}[chunkId] + ".js";
 /******/ 		};
 /******/ 	})();
 /******/ 	
@@ -439,7 +439,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_react_router_dom__;
 /******/ 		// This function allow to reference all chunks
 /******/ 		__webpack_require__.miniCssF = (chunkId) => {
 /******/ 			// return url for filenames based on template
-/******/ 			return "trader/css/trader." + chunkId + "." + {"trader-app":"0568c98496c2fe680791","cfd":"a6a7e1992c40d4568c25","reports":"bc43bcd3795ef01e5438","screen-small":"71dabe5d9defd29ad33e"}[chunkId] + ".css";
+/******/ 			return "trader/css/trader." + chunkId + "." + {"trader-app":"388503fa1ac87c5fd5f6","cfd":"a6a7e1992c40d4568c25","reports":"bc43bcd3795ef01e5438","screen-small":"71dabe5d9defd29ad33e"}[chunkId] + ".css";
 /******/ 		};
 /******/ 	})();
 /******/ 	

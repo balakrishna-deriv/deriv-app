@@ -146,13 +146,13 @@ define("./service-worker.js",['./workbox-9fa588b0'], (function (workbox) { 'use 
     "url": "/js/core.account-signup-modal.a4230baf06ff308c01bb.js",
     "revision": null
   }, {
-    "url": "/js/core.account.75f87a44295a097e330a.js",
+    "url": "/js/core.account.66d41fe55d7dc01e403a.js",
     "revision": null
   }, {
-    "url": "/js/core.bot.2ce43e7fe312e9e69e4a.js",
+    "url": "/js/core.bot.b432944a0e0b391e30e5.js",
     "revision": null
   }, {
-    "url": "/js/core.cashier.f7b81ce195e4f438e8d3.js",
+    "url": "/js/core.cashier.1d840fa44b9da6a886d9.js",
     "revision": null
   }, {
     "url": "/js/core.close-mx-account-modal.b13689287d7fa35c6647.js",
@@ -164,31 +164,31 @@ define("./service-worker.js",['./workbox-9fa588b0'], (function (workbox) { 'use 
     "url": "/js/core.dashboard~Modules_Dashboard_d.26c9ec00d0750e883e49.js",
     "revision": null
   }, {
-    "url": "/js/core.main~App_C.24c3357a363e265a11b8.js",
+    "url": "/js/core.main~App_C.c44cadb46d842ba80834.js",
     "revision": null
   }, {
-    "url": "/js/core.main~App_Com.9270108486e7146e38f5.js",
+    "url": "/js/core.main~App_Com.dbf300b77546c4d70609.js",
     "revision": null
   }, {
     "url": "/js/core.main~As.7516f170e51e843fe14b.js",
     "revision": null
   }, {
-    "url": "/js/core.main~Se.90fe32d7023e5f485e27.js",
+    "url": "/js/core.main~Se.701f28608d17e53750e3.js",
     "revision": null
   }, {
-    "url": "/js/core.main~Stores_b.d121e3d9e9db989602f8.js",
+    "url": "/js/core.main~Stores_b.5f2d14f39b02590fcd46.js",
     "revision": null
   }, {
     "url": "/js/core.main~Stores_m.0a05bb63842081007e49.js",
     "revision": null
   }, {
-    "url": "/js/core.main~U.a774a4131af383e84b04.js",
+    "url": "/js/core.main~U.8d73c8fbc73365dd73df.js",
     "revision": null
   }, {
     "url": "/js/core.main~account_dist_account_js_a.a86a9f82e7436f2396cd.js",
     "revision": null
   }, {
-    "url": "/js/core.main~account_dist_account_js_account-limits_js_501e634c.f32e090fecbccb0290de.js",
+    "url": "/js/core.main~account_dist_account_js_account-limits_js_501e634c.b842c698835c27d84544.js",
     "revision": null
   }, {
     "url": "/js/core.main~account_dist_account_js_address-details_js_0928415f.707980076609d982c8f7.js",
@@ -215,19 +215,19 @@ define("./service-worker.js",['./workbox-9fa588b0'], (function (workbox) { 'use 
     "url": "/js/core.main~c.807e34f0e321ec157906.js",
     "revision": null
   }, {
-    "url": "/js/core.main~cashier_dist_cashier_js_cashier-store_js_77e8332f.fab233fbd9911a6a3698.js",
+    "url": "/js/core.main~cashier_dist_cashier_js_cashier-store_js_77e8332f.a686a0c9285b4f78b100.js",
     "revision": null
   }, {
     "url": "/js/core.main~components_src_components_a.48dd17e91c7259a5143a.js",
     "revision": null
   }, {
-    "url": "/js/core.main~components_src_components_c.8206c8d27a7933e164f4.js",
+    "url": "/js/core.main~components_src_components_c.bcdd55ec52a5093cc9e2.js",
     "revision": null
   }, {
     "url": "/js/core.main~components_src_components_l.3a3a36d5130526049000.js",
     "revision": null
   }, {
-    "url": "/js/core.main~s.4386cd66347358c1d513.js",
+    "url": "/js/core.main~s.c0d72b3f91598fd81caf.js",
     "revision": null
   }, {
     "url": "/js/core.reality-check-modal.060b969acf7b4b835645.js",
@@ -257,7 +257,7 @@ define("./service-worker.js",['./workbox-9fa588b0'], (function (workbox) { 'use 
     "url": "/js/core.trader~account_dist_account_js_reset-trading-password-modal_js_ff517517.a655facbc49f1d1f25c8.js",
     "revision": null
   }, {
-    "url": "/js/core.trader~trader_dist_trader_js_trader_js_4e59f282.aefa391adf61765b5e3b.js",
+    "url": "/js/core.trader~trader_dist_trader_js_trader_js_4e59f282.0df2a07ee7693e621e0c.js",
     "revision": null
   }, {
     "url": "/js/core.vendors-node_modules_babel_runtime_helpers_esm_classCallCheck_js-node_modules_babel_runtime_h-1aba2f.8c682a465719cc1d6c9e.js",
@@ -326,7 +326,7 @@ define("./service-worker.js",['./workbox-9fa588b0'], (function (workbox) { 'use 
     "url": "/js/core.vendors-node_modules_scroll-smooth_dist_index_js-node_modules_scrollparent_scrollparent_js-no-e650d6.862d09a3400a175a483b.js",
     "revision": null
   }, {
-    "url": "/js/core.welcome-modal~Ap.0d16e9565cee5399922d.js",
+    "url": "/js/core.welcome-modal~Ap.e5642f00a0864f7b40af.js",
     "revision": null
   }, {
     "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_cfds_svg_af25ac66.f5ae4bce4b6e7a30efdb.js",

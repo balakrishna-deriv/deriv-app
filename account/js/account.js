@@ -165,7 +165,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_react_router_dom__;
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames based on template
-/******/ 			return "account/js/account." + chunkId + "." + {"404":"3a4e31b3f9c14c2ad6c1","vendors-node_modules_binary-com_binary-document-uploader_DocumentUploader_js-node_modules_bow-78804b":"6129d26e63c8ffc22abc","account-app":"a67da4e9595223f53773"}[chunkId] + ".js";
+/******/ 			return "account/js/account." + chunkId + "." + {"404":"3a4e31b3f9c14c2ad6c1","vendors-node_modules_binary-com_binary-document-uploader_DocumentUploader_js-node_modules_bow-78804b":"6129d26e63c8ffc22abc","account-app":"6ac036f0940a168a2b9c"}[chunkId] + ".js";
 /******/ 		};
 /******/ 	})();
 /******/ 	
