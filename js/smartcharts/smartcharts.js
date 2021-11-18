@@ -1186,7 +1186,7 @@ while(el){if(!selector||el.matches(selector))list.push(el);el=el.parentElement;}
  * 		the handle.
  * @memberof CIQ
  * @since 7.4.0
- */CIQ.resizeObserver=function(element,listener,resizeHandle,timeout){if(timeout){if(typeof ResizeObserver!=="undefined"){if(!resizeHandle){resizeHandle=new ResizeObserver(listener);resizeHandle.observe(element);}}else{if(resizeHandle)clearInterval(resizeHandle);resizeHandle=setInterval(listener,timeout);}}else{if(resizeHandle){if(typeof ResizeObserver!=="undefined"&&typeof resizeHandle.disconnect==='function'){resizeHandle.disconnect();}else{clearInterval(resizeHandle);}}resizeHandle=null;}return resizeHandle;};/**
+ */CIQ.resizeObserver=function(element,listener,resizeHandle,timeout){if(timeout){if(typeof ResizeObserver!=="undefined"){if(!resizeHandle){resizeHandle=new ResizeObserver(listener);resizeHandle.observe(element);}}else{if(resizeHandle)clearInterval(resizeHandle);resizeHandle=setInterval(listener,timeout);}}else{if(resizeHandle){if(typeof ResizeObserver!=="undefined"){resizeHandle.disconnect();}else{clearInterval(resizeHandle);}}resizeHandle=null;}return resizeHandle;};/**
  * Turns a portion of raw text into multi-line text that fits in a given width. This is used for autoformatting of annotations
  * @param  {object} ctx    A valid HTML Canvas Context
  * @param  {string} phrase The text
@@ -10406,1477 +10406,309 @@ module.exports = debounce;
 
 /***/ }),
 
-/***/ "./node_modules/mobx-react-lite/es/ObserverComponent.js":
-/*!**************************************************************!*\
-  !*** ./node_modules/mobx-react-lite/es/ObserverComponent.js ***!
-  \**************************************************************/
-/*! exports provided: Observer */
+/***/ "./node_modules/mobx-react/index.module.js":
+/*!*************************************************!*\
+  !*** ./node_modules/mobx-react/index.module.js ***!
+  \*************************************************/
+/*! exports provided: propTypes, PropTypes, onError, observer, Observer, renderReporter, componentByNodeRegistery, componentByNodeRegistry, trackComponents, useStaticRendering, Provider, inject */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Observer", function() { return ObserverComponent; });
-/* harmony import */ var _useObserver__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./useObserver */ "./node_modules/mobx-react-lite/es/useObserver.js");
-
-
-function ObserverComponent(_a) {
-  var children = _a.children,
-      render = _a.render;
-  var component = children || render;
-
-  if (typeof component !== "function") {
-    return null;
-  }
-
-  return Object(_useObserver__WEBPACK_IMPORTED_MODULE_0__["useObserver"])(component);
-}
-
-ObserverComponent.propTypes = {
-  children: ObserverPropsCheck,
-  render: ObserverPropsCheck
-};
-ObserverComponent.displayName = "Observer";
-
-
-function ObserverPropsCheck(props, key, componentName, location, propFullName) {
-  var extraKey = key === "children" ? "render" : "children";
-  var hasProp = typeof props[key] === "function";
-  var hasExtraProp = typeof props[extraKey] === "function";
-
-  if (hasProp && hasExtraProp) {
-    return new Error("MobX Observer: Do not use children and render in the same time in`" + componentName);
-  }
-
-  if (hasProp || hasExtraProp) {
-    return null;
-  }
-
-  return new Error("Invalid prop `" + propFullName + "` of type `" + typeof props[key] + "` supplied to" + " `" + componentName + "`, expected `function`.");
-}
-
-/***/ }),
-
-/***/ "./node_modules/mobx-react-lite/es/assertEnvironment.js":
-/*!**************************************************************!*\
-  !*** ./node_modules/mobx-react-lite/es/assertEnvironment.js ***!
-  \**************************************************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "propTypes", function() { return propTypes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PropTypes", function() { return propTypes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onError", function() { return onError; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "observer", function() { return observer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Observer", function() { return Observer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "renderReporter", function() { return renderReporter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "componentByNodeRegistery", function() { return componentByNodeRegistry; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "componentByNodeRegistry", function() { return componentByNodeRegistry; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "trackComponents", function() { return trackComponents; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useStaticRendering", function() { return useStaticRendering; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Provider", function() { return Provider; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "inject", function() { return inject; });
 /* harmony import */ var mobx__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! mobx */ "./node_modules/mobx/lib/mobx.module.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dom */ "react-dom");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_2__);
 
 
+ // These functions can be stubbed out in specific environments
 
-if (!react__WEBPACK_IMPORTED_MODULE_1__["useState"]) {
-  throw new Error("mobx-react-lite requires React with Hooks support");
-}
-
-if (!mobx__WEBPACK_IMPORTED_MODULE_0__["spy"]) {
-  throw new Error("mobx-react-lite requires mobx at least version 4 to be available");
-}
-
-/***/ }),
-
-/***/ "./node_modules/mobx-react-lite/es/index.js":
-/*!**************************************************!*\
-  !*** ./node_modules/mobx-react-lite/es/index.js ***!
-  \**************************************************/
-/*! exports provided: isUsingStaticRendering, useStaticRendering, observer, useObserver, Observer, useForceUpdate, useAsObservableSource, useLocalStore, useQueuedForceUpdate, useQueuedForceUpdateBlock, isObserverBatched, observerBatching */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _assertEnvironment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./assertEnvironment */ "./node_modules/mobx-react-lite/es/assertEnvironment.js");
-/* harmony import */ var _utils_reactBatchedUpdates__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils/reactBatchedUpdates */ "./node_modules/mobx-react-lite/es/utils/reactBatchedUpdates.js");
-/* harmony import */ var _observerBatching__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./observerBatching */ "./node_modules/mobx-react-lite/es/observerBatching.js");
-/* harmony import */ var _staticRendering__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./staticRendering */ "./node_modules/mobx-react-lite/es/staticRendering.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isUsingStaticRendering", function() { return _staticRendering__WEBPACK_IMPORTED_MODULE_3__["isUsingStaticRendering"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useStaticRendering", function() { return _staticRendering__WEBPACK_IMPORTED_MODULE_3__["useStaticRendering"]; });
-
-/* harmony import */ var _observer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./observer */ "./node_modules/mobx-react-lite/es/observer.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "observer", function() { return _observer__WEBPACK_IMPORTED_MODULE_4__["observer"]; });
-
-/* harmony import */ var _useObserver__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./useObserver */ "./node_modules/mobx-react-lite/es/useObserver.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useObserver", function() { return _useObserver__WEBPACK_IMPORTED_MODULE_5__["useObserver"]; });
-
-/* harmony import */ var _ObserverComponent__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ObserverComponent */ "./node_modules/mobx-react-lite/es/ObserverComponent.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Observer", function() { return _ObserverComponent__WEBPACK_IMPORTED_MODULE_6__["Observer"]; });
-
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./utils */ "./node_modules/mobx-react-lite/es/utils.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useForceUpdate", function() { return _utils__WEBPACK_IMPORTED_MODULE_7__["useForceUpdate"]; });
-
-/* harmony import */ var _useAsObservableSource__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./useAsObservableSource */ "./node_modules/mobx-react-lite/es/useAsObservableSource.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useAsObservableSource", function() { return _useAsObservableSource__WEBPACK_IMPORTED_MODULE_8__["useAsObservableSource"]; });
-
-/* harmony import */ var _useLocalStore__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./useLocalStore */ "./node_modules/mobx-react-lite/es/useLocalStore.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useLocalStore", function() { return _useLocalStore__WEBPACK_IMPORTED_MODULE_9__["useLocalStore"]; });
-
-/* harmony import */ var _useQueuedForceUpdate__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./useQueuedForceUpdate */ "./node_modules/mobx-react-lite/es/useQueuedForceUpdate.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useQueuedForceUpdate", function() { return _useQueuedForceUpdate__WEBPACK_IMPORTED_MODULE_10__["useQueuedForceUpdate"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useQueuedForceUpdateBlock", function() { return _useQueuedForceUpdate__WEBPACK_IMPORTED_MODULE_10__["useQueuedForceUpdateBlock"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isObserverBatched", function() { return _observerBatching__WEBPACK_IMPORTED_MODULE_2__["isObserverBatched"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "observerBatching", function() { return _observerBatching__WEBPACK_IMPORTED_MODULE_2__["observerBatching"]; });
+var unstable_batchedUpdates$1 = undefined;
+'use strict';
+/**
+ * Copyright 2015, Yahoo! Inc.
+ * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
+ */
 
 
-
-
-Object(_observerBatching__WEBPACK_IMPORTED_MODULE_2__["observerBatching"])(_utils_reactBatchedUpdates__WEBPACK_IMPORTED_MODULE_1__["unstable_batchedUpdates"]);
-
-
-
-
-
-
-
-
-
-
-/***/ }),
-
-/***/ "./node_modules/mobx-react-lite/es/observer.js":
-/*!*****************************************************!*\
-  !*** ./node_modules/mobx-react-lite/es/observer.js ***!
-  \*****************************************************/
-/*! exports provided: observer */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "observer", function() { return observer; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _staticRendering__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./staticRendering */ "./node_modules/mobx-react-lite/es/staticRendering.js");
-/* harmony import */ var _useObserver__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./useObserver */ "./node_modules/mobx-react-lite/es/useObserver.js");
-var __assign = undefined && undefined.__assign || function () {
-  __assign = Object.assign || function (t) {
-    for (var s, i = 1, n = arguments.length; i < n; i++) {
-      s = arguments[i];
-
-      for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
-    }
-
-    return t;
-  };
-
-  return __assign.apply(this, arguments);
-};
-
-
-
- // n.b. base case is not used for actual typings or exported in the typing files
-
-function observer(baseComponent, options) {
-  // The working of observer is explained step by step in this talk: https://www.youtube.com/watch?v=cPF4iBedoF0&feature=youtu.be&t=1307
-  if (Object(_staticRendering__WEBPACK_IMPORTED_MODULE_1__["isUsingStaticRendering"])()) {
-    return baseComponent;
-  }
-
-  var realOptions = __assign({
-    forwardRef: false
-  }, options);
-
-  var baseComponentName = baseComponent.displayName || baseComponent.name;
-
-  var wrappedComponent = function (props, ref) {
-    return Object(_useObserver__WEBPACK_IMPORTED_MODULE_2__["useObserver"])(function () {
-      return baseComponent(props, ref);
-    }, baseComponentName);
-  };
-
-  wrappedComponent.displayName = baseComponentName; // memo; we are not interested in deep updates
-  // in props; we assume that if deep objects are changed,
-  // this is in observables, which would have been tracked anyway
-
-  var memoComponent;
-
-  if (realOptions.forwardRef) {
-    // we have to use forwardRef here because:
-    // 1. it cannot go before memo, only after it
-    // 2. forwardRef converts the function into an actual component, so we can't let the baseComponent do it
-    //    since it wouldn't be a callable function anymore
-    memoComponent = Object(react__WEBPACK_IMPORTED_MODULE_0__["memo"])(Object(react__WEBPACK_IMPORTED_MODULE_0__["forwardRef"])(wrappedComponent));
-  } else {
-    memoComponent = Object(react__WEBPACK_IMPORTED_MODULE_0__["memo"])(wrappedComponent);
-  }
-
-  copyStaticProperties(baseComponent, memoComponent);
-  memoComponent.displayName = baseComponentName;
-  return memoComponent;
-} // based on https://github.com/mridgway/hoist-non-react-statics/blob/master/src/index.js
-
-var hoistBlackList = {
-  $$typeof: true,
-  render: true,
-  compare: true,
+var REACT_STATICS = {
+  childContextTypes: true,
+  contextTypes: true,
+  defaultProps: true,
+  displayName: true,
+  getDefaultProps: true,
+  getDerivedStateFromProps: true,
+  mixins: true,
+  propTypes: true,
   type: true
 };
-
-function copyStaticProperties(base, target) {
-  Object.keys(base).forEach(function (key) {
-    if (!hoistBlackList[key]) {
-      Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(base, key));
-    }
-  });
-}
-
-/***/ }),
-
-/***/ "./node_modules/mobx-react-lite/es/observerBatching.js":
-/*!*************************************************************!*\
-  !*** ./node_modules/mobx-react-lite/es/observerBatching.js ***!
-  \*************************************************************/
-/*! exports provided: defaultNoopBatch, observerBatching, isObserverBatched */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "defaultNoopBatch", function() { return defaultNoopBatch; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "observerBatching", function() { return observerBatching; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isObserverBatched", function() { return isObserverBatched; });
-/* harmony import */ var mobx__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! mobx */ "./node_modules/mobx/lib/mobx.module.js");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils */ "./node_modules/mobx-react-lite/es/utils.js");
-
-
-var observerBatchingConfiguredSymbol = Object(_utils__WEBPACK_IMPORTED_MODULE_1__["getSymbol"])("observerBatching");
-function defaultNoopBatch(callback) {
-  callback();
-}
-function observerBatching(reactionScheduler) {
-  if (!reactionScheduler) {
-    reactionScheduler = defaultNoopBatch;
-
-    if (false) {}
-  }
-
-  Object(mobx__WEBPACK_IMPORTED_MODULE_0__["configure"])({
-    reactionScheduler: reactionScheduler
-  });
-  Object(_utils__WEBPACK_IMPORTED_MODULE_1__["getGlobal"])()[observerBatchingConfiguredSymbol] = true;
-}
-var isObserverBatched = function () {
-  return !!Object(_utils__WEBPACK_IMPORTED_MODULE_1__["getGlobal"])()[observerBatchingConfiguredSymbol];
+var KNOWN_STATICS = {
+  name: true,
+  length: true,
+  prototype: true,
+  caller: true,
+  callee: true,
+  arguments: true,
+  arity: true
 };
+var defineProperty = Object.defineProperty;
+var getOwnPropertyNames = Object.getOwnPropertyNames;
+var getOwnPropertySymbols = Object.getOwnPropertySymbols;
+var getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
+var getPrototypeOf = Object.getPrototypeOf;
+var objectPrototype = getPrototypeOf && getPrototypeOf(Object);
 
-/***/ }),
+function hoistNonReactStatics(targetComponent, sourceComponent, blacklist) {
+  if (typeof sourceComponent !== 'string') {
+    // don't hoist over string (html) components
+    if (objectPrototype) {
+      var inheritedComponent = getPrototypeOf(sourceComponent);
 
-/***/ "./node_modules/mobx-react-lite/es/printDebugValue.js":
-/*!************************************************************!*\
-  !*** ./node_modules/mobx-react-lite/es/printDebugValue.js ***!
-  \************************************************************/
-/*! exports provided: printDebugValue */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "printDebugValue", function() { return printDebugValue; });
-/* harmony import */ var mobx__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! mobx */ "./node_modules/mobx/lib/mobx.module.js");
-
-function printDebugValue(v) {
-  return Object(mobx__WEBPACK_IMPORTED_MODULE_0__["getDependencyTree"])(v);
-}
-
-/***/ }),
-
-/***/ "./node_modules/mobx-react-lite/es/reactionCleanupTracking.js":
-/*!********************************************************************!*\
-  !*** ./node_modules/mobx-react-lite/es/reactionCleanupTracking.js ***!
-  \********************************************************************/
-/*! exports provided: createTrackingData, CLEANUP_LEAKED_REACTIONS_AFTER_MILLIS, CLEANUP_TIMER_LOOP_MILLIS, scheduleCleanupOfReactionIfLeaked, recordReactionAsCommitted, forceCleanupTimerToRunNowForTests, resetCleanupScheduleForTests */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createTrackingData", function() { return createTrackingData; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CLEANUP_LEAKED_REACTIONS_AFTER_MILLIS", function() { return CLEANUP_LEAKED_REACTIONS_AFTER_MILLIS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CLEANUP_TIMER_LOOP_MILLIS", function() { return CLEANUP_TIMER_LOOP_MILLIS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "scheduleCleanupOfReactionIfLeaked", function() { return scheduleCleanupOfReactionIfLeaked; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recordReactionAsCommitted", function() { return recordReactionAsCommitted; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "forceCleanupTimerToRunNowForTests", function() { return forceCleanupTimerToRunNowForTests; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "resetCleanupScheduleForTests", function() { return resetCleanupScheduleForTests; });
-function createTrackingData(reaction) {
-  var trackingData = {
-    cleanAt: Date.now() + CLEANUP_LEAKED_REACTIONS_AFTER_MILLIS,
-    reaction: reaction
-  };
-  return trackingData;
-}
-/**
- * The minimum time before we'll clean up a Reaction created in a render
- * for a component that hasn't managed to run its effects. This needs to
- * be big enough to ensure that a component won't turn up and have its
- * effects run without being re-rendered.
- */
-
-var CLEANUP_LEAKED_REACTIONS_AFTER_MILLIS = 10000;
-/**
- * The frequency with which we'll check for leaked reactions.
- */
-
-var CLEANUP_TIMER_LOOP_MILLIS = 10000;
-/**
- * Reactions created by components that have yet to be fully mounted.
- */
-
-var uncommittedReactionRefs = new Set();
-/**
- * Latest 'uncommitted reactions' cleanup timer handle.
- */
-
-var reactionCleanupHandle;
-
-function ensureCleanupTimerRunning() {
-  if (reactionCleanupHandle === undefined) {
-    reactionCleanupHandle = setTimeout(cleanUncommittedReactions, CLEANUP_TIMER_LOOP_MILLIS);
-  }
-}
-
-function scheduleCleanupOfReactionIfLeaked(ref) {
-  uncommittedReactionRefs.add(ref);
-  ensureCleanupTimerRunning();
-}
-function recordReactionAsCommitted(reactionRef) {
-  uncommittedReactionRefs.delete(reactionRef);
-}
-/**
- * Run by the cleanup timer to dispose any outstanding reactions
- */
-
-function cleanUncommittedReactions() {
-  reactionCleanupHandle = undefined; // Loop through all the candidate leaked reactions; those older
-  // than CLEANUP_LEAKED_REACTIONS_AFTER_MILLIS get tidied.
-
-  var now = Date.now();
-  uncommittedReactionRefs.forEach(function (ref) {
-    var tracking = ref.current;
-
-    if (tracking) {
-      if (now >= tracking.cleanAt) {
-        // It's time to tidy up this leaked reaction.
-        tracking.reaction.dispose();
-        ref.current = null;
-        uncommittedReactionRefs.delete(ref);
+      if (inheritedComponent && inheritedComponent !== objectPrototype) {
+        hoistNonReactStatics(targetComponent, inheritedComponent, blacklist);
       }
     }
-  });
 
-  if (uncommittedReactionRefs.size > 0) {
-    // We've just finished a round of cleanups but there are still
-    // some leak candidates outstanding.
-    ensureCleanupTimerRunning();
-  }
-}
-/* istanbul ignore next */
+    var keys = getOwnPropertyNames(sourceComponent);
 
-/**
- * Only to be used by test functions; do not export outside of mobx-react-lite
- */
-
-
-function forceCleanupTimerToRunNowForTests() {
-  // This allows us to control the execution of the cleanup timer
-  // to force it to run at awkward times in unit tests.
-  if (reactionCleanupHandle) {
-    clearTimeout(reactionCleanupHandle);
-    cleanUncommittedReactions();
-  }
-}
-/* istanbul ignore next */
-
-function resetCleanupScheduleForTests() {
-  if (reactionCleanupHandle) {
-    clearTimeout(reactionCleanupHandle);
-    reactionCleanupHandle = undefined;
-  }
-
-  uncommittedReactionRefs.clear();
-}
-
-/***/ }),
-
-/***/ "./node_modules/mobx-react-lite/es/staticRendering.js":
-/*!************************************************************!*\
-  !*** ./node_modules/mobx-react-lite/es/staticRendering.js ***!
-  \************************************************************/
-/*! exports provided: useStaticRendering, isUsingStaticRendering */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useStaticRendering", function() { return useStaticRendering; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isUsingStaticRendering", function() { return isUsingStaticRendering; });
-var globalIsUsingStaticRendering = false;
-function useStaticRendering(enable) {
-  globalIsUsingStaticRendering = enable;
-}
-function isUsingStaticRendering() {
-  return globalIsUsingStaticRendering;
-}
-
-/***/ }),
-
-/***/ "./node_modules/mobx-react-lite/es/useAsObservableSource.js":
-/*!******************************************************************!*\
-  !*** ./node_modules/mobx-react-lite/es/useAsObservableSource.js ***!
-  \******************************************************************/
-/*! exports provided: useAsObservableSourceInternal, useAsObservableSource */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useAsObservableSourceInternal", function() { return useAsObservableSourceInternal; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useAsObservableSource", function() { return useAsObservableSource; });
-/* harmony import */ var mobx__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! mobx */ "./node_modules/mobx/lib/mobx.module.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./utils */ "./node_modules/mobx-react-lite/es/utils.js");
-var __read = undefined && undefined.__read || function (o, n) {
-  var m = typeof Symbol === "function" && o[Symbol.iterator];
-  if (!m) return o;
-  var i = m.call(o),
-      r,
-      ar = [],
-      e;
-
-  try {
-    while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
-  } catch (error) {
-    e = {
-      error: error
-    };
-  } finally {
-    try {
-      if (r && !r.done && (m = i["return"])) m.call(i);
-    } finally {
-      if (e) throw e.error;
-    }
-  }
-
-  return ar;
-};
-
-
-
-
-function useAsObservableSourceInternal(current, usedByLocalStore) {
-  var culprit = usedByLocalStore ? "useLocalStore" : "useAsObservableSource";
-
-  if (false) { var _a, initialSource; }
-
-  if (usedByLocalStore && current === undefined) {
-    return undefined;
-  }
-
-  if (false) {}
-
-  var _b = __read(react__WEBPACK_IMPORTED_MODULE_1___default.a.useState(function () {
-    return Object(mobx__WEBPACK_IMPORTED_MODULE_0__["observable"])(current, {}, {
-      deep: false
-    });
-  }), 1),
-      res = _b[0];
-
-  if (false) {}
-
-  Object(mobx__WEBPACK_IMPORTED_MODULE_0__["runInAction"])(function () {
-    Object.assign(res, current);
-  });
-  return res;
-}
-function useAsObservableSource(current) {
-  return useAsObservableSourceInternal(current, false);
-}
-
-/***/ }),
-
-/***/ "./node_modules/mobx-react-lite/es/useLocalStore.js":
-/*!**********************************************************!*\
-  !*** ./node_modules/mobx-react-lite/es/useLocalStore.js ***!
-  \**********************************************************/
-/*! exports provided: useLocalStore */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useLocalStore", function() { return useLocalStore; });
-/* harmony import */ var mobx__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! mobx */ "./node_modules/mobx/lib/mobx.module.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _useAsObservableSource__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./useAsObservableSource */ "./node_modules/mobx-react-lite/es/useAsObservableSource.js");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./utils */ "./node_modules/mobx-react-lite/es/utils.js");
-
-
-
-
-function useLocalStore(initializer, current) {
-  var source = Object(_useAsObservableSource__WEBPACK_IMPORTED_MODULE_2__["useAsObservableSourceInternal"])(current, true);
-  return react__WEBPACK_IMPORTED_MODULE_1___default.a.useState(function () {
-    var local = Object(mobx__WEBPACK_IMPORTED_MODULE_0__["observable"])(initializer(source));
-
-    if (Object(_utils__WEBPACK_IMPORTED_MODULE_3__["isPlainObject"])(local)) {
-      Object(mobx__WEBPACK_IMPORTED_MODULE_0__["runInAction"])(function () {
-        Object.keys(local).forEach(function (key) {
-          var value = local[key];
-
-          if (typeof value === "function") {
-            // @ts-ignore No idea why ts2536 is popping out here
-            local[key] = wrapInTransaction(value, local);
-          }
-        });
-      });
+    if (getOwnPropertySymbols) {
+      keys = keys.concat(getOwnPropertySymbols(sourceComponent));
     }
 
-    return local;
-  })[0];
-} // tslint:disable-next-line: ban-types
-
-function wrapInTransaction(fn, context) {
-  return function () {
-    var args = [];
-
-    for (var _i = 0; _i < arguments.length; _i++) {
-      args[_i] = arguments[_i];
-    }
-
-    return Object(mobx__WEBPACK_IMPORTED_MODULE_0__["transaction"])(function () {
-      return fn.apply(context, args);
-    });
-  };
-}
-
-/***/ }),
-
-/***/ "./node_modules/mobx-react-lite/es/useObserver.js":
-/*!********************************************************!*\
-  !*** ./node_modules/mobx-react-lite/es/useObserver.js ***!
-  \********************************************************/
-/*! exports provided: useObserver */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useObserver", function() { return useObserver; });
-/* harmony import */ var mobx__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! mobx */ "./node_modules/mobx/lib/mobx.module.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _printDebugValue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./printDebugValue */ "./node_modules/mobx-react-lite/es/printDebugValue.js");
-/* harmony import */ var _reactionCleanupTracking__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./reactionCleanupTracking */ "./node_modules/mobx-react-lite/es/reactionCleanupTracking.js");
-/* harmony import */ var _staticRendering__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./staticRendering */ "./node_modules/mobx-react-lite/es/staticRendering.js");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./utils */ "./node_modules/mobx-react-lite/es/utils.js");
-/* harmony import */ var _useQueuedForceUpdate__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./useQueuedForceUpdate */ "./node_modules/mobx-react-lite/es/useQueuedForceUpdate.js");
-
-
-
-
-
-
-
-var EMPTY_OBJECT = {};
-
-function observerComponentNameFor(baseComponentName) {
-  return "observer" + baseComponentName;
-}
-
-function useObserver(fn, baseComponentName, options) {
-  if (baseComponentName === void 0) {
-    baseComponentName = "observed";
-  }
-
-  if (options === void 0) {
-    options = EMPTY_OBJECT;
-  }
-
-  if (Object(_staticRendering__WEBPACK_IMPORTED_MODULE_4__["isUsingStaticRendering"])()) {
-    return fn();
-  }
-
-  var wantedForceUpdateHook = options.useForceUpdate || _utils__WEBPACK_IMPORTED_MODULE_5__["useForceUpdate"];
-  var forceUpdate = wantedForceUpdateHook();
-  var queuedForceUpdate = Object(_useQueuedForceUpdate__WEBPACK_IMPORTED_MODULE_6__["useQueuedForceUpdate"])(forceUpdate); // StrictMode/ConcurrentMode/Suspense may mean that our component is
-  // rendered and abandoned multiple times, so we need to track leaked
-  // Reactions.
-
-  var reactionTrackingRef = react__WEBPACK_IMPORTED_MODULE_1___default.a.useRef(null);
-
-  if (!reactionTrackingRef.current) {
-    // First render for this component (or first time since a previous
-    // reaction from an abandoned render was disposed).
-    var newReaction_1 = new mobx__WEBPACK_IMPORTED_MODULE_0__["Reaction"](observerComponentNameFor(baseComponentName), function () {
-      // Observable has changed, meaning we want to re-render
-      // BUT if we're a component that hasn't yet got to the useEffect()
-      // stage, we might be a component that _started_ to render, but
-      // got dropped, and we don't want to make state changes then.
-      // (It triggers warnings in StrictMode, for a start.)
-      if (trackingData_1.mounted) {
-        // We have reached useEffect(), so we're mounted, and can trigger an update
-        queuedForceUpdate();
-      } else {
-        // We haven't yet reached useEffect(), so we'll need to trigger a re-render
-        // when (and if) useEffect() arrives.  The easiest way to do that is just to
-        // drop our current reaction and allow useEffect() to recreate it.
-        newReaction_1.dispose();
-        reactionTrackingRef.current = null;
-      }
-    });
-    var trackingData_1 = Object(_reactionCleanupTracking__WEBPACK_IMPORTED_MODULE_3__["createTrackingData"])(newReaction_1);
-    reactionTrackingRef.current = trackingData_1;
-    Object(_reactionCleanupTracking__WEBPACK_IMPORTED_MODULE_3__["scheduleCleanupOfReactionIfLeaked"])(reactionTrackingRef);
-  }
-
-  var reaction = reactionTrackingRef.current.reaction;
-  react__WEBPACK_IMPORTED_MODULE_1___default.a.useDebugValue(reaction, _printDebugValue__WEBPACK_IMPORTED_MODULE_2__["printDebugValue"]);
-  react__WEBPACK_IMPORTED_MODULE_1___default.a.useEffect(function () {
-    // Called on first mount only
-    Object(_reactionCleanupTracking__WEBPACK_IMPORTED_MODULE_3__["recordReactionAsCommitted"])(reactionTrackingRef);
-
-    if (reactionTrackingRef.current) {
-      // Great. We've already got our reaction from our render;
-      // all we need to do is to record that it's now mounted,
-      // to allow future observable changes to trigger re-renders
-      reactionTrackingRef.current.mounted = true;
-    } else {
-      // The reaction we set up in our render has been disposed.
-      // This is either due to bad timings of renderings, e.g. our
-      // component was paused for a _very_ long time, and our
-      // reaction got cleaned up, or we got a observable change
-      // between render and useEffect
-      // Re-create the reaction
-      reactionTrackingRef.current = {
-        reaction: new mobx__WEBPACK_IMPORTED_MODULE_0__["Reaction"](observerComponentNameFor(baseComponentName), function () {
-          // We've definitely already been mounted at this point
-          queuedForceUpdate();
-        }),
-        cleanAt: Infinity
-      };
-      queuedForceUpdate();
-    }
-
-    return function () {
-      reactionTrackingRef.current.reaction.dispose();
-      reactionTrackingRef.current = null;
-    };
-  }, []); // delay all force-update calls after rendering of this component
-
-  return Object(_useQueuedForceUpdate__WEBPACK_IMPORTED_MODULE_6__["useQueuedForceUpdateBlock"])(function () {
-    // render the original component, but have the
-    // reaction track the observables, so that rendering
-    // can be invalidated (see above) once a dependency changes
-    var rendering;
-    var exception;
-    reaction.track(function () {
-      try {
-        rendering = fn();
-      } catch (e) {
-        exception = e;
-      }
-    });
-
-    if (exception) {
-      throw exception; // re-throw any exceptions caught during rendering
-    }
-
-    return rendering;
-  });
-}
-
-/***/ }),
-
-/***/ "./node_modules/mobx-react-lite/es/useQueuedForceUpdate.js":
-/*!*****************************************************************!*\
-  !*** ./node_modules/mobx-react-lite/es/useQueuedForceUpdate.js ***!
-  \*****************************************************************/
-/*! exports provided: useQueuedForceUpdate, useQueuedForceUpdateBlock */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useQueuedForceUpdate", function() { return useQueuedForceUpdate; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useQueuedForceUpdateBlock", function() { return useQueuedForceUpdateBlock; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-
-var insideRender = false;
-var forceUpdateQueue = [];
-function useQueuedForceUpdate(forceUpdate) {
-  return function () {
-    if (insideRender) {
-      forceUpdateQueue.push(forceUpdate);
-    } else {
-      forceUpdate();
-    }
-  };
-}
-function useQueuedForceUpdateBlock(callback) {
-  // start intercepting force-update calls
-  insideRender = true;
-  forceUpdateQueue = [];
-
-  try {
-    var result = callback(); // stop intercepting force-update
-
-    insideRender = false; // store queue or nothing if it was empty to execute useLayoutEffect only when necessary
-
-    var queue_1 = forceUpdateQueue.length > 0 ? forceUpdateQueue : undefined; // run force-update queue in useLayoutEffect
-
-    react__WEBPACK_IMPORTED_MODULE_0___default.a.useLayoutEffect(function () {
-      if (queue_1) {
-        queue_1.forEach(function (x) {
-          return x();
-        });
-      }
-    }, [queue_1]);
-    return result;
-  } finally {
-    insideRender = false;
-  }
-}
-
-/***/ }),
-
-/***/ "./node_modules/mobx-react-lite/es/utils.js":
-/*!**************************************************!*\
-  !*** ./node_modules/mobx-react-lite/es/utils.js ***!
-  \**************************************************/
-/*! exports provided: useUnmount, useForceUpdate, isPlainObject, getSymbol, getGlobal */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* WEBPACK VAR INJECTION */(function(global) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useUnmount", function() { return useUnmount; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useForceUpdate", function() { return useForceUpdate; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isPlainObject", function() { return isPlainObject; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSymbol", function() { return getSymbol; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getGlobal", function() { return getGlobal; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var __read = undefined && undefined.__read || function (o, n) {
-  var m = typeof Symbol === "function" && o[Symbol.iterator];
-  if (!m) return o;
-  var i = m.call(o),
-      r,
-      ar = [],
-      e;
-
-  try {
-    while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
-  } catch (error) {
-    e = {
-      error: error
-    };
-  } finally {
-    try {
-      if (r && !r.done && (m = i["return"])) m.call(i);
-    } finally {
-      if (e) throw e.error;
-    }
-  }
-
-  return ar;
-};
-
-
-var EMPTY_ARRAY = [];
-function useUnmount(fn) {
-  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
-    return fn;
-  }, EMPTY_ARRAY);
-}
-function useForceUpdate() {
-  var _a = __read(Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(0), 2),
-      setTick = _a[1];
-
-  var update = Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])(function () {
-    setTick(function (tick) {
-      return tick + 1;
-    });
-  }, []);
-  return update;
-}
-function isPlainObject(value) {
-  if (!value || typeof value !== "object") {
-    return false;
-  }
-
-  var proto = Object.getPrototypeOf(value);
-  return !proto || proto === Object.prototype;
-}
-function getSymbol(name) {
-  if (typeof Symbol === "function") {
-    return Symbol.for(name);
-  }
-
-  return "__$mobx-react " + name + "__";
-}
-var mockGlobal = {};
-function getGlobal() {
-  if (typeof window !== "undefined") {
-    return window;
-  }
-
-  if (typeof global !== "undefined") {
-    return global;
-  }
-
-  if (typeof self !== "undefined") {
-    return self;
-  }
-
-  return mockGlobal;
-}
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
-
-/***/ }),
-
-/***/ "./node_modules/mobx-react-lite/es/utils/reactBatchedUpdates.js":
-/*!**********************************************************************!*\
-  !*** ./node_modules/mobx-react-lite/es/utils/reactBatchedUpdates.js ***!
-  \**********************************************************************/
-/*! exports provided: unstable_batchedUpdates */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-dom */ "react-dom");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "unstable_batchedUpdates", function() { return react_dom__WEBPACK_IMPORTED_MODULE_0__["unstable_batchedUpdates"]; });
-
-
-
-/***/ }),
-
-/***/ "./node_modules/mobx-react/dist/mobxreact.esm.js":
-/*!*******************************************************!*\
-  !*** ./node_modules/mobx-react/dist/mobxreact.esm.js ***!
-  \*******************************************************/
-/*! exports provided: Observer, isObserverBatched, isUsingStaticRendering, observerBatching, observerBatchingOptOut, useAsObservableSource, useLocalStore, useObserver, useStaticRendering, MobXProviderContext, PropTypes, Provider, disposeOnUnmount, inject, observer */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MobXProviderContext", function() { return MobXProviderContext; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PropTypes", function() { return PropTypes; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Provider", function() { return Provider; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "disposeOnUnmount", function() { return disposeOnUnmount; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "inject", function() { return inject; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "observer", function() { return observer; });
-/* harmony import */ var mobx__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! mobx */ "./node_modules/mobx/lib/mobx.module.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var mobx_react_lite__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! mobx-react-lite */ "./node_modules/mobx-react-lite/es/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Observer", function() { return mobx_react_lite__WEBPACK_IMPORTED_MODULE_2__["Observer"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isObserverBatched", function() { return mobx_react_lite__WEBPACK_IMPORTED_MODULE_2__["isObserverBatched"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isUsingStaticRendering", function() { return mobx_react_lite__WEBPACK_IMPORTED_MODULE_2__["isUsingStaticRendering"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "observerBatching", function() { return mobx_react_lite__WEBPACK_IMPORTED_MODULE_2__["observerBatching"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "observerBatchingOptOut", function() { return mobx_react_lite__WEBPACK_IMPORTED_MODULE_2__["observerBatchingOptOut"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useAsObservableSource", function() { return mobx_react_lite__WEBPACK_IMPORTED_MODULE_2__["useAsObservableSource"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useLocalStore", function() { return mobx_react_lite__WEBPACK_IMPORTED_MODULE_2__["useLocalStore"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useObserver", function() { return mobx_react_lite__WEBPACK_IMPORTED_MODULE_2__["useObserver"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useStaticRendering", function() { return mobx_react_lite__WEBPACK_IMPORTED_MODULE_2__["useStaticRendering"]; });
-
-
-
-
-
-var symbolId = 0;
-
-function createSymbol(name) {
-  if (typeof Symbol === "function") {
-    return Symbol(name);
-  }
-
-  var symbol = "__$mobx-react " + name + " (" + symbolId + ")";
-  symbolId++;
-  return symbol;
-}
-
-var createdSymbols = {};
-
-function newSymbol(name) {
-  if (!createdSymbols[name]) {
-    createdSymbols[name] = createSymbol(name);
-  }
-
-  return createdSymbols[name];
-}
-
-function shallowEqual(objA, objB) {
-  //From: https://github.com/facebook/fbjs/blob/c69904a511b900266935168223063dd8772dfc40/packages/fbjs/src/core/shallowEqual.js
-  if (is(objA, objB)) return true;
-
-  if (typeof objA !== "object" || objA === null || typeof objB !== "object" || objB === null) {
-    return false;
-  }
-
-  var keysA = Object.keys(objA);
-  var keysB = Object.keys(objB);
-  if (keysA.length !== keysB.length) return false;
-
-  for (var i = 0; i < keysA.length; i++) {
-    if (!Object.hasOwnProperty.call(objB, keysA[i]) || !is(objA[keysA[i]], objB[keysA[i]])) {
-      return false;
-    }
-  }
-
-  return true;
-}
-
-function is(x, y) {
-  // From: https://github.com/facebook/fbjs/blob/c69904a511b900266935168223063dd8772dfc40/packages/fbjs/src/core/shallowEqual.js
-  if (x === y) {
-    return x !== 0 || 1 / x === 1 / y;
-  } else {
-    return x !== x && y !== y;
-  }
-} // based on https://github.com/mridgway/hoist-non-react-statics/blob/master/src/index.js
-
-
-var hoistBlackList = {
-  $$typeof: 1,
-  render: 1,
-  compare: 1,
-  type: 1,
-  childContextTypes: 1,
-  contextType: 1,
-  contextTypes: 1,
-  defaultProps: 1,
-  getDefaultProps: 1,
-  getDerivedStateFromError: 1,
-  getDerivedStateFromProps: 1,
-  mixins: 1,
-  propTypes: 1
-};
-
-function copyStaticProperties(base, target) {
-  var protoProps = Object.getOwnPropertyNames(Object.getPrototypeOf(base));
-  Object.getOwnPropertyNames(base).forEach(function (key) {
-    if (!hoistBlackList[key] && protoProps.indexOf(key) === -1) {
-      Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(base, key));
-    }
-  });
-}
-/**
- * Helper to set `prop` to `this` as non-enumerable (hidden prop)
- * @param target
- * @param prop
- * @param value
- */
-
-
-function setHiddenProp(target, prop, value) {
-  if (!Object.hasOwnProperty.call(target, prop)) {
-    Object.defineProperty(target, prop, {
-      enumerable: false,
-      configurable: true,
-      writable: true,
-      value: value
-    });
-  } else {
-    target[prop] = value;
-  }
-}
-/**
- * Utilities for patching componentWillUnmount, to make sure @disposeOnUnmount works correctly icm with user defined hooks
- * and the handler provided by mobx-react
- */
-
-
-var mobxMixins = /*#__PURE__*/newSymbol("patchMixins");
-var mobxPatchedDefinition = /*#__PURE__*/newSymbol("patchedDefinition");
-
-function getMixins(target, methodName) {
-  var mixins = target[mobxMixins] = target[mobxMixins] || {};
-  var methodMixins = mixins[methodName] = mixins[methodName] || {};
-  methodMixins.locks = methodMixins.locks || 0;
-  methodMixins.methods = methodMixins.methods || [];
-  return methodMixins;
-}
-
-function wrapper(realMethod, mixins) {
-  var _this = this;
-
-  for (var _len = arguments.length, args = new Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
-    args[_key - 2] = arguments[_key];
-  } // locks are used to ensure that mixins are invoked only once per invocation, even on recursive calls
-
-
-  mixins.locks++;
-
-  try {
-    var retVal;
-
-    if (realMethod !== undefined && realMethod !== null) {
-      retVal = realMethod.apply(this, args);
-    }
-
-    return retVal;
-  } finally {
-    mixins.locks--;
-
-    if (mixins.locks === 0) {
-      mixins.methods.forEach(function (mx) {
-        mx.apply(_this, args);
-      });
-    }
-  }
-}
-
-function wrapFunction(realMethod, mixins) {
-  var fn = function fn() {
-    for (var _len2 = arguments.length, args = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
-      args[_key2] = arguments[_key2];
-    }
-
-    wrapper.call.apply(wrapper, [this, realMethod, mixins].concat(args));
-  };
-
-  return fn;
-}
-
-function patch(target, methodName, mixinMethod) {
-  var mixins = getMixins(target, methodName);
-
-  if (mixins.methods.indexOf(mixinMethod) < 0) {
-    mixins.methods.push(mixinMethod);
-  }
-
-  var oldDefinition = Object.getOwnPropertyDescriptor(target, methodName);
-
-  if (oldDefinition && oldDefinition[mobxPatchedDefinition]) {
-    // already patched definition, do not repatch
-    return;
-  }
-
-  var originalMethod = target[methodName];
-  var newDefinition = createDefinition(target, methodName, oldDefinition ? oldDefinition.enumerable : undefined, mixins, originalMethod);
-  Object.defineProperty(target, methodName, newDefinition);
-}
-
-function createDefinition(target, methodName, enumerable, mixins, originalMethod) {
-  var _ref;
-
-  var wrappedFunc = wrapFunction(originalMethod, mixins);
-  return _ref = {}, _ref[mobxPatchedDefinition] = true, _ref.get = function get() {
-    return wrappedFunc;
-  }, _ref.set = function set(value) {
-    if (this === target) {
-      wrappedFunc = wrapFunction(value, mixins);
-    } else {
-      // when it is an instance of the prototype/a child prototype patch that particular case again separately
-      // since we need to store separate values depending on wether it is the actual instance, the prototype, etc
-      // e.g. the method for super might not be the same as the method for the prototype which might be not the same
-      // as the method for the instance
-      var newDefinition = createDefinition(this, methodName, enumerable, mixins, value);
-      Object.defineProperty(this, methodName, newDefinition);
-    }
-  }, _ref.configurable = true, _ref.enumerable = enumerable, _ref;
-}
-
-var mobxAdminProperty = mobx__WEBPACK_IMPORTED_MODULE_0__["$mobx"] || "$mobx";
-var mobxIsUnmounted = /*#__PURE__*/newSymbol("isUnmounted");
-var skipRenderKey = /*#__PURE__*/newSymbol("skipRender");
-var isForcingUpdateKey = /*#__PURE__*/newSymbol("isForcingUpdate");
-
-function makeClassComponentObserver(componentClass) {
-  var target = componentClass.prototype;
-  if (target.componentWillReact) throw new Error("The componentWillReact life-cycle event is no longer supported");
-
-  if (componentClass["__proto__"] !== react__WEBPACK_IMPORTED_MODULE_1__["PureComponent"]) {
-    if (!target.shouldComponentUpdate) target.shouldComponentUpdate = observerSCU;else if (target.shouldComponentUpdate !== observerSCU) // n.b. unequal check, instead of existence check, as @observer might be on superclass as well
-      throw new Error("It is not allowed to use shouldComponentUpdate in observer based components.");
-  } // this.props and this.state are made observable, just to make sure @computed fields that
-  // are defined inside the component, and which rely on state or props, re-compute if state or props change
-  // (otherwise the computed wouldn't update and become stale on props change, since props are not observable)
-  // However, this solution is not without it's own problems: https://github.com/mobxjs/mobx-react/issues?utf8=%E2%9C%93&q=is%3Aissue+label%3Aobservable-props-or-not+
-
-
-  makeObservableProp(target, "props");
-  makeObservableProp(target, "state");
-  var baseRender = target.render;
-
-  target.render = function () {
-    return makeComponentReactive.call(this, baseRender);
-  };
-
-  patch(target, "componentWillUnmount", function () {
-    if (Object(mobx_react_lite__WEBPACK_IMPORTED_MODULE_2__["isUsingStaticRendering"])() === true) return;
-
-    if (this.render[mobxAdminProperty]) {
-      this.render[mobxAdminProperty].dispose();
-    } else if (false) { var displayName; }
-
-    this[mobxIsUnmounted] = true;
-  });
-  return componentClass;
-} // Generates a friendly name for debugging
-
-
-function getDisplayName(comp) {
-  return comp.displayName || comp.name || comp.constructor && (comp.constructor.displayName || comp.constructor.name) || "<component>";
-}
-
-function makeComponentReactive(render) {
-  var _this = this;
-
-  if (Object(mobx_react_lite__WEBPACK_IMPORTED_MODULE_2__["isUsingStaticRendering"])() === true) return render.call(this);
-  /**
-   * If props are shallowly modified, react will render anyway,
-   * so atom.reportChanged() should not result in yet another re-render
-   */
-
-  setHiddenProp(this, skipRenderKey, false);
-  /**
-   * forceUpdate will re-assign this.props. We don't want that to cause a loop,
-   * so detect these changes
-   */
-
-  setHiddenProp(this, isForcingUpdateKey, false);
-  var initialName = getDisplayName(this);
-  var baseRender = render.bind(this);
-  var isRenderingPending = false;
-  var reaction = new mobx__WEBPACK_IMPORTED_MODULE_0__["Reaction"](initialName + ".render()", function () {
-    if (!isRenderingPending) {
-      // N.B. Getting here *before mounting* means that a component constructor has side effects (see the relevant test in misc.js)
-      // This unidiomatic React usage but React will correctly warn about this so we continue as usual
-      // See #85 / Pull #44
-      isRenderingPending = true;
-
-      if (_this[mobxIsUnmounted] !== true) {
-        var hasError = true;
+    for (var i = 0; i < keys.length; ++i) {
+      var key = keys[i];
+
+      if (!REACT_STATICS[key] && !KNOWN_STATICS[key] && (!blacklist || !blacklist[key])) {
+        var descriptor = getOwnPropertyDescriptor(sourceComponent, key);
 
         try {
-          setHiddenProp(_this, isForcingUpdateKey, true);
-          if (!_this[skipRenderKey]) react__WEBPACK_IMPORTED_MODULE_1__["Component"].prototype.forceUpdate.call(_this);
-          hasError = false;
-        } finally {
-          setHiddenProp(_this, isForcingUpdateKey, false);
-          if (hasError) reaction.dispose();
+          // Avoid failures from read-only properties
+          defineProperty(targetComponent, key, descriptor);
+        } catch (e) {}
+      }
+    }
+
+    return targetComponent;
+  }
+
+  return targetComponent;
+}
+
+var hoistNonReactStatics_cjs = hoistNonReactStatics;
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
+  return typeof obj;
+} : function (obj) {
+  return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+};
+
+var asyncGenerator = function () {
+  function AwaitValue(value) {
+    this.value = value;
+  }
+
+  function AsyncGenerator(gen) {
+    var front, back;
+
+    function send(key, arg) {
+      return new Promise(function (resolve, reject) {
+        var request = {
+          key: key,
+          arg: arg,
+          resolve: resolve,
+          reject: reject,
+          next: null
+        };
+
+        if (back) {
+          back = back.next = request;
+        } else {
+          front = back = request;
+          resume(key, arg);
         }
-      }
-    }
-  });
-  reaction["reactComponent"] = this;
-  reactiveRender[mobxAdminProperty] = reaction;
-  this.render = reactiveRender;
-
-  function reactiveRender() {
-    isRenderingPending = false;
-    var exception = undefined;
-    var rendering = undefined;
-    reaction.track(function () {
-      try {
-        rendering = Object(mobx__WEBPACK_IMPORTED_MODULE_0__["_allowStateChanges"])(false, baseRender);
-      } catch (e) {
-        exception = e;
-      }
-    });
-
-    if (exception) {
-      throw exception;
-    }
-
-    return rendering;
-  }
-
-  return reactiveRender.call(this);
-}
-
-function observerSCU(nextProps, nextState) {
-  if (Object(mobx_react_lite__WEBPACK_IMPORTED_MODULE_2__["isUsingStaticRendering"])()) {
-    console.warn("[mobx-react] It seems that a re-rendering of a React component is triggered while in static (server-side) mode. Please make sure components are rendered only once server-side.");
-  } // update on any state changes (as is the default)
-
-
-  if (this.state !== nextState) {
-    return true;
-  } // update if props are shallowly not equal, inspired by PureRenderMixin
-  // we could return just 'false' here, and avoid the `skipRender` checks etc
-  // however, it is nicer if lifecycle events are triggered like usually,
-  // so we return true here if props are shallowly modified.
-
-
-  return !shallowEqual(this.props, nextProps);
-}
-
-function makeObservableProp(target, propName) {
-  var valueHolderKey = newSymbol("reactProp_" + propName + "_valueHolder");
-  var atomHolderKey = newSymbol("reactProp_" + propName + "_atomHolder");
-
-  function getAtom() {
-    if (!this[atomHolderKey]) {
-      setHiddenProp(this, atomHolderKey, Object(mobx__WEBPACK_IMPORTED_MODULE_0__["createAtom"])("reactive " + propName));
-    }
-
-    return this[atomHolderKey];
-  }
-
-  Object.defineProperty(target, propName, {
-    configurable: true,
-    enumerable: true,
-    get: function get() {
-      var prevReadState = false;
-
-      if (mobx__WEBPACK_IMPORTED_MODULE_0__["_allowStateReadsStart"] && mobx__WEBPACK_IMPORTED_MODULE_0__["_allowStateReadsEnd"]) {
-        prevReadState = Object(mobx__WEBPACK_IMPORTED_MODULE_0__["_allowStateReadsStart"])(true);
-      }
-
-      getAtom.call(this).reportObserved();
-
-      if (mobx__WEBPACK_IMPORTED_MODULE_0__["_allowStateReadsStart"] && mobx__WEBPACK_IMPORTED_MODULE_0__["_allowStateReadsEnd"]) {
-        Object(mobx__WEBPACK_IMPORTED_MODULE_0__["_allowStateReadsEnd"])(prevReadState);
-      }
-
-      return this[valueHolderKey];
-    },
-    set: function set(v) {
-      if (!this[isForcingUpdateKey] && !shallowEqual(this[valueHolderKey], v)) {
-        setHiddenProp(this, valueHolderKey, v);
-        setHiddenProp(this, skipRenderKey, true);
-        getAtom.call(this).reportChanged();
-        setHiddenProp(this, skipRenderKey, false);
-      } else {
-        setHiddenProp(this, valueHolderKey, v);
-      }
-    }
-  });
-}
-
-var hasSymbol = typeof Symbol === "function" && Symbol.for; // Using react-is had some issues (and operates on elements, not on types), see #608 / #609
-
-var ReactForwardRefSymbol = hasSymbol ? /*#__PURE__*/Symbol.for("react.forward_ref") : typeof react__WEBPACK_IMPORTED_MODULE_1__["forwardRef"] === "function" && /*#__PURE__*/Object(react__WEBPACK_IMPORTED_MODULE_1__["forwardRef"])(function (props) {
-  return null;
-})["$$typeof"];
-var ReactMemoSymbol = hasSymbol ? /*#__PURE__*/Symbol.for("react.memo") : typeof react__WEBPACK_IMPORTED_MODULE_1__["memo"] === "function" && /*#__PURE__*/Object(react__WEBPACK_IMPORTED_MODULE_1__["memo"])(function (props) {
-  return null;
-})["$$typeof"];
-/**
- * Observer function / decorator
- */
-
-function observer(component) {
-  if (component["isMobxInjector"] === true) {
-    console.warn("Mobx observer: You are trying to use 'observer' on a component that already has 'inject'. Please apply 'observer' before applying 'inject'");
-  }
-
-  if (ReactMemoSymbol && component["$$typeof"] === ReactMemoSymbol) {
-    throw new Error("Mobx observer: You are trying to use 'observer' on a function component wrapped in either another observer or 'React.memo'. The observer already applies 'React.memo' for you.");
-  } // Unwrap forward refs into `<Observer>` component
-  // we need to unwrap the render, because it is the inner render that needs to be tracked,
-  // not the ForwardRef HoC
-
-
-  if (ReactForwardRefSymbol && component["$$typeof"] === ReactForwardRefSymbol) {
-    var baseRender = component["render"];
-    if (typeof baseRender !== "function") throw new Error("render property of ForwardRef was not a function");
-    return Object(react__WEBPACK_IMPORTED_MODULE_1__["forwardRef"])(function ObserverForwardRef() {
-      var args = arguments;
-      return Object(react__WEBPACK_IMPORTED_MODULE_1__["createElement"])(mobx_react_lite__WEBPACK_IMPORTED_MODULE_2__["Observer"], null, function () {
-        return baseRender.apply(undefined, args);
       });
-    });
-  } // Function component
+    }
 
+    function resume(key, arg) {
+      try {
+        var result = gen[key](arg);
+        var value = result.value;
 
-  if (typeof component === "function" && (!component.prototype || !component.prototype.render) && !component["isReactClass"] && !Object.prototype.isPrototypeOf.call(react__WEBPACK_IMPORTED_MODULE_1__["Component"], component)) {
-    return Object(mobx_react_lite__WEBPACK_IMPORTED_MODULE_2__["observer"])(component);
-  }
-
-  return makeClassComponentObserver(component);
-}
-
-function _extends() {
-  _extends = Object.assign || function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
+        if (value instanceof AwaitValue) {
+          Promise.resolve(value.value).then(function (arg) {
+            resume("next", arg);
+          }, function (arg) {
+            resume("throw", arg);
+          });
+        } else {
+          settle(result.done ? "return" : "normal", result.value);
         }
+      } catch (err) {
+        settle("throw", err);
       }
     }
 
-    return target;
-  };
+    function settle(type, value) {
+      switch (type) {
+        case "return":
+          front.resolve({
+            value: value,
+            done: true
+          });
+          break;
 
-  return _extends.apply(this, arguments);
-}
+        case "throw":
+          front.reject(value);
+          break;
 
-function _objectWithoutPropertiesLoose(source, excluded) {
-  if (source == null) return {};
-  var target = {};
-  var sourceKeys = Object.keys(source);
-  var key, i;
+        default:
+          front.resolve({
+            value: value,
+            done: false
+          });
+          break;
+      }
 
-  for (i = 0; i < sourceKeys.length; i++) {
-    key = sourceKeys[i];
-    if (excluded.indexOf(key) >= 0) continue;
-    target[key] = source[key];
-  }
+      front = front.next;
 
-  return target;
-}
-
-var MobXProviderContext = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createContext({});
-
-function Provider(props) {
-  var children = props.children,
-      stores = _objectWithoutPropertiesLoose(props, ["children"]);
-
-  var parentValue = react__WEBPACK_IMPORTED_MODULE_1___default.a.useContext(MobXProviderContext);
-  var mutableProviderRef = react__WEBPACK_IMPORTED_MODULE_1___default.a.useRef(_extends({}, parentValue, {}, stores));
-  var value = mutableProviderRef.current;
-
-  if (false) { var newValue; }
-
-  return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(MobXProviderContext.Provider, {
-    value: value
-  }, children);
-}
-
-Provider.displayName = "MobXProvider";
-/**
- * Store Injection
- */
-
-function createStoreInjector(grabStoresFn, component, injectNames, makeReactive) {
-  // Support forward refs
-  var Injector = react__WEBPACK_IMPORTED_MODULE_1___default.a.forwardRef(function (props, ref) {
-    var newProps = _extends({}, props);
-
-    var context = react__WEBPACK_IMPORTED_MODULE_1___default.a.useContext(MobXProviderContext);
-    Object.assign(newProps, grabStoresFn(context || {}, newProps) || {});
-
-    if (ref) {
-      newProps.ref = ref;
+      if (front) {
+        resume(front.key, front.arg);
+      } else {
+        back = null;
+      }
     }
 
-    return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(component, newProps);
-  });
-  if (makeReactive) Injector = observer(Injector);
-  Injector["isMobxInjector"] = true; // assigned late to suppress observer warning
-  // Static fields from component should be visible on the generated Injector
+    this._invoke = send;
 
-  copyStaticProperties(component, Injector);
-  Injector["wrappedComponent"] = component;
-  Injector.displayName = getInjectName(component, injectNames);
-  return Injector;
-}
+    if (typeof gen.return !== "function") {
+      this.return = undefined;
+    }
+  }
 
-function getInjectName(component, injectNames) {
-  var displayName;
-  var componentName = component.displayName || component.name || component.constructor && component.constructor.name || "Component";
-  if (injectNames) displayName = "inject-with-" + injectNames + "(" + componentName + ")";else displayName = "inject(" + componentName + ")";
-  return displayName;
-}
+  if (typeof Symbol === "function" && Symbol.asyncIterator) {
+    AsyncGenerator.prototype[Symbol.asyncIterator] = function () {
+      return this;
+    };
+  }
 
-function grabStoresByName(storeNames) {
-  return function (baseStores, nextProps) {
-    storeNames.forEach(function (storeName) {
-      if (storeName in nextProps // prefer props over stores
-      ) return;
-      if (!(storeName in baseStores)) throw new Error("MobX injector: Store '" + storeName + "' is not available! Make sure it is provided by some Provider");
-      nextProps[storeName] = baseStores[storeName];
-    });
-    return nextProps;
+  AsyncGenerator.prototype.next = function (arg) {
+    return this._invoke("next", arg);
   };
-}
-/**
- * higher order component that injects stores to a child.
- * takes either a varargs list of strings, which are stores read from the context,
- * or a function that manually maps the available stores from the context to props:
- * storesToProps(mobxStores, props, context) => newProps
- */
 
+  AsyncGenerator.prototype.throw = function (arg) {
+    return this._invoke("throw", arg);
+  };
 
-function inject() {
-  for (var _len = arguments.length, storeNames = new Array(_len), _key = 0; _key < _len; _key++) {
-    storeNames[_key] = arguments[_key];
+  AsyncGenerator.prototype.return = function (arg) {
+    return this._invoke("return", arg);
+  };
+
+  return {
+    wrap: function (fn) {
+      return function () {
+        return new AsyncGenerator(fn.apply(this, arguments));
+      };
+    },
+    await: function (value) {
+      return new AwaitValue(value);
+    }
+  };
+}();
+
+var classCallCheck = function (instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+};
+
+var createClass = function () {
+  function defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];
+      descriptor.enumerable = descriptor.enumerable || false;
+      descriptor.configurable = true;
+      if ("value" in descriptor) descriptor.writable = true;
+      Object.defineProperty(target, descriptor.key, descriptor);
+    }
   }
 
-  if (typeof arguments[0] === "function") {
-    var grabStoresFn = arguments[0];
-    return function (componentClass) {
-      return createStoreInjector(grabStoresFn, componentClass, grabStoresFn.name, true);
-    };
-  } else {
-    return function (componentClass) {
-      return createStoreInjector(grabStoresByName(storeNames), componentClass, storeNames.join("-"), false);
-    };
+  return function (Constructor, protoProps, staticProps) {
+    if (protoProps) defineProperties(Constructor.prototype, protoProps);
+    if (staticProps) defineProperties(Constructor, staticProps);
+    return Constructor;
+  };
+}();
+
+var inherits = function (subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
   }
-}
 
-var protoStoreKey = /*#__PURE__*/newSymbol("disposeOnUnmountProto");
-var instStoreKey = /*#__PURE__*/newSymbol("disposeOnUnmountInst");
-
-function runDisposersOnWillUnmount() {
-  var _this = this;
-
-  [].concat(this[protoStoreKey] || [], this[instStoreKey] || []).forEach(function (propKeyOrFunction) {
-    var prop = typeof propKeyOrFunction === "string" ? _this[propKeyOrFunction] : propKeyOrFunction;
-
-    if (prop !== undefined && prop !== null) {
-      if (Array.isArray(prop)) prop.map(function (f) {
-        return f();
-      });else prop();
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      enumerable: false,
+      writable: true,
+      configurable: true
     }
   });
-}
+  if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+};
 
-function disposeOnUnmount(target, propertyKeyOrFunction) {
-  if (Array.isArray(propertyKeyOrFunction)) {
-    return propertyKeyOrFunction.map(function (fn) {
-      return disposeOnUnmount(target, fn);
-    });
+var possibleConstructorReturn = function (self, call) {
+  if (!self) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
   }
 
-  var c = Object.getPrototypeOf(target).constructor || Object.getPrototypeOf(target.constructor);
-  var c2 = Object.getPrototypeOf(target.constructor);
+  return call && (typeof call === "object" || typeof call === "function") ? call : self;
+};
 
-  if (!(c === react__WEBPACK_IMPORTED_MODULE_1___default.a.Component || c === react__WEBPACK_IMPORTED_MODULE_1___default.a.PureComponent || c2 === react__WEBPACK_IMPORTED_MODULE_1___default.a.Component || c2 === react__WEBPACK_IMPORTED_MODULE_1___default.a.PureComponent)) {
-    throw new Error("[mobx-react] disposeOnUnmount only supports direct subclasses of React.Component or React.PureComponent.");
+var EventEmitter = function () {
+  function EventEmitter() {
+    classCallCheck(this, EventEmitter);
+    this.listeners = [];
   }
 
-  if (typeof propertyKeyOrFunction !== "string" && typeof propertyKeyOrFunction !== "function" && !Array.isArray(propertyKeyOrFunction)) {
-    throw new Error("[mobx-react] disposeOnUnmount only works if the parameter is either a property key or a function.");
-  } // decorator's target is the prototype, so it doesn't have any instance properties like props
+  createClass(EventEmitter, [{
+    key: "on",
+    value: function on(cb) {
+      var _this = this;
+
+      this.listeners.push(cb);
+      return function () {
+        var index = _this.listeners.indexOf(cb);
+
+        if (index !== -1) _this.listeners.splice(index, 1);
+      };
+    }
+  }, {
+    key: "emit",
+    value: function emit(data) {
+      this.listeners.forEach(function (fn) {
+        return fn(data);
+      });
+    }
+  }]);
+  return EventEmitter;
+}(); // Copied from React.PropTypes
 
 
-  var isDecorator = typeof propertyKeyOrFunction === "string"; // add property key / function we want run (disposed) to the store
-
-  var componentWasAlreadyModified = !!target[protoStoreKey] || !!target[instStoreKey];
-  var store = isDecorator ? // decorators are added to the prototype store
-  target[protoStoreKey] || (target[protoStoreKey] = []) : // functions are added to the instance store
-  target[instStoreKey] || (target[instStoreKey] = []);
-  store.push(propertyKeyOrFunction); // tweak the component class componentWillUnmount if not done already
-
-  if (!componentWasAlreadyModified) {
-    patch(target, "componentWillUnmount", runDisposersOnWillUnmount);
-  } // return the disposer as is if invoked as a non decorator
-
-
-  if (typeof propertyKeyOrFunction !== "string") {
-    return propertyKeyOrFunction;
-  }
-}
-
-function createChainableTypeChecker(validator) {
+function createChainableTypeChecker(validate) {
   function checkType(isRequired, props, propName, componentName, location, propFullName) {
-    for (var _len = arguments.length, rest = new Array(_len > 6 ? _len - 6 : 0), _key = 6; _key < _len; _key++) {
+    for (var _len = arguments.length, rest = Array(_len > 6 ? _len - 6 : 0), _key = 6; _key < _len; _key++) {
       rest[_key - 6] = arguments[_key];
     }
 
@@ -11892,14 +10724,12 @@ function createChainableTypeChecker(validator) {
 
         return null;
       } else {
-        // @ts-ignore rest arg is necessary for some React internals - fails tests otherwise
-        return validator.apply(void 0, [props, propName, componentName, location, propFullName].concat(rest));
+        return validate.apply(undefined, [props, propName, componentName, location, propFullName].concat(rest));
       }
     });
   }
 
-  var chainedCheckType = checkType.bind(null, false); // Add isRequired to satisfy Requirable
-
+  var chainedCheckType = checkType.bind(null, false);
   chainedCheckType.isRequired = checkType.bind(null, true);
   return chainedCheckType;
 } // Copied from React.PropTypes
@@ -11926,7 +10756,7 @@ function isSymbol(propType, propValue) {
 
 
 function getPropType(propValue) {
-  var propType = typeof propValue;
+  var propType = typeof propValue === "undefined" ? "undefined" : _typeof(propValue);
 
   if (Array.isArray(propValue)) {
     return "array";
@@ -11969,7 +10799,7 @@ function createObservableTypeCheckerCreator(allowNativeType, mobxType) {
         if (getPropType(props[propName]) === mobxType.toLowerCase()) return null;
       }
 
-      var mobxChecker;
+      var mobxChecker = void 0;
 
       switch (mobxType) {
         case "Array":
@@ -12003,37 +10833,37 @@ function createObservableTypeCheckerCreator(allowNativeType, mobxType) {
 
 function createObservableArrayOfTypeChecker(allowNativeType, typeChecker) {
   return createChainableTypeChecker(function (props, propName, componentName, location, propFullName) {
-    for (var _len2 = arguments.length, rest = new Array(_len2 > 5 ? _len2 - 5 : 0), _key2 = 5; _key2 < _len2; _key2++) {
+    for (var _len2 = arguments.length, rest = Array(_len2 > 5 ? _len2 - 5 : 0), _key2 = 5; _key2 < _len2; _key2++) {
       rest[_key2 - 5] = arguments[_key2];
     }
 
     return Object(mobx__WEBPACK_IMPORTED_MODULE_0__["untracked"])(function () {
       if (typeof typeChecker !== "function") {
         return new Error("Property `" + propFullName + "` of component `" + componentName + "` has " + "invalid PropType notation.");
-      } else {
-        var error = createObservableTypeCheckerCreator(allowNativeType, "Array")(props, propName, componentName, location, propFullName);
-        if (error instanceof Error) return error;
-        var propValue = props[propName];
-
-        for (var i = 0; i < propValue.length; i++) {
-          error = typeChecker.apply(void 0, [propValue, i, componentName, location, propFullName + "[" + i + "]"].concat(rest));
-          if (error instanceof Error) return error;
-        }
-
-        return null;
       }
+
+      var error = createObservableTypeCheckerCreator(allowNativeType, "Array")(props, propName, componentName);
+      if (error instanceof Error) return error;
+      var propValue = props[propName];
+
+      for (var i = 0; i < propValue.length; i++) {
+        error = typeChecker.apply(undefined, [propValue, i, componentName, location, propFullName + "[" + i + "]"].concat(rest));
+        if (error instanceof Error) return error;
+      }
+
+      return null;
     });
   });
 }
 
-var observableArray = /*#__PURE__*/createObservableTypeCheckerCreator(false, "Array");
-var observableArrayOf = /*#__PURE__*/createObservableArrayOfTypeChecker.bind(null, false);
-var observableMap = /*#__PURE__*/createObservableTypeCheckerCreator(false, "Map");
-var observableObject = /*#__PURE__*/createObservableTypeCheckerCreator(false, "Object");
-var arrayOrObservableArray = /*#__PURE__*/createObservableTypeCheckerCreator(true, "Array");
-var arrayOrObservableArrayOf = /*#__PURE__*/createObservableArrayOfTypeChecker.bind(null, true);
-var objectOrObservableObject = /*#__PURE__*/createObservableTypeCheckerCreator(true, "Object");
-var PropTypes = {
+var observableArray = createObservableTypeCheckerCreator(false, "Array");
+var observableArrayOf = createObservableArrayOfTypeChecker.bind(null, false);
+var observableMap = createObservableTypeCheckerCreator(false, "Map");
+var observableObject = createObservableTypeCheckerCreator(false, "Object");
+var arrayOrObservableArray = createObservableTypeCheckerCreator(true, "Array");
+var arrayOrObservableArrayOf = createObservableArrayOfTypeChecker.bind(null, true);
+var objectOrObservableObject = createObservableTypeCheckerCreator(true, "Object");
+var propTypes = Object.freeze({
   observableArray: observableArray,
   observableArrayOf: observableArrayOf,
   observableMap: observableMap,
@@ -12041,9 +10871,828 @@ var PropTypes = {
   arrayOrObservableArray: arrayOrObservableArray,
   arrayOrObservableArrayOf: arrayOrObservableArrayOf,
   objectOrObservableObject: objectOrObservableObject
+});
+
+function isStateless(component) {
+  // `function() {}` has prototype, but `() => {}` doesn't
+  // `() => {}` via Babel has prototype too.
+  return !(component.prototype && component.prototype.render);
+}
+
+var injectorContextTypes = {
+  mobxStores: objectOrObservableObject
 };
+Object.seal(injectorContextTypes);
+var proxiedInjectorProps = {
+  contextTypes: {
+    get: function get$$1() {
+      return injectorContextTypes;
+    },
+    set: function set$$1(_) {
+      console.warn("Mobx Injector: you are trying to attach `contextTypes` on an component decorated with `inject` (or `observer`) HOC. Please specify the contextTypes on the wrapped component instead. It is accessible through the `wrappedComponent`");
+    },
+    configurable: true,
+    enumerable: false
+  },
+  isMobxInjector: {
+    value: true,
+    writable: true,
+    configurable: true,
+    enumerable: true
+  }
+  /**
+   * Store Injection
+   */
+
+};
+
+function createStoreInjector(grabStoresFn, component, injectNames) {
+  var _class, _temp2;
+
+  var displayName = "inject-" + (component.displayName || component.name || component.constructor && component.constructor.name || "Unknown");
+  if (injectNames) displayName += "-with-" + injectNames;
+  var Injector = (_temp2 = _class = function (_Component) {
+    inherits(Injector, _Component);
+
+    function Injector() {
+      var _ref;
+
+      var _temp, _this, _ret;
+
+      classCallCheck(this, Injector);
+
+      for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+        args[_key] = arguments[_key];
+      }
+
+      return _ret = (_temp = (_this = possibleConstructorReturn(this, (_ref = Injector.__proto__ || Object.getPrototypeOf(Injector)).call.apply(_ref, [this].concat(args))), _this), _this.storeRef = function (instance) {
+        _this.wrappedInstance = instance;
+      }, _temp), possibleConstructorReturn(_this, _ret);
+    }
+
+    createClass(Injector, [{
+      key: "render",
+      value: function render() {
+        // Optimization: it might be more efficient to apply the mapper function *outside* the render method
+        // (if the mapper is a function), that could avoid expensive(?) re-rendering of the injector component
+        // See this test: 'using a custom injector is not too reactive' in inject.js
+        var newProps = {};
+
+        for (var key in this.props) {
+          if (this.props.hasOwnProperty(key)) {
+            newProps[key] = this.props[key];
+          }
+        }
+
+        var additionalProps = grabStoresFn(this.context.mobxStores || {}, newProps, this.context) || {};
+
+        for (var _key2 in additionalProps) {
+          newProps[_key2] = additionalProps[_key2];
+        }
+
+        if (!isStateless(component)) {
+          newProps.ref = this.storeRef;
+        }
+
+        return Object(react__WEBPACK_IMPORTED_MODULE_1__["createElement"])(component, newProps);
+      }
+    }]);
+    return Injector;
+  }(react__WEBPACK_IMPORTED_MODULE_1__["Component"]), _class.displayName = displayName, _temp2); // Static fields from component should be visible on the generated Injector
+
+  hoistNonReactStatics_cjs(Injector, component);
+  Injector.wrappedComponent = component;
+  Object.defineProperties(Injector, proxiedInjectorProps);
+  return Injector;
+}
+
+function grabStoresByName(storeNames) {
+  return function (baseStores, nextProps) {
+    storeNames.forEach(function (storeName) {
+      if (storeName in nextProps // prefer props over stores
+      ) return;
+      if (!(storeName in baseStores)) throw new Error("MobX injector: Store '" + storeName + "' is not available! Make sure it is provided by some Provider");
+      nextProps[storeName] = baseStores[storeName];
+    });
+    return nextProps;
+  };
+}
+/**
+ * higher order component that injects stores to a child.
+ * takes either a varargs list of strings, which are stores read from the context,
+ * or a function that manually maps the available stores from the context to props:
+ * storesToProps(mobxStores, props, context) => newProps
+ */
+
+
+function inject()
+/* fn(stores, nextProps) or ...storeNames */
+{
+  var grabStoresFn = void 0;
+
+  if (typeof arguments[0] === "function") {
+    grabStoresFn = arguments[0];
+    return function (componentClass) {
+      var injected = createStoreInjector(grabStoresFn, componentClass);
+      injected.isMobxInjector = false; // supress warning
+      // mark the Injector as observer, to make it react to expressions in `grabStoresFn`,
+      // see #111
+
+      injected = observer(injected);
+      injected.isMobxInjector = true; // restore warning
+
+      return injected;
+    };
+  } else {
+    var storeNames = [];
+
+    for (var i = 0; i < arguments.length; i++) {
+      storeNames[i] = arguments[i];
+    }
+
+    grabStoresFn = grabStoresByName(storeNames);
+    return function (componentClass) {
+      return createStoreInjector(grabStoresFn, componentClass, storeNames.join("-"));
+    };
+  }
+}
+
+var mobxAdminProperty = mobx__WEBPACK_IMPORTED_MODULE_0__["$mobx"] || "$mobx";
+/**
+ * dev tool support
+ */
+
+var isDevtoolsEnabled = false;
+var isUsingStaticRendering = false;
+var warnedAboutObserverInjectDeprecation = false; // WeakMap<Node, Object>;
+
+var componentByNodeRegistry = typeof WeakMap !== "undefined" ? new WeakMap() : undefined;
+var renderReporter = new EventEmitter();
+var createdSymbols = {};
+
+function createRealSymbol(name) {
+  if (typeof Symbol === "function") {
+    return Symbol(name);
+  }
+
+  return "$mobxReactProp$" + name + Math.random();
+}
+
+function createSymbol(name) {
+  if (!createdSymbols[name]) {
+    createdSymbols[name] = createRealSymbol(name);
+  }
+
+  return createdSymbols[name];
+}
+
+var skipRenderKey = createSymbol("skipRender");
+var isForcingUpdateKey = createSymbol("isForcingUpdate");
+/**
+ * Helper to set `prop` to `this` as non-enumerable (hidden prop)
+ * @param target
+ * @param prop
+ * @param value
+ */
+
+function setHiddenProp(target, prop, value) {
+  if (!Object.hasOwnProperty.call(target, prop)) {
+    Object.defineProperty(target, prop, {
+      enumerable: false,
+      configurable: true,
+      writable: true,
+      value: value
+    });
+  } else {
+    target[prop] = value;
+  }
+}
+
+function findDOMNode$2(component) {
+  if (react_dom__WEBPACK_IMPORTED_MODULE_2__["findDOMNode"]) {
+    try {
+      return Object(react_dom__WEBPACK_IMPORTED_MODULE_2__["findDOMNode"])(component);
+    } catch (e) {
+      // findDOMNode will throw in react-test-renderer, see:
+      // See https://github.com/mobxjs/mobx-react/issues/216
+      // Is there a better heuristic?
+      return null;
+    }
+  }
+
+  return null;
+}
+
+function reportRendering(component) {
+  var node = findDOMNode$2(component);
+  if (node && componentByNodeRegistry) componentByNodeRegistry.set(node, component);
+  renderReporter.emit({
+    event: "render",
+    renderTime: component.__$mobRenderEnd - component.__$mobRenderStart,
+    totalTime: Date.now() - component.__$mobRenderStart,
+    component: component,
+    node: node
+  });
+}
+
+function trackComponents() {
+  if (typeof WeakMap === "undefined") throw new Error("[mobx-react] tracking components is not supported in this browser.");
+  if (!isDevtoolsEnabled) isDevtoolsEnabled = true;
+}
+
+function useStaticRendering(useStaticRendering) {
+  isUsingStaticRendering = useStaticRendering;
+}
+/**
+ * Errors reporter
+ */
+
+
+var errorsReporter = new EventEmitter();
+/**
+ * Utilities
+ */
+
+function patch(target, funcName) {
+  var runMixinFirst = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+  var base = target[funcName];
+  var mixinFunc = reactiveMixin[funcName];
+  var f = !base ? mixinFunc : runMixinFirst === true ? function () {
+    mixinFunc.apply(this, arguments);
+    base.apply(this, arguments);
+  } : function () {
+    base.apply(this, arguments);
+    mixinFunc.apply(this, arguments);
+  }; // MWE: ideally we freeze here to protect against accidental overwrites in component instances, see #195
+  // ...but that breaks react-hot-loader, see #231...
+
+  target[funcName] = f;
+}
+
+function shallowEqual(objA, objB) {
+  //From: https://github.com/facebook/fbjs/blob/c69904a511b900266935168223063dd8772dfc40/packages/fbjs/src/core/shallowEqual.js
+  if (is(objA, objB)) return true;
+
+  if ((typeof objA === "undefined" ? "undefined" : _typeof(objA)) !== "object" || objA === null || (typeof objB === "undefined" ? "undefined" : _typeof(objB)) !== "object" || objB === null) {
+    return false;
+  }
+
+  var keysA = Object.keys(objA);
+  var keysB = Object.keys(objB);
+  if (keysA.length !== keysB.length) return false;
+
+  for (var i = 0; i < keysA.length; i++) {
+    if (!hasOwnProperty.call(objB, keysA[i]) || !is(objA[keysA[i]], objB[keysA[i]])) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+function is(x, y) {
+  // From: https://github.com/facebook/fbjs/blob/c69904a511b900266935168223063dd8772dfc40/packages/fbjs/src/core/shallowEqual.js
+  if (x === y) {
+    return x !== 0 || 1 / x === 1 / y;
+  } else {
+    return x !== x && y !== y;
+  }
+}
+
+function makeComponentReactive(render) {
+  var _this2 = this;
+
+  if (isUsingStaticRendering === true) return render.call(this);
+
+  function reactiveRender() {
+    var _this = this;
+
+    isRenderingPending = false;
+    var exception = undefined;
+    var rendering = undefined;
+    reaction.track(function () {
+      if (isDevtoolsEnabled) {
+        _this.__$mobRenderStart = Date.now();
+      }
+
+      try {
+        rendering = Object(mobx__WEBPACK_IMPORTED_MODULE_0__["_allowStateChanges"])(false, baseRender);
+      } catch (e) {
+        exception = e;
+      }
+
+      if (isDevtoolsEnabled) {
+        _this.__$mobRenderEnd = Date.now();
+      }
+    });
+
+    if (exception) {
+      errorsReporter.emit(exception);
+      throw exception;
+    }
+
+    return rendering;
+  } // Generate friendly name for debugging
+
+
+  var initialName = this.displayName || this.name || this.constructor && (this.constructor.displayName || this.constructor.name) || "<component>";
+  var rootNodeID = this._reactInternalInstance && this._reactInternalInstance._rootNodeID || this._reactInternalInstance && this._reactInternalInstance._debugID || this._reactInternalFiber && this._reactInternalFiber._debugID;
+  /**
+   * If props are shallowly modified, react will render anyway,
+   * so atom.reportChanged() should not result in yet another re-render
+   */
+
+  setHiddenProp(this, skipRenderKey, false);
+  /**
+   * forceUpdate will re-assign this.props. We don't want that to cause a loop,
+   * so detect these changes
+   */
+
+  setHiddenProp(this, isForcingUpdateKey, false); // wire up reactive render
+
+  var baseRender = render.bind(this);
+  var isRenderingPending = false;
+  var reaction = new mobx__WEBPACK_IMPORTED_MODULE_0__["Reaction"](initialName + "#" + rootNodeID + ".render()", function () {
+    if (!isRenderingPending) {
+      // N.B. Getting here *before mounting* means that a component constructor has side effects (see the relevant test in misc.js)
+      // This unidiomatic React usage but React will correctly warn about this so we continue as usual
+      // See #85 / Pull #44
+      isRenderingPending = true;
+      if (typeof _this2.componentWillReact === "function") _this2.componentWillReact(); // TODO: wrap in action?
+
+      if (_this2.__$mobxIsUnmounted !== true) {
+        // If we are unmounted at this point, componentWillReact() had a side effect causing the component to unmounted
+        // TODO: remove this check? Then react will properly warn about the fact that this should not happen? See #73
+        // However, people also claim this migth happen during unit tests..
+        var hasError = true;
+
+        try {
+          setHiddenProp(_this2, isForcingUpdateKey, true);
+          if (!_this2[skipRenderKey]) react__WEBPACK_IMPORTED_MODULE_1__["Component"].prototype.forceUpdate.call(_this2);
+          hasError = false;
+        } finally {
+          setHiddenProp(_this2, isForcingUpdateKey, false);
+          if (hasError) reaction.dispose();
+        }
+      }
+    }
+  });
+  reaction.reactComponent = this;
+  reactiveRender[mobxAdminProperty] = reaction;
+  this.render = reactiveRender;
+  return reactiveRender.call(this);
+}
+/**
+ * ReactiveMixin
+ */
+
+
+var reactiveMixin = {
+  componentWillUnmount: function componentWillUnmount() {
+    if (isUsingStaticRendering === true) return;
+    this.render[mobxAdminProperty] && this.render[mobxAdminProperty].dispose();
+    this.__$mobxIsUnmounted = true;
+
+    if (isDevtoolsEnabled) {
+      var node = findDOMNode$2(this);
+
+      if (node && componentByNodeRegistry) {
+        componentByNodeRegistry.delete(node);
+      }
+
+      renderReporter.emit({
+        event: "destroy",
+        component: this,
+        node: node
+      });
+    }
+  },
+  componentDidMount: function componentDidMount() {
+    if (isDevtoolsEnabled) {
+      reportRendering(this);
+    }
+  },
+  componentDidUpdate: function componentDidUpdate() {
+    if (isDevtoolsEnabled) {
+      reportRendering(this);
+    }
+  },
+  shouldComponentUpdate: function shouldComponentUpdate(nextProps, nextState) {
+    if (isUsingStaticRendering) {
+      console.warn("[mobx-react] It seems that a re-rendering of a React component is triggered while in static (server-side) mode. Please make sure components are rendered only once server-side.");
+    } // update on any state changes (as is the default)
+
+
+    if (this.state !== nextState) {
+      return true;
+    } // update if props are shallowly not equal, inspired by PureRenderMixin
+    // we could return just 'false' here, and avoid the `skipRender` checks etc
+    // however, it is nicer if lifecycle events are triggered like usually,
+    // so we return true here if props are shallowly modified.
+
+
+    return !shallowEqual(this.props, nextProps);
+  }
+};
+
+function makeObservableProp(target, propName) {
+  var valueHolderKey = createSymbol(propName + " value holder");
+  var atomHolderKey = createSymbol(propName + " atom holder");
+
+  function getAtom() {
+    if (!this[atomHolderKey]) {
+      setHiddenProp(this, atomHolderKey, Object(mobx__WEBPACK_IMPORTED_MODULE_0__["createAtom"])("reactive " + propName));
+    }
+
+    return this[atomHolderKey];
+  }
+
+  Object.defineProperty(target, propName, {
+    configurable: true,
+    enumerable: true,
+    get: function get$$1() {
+      getAtom.call(this).reportObserved();
+      return this[valueHolderKey];
+    },
+    set: function set$$1(v) {
+      if (!this[isForcingUpdateKey] && !shallowEqual(this[valueHolderKey], v)) {
+        setHiddenProp(this, valueHolderKey, v);
+        setHiddenProp(this, skipRenderKey, true);
+        getAtom.call(this).reportChanged();
+        setHiddenProp(this, skipRenderKey, false);
+      } else {
+        setHiddenProp(this, valueHolderKey, v);
+      }
+    }
+  });
+}
+/**
+ * Observer function / decorator
+ */
+
+
+function observer(arg1, arg2) {
+  if (typeof arg1 === "string") {
+    throw new Error("Store names should be provided as array");
+  }
+
+  if (Array.isArray(arg1)) {
+    // TODO: remove in next major
+    // component needs stores
+    if (!warnedAboutObserverInjectDeprecation) {
+      warnedAboutObserverInjectDeprecation = true;
+      console.warn('Mobx observer: Using observer to inject stores is deprecated since 4.0. Use `@inject("store1", "store2") @observer ComponentClass` or `inject("store1", "store2")(observer(componentClass))` instead of `@observer(["store1", "store2"]) ComponentClass`');
+    }
+
+    if (!arg2) {
+      // invoked as decorator
+      return function (componentClass) {
+        return observer(arg1, componentClass);
+      };
+    } else {
+      return inject.apply(null, arg1)(observer(arg2));
+    }
+  }
+
+  var componentClass = arg1;
+
+  if (componentClass.isMobxInjector === true) {
+    console.warn("Mobx observer: You are trying to use 'observer' on a component that already has 'inject'. Please apply 'observer' before applying 'inject'");
+  }
+
+  if (componentClass.__proto__ === react__WEBPACK_IMPORTED_MODULE_1__["PureComponent"]) {
+    console.warn("Mobx observer: You are using 'observer' on React.PureComponent. These two achieve two opposite goals and should not be used together");
+  } // Stateless function component:
+  // If it is function but doesn't seem to be a react class constructor,
+  // wrap it to a react class automatically
+
+
+  if (typeof componentClass === "function" && (!componentClass.prototype || !componentClass.prototype.render) && !componentClass.isReactClass && !react__WEBPACK_IMPORTED_MODULE_1__["Component"].isPrototypeOf(componentClass)) {
+    var _class, _temp;
+
+    var observerComponent = observer((_temp = _class = function (_Component) {
+      inherits(_class, _Component);
+
+      function _class() {
+        classCallCheck(this, _class);
+        return possibleConstructorReturn(this, (_class.__proto__ || Object.getPrototypeOf(_class)).apply(this, arguments));
+      }
+
+      createClass(_class, [{
+        key: "render",
+        value: function render() {
+          return componentClass.call(this, this.props, this.context);
+        }
+      }]);
+      return _class;
+    }(react__WEBPACK_IMPORTED_MODULE_1__["Component"]), _class.displayName = componentClass.displayName || componentClass.name, _class.contextTypes = componentClass.contextTypes, _class.propTypes = componentClass.propTypes, _class.defaultProps = componentClass.defaultProps, _temp));
+    hoistNonReactStatics_cjs(observerComponent, componentClass);
+    return observerComponent;
+  }
+
+  if (!componentClass) {
+    throw new Error("Please pass a valid component to 'observer'");
+  }
+
+  var target = componentClass.prototype || componentClass;
+  mixinLifecycleEvents(target);
+  componentClass.isMobXReactObserver = true;
+  makeObservableProp(target, "props");
+  makeObservableProp(target, "state");
+  var baseRender = target.render;
+
+  target.render = function () {
+    return makeComponentReactive.call(this, baseRender);
+  };
+
+  return componentClass;
+}
+
+function mixinLifecycleEvents(target) {
+  ["componentDidMount", "componentWillUnmount", "componentDidUpdate"].forEach(function (funcName) {
+    patch(target, funcName);
+  });
+
+  if (!target.shouldComponentUpdate) {
+    target.shouldComponentUpdate = reactiveMixin.shouldComponentUpdate;
+  } else {
+    if (target.shouldComponentUpdate !== reactiveMixin.shouldComponentUpdate) {
+      // TODO: make throw in next major
+      console.warn("Use `shouldComponentUpdate` in an `observer` based component breaks the behavior of `observer` and might lead to unexpected results. Manually implementing `sCU` should not be needed when using mobx-react.");
+    }
+  }
+}
+
+var Observer = observer(function (_ref) {
+  var children = _ref.children,
+      observerInject = _ref.inject,
+      render = _ref.render;
+  var component = children || render;
+
+  if (typeof component === "undefined") {
+    return null;
+  }
+
+  if (!observerInject) {
+    return component();
+  } // TODO: remove in next major
+
+
+  console.warn("<Observer inject=.../> is no longer supported. Please use inject on the enclosing component instead");
+  var InjectComponent = inject(observerInject)(component);
+  return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(InjectComponent, null);
+});
+Observer.displayName = "Observer";
+
+var ObserverPropsCheck = function ObserverPropsCheck(props, key, componentName, location, propFullName) {
+  var extraKey = key === "children" ? "render" : "children";
+
+  if (typeof props[key] === "function" && typeof props[extraKey] === "function") {
+    return new Error("Invalid prop,do not use children and render in the same time in`" + componentName);
+  }
+
+  if (typeof props[key] === "function" || typeof props[extraKey] === "function") {
+    return;
+  }
+
+  return new Error("Invalid prop `" + propFullName + "` of type `" + _typeof(props[key]) + "` supplied to" + " `" + componentName + "`, expected `function`.");
+};
+
+Observer.propTypes = {
+  render: ObserverPropsCheck,
+  children: ObserverPropsCheck
+};
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+function componentWillMount() {
+  // Call this.constructor.gDSFP to support sub-classes.
+  var state = this.constructor.getDerivedStateFromProps(this.props, this.state);
+
+  if (state !== null && state !== undefined) {
+    this.setState(state);
+  }
+}
+
+function componentWillReceiveProps(nextProps) {
+  // Call this.constructor.gDSFP to support sub-classes.
+  // Use the setState() updater to ensure state isn't stale in certain edge cases.
+  function updater(prevState) {
+    var state = this.constructor.getDerivedStateFromProps(nextProps, prevState);
+    return state !== null && state !== undefined ? state : null;
+  } // Binding "this" is important for shallow renderer support.
+
+
+  this.setState(updater.bind(this));
+}
+
+function componentWillUpdate(nextProps, nextState) {
+  try {
+    var prevProps = this.props;
+    var prevState = this.state;
+    this.props = nextProps;
+    this.state = nextState;
+    this.__reactInternalSnapshotFlag = true;
+    this.__reactInternalSnapshot = this.getSnapshotBeforeUpdate(prevProps, prevState);
+  } finally {
+    this.props = prevProps;
+    this.state = prevState;
+  }
+} // React may warn about cWM/cWRP/cWU methods being deprecated.
+// Add a flag to suppress these warnings for this special case.
+
+
+componentWillMount.__suppressDeprecationWarning = true;
+componentWillReceiveProps.__suppressDeprecationWarning = true;
+componentWillUpdate.__suppressDeprecationWarning = true;
+
+function polyfill(Component$$1) {
+  var prototype = Component$$1.prototype;
+
+  if (!prototype || !prototype.isReactComponent) {
+    throw new Error('Can only polyfill class components');
+  }
+
+  if (typeof Component$$1.getDerivedStateFromProps !== 'function' && typeof prototype.getSnapshotBeforeUpdate !== 'function') {
+    return Component$$1;
+  } // If new component APIs are defined, "unsafe" lifecycles won't be called.
+  // Error if any of these lifecycles are present,
+  // Because they would work differently between older and newer (16.3+) versions of React.
+
+
+  var foundWillMountName = null;
+  var foundWillReceivePropsName = null;
+  var foundWillUpdateName = null;
+
+  if (typeof prototype.componentWillMount === 'function') {
+    foundWillMountName = 'componentWillMount';
+  } else if (typeof prototype.UNSAFE_componentWillMount === 'function') {
+    foundWillMountName = 'UNSAFE_componentWillMount';
+  }
+
+  if (typeof prototype.componentWillReceiveProps === 'function') {
+    foundWillReceivePropsName = 'componentWillReceiveProps';
+  } else if (typeof prototype.UNSAFE_componentWillReceiveProps === 'function') {
+    foundWillReceivePropsName = 'UNSAFE_componentWillReceiveProps';
+  }
+
+  if (typeof prototype.componentWillUpdate === 'function') {
+    foundWillUpdateName = 'componentWillUpdate';
+  } else if (typeof prototype.UNSAFE_componentWillUpdate === 'function') {
+    foundWillUpdateName = 'UNSAFE_componentWillUpdate';
+  }
+
+  if (foundWillMountName !== null || foundWillReceivePropsName !== null || foundWillUpdateName !== null) {
+    var componentName = Component$$1.displayName || Component$$1.name;
+    var newApiName = typeof Component$$1.getDerivedStateFromProps === 'function' ? 'getDerivedStateFromProps()' : 'getSnapshotBeforeUpdate()';
+    throw Error('Unsafe legacy lifecycles will not be called for components using new component APIs.\n\n' + componentName + ' uses ' + newApiName + ' but also contains the following legacy lifecycles:' + (foundWillMountName !== null ? '\n  ' + foundWillMountName : '') + (foundWillReceivePropsName !== null ? '\n  ' + foundWillReceivePropsName : '') + (foundWillUpdateName !== null ? '\n  ' + foundWillUpdateName : '') + '\n\nThe above lifecycles should be removed. Learn more about this warning here:\n' + 'https://fb.me/react-async-component-lifecycle-hooks');
+  } // React <= 16.2 does not support static getDerivedStateFromProps.
+  // As a workaround, use cWM and cWRP to invoke the new static lifecycle.
+  // Newer versions of React will ignore these lifecycles if gDSFP exists.
+
+
+  if (typeof Component$$1.getDerivedStateFromProps === 'function') {
+    prototype.componentWillMount = componentWillMount;
+    prototype.componentWillReceiveProps = componentWillReceiveProps;
+  } // React <= 16.2 does not support getSnapshotBeforeUpdate.
+  // As a workaround, use cWU to invoke the new lifecycle.
+  // Newer versions of React will ignore that lifecycle if gSBU exists.
+
+
+  if (typeof prototype.getSnapshotBeforeUpdate === 'function') {
+    if (typeof prototype.componentDidUpdate !== 'function') {
+      throw new Error('Cannot polyfill getSnapshotBeforeUpdate() for components that do not define componentDidUpdate() on the prototype');
+    }
+
+    prototype.componentWillUpdate = componentWillUpdate;
+    var componentDidUpdate = prototype.componentDidUpdate;
+
+    prototype.componentDidUpdate = function componentDidUpdatePolyfill(prevProps, prevState, maybeSnapshot) {
+      // 16.3+ will not execute our will-update method;
+      // It will pass a snapshot value to did-update though.
+      // Older versions will require our polyfilled will-update value.
+      // We need to handle both cases, but can't just check for the presence of "maybeSnapshot",
+      // Because for <= 15.x versions this might be a "prevContext" object.
+      // We also can't just check "__reactInternalSnapshot",
+      // Because get-snapshot might return a falsy value.
+      // So check for the explicit __reactInternalSnapshotFlag flag to determine behavior.
+      var snapshot = this.__reactInternalSnapshotFlag ? this.__reactInternalSnapshot : maybeSnapshot;
+      componentDidUpdate.call(this, prevProps, prevState, snapshot);
+    };
+  }
+
+  return Component$$1;
+}
+
+var _class;
+
+var _temp;
+
+var specialReactKeys = {
+  children: true,
+  key: true,
+  ref: true
+};
+var Provider = (_temp = _class = function (_Component) {
+  inherits(Provider, _Component);
+
+  function Provider(props, context) {
+    classCallCheck(this, Provider);
+
+    var _this = possibleConstructorReturn(this, (Provider.__proto__ || Object.getPrototypeOf(Provider)).call(this, props, context));
+
+    _this.state = {};
+    copyStores(props, _this.state);
+    return _this;
+  }
+
+  createClass(Provider, [{
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_1__["Children"].only(this.props.children);
+    }
+  }, {
+    key: "getChildContext",
+    value: function getChildContext() {
+      var stores = {}; // inherit stores
+
+      copyStores(this.context.mobxStores, stores); // add own stores
+
+      copyStores(this.props, stores);
+      return {
+        mobxStores: stores
+      };
+    }
+  }], [{
+    key: "getDerivedStateFromProps",
+    value: function getDerivedStateFromProps(nextProps, prevState) {
+      if (!nextProps) return null;
+      if (!prevState) return nextProps; // Maybe this warning is too aggressive?
+
+      if (Object.keys(nextProps).filter(validStoreName).length !== Object.keys(prevState).filter(validStoreName).length) console.warn("MobX Provider: The set of provided stores has changed. Please avoid changing stores as the change might not propagate to all children");
+      if (!nextProps.suppressChangedStoreWarning) for (var key in nextProps) {
+        if (validStoreName(key) && prevState[key] !== nextProps[key]) console.warn("MobX Provider: Provided store '" + key + "' has changed. Please avoid replacing stores as the change might not propagate to all children");
+      }
+      return nextProps;
+    }
+  }]);
+  return Provider;
+}(react__WEBPACK_IMPORTED_MODULE_1__["Component"]), _class.contextTypes = {
+  mobxStores: objectOrObservableObject
+}, _class.childContextTypes = {
+  mobxStores: objectOrObservableObject.isRequired
+}, _temp);
+
+function copyStores(from, to) {
+  if (!from) return;
+
+  for (var key in from) {
+    if (validStoreName(key)) to[key] = from[key];
+  }
+}
+
+function validStoreName(key) {
+  return !specialReactKeys[key] && key !== "suppressChangedStoreWarning";
+} // TODO: kill in next major
+
+
+polyfill(Provider);
 if (!react__WEBPACK_IMPORTED_MODULE_1__["Component"]) throw new Error("mobx-react requires React to be available");
-if (!mobx__WEBPACK_IMPORTED_MODULE_0__["observable"]) throw new Error("mobx-react requires mobx to be available");
+if (!mobx__WEBPACK_IMPORTED_MODULE_0__["spy"]) throw new Error("mobx-react requires mobx to be available");
+if (typeof react_dom__WEBPACK_IMPORTED_MODULE_2__["unstable_batchedUpdates"] === "function") Object(mobx__WEBPACK_IMPORTED_MODULE_0__["configure"])({
+  reactionScheduler: react_dom__WEBPACK_IMPORTED_MODULE_2__["unstable_batchedUpdates"]
+});else if (typeof unstable_batchedUpdates$1 === "function") Object(mobx__WEBPACK_IMPORTED_MODULE_0__["configure"])({
+  reactionScheduler: unstable_batchedUpdates$1
+});
+
+var onError = function onError(fn) {
+  return errorsReporter.on(fn);
+};
+/* DevTool support */
+// See: https://github.com/andykog/mobx-devtools/blob/d8976c24b8cb727ed59f9a0bc905a009df79e221/src/backend/installGlobalHook.js
+
+
+if ((typeof __MOBX_DEVTOOLS_GLOBAL_HOOK__ === "undefined" ? "undefined" : _typeof(__MOBX_DEVTOOLS_GLOBAL_HOOK__)) === "object") {
+  var mobx$1 = {
+    spy: mobx__WEBPACK_IMPORTED_MODULE_0__["spy"],
+    extras: {
+      getDebugName: mobx__WEBPACK_IMPORTED_MODULE_0__["getDebugName"]
+    }
+  };
+  var mobxReact = {
+    renderReporter: renderReporter,
+    componentByNodeRegistry: componentByNodeRegistry,
+    componentByNodeRegistery: componentByNodeRegistry,
+    trackComponents: trackComponents
+  };
+
+  __MOBX_DEVTOOLS_GLOBAL_HOOK__.injectMobxReact(mobxReact, mobx$1);
+}
+
 
 
 /***/ }),
@@ -18885,7 +18534,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#fff","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
+module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#85acb0","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
     if(false) { var cssReload; }
   
 
@@ -18927,7 +18576,7 @@ module.exports = g;
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#fff","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
+module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#85acb0","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
     if(false) { var cssReload; }
   
 
@@ -18941,7 +18590,7 @@ module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text"
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#fff","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
+module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#85acb0","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
     if(false) { var cssReload; }
   
 
@@ -18955,7 +18604,7 @@ module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text"
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#fff","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
+module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#85acb0","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
     if(false) { var cssReload; }
   
 
@@ -18969,7 +18618,7 @@ module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text"
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#fff","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
+module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#85acb0","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
     if(false) { var cssReload; }
   
 
@@ -18983,7 +18632,7 @@ module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text"
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#fff","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
+module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#85acb0","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
     if(false) { var cssReload; }
   
 
@@ -18997,7 +18646,7 @@ module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text"
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#fff","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
+module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#85acb0","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
     if(false) { var cssReload; }
   
 
@@ -19011,7 +18660,7 @@ module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text"
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#fff","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
+module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#85acb0","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
     if(false) { var cssReload; }
   
 
@@ -19025,7 +18674,7 @@ module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text"
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#fff","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
+module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#85acb0","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
     if(false) { var cssReload; }
   
 
@@ -19039,7 +18688,7 @@ module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text"
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#fff","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
+module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#85acb0","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
     if(false) { var cssReload; }
   
 
@@ -19053,7 +18702,7 @@ module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text"
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#fff","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
+module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#85acb0","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
     if(false) { var cssReload; }
   
 
@@ -19067,7 +18716,7 @@ module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text"
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#fff","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
+module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#85acb0","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
     if(false) { var cssReload; }
   
 
@@ -19081,7 +18730,7 @@ module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text"
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#fff","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
+module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#85acb0","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
     if(false) { var cssReload; }
   
 
@@ -19095,7 +18744,7 @@ module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text"
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#fff","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
+module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#85acb0","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
     if(false) { var cssReload; }
   
 
@@ -19109,7 +18758,7 @@ module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text"
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#fff","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
+module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#85acb0","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
     if(false) { var cssReload; }
   
 
@@ -19123,7 +18772,7 @@ module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text"
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#fff","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
+module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#85acb0","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
     if(false) { var cssReload; }
   
 
@@ -19137,7 +18786,7 @@ module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text"
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#fff","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
+module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#85acb0","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
     if(false) { var cssReload; }
   
 
@@ -19151,7 +18800,7 @@ module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text"
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#fff","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
+module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#85acb0","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
     if(false) { var cssReload; }
   
 
@@ -19165,7 +18814,7 @@ module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text"
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#fff","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
+module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#85acb0","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
     if(false) { var cssReload; }
   
 
@@ -19179,7 +18828,7 @@ module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text"
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#fff","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
+module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#85acb0","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
     if(false) { var cssReload; }
   
 
@@ -19193,7 +18842,7 @@ module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text"
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#fff","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
+module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#85acb0","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
     if(false) { var cssReload; }
   
 
@@ -19207,7 +18856,7 @@ module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text"
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#fff","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
+module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#85acb0","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
     if(false) { var cssReload; }
   
 
@@ -19221,7 +18870,7 @@ module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text"
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#fff","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
+module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#85acb0","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
     if(false) { var cssReload; }
   
 
@@ -19235,7 +18884,7 @@ module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text"
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#fff","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
+module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#85acb0","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
     if(false) { var cssReload; }
   
 
@@ -19249,7 +18898,7 @@ module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text"
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#fff","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
+module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#85acb0","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
     if(false) { var cssReload; }
   
 
@@ -19263,7 +18912,7 @@ module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text"
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#fff","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
+module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#85acb0","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
     if(false) { var cssReload; }
   
 
@@ -19277,7 +18926,7 @@ module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text"
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#fff","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
+module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#85acb0","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
     if(false) { var cssReload; }
   
 
@@ -19291,7 +18940,7 @@ module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text"
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#fff","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
+module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#85acb0","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
     if(false) { var cssReload; }
   
 
@@ -19305,7 +18954,7 @@ module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text"
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#fff","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
+module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#85acb0","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
     if(false) { var cssReload; }
   
 
@@ -19319,7 +18968,7 @@ module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text"
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#fff","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
+module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#85acb0","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
     if(false) { var cssReload; }
   
 
@@ -19333,7 +18982,7 @@ module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text"
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#fff","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
+module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#85acb0","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
     if(false) { var cssReload; }
   
 
@@ -23217,7 +22866,7 @@ module.exports = {
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#fff","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
+module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text":"#999","light_chart_grid":"#f2f3f4","dark_chart_grid":"#1d1f20","light_chart_mountain_border":"#85acb0","light_chart_mountain_bg":"rgba(133,172,176,0.16)","light_chart_mountain_bg_shade":"rgba(255,255,255,0)","light_chart_closed_mountain_border":"rgba(133,172,176,0.32)","dark_chart_mountain_border":"#85acb0","dark_chart_mountain_bg":"rgba(255,255,255,0.36)","dark_chart_mountain_bg_shade":"rgba(16,19,32,0)","dark_chart_closed_mountain_border":"rgba(255,255,255,0.32)","chart_closed_candle_up":"rgba(133,172,176,0.32)","chart_closed_candle_down":"rgba(255,68,79,0.32)","chart_closed_candle_border":"rgba(51,51,51,0.32)","chart_current_hr":"#ff444f","chart_closed_current_hr":"rgba(255,68,79,0.32)","light_chart_bg":"#fff","dark_chart_bg":"#0e0e0e","light_float_labels_bg":"#d6dadb","dark_float_labels_bg":"#323738","light_float_labels_text":"#333","dark_float_labels_text":"#fff"};
     if(false) { var cssReload; }
   
 
@@ -24754,10 +24403,11 @@ var TradingTimes = /*#__PURE__*/function () {
                 var _loop = function _loop() {
                   var symbolObj = _step3.value;
                   var events = symbolObj.events,
-                      times = symbolObj.times,
-                      symbol = symbolObj.symbol,
                       feed_license = symbolObj.feed_license,
-                      delay_amount = symbolObj.delay_amount;
+                      delay_amount = symbolObj.delay_amount,
+                      times = symbolObj.times,
+                      trading_days = symbolObj.trading_days,
+                      symbol = symbolObj.symbol;
                   var open = times.open,
                       close = times.close;
                   var isClosedToday = false;
@@ -24799,7 +24449,11 @@ var TradingTimes = /*#__PURE__*/function () {
                       }); // Special date
                     } else if (/^\d{4}-\d{2}-\d{2}$/.test(event.date)) {
                       holidays.push(event.date);
-                    } else if (event.date === 'today') {
+                    }
+
+                    if (trading_days.every(function (day) {
+                      return day !== DaysOfWeek[now.getDay()].slice(0, 3);
+                    })) {
                       isClosedToday = true;
                     }
                   });
@@ -25326,7 +24980,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _renderPitchfork__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./renderPitchfork */ "./src/chartiq_injections/renderPitchfork.js");
 /* harmony import */ var _renderRectangle__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./renderRectangle */ "./src/chartiq_injections/renderRectangle.js");
 /* harmony import */ var _renderSegment__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./renderSegment */ "./src/chartiq_injections/renderSegment.js");
-/* harmony import */ var _backingStore__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./backingStore */ "./src/chartiq_injections/backingStore.js");
+/* harmony import */ var _resizeObserver__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./resizeObserver */ "./src/chartiq_injections/resizeObserver.js");
+/* harmony import */ var _backingStore__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./backingStore */ "./src/chartiq_injections/backingStore.js");
+
 
 
 
@@ -25354,7 +25010,8 @@ var inject = function inject(option) {
   Object(_renderPitchfork__WEBPACK_IMPORTED_MODULE_9__["overrideRenderPitchfork"])();
   Object(_renderRectangle__WEBPACK_IMPORTED_MODULE_10__["overrideRenderRectangle"])();
   Object(_renderSegment__WEBPACK_IMPORTED_MODULE_11__["overrideRenderSegment"])();
-  Object(_backingStore__WEBPACK_IMPORTED_MODULE_12__["BackingStore"])();
+  Object(_resizeObserver__WEBPACK_IMPORTED_MODULE_12__["overrideResizeObserver"])();
+  Object(_backingStore__WEBPACK_IMPORTED_MODULE_13__["BackingStore"])();
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (inject);
@@ -25857,6 +25514,46 @@ var overrideRenderSegment = function overrideRenderSegment() {
       this.littleCircle(context, x0, y0, p0Fill);
       this.littleCircle(context, x1, y1, p1Fill);
     }
+  };
+};
+
+/***/ }),
+
+/***/ "./src/chartiq_injections/resizeObserver.js":
+/*!**************************************************!*\
+  !*** ./src/chartiq_injections/resizeObserver.js ***!
+  \**************************************************/
+/*! exports provided: overrideResizeObserver */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "overrideResizeObserver", function() { return overrideResizeObserver; });
+var overrideResizeObserver = function overrideResizeObserver() {
+  CIQ.resizeObserver = function (element, listener, resizeHandle, timeout) {
+    if (timeout) {
+      if (typeof ResizeObserver !== 'undefined') {
+        if (!resizeHandle) {
+          resizeHandle = new ResizeObserver(listener);
+          resizeHandle.observe(element);
+        }
+      } else {
+        if (resizeHandle) clearInterval(resizeHandle);
+        resizeHandle = setInterval(listener, timeout);
+      }
+    } else {
+      if (resizeHandle) {
+        if (typeof ResizeObserver !== 'undefined' && typeof resizeHandle.disconnect === 'function') {
+          resizeHandle.disconnect();
+        } else {
+          clearInterval(resizeHandle);
+        }
+      }
+
+      resizeHandle = null;
+    }
+
+    return resizeHandle;
   };
 };
 
@@ -30193,9 +29890,12 @@ var NavigationWidget = function NavigationWidget(_ref) {
       onMouseEnter = _ref.onMouseEnter,
       onMouseLeave = _ref.onMouseLeave,
       isScaledOneOne = _ref.isScaledOneOne,
-      onCrosshairChange = _ref.onCrosshairChange;
+      onCrosshairChange = _ref.onCrosshairChange,
+      historical = _ref.historical;
   return context ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "sc-navigation-widget",
+    className: classnames__WEBPACK_IMPORTED_MODULE_1___default()('sc-navigation-widget', {
+      'sc-navigation-widget__item--indent': historical
+    }),
     onMouseEnter: onMouseEnter,
     onMouseLeave: onMouseLeave
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -30218,7 +29918,8 @@ var NavigationWidget = function NavigationWidget(_ref) {
 /* harmony default export */ __webpack_exports__["default"] = (Object(_store_Connect__WEBPACK_IMPORTED_MODULE_2__["connect"])(function (_ref2) {
   var chart = _ref2.chart,
       chartSize = _ref2.chartSize,
-      navigationWidget = _ref2.navigationWidget;
+      navigationWidget = _ref2.navigationWidget,
+      s = _ref2.chartSetting;
   return {
     context: chart.context,
     isScaledOneOne: chart.isScaledOneOne,
@@ -30227,7 +29928,8 @@ var NavigationWidget = function NavigationWidget(_ref) {
     onScale: navigationWidget.onScale,
     enableScale: navigationWidget.enableScale,
     onMouseEnter: navigationWidget.onMouseEnter,
-    onMouseLeave: navigationWidget.onMouseLeave
+    onMouseLeave: navigationWidget.onMouseLeave,
+    historical: s.historical
   };
 })(NavigationWidget));
 
@@ -30502,7 +30204,6 @@ var RawMarker = function RawMarker(props) {
   var stx_ref = react__WEBPACK_IMPORTED_MODULE_0___default.a.useRef(null);
   var injection_id_ref = react__WEBPACK_IMPORTED_MODULE_0___default.a.useRef(null);
   var has_unmounted_before_injection_ref = react__WEBPACK_IMPORTED_MODULE_0___default.a.useRef(false);
-  var canvas_height_ref = react__WEBPACK_IMPORTED_MODULE_0___default.a.useRef(0);
   var last_epoch_array_ref = react__WEBPACK_IMPORTED_MODULE_0___default.a.useRef();
   var date_array_ref = react__WEBPACK_IMPORTED_MODULE_0___default.a.useRef();
   var props_ref = react__WEBPACK_IMPORTED_MODULE_0___default.a.useRef();
@@ -30628,14 +30329,9 @@ var RawMarker = function RawMarker(props) {
         return stx.pixelFromPrice(price * 1, chart.panel);
       });
       var canvas = stx.chart.context.canvas;
-
-      if (canvas.style.height.indexOf(canvas.height) < 0) {
-        canvas_height_ref.current = canvas.height;
-      }
-
       draw_callback({
         ctx: stx.chart.context,
-        canvas_height: canvas_height_ref.current,
+        canvas_height: canvas.height,
         points: points,
         prices: prices
       });
@@ -31245,7 +30941,7 @@ var Share = function Share(_ref) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var mobx_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! mobx-react */ "./node_modules/mobx-react/dist/mobxreact.esm.js");
+/* harmony import */ var mobx_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! mobx-react */ "./node_modules/mobx-react/index.module.js");
 /* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../store */ "./src/store/index.js");
 /* harmony import */ var _Chart_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Chart.jsx */ "./src/components/Chart.jsx");
 function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
@@ -34234,7 +33930,8 @@ var Feed = /*#__PURE__*/function () {
       var _fetchInitialData = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(symbol, suggestedStartDate, suggestedEndDate, params, callback) {
         var _this2 = this;
 
-        var period, interval, symbolObject, granularity, key, localDate, isComparisonChart, start, end, comparisonChartSymbol, symbolName, dataCallback, tickHistoryRequest, getHistoryOnly, quotes, subscription, delay, text, response;
+        var period, interval, symbolObject, granularity, key, localDate, isComparisonChart, start, end, comparisonChartSymbol, symbolName, dataCallback, tickHistoryRequest, getHistoryOnly, quotes, subscription, delay, _yield$subscription$i, new_quotes, response, text, _response;
+
         return regeneratorRuntime.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -34309,12 +34006,12 @@ var Feed = /*#__PURE__*/function () {
                 // When there is end; no streaming required
                 tickHistoryRequest.end = end;
                 getHistoryOnly = true;
-                _context.next = 56;
+                _context.next = 60;
                 break;
 
               case 29:
                 if (!this._tradingTimes.isMarketOpened(symbol)) {
-                  _context.next = 54;
+                  _context.next = 58;
                   break;
                 }
 
@@ -34339,12 +34036,18 @@ var Feed = /*#__PURE__*/function () {
                 return subscription.initialFetch();
 
               case 36:
-                quotes = _context.sent;
-                _context.next = 46;
+                _yield$subscription$i = _context.sent;
+                new_quotes = _yield$subscription$i.quotes;
+                response = _yield$subscription$i.response;
+                quotes = new_quotes;
+
+                this._mainStore.lastDigitStats.updateLastDigitStats(response);
+
+                _context.next = 50;
                 break;
 
-              case 39:
-                _context.prev = 39;
+              case 43:
+                _context.prev = 43;
                 _context.t0 = _context["catch"](32);
                 text = _context.t0.message;
 
@@ -34360,7 +34063,7 @@ var Feed = /*#__PURE__*/function () {
                 this.paginationLoader.updateOnPagination(false);
                 return _context.abrupt("return");
 
-              case 46:
+              case 50:
                 subscription.onChartData(function (tickResponse) {
                   // Append comming ticks to chart only if it belongs to selected symbol after symbol changes
                   if (isComparisonChart || symbol === _this2._stx.chart.symbol) {
@@ -34371,7 +34074,7 @@ var Feed = /*#__PURE__*/function () {
                 }); // if symbol is changed before request is completed, past request needs to be forgotten:
 
                 if (!(!isComparisonChart && this._stx.chart.symbol !== symbol)) {
-                  _context.next = 51;
+                  _context.next = 55;
                   break;
                 }
 
@@ -34381,33 +34084,33 @@ var Feed = /*#__PURE__*/function () {
                 subscription.forget();
                 return _context.abrupt("return");
 
-              case 51:
+              case 55:
                 this._activeStreams[key] = subscription;
-                _context.next = 56;
+                _context.next = 60;
                 break;
 
-              case 54:
+              case 58:
                 this._mainStore.notifier.notifyMarketClose(symbolName); // Although market is closed, we display the past tick history data
 
 
                 getHistoryOnly = true;
 
-              case 56:
+              case 60:
                 if (!getHistoryOnly) {
-                  _context.next = 61;
+                  _context.next = 65;
                   break;
                 }
 
-                _context.next = 59;
+                _context.next = 63;
                 return this._binaryApi.getTickHistory(tickHistoryRequest);
 
-              case 59:
-                response = _context.sent;
-                quotes = _TickHistoryFormatter__WEBPACK_IMPORTED_MODULE_2__["TickHistoryFormatter"].formatHistory(response);
+              case 63:
+                _response = _context.sent;
+                quotes = _TickHistoryFormatter__WEBPACK_IMPORTED_MODULE_2__["TickHistoryFormatter"].formatHistory(_response);
 
-              case 61:
+              case 65:
                 if (quotes) {
-                  _context.next = 65;
+                  _context.next = 69;
                   break;
                 }
 
@@ -34417,7 +34120,7 @@ var Feed = /*#__PURE__*/function () {
                 });
                 return _context.abrupt("return");
 
-              case 65:
+              case 69:
                 quotes = this._trimQuotes(quotes);
                 callback({
                   quotes: quotes
@@ -34433,12 +34136,12 @@ var Feed = /*#__PURE__*/function () {
 
                 this.paginationLoader.updateOnPagination(false);
 
-              case 72:
+              case 76:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, this, [[32, 39]]);
+        }, _callee, this, [[32, 43]]);
       }));
 
       function fetchInitialData(_x, _x2, _x3, _x4, _x5) {
@@ -34868,7 +34571,8 @@ var Feed = /*#__PURE__*/function () {
 
       var comparisonChartSymbol = this._stx.chart.symbol !== symbol ? symbol : undefined;
 
-      this._activeStreams[key].resume().then(function (quotes) {
+      this._activeStreams[key].resume().then(function (_ref2) {
+        var quotes = _ref2.quotes;
         if (_this3._stx.isDestroyed) return;
 
         _this3._appendChartData(quotes, key, comparisonChartSymbol);
@@ -34876,9 +34580,9 @@ var Feed = /*#__PURE__*/function () {
     }
   }, {
     key: "_getKey",
-    value: function _getKey(_ref2) {
-      var symbol = _ref2.symbol,
-          granularity = _ref2.granularity;
+    value: function _getKey(_ref3) {
+      var symbol = _ref3.symbol,
+          granularity = _ref3.granularity;
       return "".concat(symbol, "-").concat(granularity);
     }
   }, {
@@ -34930,9 +34634,9 @@ var Feed = /*#__PURE__*/function () {
     }
   }], [{
     key: "getFirstEpoch",
-    value: function getFirstEpoch(_ref3) {
-      var candles = _ref3.candles,
-          history = _ref3.history;
+    value: function getFirstEpoch(_ref4) {
+      var candles = _ref4.candles,
+          history = _ref4.history;
 
       if (candles && candles.length > 0) {
         return candles[0].epoch;
@@ -35192,7 +34896,10 @@ var DelayedSubscription = /*#__PURE__*/function (_Subscription) {
 
                 this._startTimer();
 
-                return _context2.abrupt("return", quotes);
+                return _context2.abrupt("return", {
+                  quotes: quotes,
+                  response: response
+                });
 
               case 6:
               case "end":
@@ -35375,7 +35082,10 @@ var RealtimeSubscription = /*#__PURE__*/function (_Subscription) {
                 response = _context2.sent;
                 quotes = this._processHistoryResponse(response);
                 this._tickCallback = processTickHistory;
-                return _context2.abrupt("return", quotes);
+                return _context2.abrupt("return", {
+                  quotes: quotes,
+                  response: response
+                });
 
               case 8:
               case "end":
@@ -35512,7 +35222,7 @@ var Subscription = /*#__PURE__*/function () {
     key: "initialFetch",
     value: function () {
       var _initialFetch = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-        var quotes;
+        var quotes_and_response;
         return regeneratorRuntime.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -35521,8 +35231,8 @@ var Subscription = /*#__PURE__*/function () {
                 return this._startSubscribe(this._request);
 
               case 2:
-                quotes = _context.sent;
-                return _context.abrupt("return", quotes);
+                quotes_and_response = _context.sent;
+                return _context.abrupt("return", quotes_and_response);
 
               case 4:
               case "end":
@@ -35545,7 +35255,7 @@ var Subscription = /*#__PURE__*/function () {
     key: "resume",
     value: function () {
       var _resume = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
-        var tickHistoryRequest, quotes;
+        var tickHistoryRequest, quotes_and_response;
         return regeneratorRuntime.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
@@ -35562,8 +35272,8 @@ var Subscription = /*#__PURE__*/function () {
                 return this._startSubscribe(tickHistoryRequest);
 
               case 4:
-                quotes = _context2.sent;
-                return _context2.abrupt("return", quotes);
+                quotes_and_response = _context2.sent;
+                return _context2.abrupt("return", quotes_and_response);
 
               case 6:
               case "end":
@@ -41070,7 +40780,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "connect", function() { return connect; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var mobx_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! mobx-react */ "./node_modules/mobx-react/dist/mobxreact.esm.js");
+/* harmony import */ var mobx_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! mobx-react */ "./node_modules/mobx-react/index.module.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -42883,10 +42593,7 @@ var LastDigitStatsStore = (_dec = mobx__WEBPACK_IMPORTED_MODULE_0__["action"].bo
     Object(mobx__WEBPACK_IMPORTED_MODULE_0__["when"])(function () {
       return _this.context;
     }, function () {
-      _this.lastSymbol = _this.marketDisplayName;
-
-      _this.updateLastDigitStats(); // TODO: call onMasterDataUpdate on symobl change.
-
+      _this.lastSymbol = _this.marketDisplayName; // TODO: call onMasterDataUpdate on symobl change.
 
       _this.mainStore.chart.feed.onMasterDataUpdate(_this.onMasterDataUpdate);
 
@@ -42906,19 +42613,24 @@ var LastDigitStatsStore = (_dec = mobx__WEBPACK_IMPORTED_MODULE_0__["action"].bo
       var _updateLastDigitStats = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
         var _this2 = this;
 
-        var i, tickHistory;
+        var response,
+            i,
+            tickHistory,
+            _args = arguments;
         return regeneratorRuntime.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
+                response = _args.length > 0 && _args[0] !== undefined ? _args[0] : {};
+
                 if (!(!this.context || !this.mainStore.chart.currentActiveSymbol)) {
-                  _context.next = 2;
+                  _context.next = 3;
                   break;
                 }
 
                 return _context.abrupt("return");
 
-              case 2:
+              case 3:
                 this.digits = [];
                 this.bars = [];
                 this.latestData = [];
@@ -42932,43 +42644,53 @@ var LastDigitStatsStore = (_dec = mobx__WEBPACK_IMPORTED_MODULE_0__["action"].bo
                 }
 
                 if (!(this.stx.masterData && this.stx.masterData.length >= this.count)) {
-                  _context.next = 10;
+                  _context.next = 11;
                   break;
                 }
 
                 this.latestData = this.stx.masterData.slice(-this.count).map(function (x) {
                   return x.Close.toFixed(_this2.decimalPlaces);
                 });
-                _context.next = 14;
+                _context.next = 18;
                 break;
 
-              case 10:
-                _context.next = 12;
+              case 11:
+                _context.t0 = response;
+
+                if (_context.t0) {
+                  _context.next = 16;
+                  break;
+                }
+
+                _context.next = 15;
                 return this.api.getTickHistory({
                   symbol: this.mainStore.chart.currentActiveSymbol.symbol,
                   count: this.count
                 });
 
-              case 12:
-                tickHistory = _context.sent;
+              case 15:
+                _context.t0 = _context.sent;
+
+              case 16:
+                tickHistory = _context.t0;
                 this.latestData = tickHistory && tickHistory.history ? tickHistory.history.prices : [];
 
-              case 14:
+              case 18:
                 if (!(!this.context || !this.mainStore.chart.currentActiveSymbol)) {
-                  _context.next = 16;
+                  _context.next = 20;
                   break;
                 }
 
                 return _context.abrupt("return");
 
-              case 16:
+              case 20:
                 this.latestData.forEach(function (price) {
                   var lastDigit = (+price).toFixed(_this2.decimalPlaces).slice(-1);
                   _this2.digits[lastDigit]++;
                 });
                 this.updateBars();
 
-              case 18:
+              case 22:
               case "end":
                 return _context.stop();
             }
