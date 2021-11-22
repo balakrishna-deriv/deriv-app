@@ -13,75 +13,61 @@
 
 // If the loader is already loaded, just stop.
 if (!self.define) {
-  const singleRequire = name => {
-    if (name !== 'require') {
-      name = name + '.js';
-    }
-    let promise = Promise.resolve();
-    if (!registry[name]) {
+  let registry = {};
+
+  // Used for `eval` and `importScripts` where we can't get script URL by other means.
+  // In both cases, it's safe to use a global var because those functions are synchronous.
+  let nextDefineUri;
+
+  const singleRequire = (uri, parentUri) => {
+    uri = new URL(uri + ".js", parentUri).href;
+    return registry[uri] || (
       
-        promise = new Promise(async resolve => {
+        new Promise(resolve => {
           if ("document" in self) {
             const script = document.createElement("script");
-            script.src = name;
-            document.head.appendChild(script);
+            script.src = uri;
             script.onload = resolve;
+            document.head.appendChild(script);
           } else {
-            importScripts(name);
+            nextDefineUri = uri;
+            importScripts(uri);
             resolve();
           }
-        });
+        })
       
-    }
-    return promise.then(() => {
-      if (!registry[name]) {
-        throw new Error(`Module ${name} didn’t register its module`);
-      }
-      return registry[name];
-    });
+      .then(() => {
+        let promise = registry[uri];
+        if (!promise) {
+          throw new Error(`Module ${uri} didn’t register its module`);
+        }
+        return promise;
+      })
+    );
   };
 
-  const require = (names, resolve) => {
-    Promise.all(names.map(singleRequire))
-      .then(modules => resolve(modules.length === 1 ? modules[0] : modules));
-  };
-  
-  const registry = {
-    require: Promise.resolve(require)
-  };
-
-  self.define = (moduleName, depsNames, factory) => {
-    if (registry[moduleName]) {
+  self.define = (depsNames, factory) => {
+    const uri = nextDefineUri || ("document" in self ? document.currentScript.src : "") || location.href;
+    if (registry[uri]) {
       // Module is already loading or loaded.
       return;
     }
-    registry[moduleName] = Promise.resolve().then(() => {
-      let exports = {};
-      const module = {
-        uri: location.origin + moduleName.slice(1)
-      };
-      return Promise.all(
-        depsNames.map(depName => {
-          switch(depName) {
-            case "exports":
-              return exports;
-            case "module":
-              return module;
-            default:
-              return singleRequire(depName);
-          }
-        })
-      ).then(deps => {
-        const facValue = factory(...deps);
-        if(!exports.default) {
-          exports.default = facValue;
-        }
-        return exports;
-      });
+    let exports = {};
+    const require = depUri => singleRequire(depUri, uri);
+    const specialDeps = {
+      module: { uri },
+      exports,
+      require
+    };
+    registry[uri] = Promise.all(depsNames.map(
+      depName => specialDeps[depName] || require(depName)
+    )).then(deps => {
+      factory(...deps);
+      return exports;
     });
   };
 }
-define("./service-worker.js",['./workbox-9fa588b0'], (function (workbox) { 'use strict';
+define(['./workbox-75e2861a'], (function (workbox) { 'use strict';
 
   /**
   * Welcome to your Workbox-powered service worker!
@@ -116,7 +102,7 @@ define("./service-worker.js",['./workbox-9fa588b0'], (function (workbox) { 'use 
     "url": "/css/core.chunk.trader~account_dist_account_css_reset-trading-password-modal_css_cd20b9c8.15d2a40d139e511a9b36.css",
     "revision": null
   }, {
-    "url": "/css/core.main~A.2efcf39106a3a4346cc3.main.css",
+    "url": "/css/core.main~A.6cf44e0241fe256d342f.main.css",
     "revision": null
   }, {
     "url": "/css/core.main~c.309bcf57cd9452f54911.main.css",
@@ -128,13 +114,13 @@ define("./service-worker.js",['./workbox-9fa588b0'], (function (workbox) { 'use 
     "url": "/css/core.main~components_src_components_c.c0290feba952cbc60f33.main.css",
     "revision": null
   }, {
-    "url": "/css/core.main~components_src_components_l.d512533a113e35307fee.main.css",
+    "url": "/css/core.main~components_src_components_l.e50d52f35da4a19c251b.main.css",
     "revision": null
   }, {
-    "url": "/css/core.main~s.8cd23bcc4f74d61f993b.main.css",
+    "url": "/css/core.main~s.4ead8e2b3f537727e2b0.main.css",
     "revision": null
   }, {
-    "url": "/css/core.vendors-node_modules_deriv_deriv-api_dist_DerivAPIBasic_js-node_modules_deriv_deriv-onboardin-6d8864.ffe7403c9494df59b039.main.css",
+    "url": "/css/core.vendors-node_modules_deriv_deriv-api_dist_DerivAPIBasic_js-node_modules_deriv_deriv-onboardin-a0d54e.ffe7403c9494df59b039.main.css",
     "revision": null
   }, {
     "url": "/favicon.ico",
@@ -149,13 +135,13 @@ define("./service-worker.js",['./workbox-9fa588b0'], (function (workbox) { 'use 
     "url": "/js/core.account.6657d6b88085fec51a6e.js",
     "revision": null
   }, {
-    "url": "/js/core.bot.681fe640c21d9051415f.js",
+    "url": "/js/core.bot.c55fc5876ce68e2eea0d.js",
     "revision": null
   }, {
     "url": "/js/core.cashier.318afd8dd36bda76828b.js",
     "revision": null
   }, {
-    "url": "/js/core.close-mx-account-modal.b13689287d7fa35c6647.js",
+    "url": "/js/core.close-mx-mlt-account-modal.0cd318d88ca63b88f9b8.js",
     "revision": null
   }, {
     "url": "/js/core.complaints-policy.f8d60d14ccb2661c7478.js",
@@ -164,22 +150,25 @@ define("./service-worker.js",['./workbox-9fa588b0'], (function (workbox) { 'use 
     "url": "/js/core.dashboard~Modules_Dashboard_d.161a32cb8a2071684301.js",
     "revision": null
   }, {
-    "url": "/js/core.main~App_C.b515b301ef52a82bf4ad.js",
+    "url": "/js/core.main~App_C.8ee8fea65fd7ba1e47fc.js",
     "revision": null
   }, {
-    "url": "/js/core.main~App_Com.8d0330fbd9d66ef66ec7.js",
+    "url": "/js/core.main~App_Components_E.881ebf340f9eb06274e9.js",
+    "revision": null
+  }, {
+    "url": "/js/core.main~App_Cons.13a808d3c3b7caa1c8cc.js",
     "revision": null
   }, {
     "url": "/js/core.main~As.46d95bc6db18bfc88e6e.js",
     "revision": null
   }, {
-    "url": "/js/core.main~Se.fdd71bd7da5467290ca9.js",
+    "url": "/js/core.main~Se.636cf82d89e2f72bd8a2.js",
     "revision": null
   }, {
-    "url": "/js/core.main~Stores_b.1944ab01fc95063b8edb.js",
+    "url": "/js/core.main~Stores_b.3fbaea8c7d59ca1bfc95.js",
     "revision": null
   }, {
-    "url": "/js/core.main~Stores_m.d425d8aaa48ea52b8b7d.js",
+    "url": "/js/core.main~Stores_m.156ab3f723b964a9fa1c.js",
     "revision": null
   }, {
     "url": "/js/core.main~U.96e84d94a296843dc72b.js",
@@ -221,13 +210,13 @@ define("./service-worker.js",['./workbox-9fa588b0'], (function (workbox) { 'use 
     "url": "/js/core.main~components_src_components_a.671e708af814aa0ee4f8.js",
     "revision": null
   }, {
-    "url": "/js/core.main~components_src_components_c.a268c9566511942312ce.js",
+    "url": "/js/core.main~components_src_components_c.cf6e3edb030afe809ff4.js",
     "revision": null
   }, {
-    "url": "/js/core.main~components_src_components_l.fbb85e18cb8d20cffc54.js",
+    "url": "/js/core.main~components_src_components_l.2a6aa7d48fc67cf9ade5.js",
     "revision": null
   }, {
-    "url": "/js/core.main~s.e4d8458b29de3dc77a5c.js",
+    "url": "/js/core.main~s.161e815ddf8ec2fe7ba1.js",
     "revision": null
   }, {
     "url": "/js/core.reality-check-modal.8044bad13a05cbf9cb7e.js",
@@ -257,7 +246,7 @@ define("./service-worker.js",['./workbox-9fa588b0'], (function (workbox) { 'use 
     "url": "/js/core.trader~account_dist_account_js_reset-trading-password-modal_js_ff517517.6bdf0d2c235919fccf4d.js",
     "revision": null
   }, {
-    "url": "/js/core.trader~trader_dist_trader_js_trader_js_4e59f282.aaa860cafc7bc1e79ec1.js",
+    "url": "/js/core.trader~trader_dist_trader_js_trader_js_4e59f282.103567494f9d1f9f388c.js",
     "revision": null
   }, {
     "url": "/js/core.vendors-node_modules_babel_runtime_helpers_esm_classCallCheck_js-node_modules_babel_runtime_h-1aba2f.8c682a465719cc1d6c9e.js",
@@ -272,10 +261,13 @@ define("./service-worker.js",['./workbox-9fa588b0'], (function (workbox) { 'use 
     "url": "/js/core.vendors-node_modules_core-js_fn_regexp_escape_js-node_modules_core-js_shim_js-node_modules_cr-1e24ef.3b686c610fd60f309ecb.js",
     "revision": null
   }, {
-    "url": "/js/core.vendors-node_modules_deriv_deriv-api_dist_DerivAPIBasic_js-node_modules_deriv_deriv-onboardin-6d8864.1e9f3c5c5ca811fcca96.js",
+    "url": "/js/core.vendors-node_modules_deriv_deriv-api_dist_DerivAPIBasic_js-node_modules_deriv_deriv-onboardin-a0d54e.47f6a7ce8e72f084aa4d.js",
     "revision": null
   }, {
     "url": "/js/core.vendors-node_modules_deriv_web-push-notifications_lib_index_js.92fb9ed685b50f883fa9.js",
+    "revision": null
+  }, {
+    "url": "/js/core.vendors-node_modules_emotion_hash_dist_hash_esm_js-node_modules_emotion_is-prop-valid_dist_is-e15e80.7d06998544e51dcc483c.js",
     "revision": null
   }, {
     "url": "/js/core.vendors-node_modules_file-selector_dist_es5_index_js-node_modules_focus-lock_dist_es2015_inde-625d6f.feefdd81550a3c43b198.js",

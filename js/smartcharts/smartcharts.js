@@ -26872,11 +26872,13 @@ var Crosshair = function Crosshair() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* WEBPACK VAR INJECTION */(function(t) {/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _store_Connect__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../store/Connect */ "./src/store/Connect.js");
 /* harmony import */ var _Icons_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Icons.jsx */ "./src/components/Icons.jsx");
 /* harmony import */ var _Form_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Form.jsx */ "./src/components/Form.jsx");
+/* harmony import */ var _Tooltip_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Tooltip.jsx */ "./src/components/Tooltip.jsx");
+
 
 
 
@@ -26888,8 +26890,10 @@ var CrosshairToggle = function CrosshairToggle(_ref) {
       onChange = _ref.onChange,
       updateProps = _ref.updateProps,
       _ref$isVisible = _ref.isVisible,
-      isVisible = _ref$isVisible === void 0 ? true : _ref$isVisible;
+      isVisible = _ref$isVisible === void 0 ? true : _ref$isVisible,
+      isMobile = _ref.isMobile;
   var CrosshairIcon = [_Icons_jsx__WEBPACK_IMPORTED_MODULE_2__["CrosshairOffIcon"], _Icons_jsx__WEBPACK_IMPORTED_MODULE_2__["CrosshairOnIcon"], _Icons_jsx__WEBPACK_IMPORTED_MODULE_2__["CrosshairTooltipIcon"]][state];
+  var labels = [t.translate("Don't show price info on chart"), t.translate('Show price info on x & y axes'), t.translate('Show price info on chart')];
 
   var onCrosshairToggle = function onCrosshairToggle() {
     setCrosshairState((state + 1) % 3);
@@ -26897,20 +26901,27 @@ var CrosshairToggle = function CrosshairToggle(_ref) {
 
   updateProps(onChange);
   if (!isVisible) return null;
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Form_jsx__WEBPACK_IMPORTED_MODULE_3__["Toggle"], {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Tooltip_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    content: labels[state],
+    enabled: !isMobile,
+    position: "right"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Form_jsx__WEBPACK_IMPORTED_MODULE_3__["Toggle"], {
     active: state !== 0,
     onChange: onCrosshairToggle
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(CrosshairIcon, null));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(CrosshairIcon, null)));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(_store_Connect__WEBPACK_IMPORTED_MODULE_1__["connect"])(function (_ref2) {
-  var crosshair = _ref2.crosshair;
+  var chart = _ref2.chart,
+      crosshair = _ref2.crosshair;
   return {
     state: typeof crosshair.state !== 'number' ? 0 : crosshair.state,
     setCrosshairState: crosshair.setCrosshairState,
-    updateProps: crosshair.updateProps
+    updateProps: crosshair.updateProps,
+    isMobile: chart.isMobile
   };
 })(CrosshairToggle));
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./src/Translation.js */ "./src/Translation.js")["t"]))
 
 /***/ }),
 
