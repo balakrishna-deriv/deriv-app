@@ -120,7 +120,7 @@ define(['./workbox-75e2861a'], (function (workbox) { 'use strict';
     "url": "/css/core.main~s.4ead8e2b3f537727e2b0.main.css",
     "revision": null
   }, {
-    "url": "/css/core.vendors-node_modules_deriv_deriv-onboarding_dist_reactour_esm_js-node_modules_emotion_is-prop-88486a.ffe7403c9494df59b039.main.css",
+    "url": "/css/core.vendors-node_modules_deriv_deriv-api_dist_DerivAPIBasic_js-node_modules_deriv_deriv-onboardin-a0d54e.ffe7403c9494df59b039.main.css",
     "revision": null
   }, {
     "url": "/favicon.ico",
@@ -135,7 +135,7 @@ define(['./workbox-75e2861a'], (function (workbox) { 'use strict';
     "url": "/js/core.account.6657d6b88085fec51a6e.js",
     "revision": null
   }, {
-    "url": "/js/core.bot.7cbb8318aaf306a41f16.js",
+    "url": "/js/core.bot.a6cc1d7f673a730ca09d.js",
     "revision": null
   }, {
     "url": "/js/core.cashier.318afd8dd36bda76828b.js",
@@ -216,7 +216,7 @@ define(['./workbox-75e2861a'], (function (workbox) { 'use strict';
     "url": "/js/core.main~components_src_components_l.2a6aa7d48fc67cf9ade5.js",
     "revision": null
   }, {
-    "url": "/js/core.main~s.fea8d3037ed0bd4e557f.js",
+    "url": "/js/core.main~s.540aba34b62a19ce79fa.js",
     "revision": null
   }, {
     "url": "/js/core.reality-check-modal.8044bad13a05cbf9cb7e.js",
@@ -261,13 +261,13 @@ define(['./workbox-75e2861a'], (function (workbox) { 'use strict';
     "url": "/js/core.vendors-node_modules_core-js_fn_regexp_escape_js-node_modules_core-js_shim_js-node_modules_cr-1e24ef.3b686c610fd60f309ecb.js",
     "revision": null
   }, {
-    "url": "/js/core.vendors-node_modules_deriv_deriv-api_dist_DerivAPIBasic_js.3bc96706362ab1daa16d.js",
-    "revision": null
-  }, {
-    "url": "/js/core.vendors-node_modules_deriv_deriv-onboarding_dist_reactour_esm_js-node_modules_emotion_is-prop-88486a.c05b5bea67639ccd1ebe.js",
+    "url": "/js/core.vendors-node_modules_deriv_deriv-api_dist_DerivAPIBasic_js-node_modules_deriv_deriv-onboardin-a0d54e.ca2db2faaa338bc9e273.js",
     "revision": null
   }, {
     "url": "/js/core.vendors-node_modules_deriv_web-push-notifications_lib_index_js.92fb9ed685b50f883fa9.js",
+    "revision": null
+  }, {
+    "url": "/js/core.vendors-node_modules_emotion_hash_dist_hash_esm_js-node_modules_emotion_is-prop-valid_dist_is-e15e80.7d06998544e51dcc483c.js",
     "revision": null
   }, {
     "url": "/js/core.vendors-node_modules_file-selector_dist_es5_index_js-node_modules_focus-lock_dist_es2015_inde-625d6f.feefdd81550a3c43b198.js",
