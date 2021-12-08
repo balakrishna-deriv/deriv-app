@@ -67,7 +67,7 @@ if (!self.define) {
     });
   };
 }
-define(['./workbox-75e2861a'], (function (workbox) { 'use strict';
+define(['./workbox-6ad7267b'], (function (workbox) { 'use strict';
 
   /**
   * Welcome to your Workbox-powered service worker!
@@ -132,10 +132,10 @@ define(['./workbox-75e2861a'], (function (workbox) { 'use strict';
     "url": "/js/core.account-signup-modal.0bf20dd54373172ae1a1.js",
     "revision": null
   }, {
-    "url": "/js/core.account.5d7a93b2dbb386b8d069.js",
+    "url": "/js/core.account.640a149cc1166c83867f.js",
     "revision": null
   }, {
-    "url": "/js/core.bot.b5f86d22070db716c415.js",
+    "url": "/js/core.bot.0305d95d1ff9a5e82843.js",
     "revision": null
   }, {
     "url": "/js/core.cashier.95b2d3a60b3235c9e539.js",
@@ -216,7 +216,7 @@ define(['./workbox-75e2861a'], (function (workbox) { 'use strict';
     "url": "/js/core.main~components_src_components_l.c9b28b67c13b3bfceb66.js",
     "revision": null
   }, {
-    "url": "/js/core.main~s.95d2afe1710e518b72ad.js",
+    "url": "/js/core.main~s.f61ad427e1ba25721f3b.js",
     "revision": null
   }, {
     "url": "/js/core.reality-check-modal.8044bad13a05cbf9cb7e.js",
@@ -291,7 +291,7 @@ define(['./workbox-75e2861a'], (function (workbox) { 'use strict';
     "url": "/js/core.vendors-node_modules_react-lifecycles-compat_react-lifecycles-compat_es_js-node_modules_react-4a5024.4cbc5565da8f764351ef.js",
     "revision": null
   }, {
-    "url": "/js/core.vendors-node_modules_react-router-dom_esm_react-router-dom_js-node_modules_react-swipeable_es-5aae27.4dea8fc9a920fba8ea41.js",
+    "url": "/js/core.vendors-node_modules_react-router-dom_esm_react-router-dom_js-node_modules_react-swipeable_es-5aae27.d956dc9be5b409406b70.js",
     "revision": null
   }, {
     "url": "/js/core.vendors-node_modules_react-transition-group_esm_CSSTransition_js-node_modules_react-transitio-85c8d7.8ab018279d2840385aed.js",
@@ -300,7 +300,7 @@ define(['./workbox-75e2861a'], (function (workbox) { 'use strict';
     "url": "/js/core.vendors-node_modules_react-transition-group_esm_index_js.d54ad15d43b684d1aa4f.js",
     "revision": null
   }, {
-    "url": "/js/core.vendors-node_modules_react_index_js.3601c738eaa45b80a31c.js",
+    "url": "/js/core.vendors-node_modules_react_jsx-runtime_js.5ae33e99af78c8ad1406.js",
     "revision": null
   }, {
     "url": "/js/core.vendors-node_modules_rooks_use-mutation-observer_lib_index_esm_js-node_modules_scheduler_inde-a1a9fe.0fab8890286b3c87df23.js",
@@ -324,16 +324,16 @@ define(['./workbox-75e2861a'], (function (workbox) { 'use strict';
     "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_digital-options_svg_6a6a8cad.c437c56a6f6ff6d841bb.js",
     "revision": null
   }, {
-    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_multipliers-mobile_svg_48db1f53.41820f31f50e1ccc7849.js",
+    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_multipliers-mobile_svg_48db1f53.f75e3fb38cb27a1776dc.js",
     "revision": null
   }, {
-    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_multipliers_svg_67df4c4b.848e7fa7dee65b5616b1.js",
+    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_multipliers_svg_67df4c4b.00cd6534a26aebc70e98.js",
     "revision": null
   }, {
     "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_not-sure-mobile_svg_9ad91f0b.541a0fefc44e187ee1ee.js",
     "revision": null
   }, {
-    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_not-sure_svg_a469acfa.cb2f5ac67d91008a4c45.js",
+    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_not-sure_svg_a469acfa.c11f00c4c55e131e489a.js",
     "revision": null
   }, {
     "url": "/public/images/app/header/dbot-logo.svg",
