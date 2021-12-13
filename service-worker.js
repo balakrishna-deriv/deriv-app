@@ -132,13 +132,13 @@ define(['./workbox-6ad7267b'], (function (workbox) { 'use strict';
     "url": "/js/core.account-signup-modal.0bf20dd54373172ae1a1.js",
     "revision": null
   }, {
-    "url": "/js/core.account.4ffdb7b0dd4c6f2154ec.js",
+    "url": "/js/core.account.bec796cf041be9db5875.js",
     "revision": null
   }, {
-    "url": "/js/core.bot.e2fd6eff6ef315bf0109.js",
+    "url": "/js/core.bot.525278f104ecd9773796.js",
     "revision": null
   }, {
-    "url": "/js/core.cashier.8a331658f58391953627.js",
+    "url": "/js/core.cashier.c861fb4ce0f638373695.js",
     "revision": null
   }, {
     "url": "/js/core.close-mx-mlt-account-modal.0cd318d88ca63b88f9b8.js",
@@ -216,7 +216,7 @@ define(['./workbox-6ad7267b'], (function (workbox) { 'use strict';
     "url": "/js/core.main~components_src_components_l.2a6aa7d48fc67cf9ade5.js",
     "revision": null
   }, {
-    "url": "/js/core.main~s.38291470bea1f6393c99.js",
+    "url": "/js/core.main~s.1ec58f0d302f34b9c4fa.js",
     "revision": null
   }, {
     "url": "/js/core.reality-check-modal.8044bad13a05cbf9cb7e.js",
@@ -267,7 +267,10 @@ define(['./workbox-6ad7267b'], (function (workbox) { 'use strict';
     "url": "/js/core.vendors-node_modules_emotion_hash_dist_hash_esm_js-node_modules_emotion_is-prop-valid_dist_is-e15e80.7d06998544e51dcc483c.js",
     "revision": null
   }, {
-    "url": "/js/core.vendors-node_modules_file-selector_dist_es5_index_js-node_modules_focus-lock_dist_es2015_inde-625d6f.feefdd81550a3c43b198.js",
+    "url": "/js/core.vendors-node_modules_file-selector_dist_es5_index_js-node_modules_focus-lock_dist_es2015_inde-232aed.c1df45d0e85a860f724a.js",
+    "revision": null
+  }, {
+    "url": "/js/core.vendors-node_modules_html-escaper_esm_index_js-node_modules_html-parse-stringify_dist_html-pa-7ef592.238c94fc7e910fe9fc1c.js",
     "revision": null
   }, {
     "url": "/js/core.vendors-node_modules_is-callable_index_js-node_modules_is-date-object_index_js-node_modules_i-b97f84.a7f9f7a3a1c36df7364a.js",
@@ -285,13 +288,13 @@ define(['./workbox-6ad7267b'], (function (workbox) { 'use strict';
     "url": "/js/core.vendors-node_modules_promise-polyfill_src_index_js-node_modules_prop-types_index_js.fdc0cf9268af1329294b.js",
     "revision": null
   }, {
-    "url": "/js/core.vendors-node_modules_raf_index_js-node_modules_react-content-loader_dist_react-content-loader-574c93.b1f699a51e1b71ddb18c.js",
+    "url": "/js/core.vendors-node_modules_raf_index_js-node_modules_react-content-loader_dist_react-content-loader-574c93.da3a8e09d2d4ee8e95ba.js",
     "revision": null
   }, {
     "url": "/js/core.vendors-node_modules_react-lifecycles-compat_react-lifecycles-compat_es_js-node_modules_react-4a5024.4cbc5565da8f764351ef.js",
     "revision": null
   }, {
-    "url": "/js/core.vendors-node_modules_react-router-dom_esm_react-router-dom_js-node_modules_react-swipeable_es-5aae27.d956dc9be5b409406b70.js",
+    "url": "/js/core.vendors-node_modules_react-router-dom_esm_react-router-dom_js-node_modules_react-swipeable_es-5aae27.4dea8fc9a920fba8ea41.js",
     "revision": null
   }, {
     "url": "/js/core.vendors-node_modules_react-transition-group_esm_CSSTransition_js-node_modules_react-transitio-85c8d7.8ab018279d2840385aed.js",
@@ -300,7 +303,7 @@ define(['./workbox-6ad7267b'], (function (workbox) { 'use strict';
     "url": "/js/core.vendors-node_modules_react-transition-group_esm_index_js.d54ad15d43b684d1aa4f.js",
     "revision": null
   }, {
-    "url": "/js/core.vendors-node_modules_react_jsx-runtime_js.5ae33e99af78c8ad1406.js",
+    "url": "/js/core.vendors-node_modules_react_index_js.3601c738eaa45b80a31c.js",
     "revision": null
   }, {
     "url": "/js/core.vendors-node_modules_rooks_use-mutation-observer_lib_index_esm_js-node_modules_scheduler_inde-a1a9fe.0fab8890286b3c87df23.js",
@@ -324,10 +327,10 @@ define(['./workbox-6ad7267b'], (function (workbox) { 'use strict';
     "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_digital-options_svg_6a6a8cad.c437c56a6f6ff6d841bb.js",
     "revision": null
   }, {
-    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_multipliers-mobile_svg_48db1f53.41820f31f50e1ccc7849.js",
+    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_multipliers-mobile_svg_48db1f53.f75e3fb38cb27a1776dc.js",
     "revision": null
   }, {
-    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_multipliers_svg_67df4c4b.848e7fa7dee65b5616b1.js",
+    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_multipliers_svg_67df4c4b.496e3561fc52b1878b1a.js",
     "revision": null
   }, {
     "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_not-sure-mobile_svg_9ad91f0b.541a0fefc44e187ee1ee.js",
