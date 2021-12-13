@@ -132,13 +132,13 @@ define(['./workbox-6ad7267b'], (function (workbox) { 'use strict';
     "url": "/js/core.account-signup-modal.0bf20dd54373172ae1a1.js",
     "revision": null
   }, {
-    "url": "/js/core.account.640a149cc1166c83867f.js",
+    "url": "/js/core.account.4ffdb7b0dd4c6f2154ec.js",
     "revision": null
   }, {
-    "url": "/js/core.bot.0305d95d1ff9a5e82843.js",
+    "url": "/js/core.bot.e2fd6eff6ef315bf0109.js",
     "revision": null
   }, {
-    "url": "/js/core.cashier.95b2d3a60b3235c9e539.js",
+    "url": "/js/core.cashier.8a331658f58391953627.js",
     "revision": null
   }, {
     "url": "/js/core.close-mx-mlt-account-modal.0cd318d88ca63b88f9b8.js",
@@ -150,7 +150,7 @@ define(['./workbox-6ad7267b'], (function (workbox) { 'use strict';
     "url": "/js/core.dashboard~Modules_Dashboard_d.161a32cb8a2071684301.js",
     "revision": null
   }, {
-    "url": "/js/core.main~App_C.f6f3149393f192f7935e.js",
+    "url": "/js/core.main~App_C.60d559162c27373ee224.js",
     "revision": null
   }, {
     "url": "/js/core.main~App_Components_E.5c2694beb46a263b6cf1.js",
@@ -213,10 +213,10 @@ define(['./workbox-6ad7267b'], (function (workbox) { 'use strict';
     "url": "/js/core.main~components_src_components_c.1b5bfb3ba207f8d21eb8.js",
     "revision": null
   }, {
-    "url": "/js/core.main~components_src_components_l.c9b28b67c13b3bfceb66.js",
+    "url": "/js/core.main~components_src_components_l.2a6aa7d48fc67cf9ade5.js",
     "revision": null
   }, {
-    "url": "/js/core.main~s.f61ad427e1ba25721f3b.js",
+    "url": "/js/core.main~s.38291470bea1f6393c99.js",
     "revision": null
   }, {
     "url": "/js/core.reality-check-modal.8044bad13a05cbf9cb7e.js",
@@ -324,16 +324,16 @@ define(['./workbox-6ad7267b'], (function (workbox) { 'use strict';
     "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_digital-options_svg_6a6a8cad.c437c56a6f6ff6d841bb.js",
     "revision": null
   }, {
-    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_multipliers-mobile_svg_48db1f53.f75e3fb38cb27a1776dc.js",
+    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_multipliers-mobile_svg_48db1f53.41820f31f50e1ccc7849.js",
     "revision": null
   }, {
-    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_multipliers_svg_67df4c4b.00cd6534a26aebc70e98.js",
+    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_multipliers_svg_67df4c4b.848e7fa7dee65b5616b1.js",
     "revision": null
   }, {
     "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_not-sure-mobile_svg_9ad91f0b.541a0fefc44e187ee1ee.js",
     "revision": null
   }, {
-    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_not-sure_svg_a469acfa.c11f00c4c55e131e489a.js",
+    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_not-sure_svg_a469acfa.cb2f5ac67d91008a4c45.js",
     "revision": null
   }, {
     "url": "/public/images/app/header/dbot-logo.svg",
