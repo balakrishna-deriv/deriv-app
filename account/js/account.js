@@ -165,7 +165,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_react_router_dom__;
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames based on template
-/******/ 			return "account/js/account." + chunkId + "." + {"404":"3a4e31b3f9c14c2ad6c1","vendors-node_modules_binary-com_binary-document-uploader_DocumentUploader_js-node_modules_bow-78804b":"21b7bbd5028b312de32f","account-app":"ca58a2c98b6c48feacdd"}[chunkId] + ".js";
+/******/ 			return "account/js/account." + chunkId + "." + {"404":"3a4e31b3f9c14c2ad6c1","vendors-node_modules_binary-com_binary-document-uploader_DocumentUploader_js-node_modules_bow-78804b":"21b7bbd5028b312de32f","account-app":"8a6c4e76a3706c415a4f"}[chunkId] + ".js";
 /******/ 		};
 /******/ 	})();
 /******/ 	
@@ -174,7 +174,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_react_router_dom__;
 /******/ 		// This function allow to reference all chunks
 /******/ 		__webpack_require__.miniCssF = (chunkId) => {
 /******/ 			// return url for filenames based on template
-/******/ 			return "account/css/" + chunkId + "." + "8cda0b60d024e642fcb8" + ".css";
+/******/ 			return "account/css/" + chunkId + "." + "1b992a6d88c8c709e124" + ".css";
 /******/ 		};
 /******/ 	})();
 /******/ 	

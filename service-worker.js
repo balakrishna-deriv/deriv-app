@@ -111,7 +111,7 @@ define(['./workbox-6ad7267b'], (function (workbox) { 'use strict';
     "url": "/css/core.main~components_src_components_a.8e42499aa758731f60f5.main.css",
     "revision": null
   }, {
-    "url": "/css/core.main~components_src_components_c.c0290feba952cbc60f33.main.css",
+    "url": "/css/core.main~components_src_components_c.380b15c9152cb07196fa.main.css",
     "revision": null
   }, {
     "url": "/css/core.main~components_src_components_l.e50d52f35da4a19c251b.main.css",
@@ -120,25 +120,25 @@ define(['./workbox-6ad7267b'], (function (workbox) { 'use strict';
     "url": "/css/core.main~s.4ead8e2b3f537727e2b0.main.css",
     "revision": null
   }, {
-    "url": "/css/core.vendors-node_modules_deriv_deriv-api_dist_DerivAPIBasic_js-node_modules_deriv_deriv-onboardin-a0d54e.162f8e4e64a701f08595.main.css",
+    "url": "/css/core.vendors-node_modules_deriv_deriv-api_dist_DerivAPIBasic_js-node_modules_deriv_deriv-onboardin-a0d54e.53d59d3e22b9f9bccdca.main.css",
     "revision": null
   }, {
     "url": "/favicon.ico",
     "revision": "0cb8c9c65c9adde7eec4f6f79e2f4076"
   }, {
-    "url": "/js/core.account-info.fa8708d3fabca2feddd3.js",
+    "url": "/js/core.account-info.74803efc64f14c18bf64.js",
     "revision": null
   }, {
     "url": "/js/core.account-signup-modal.0bf20dd54373172ae1a1.js",
     "revision": null
   }, {
-    "url": "/js/core.account.bec796cf041be9db5875.js",
+    "url": "/js/core.account.024ee836dd30ed797477.js",
     "revision": null
   }, {
-    "url": "/js/core.bot.525278f104ecd9773796.js",
+    "url": "/js/core.bot.8c8d402c8d6e11e9eb62.js",
     "revision": null
   }, {
-    "url": "/js/core.cashier.c861fb4ce0f638373695.js",
+    "url": "/js/core.cashier.460f8b80c6cd5a4c0b93.js",
     "revision": null
   }, {
     "url": "/js/core.close-mx-mlt-account-modal.0cd318d88ca63b88f9b8.js",
@@ -150,28 +150,28 @@ define(['./workbox-6ad7267b'], (function (workbox) { 'use strict';
     "url": "/js/core.dashboard~Modules_Dashboard_d.161a32cb8a2071684301.js",
     "revision": null
   }, {
-    "url": "/js/core.main~App_C.60d559162c27373ee224.js",
+    "url": "/js/core.main~App_C.774e6f7924b05f42f0e2.js",
     "revision": null
   }, {
     "url": "/js/core.main~App_Components_E.5c2694beb46a263b6cf1.js",
     "revision": null
   }, {
-    "url": "/js/core.main~App_Cons.2e05d3b2e96832d23599.js",
+    "url": "/js/core.main~App_Cons.2dbdc9bdec7e9b579a06.js",
     "revision": null
   }, {
     "url": "/js/core.main~As.46d95bc6db18bfc88e6e.js",
     "revision": null
   }, {
-    "url": "/js/core.main~Se.65a5324ef6d8e944ab3b.js",
+    "url": "/js/core.main~Se.50df8cb954e1f696dcb9.js",
     "revision": null
   }, {
-    "url": "/js/core.main~Stores_b.03453af3e4c40df6c7de.js",
+    "url": "/js/core.main~Stores_b.9742afacf96d9b6e1ed3.js",
     "revision": null
   }, {
     "url": "/js/core.main~Stores_m.32986e6e98b764ca43a7.js",
     "revision": null
   }, {
-    "url": "/js/core.main~U.96e84d94a296843dc72b.js",
+    "url": "/js/core.main~U.bcda53e1a89139b3ac68.js",
     "revision": null
   }, {
     "url": "/js/core.main~account_dist_account_js_a.b38bf0997e36a20bbebd.js",
@@ -204,19 +204,19 @@ define(['./workbox-6ad7267b'], (function (workbox) { 'use strict';
     "url": "/js/core.main~c.3cdeb2aef95f07884ab5.js",
     "revision": null
   }, {
-    "url": "/js/core.main~cashier_dist_cashier_js_cashier-store_js_77e8332f.a11b83752f8b5fc5bf39.js",
+    "url": "/js/core.main~cashier_dist_cashier_js_cashier-store_js_77e8332f.6615d1c41957481ffcd9.js",
     "revision": null
   }, {
     "url": "/js/core.main~components_src_components_a.671e708af814aa0ee4f8.js",
     "revision": null
   }, {
-    "url": "/js/core.main~components_src_components_c.1b5bfb3ba207f8d21eb8.js",
+    "url": "/js/core.main~components_src_components_c.46cc39f2ea5403a20c16.js",
     "revision": null
   }, {
     "url": "/js/core.main~components_src_components_l.2a6aa7d48fc67cf9ade5.js",
     "revision": null
   }, {
-    "url": "/js/core.main~s.1ec58f0d302f34b9c4fa.js",
+    "url": "/js/core.main~s.c199a065042fa5650380.js",
     "revision": null
   }, {
     "url": "/js/core.reality-check-modal.8044bad13a05cbf9cb7e.js",
@@ -246,7 +246,7 @@ define(['./workbox-6ad7267b'], (function (workbox) { 'use strict';
     "url": "/js/core.trader~account_dist_account_js_reset-trading-password-modal_js_ff517517.6bdf0d2c235919fccf4d.js",
     "revision": null
   }, {
-    "url": "/js/core.trader~trader_dist_trader_js_trader_js_4e59f282.2aa72fc6c22c3331ad8b.js",
+    "url": "/js/core.trader~trader_dist_trader_js_trader_js_4e59f282.2de78573e315c7903a53.js",
     "revision": null
   }, {
     "url": "/js/core.vendors-node_modules_babel_runtime_helpers_esm_classCallCheck_js-node_modules_babel_runtime_h-1aba2f.8c682a465719cc1d6c9e.js",
@@ -262,6 +262,9 @@ define(['./workbox-6ad7267b'], (function (workbox) { 'use strict';
     "revision": null
   }, {
     "url": "/js/core.vendors-node_modules_deriv_deriv-api_dist_DerivAPIBasic_js-node_modules_deriv_deriv-onboardin-a0d54e.ca2db2faaa338bc9e273.js",
+    "revision": null
+  }, {
+    "url": "/js/core.vendors-node_modules_deriv_deriv-charts_dist_smartcharts_js.37d17b4e3e6d05dc1a6a.js",
     "revision": null
   }, {
     "url": "/js/core.vendors-node_modules_emotion_hash_dist_hash_esm_js-node_modules_emotion_is-prop-valid_dist_is-e15e80.7d06998544e51dcc483c.js",
@@ -327,10 +330,10 @@ define(['./workbox-6ad7267b'], (function (workbox) { 'use strict';
     "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_digital-options_svg_6a6a8cad.c437c56a6f6ff6d841bb.js",
     "revision": null
   }, {
-    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_multipliers-mobile_svg_48db1f53.f75e3fb38cb27a1776dc.js",
+    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_multipliers-mobile_svg_48db1f53.41820f31f50e1ccc7849.js",
     "revision": null
   }, {
-    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_multipliers_svg_67df4c4b.496e3561fc52b1878b1a.js",
+    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_multipliers_svg_67df4c4b.848e7fa7dee65b5616b1.js",
     "revision": null
   }, {
     "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_not-sure-mobile_svg_9ad91f0b.541a0fefc44e187ee1ee.js",
