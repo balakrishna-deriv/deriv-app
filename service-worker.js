@@ -135,7 +135,7 @@ define(['./workbox-6ad7267b'], (function (workbox) { 'use strict';
     "url": "/js/core.account.fdcebcb3f570d79e9c1f.js",
     "revision": null
   }, {
-    "url": "/js/core.bot.327b2bed2c068d2a00a4.js",
+    "url": "/js/core.bot.1b68d76d6ec72a2b69c5.js",
     "revision": null
   }, {
     "url": "/js/core.cashier.4538ead4163bca3c8efd.js",
@@ -216,7 +216,7 @@ define(['./workbox-6ad7267b'], (function (workbox) { 'use strict';
     "url": "/js/core.main~components_src_components_l.9f974592483428a1aeac.js",
     "revision": null
   }, {
-    "url": "/js/core.main~s.af4c64b3aa48ad068bf0.js",
+    "url": "/js/core.main~s.f72ff2064e7fc28bb970.js",
     "revision": null
   }, {
     "url": "/js/core.reality-check-modal.8044bad13a05cbf9cb7e.js",
@@ -282,7 +282,7 @@ define(['./workbox-6ad7267b'], (function (workbox) { 'use strict';
     "url": "/js/core.vendors-node_modules_deriv_deriv-api_dist_DerivAPIBasic_js-node_modules_define-properties_ind-32e1f0.bb3e5c130d28ca91b2c4.js",
     "revision": null
   }, {
-    "url": "/js/core.vendors-node_modules_deriv_deriv-charts_dist_smartcharts_js.3cb09f0bbfc49bf16822.js",
+    "url": "/js/core.vendors-node_modules_deriv_deriv-charts_dist_smartcharts_js.8c6781a14981bc912f00.js",
     "revision": null
   }, {
     "url": "/js/core.vendors-node_modules_extend_index_js-node_modules_formik_dist_formik_esm_js-node_modules_get--9b0fd1.144f929c44c0bad486a7.js",
@@ -336,10 +336,10 @@ define(['./workbox-6ad7267b'], (function (workbox) { 'use strict';
     "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_multipliers_svg_67df4c4b.848e7fa7dee65b5616b1.js",
     "revision": null
   }, {
-    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_not-sure-mobile_svg_9ad91f0b.bfdf67f10283b2247a6a.js",
+    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_not-sure-mobile_svg_9ad91f0b.541a0fefc44e187ee1ee.js",
     "revision": null
   }, {
-    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_not-sure_svg_a469acfa.cca5f05f9b84f7bbef0a.js",
+    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_not-sure_svg_a469acfa.cb2f5ac67d91008a4c45.js",
     "revision": null
   }, {
     "url": "/public/images/app/header/dbot-logo.svg",
