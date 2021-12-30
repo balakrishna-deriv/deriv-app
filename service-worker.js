@@ -111,7 +111,7 @@ define(['./workbox-6ad7267b'], (function (workbox) { 'use strict';
     "url": "/css/core.main~components_src_components_a.306581bd6495bda215c2.main.css",
     "revision": null
   }, {
-    "url": "/css/core.main~components_src_components_c.0fa47b6eb7d428d2abc8.main.css",
+    "url": "/css/core.main~components_src_components_c.853d4b0b2afbe79e0c69.main.css",
     "revision": null
   }, {
     "url": "/css/core.main~components_src_components_l.e50d52f35da4a19c251b.main.css",
@@ -120,25 +120,25 @@ define(['./workbox-6ad7267b'], (function (workbox) { 'use strict';
     "url": "/css/core.main~s.0160a22f007793aa96da.main.css",
     "revision": null
   }, {
-    "url": "/css/core.vendors-node_modules_deriv_deriv-api_dist_DerivAPIBasic_js-node_modules_define-properties_ind-32e1f0.53d59d3e22b9f9bccdca.main.css",
+    "url": "/css/core.vendors-node_modules_deriv_deriv-api_dist_DerivAPIBasic_js-node_modules_deriv_deriv-onboardin-a0d54e.53d59d3e22b9f9bccdca.main.css",
     "revision": null
   }, {
     "url": "/favicon.ico",
     "revision": "0cb8c9c65c9adde7eec4f6f79e2f4076"
   }, {
-    "url": "/js/core.account-info.74803efc64f14c18bf64.js",
+    "url": "/js/core.account-info.2b38a3b4e63856aa7b05.js",
     "revision": null
   }, {
     "url": "/js/core.account-signup-modal.0bf20dd54373172ae1a1.js",
     "revision": null
   }, {
-    "url": "/js/core.account.fdcebcb3f570d79e9c1f.js",
+    "url": "/js/core.account.1aed98331df56ac49e6d.js",
     "revision": null
   }, {
-    "url": "/js/core.bot.1b68d76d6ec72a2b69c5.js",
+    "url": "/js/core.bot.7c444f27b9e101ebe60d.js",
     "revision": null
   }, {
-    "url": "/js/core.cashier.4538ead4163bca3c8efd.js",
+    "url": "/js/core.cashier.03042401e603b8638b0a.js",
     "revision": null
   }, {
     "url": "/js/core.close-mx-mlt-account-modal.0cd318d88ca63b88f9b8.js",
@@ -150,7 +150,7 @@ define(['./workbox-6ad7267b'], (function (workbox) { 'use strict';
     "url": "/js/core.dashboard~Modules_Dashboard_d.161a32cb8a2071684301.js",
     "revision": null
   }, {
-    "url": "/js/core.main~App_C.b3a65377c876002d7ab7.js",
+    "url": "/js/core.main~App_C.2287e7391788421ffe42.js",
     "revision": null
   }, {
     "url": "/js/core.main~App_Components_E.5c2694beb46a263b6cf1.js",
@@ -201,22 +201,22 @@ define(['./workbox-6ad7267b'], (function (workbox) { 'use strict';
     "url": "/js/core.main~account_dist_account_js_terms-of-use_js_d9e09153.ee71893178d513acdc4a.js",
     "revision": null
   }, {
-    "url": "/js/core.main~c.9e374296db0cd573fd4a.js",
+    "url": "/js/core.main~c.3cdeb2aef95f07884ab5.js",
     "revision": null
   }, {
-    "url": "/js/core.main~cashier_dist_cashier_js_cashier-store_js_77e8332f.5b350564d12ec3484117.js",
+    "url": "/js/core.main~cashier_dist_cashier_js_cashier-store_js_77e8332f.21d9a7af5b1ee88ed59c.js",
     "revision": null
   }, {
-    "url": "/js/core.main~components_src_components_a.ead1b1996c32e484f247.js",
+    "url": "/js/core.main~components_src_components_a.3206b1983e38fdda88e7.js",
     "revision": null
   }, {
-    "url": "/js/core.main~components_src_components_c.b6efeb3cf62a076e9814.js",
+    "url": "/js/core.main~components_src_components_c.6c66bf456c72cee14821.js",
     "revision": null
   }, {
-    "url": "/js/core.main~components_src_components_l.9f974592483428a1aeac.js",
+    "url": "/js/core.main~components_src_components_l.bd40759898700d822699.js",
     "revision": null
   }, {
-    "url": "/js/core.main~s.f72ff2064e7fc28bb970.js",
+    "url": "/js/core.main~s.71537d1fb9f1ca122422.js",
     "revision": null
   }, {
     "url": "/js/core.reality-check-modal.8044bad13a05cbf9cb7e.js",
@@ -246,52 +246,37 @@ define(['./workbox-6ad7267b'], (function (workbox) { 'use strict';
     "url": "/js/core.trader~account_dist_account_js_reset-trading-password-modal_js_ff517517.6bdf0d2c235919fccf4d.js",
     "revision": null
   }, {
-    "url": "/js/core.trader~trader_dist_trader_js_trader_js_4e59f282.be7790f84690ba2f268e.js",
+    "url": "/js/core.trader~trader_dist_trader_js_trader_js_4e59f282.8b4f10194786cacbaaa5.js",
     "revision": null
   }, {
-    "url": "/js/core.vendors-components_node_modules_babel_runtime_helpers_esm_classCallCheck_js-components_node_m-223415.f63c6c9fb43348e9f4db.js",
+    "url": "/js/core.vendors-node_modules_babel_runtime_helpers_esm_classCallCheck_js-node_modules_babel_runtime_h-1aba2f.8c682a465719cc1d6c9e.js",
     "revision": null
   }, {
-    "url": "/js/core.vendors-components_node_modules_contentpass_zxcvbn_lib_frequency_lists_js.8af9dd145de02a7ca24e.js",
+    "url": "/js/core.vendors-node_modules_contentpass_zxcvbn_lib_frequency_lists_js.6314af75fb93509061cc.js",
     "revision": null
   }, {
-    "url": "/js/core.vendors-components_node_modules_contentpass_zxcvbn_lib_main_js.42e8b4eafbb8838f9be9.js",
+    "url": "/js/core.vendors-node_modules_contentpass_zxcvbn_lib_main_js.3a05d03cce725e083ad0.js",
     "revision": null
   }, {
-    "url": "/js/core.vendors-components_node_modules_performance-now_lib_performance-now_js-components_node_module-97859d.aad13ce78e8faf5bc5b2.js",
+    "url": "/js/core.vendors-node_modules_core-js_fn_regexp_escape_js-node_modules_core-js_shim_js-node_modules_cr-1e24ef.3b686c610fd60f309ecb.js",
     "revision": null
   }, {
-    "url": "/js/core.vendors-components_node_modules_raf_index_js-components_node_modules_react-content-loader_dis-579ba7.252b7ee8d6bf50d58687.js",
+    "url": "/js/core.vendors-node_modules_deriv_deriv-api_dist_DerivAPIBasic_js-node_modules_deriv_deriv-onboardin-a0d54e.ca2db2faaa338bc9e273.js",
     "revision": null
   }, {
-    "url": "/js/core.vendors-components_node_modules_react-lifecycles-compat_react-lifecycles-compat_es_js-compone-d9fb73.a1988d03ab56c16a3afc.js",
+    "url": "/js/core.vendors-node_modules_deriv_deriv-charts_dist_smartcharts_js.f23d24b70cdd8ead36de.js",
     "revision": null
   }, {
-    "url": "/js/core.vendors-components_node_modules_rooks_use-mutation-observer_lib_index_esm_js-components_node_-5c4937.e242aa5d14adf8f979da.js",
+    "url": "/js/core.vendors-node_modules_emotion_hash_dist_hash_esm_js-node_modules_emotion_is-prop-valid_dist_is-e15e80.7d06998544e51dcc483c.js",
     "revision": null
   }, {
-    "url": "/js/core.vendors-components_node_modules_styled-components_dist_styled-components_browser_esm_js-compo-4875f3.da9098e2be7cdca62cbb.js",
+    "url": "/js/core.vendors-node_modules_file-selector_dist_es5_index_js-node_modules_focus-lock_dist_es2015_inde-232aed.c1df45d0e85a860f724a.js",
     "revision": null
   }, {
-    "url": "/js/core.vendors-node_modules_babel_runtime_helpers_esm_classCallCheck_js-node_modules_babel_runtime_h-14e375.d7bbccb6a005e98813e6.js",
+    "url": "/js/core.vendors-node_modules_html-escaper_esm_index_js-node_modules_html-parse-stringify_dist_html-pa-7ef592.238c94fc7e910fe9fc1c.js",
     "revision": null
   }, {
-    "url": "/js/core.vendors-node_modules_classnames_index_js-node_modules_core-js_fn_regexp_escape_js-node_module-d0a25b.0a938eebc4a668a3193f.js",
-    "revision": null
-  }, {
-    "url": "/js/core.vendors-node_modules_deriv_deriv-api_dist_DerivAPIBasic_js-node_modules_define-properties_ind-32e1f0.bb3e5c130d28ca91b2c4.js",
-    "revision": null
-  }, {
-    "url": "/js/core.vendors-node_modules_deriv_deriv-charts_dist_smartcharts_js.8c6781a14981bc912f00.js",
-    "revision": null
-  }, {
-    "url": "/js/core.vendors-node_modules_extend_index_js-node_modules_formik_dist_formik_esm_js-node_modules_get--9b0fd1.144f929c44c0bad486a7.js",
-    "revision": null
-  }, {
-    "url": "/js/core.vendors-node_modules_hoist-non-react-statics_dist_hoist-non-react-statics_cjs_js-node_modules-6325e9.76b6764d3fca951437f5.js",
-    "revision": null
-  }, {
-    "url": "/js/core.vendors-node_modules_is-callable_index_js-node_modules_is-date-object_index_js-node_modules_i-a65692.180871c0dce827e322c8.js",
+    "url": "/js/core.vendors-node_modules_is-callable_index_js-node_modules_is-date-object_index_js-node_modules_i-b97f84.a7f9f7a3a1c36df7364a.js",
     "revision": null
   }, {
     "url": "/js/core.vendors-node_modules_mobx-react_dist_mobxreact_esm_js.87b4d875089a458dda75.js",
@@ -300,10 +285,22 @@ define(['./workbox-6ad7267b'], (function (workbox) { 'use strict';
     "url": "/js/core.vendors-node_modules_moment_moment_js.2b343aa5843cc44c1241.js",
     "revision": null
   }, {
-    "url": "/js/core.vendors-node_modules_object-inspect_index_js-node_modules_object-keys_index_js-node_modules_o-3f8420.12aa39a5cf70042fb16a.js",
+    "url": "/js/core.vendors-node_modules_object-assign_index_js-node_modules_object-inspect_index_js-node_modules-a2e9f6.c8b898779f67b1253d28.js",
     "revision": null
   }, {
-    "url": "/js/core.vendors-node_modules_react-fast-compare_index_js-node_modules_react-i18next_dist_es_Trans_js--e56855.c5c9f6dcf673e8130e8e.js",
+    "url": "/js/core.vendors-node_modules_promise-polyfill_src_index_js-node_modules_prop-types_index_js.fdc0cf9268af1329294b.js",
+    "revision": null
+  }, {
+    "url": "/js/core.vendors-node_modules_raf_index_js-node_modules_react-content-loader_dist_react-content-loader-574c93.70c5f214f944b7db7ba0.js",
+    "revision": null
+  }, {
+    "url": "/js/core.vendors-node_modules_react-lifecycles-compat_react-lifecycles-compat_es_js-node_modules_react-4a5024.4cbc5565da8f764351ef.js",
+    "revision": null
+  }, {
+    "url": "/js/core.vendors-node_modules_react-router-dom_esm_react-router-dom_js-node_modules_react-swipeable_es-5aae27.4dea8fc9a920fba8ea41.js",
+    "revision": null
+  }, {
+    "url": "/js/core.vendors-node_modules_react-transition-group_esm_CSSTransition_js-node_modules_react-transitio-85c8d7.8ab018279d2840385aed.js",
     "revision": null
   }, {
     "url": "/js/core.vendors-node_modules_react-transition-group_esm_index_js.d54ad15d43b684d1aa4f.js",
@@ -312,7 +309,10 @@ define(['./workbox-6ad7267b'], (function (workbox) { 'use strict';
     "url": "/js/core.vendors-node_modules_react_index_js.3601c738eaa45b80a31c.js",
     "revision": null
   }, {
-    "url": "/js/core.vendors-node_modules_scheduler_index_js-node_modules_scheduler_tracing_js-node_modules_tiny-i-d74c07.9178beb0b6c81d1860d0.js",
+    "url": "/js/core.vendors-node_modules_rooks_use-mutation-observer_lib_index_esm_js-node_modules_scheduler_inde-a1a9fe.0fab8890286b3c87df23.js",
+    "revision": null
+  }, {
+    "url": "/js/core.vendors-node_modules_scroll-smooth_dist_index_js-node_modules_scrollparent_scrollparent_js-no-7b71e5.e75a0b9d3f337da4af95.js",
     "revision": null
   }, {
     "url": "/js/core.vendors-node_modules_web-push-notifications_lib_index_js.b23f2bd61f1ceec18cef.js",
