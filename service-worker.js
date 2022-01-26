@@ -135,7 +135,7 @@ define(['./workbox-6ad7267b'], (function (workbox) { 'use strict';
     "url": "/js/core.account.41bfeab25aa3e304501a.js",
     "revision": null
   }, {
-    "url": "/js/core.bot.8e113f0b0c818259a0f5.js",
+    "url": "/js/core.bot.35137b5022e8f1891212.js",
     "revision": null
   }, {
     "url": "/js/core.cashier.f0500ba6516e71a4b534.js",
@@ -216,7 +216,7 @@ define(['./workbox-6ad7267b'], (function (workbox) { 'use strict';
     "url": "/js/core.main~components_src_components_l.9ff2e14958c9e4c07cbf.js",
     "revision": null
   }, {
-    "url": "/js/core.main~s.ab32b7a217146bbcb556.js",
+    "url": "/js/core.main~s.6ac8d6fda24e0bab5ba1.js",
     "revision": null
   }, {
     "url": "/js/core.reality-check-modal.3c50c58f21062ceb5632.js",
@@ -234,7 +234,7 @@ define(['./workbox-6ad7267b'], (function (workbox) { 'use strict';
     "url": "/js/core.settings-language.f8be34a0159beb8d1e84.js",
     "revision": null
   }, {
-    "url": "/js/core.settings-theme.afee8adb643b7f923ab1.js",
+    "url": "/js/core.settings-theme.7294ffb7af89dd38ade5.js",
     "revision": null
   }, {
     "url": "/js/core.trader~account_dist_account_c.f51b4163643201099a8a.js",
@@ -318,25 +318,25 @@ define(['./workbox-6ad7267b'], (function (workbox) { 'use strict';
     "url": "/js/core.welcome-modal~Ap.87c62d67809833175203.js",
     "revision": null
   }, {
-    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_cfds_svg_af25ac66.0472f14ce8f0c16a5992.js",
+    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_cfds_svg_af25ac66.1a71e744aad539675cd1.js",
     "revision": null
   }, {
     "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_digital-options-mobile_svg_a765406b.746837f1f5e1f09b43e3.js",
     "revision": null
   }, {
-    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_digital-options_svg_6a6a8cad.299d083cf0b15ac6cebc.js",
+    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_digital-options_svg_6a6a8cad.807227e37900ca345fbf.js",
     "revision": null
   }, {
-    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_multipliers-mobile_svg_48db1f53.12f4bcc9faa98a4c612e.js",
+    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_multipliers-mobile_svg_48db1f53.9b6d542e4b970ac5a38c.js",
     "revision": null
   }, {
     "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_multipliers_svg_67df4c4b.0424adfe4efa50488187.js",
     "revision": null
   }, {
-    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_not-sure-mobile_svg_9ad91f0b.52d93385881de977fae4.js",
+    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_not-sure-mobile_svg_9ad91f0b.b53d581de5280e10de8e.js",
     "revision": null
   }, {
-    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_not-sure_svg_a469acfa.39380a9ec7dfe4ea8af6.js",
+    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_not-sure_svg_a469acfa.2e56a368d9cc878795a8.js",
     "revision": null
   }, {
     "url": "/public/images/app/header/dbot-logo.svg",
