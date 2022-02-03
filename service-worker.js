@@ -126,19 +126,19 @@ define(['./workbox-6ad7267b'], (function (workbox) { 'use strict';
     "url": "/favicon.ico",
     "revision": "0cb8c9c65c9adde7eec4f6f79e2f4076"
   }, {
-    "url": "/js/core.account-info.5497513e673b6b8806b1.js",
+    "url": "/js/core.account-info.08d603ad6c668659b25b.js",
     "revision": null
   }, {
-    "url": "/js/core.account-signup-modal.fa1ba949b9954be502cf.js",
+    "url": "/js/core.account-signup-modal.edf0f2f8c0c635c48b85.js",
     "revision": null
   }, {
-    "url": "/js/core.account.41bfeab25aa3e304501a.js",
+    "url": "/js/core.account.cd062e109459f4ba6dd4.js",
     "revision": null
   }, {
-    "url": "/js/core.bot.35137b5022e8f1891212.js",
+    "url": "/js/core.bot.61c7ececcc5814053567.js",
     "revision": null
   }, {
-    "url": "/js/core.cashier.f0500ba6516e71a4b534.js",
+    "url": "/js/core.cashier.91cfa8d74a6b80bc01b0.js",
     "revision": null
   }, {
     "url": "/js/core.close-mx-mlt-account-modal.2ef0f326eaab056bf53d.js",
@@ -147,106 +147,106 @@ define(['./workbox-6ad7267b'], (function (workbox) { 'use strict';
     "url": "/js/core.complaints-policy.abfdb9f5be30c477c424.js",
     "revision": null
   }, {
-    "url": "/js/core.dashboard~Modules_Dashboard_d.965f0ff3ce80953c6ada.js",
+    "url": "/js/core.dashboard~Modules_Dashboard_d.d4d97d529a10d3c92188.js",
     "revision": null
   }, {
-    "url": "/js/core.main~App_C.5a11b4577bc80be15a44.js",
+    "url": "/js/core.main~App_C.9764d3d9de215ee49499.js",
     "revision": null
   }, {
-    "url": "/js/core.main~App_Components_E.031b04670bfb0c645d68.js",
+    "url": "/js/core.main~App_Components_E.5df00ed0d3f36d79a95a.js",
     "revision": null
   }, {
-    "url": "/js/core.main~App_Cons.5417860658daea9b1361.js",
+    "url": "/js/core.main~App_Cons.cbdd81e4993c19b5eeb6.js",
     "revision": null
   }, {
-    "url": "/js/core.main~As.efa259e92298f5d609e9.js",
+    "url": "/js/core.main~As.1c118318a513e40240c1.js",
     "revision": null
   }, {
-    "url": "/js/core.main~Se.530f45267dac6bee160f.js",
+    "url": "/js/core.main~Se.5715af6d5e18f59c6410.js",
     "revision": null
   }, {
-    "url": "/js/core.main~Stores_b.ba262a17a37235b0ade3.js",
+    "url": "/js/core.main~Stores_b.022af612996b3cf50b38.js",
     "revision": null
   }, {
-    "url": "/js/core.main~Stores_m.a56161c0597c05d830fb.js",
+    "url": "/js/core.main~Stores_m.d844e942946342a810f5.js",
     "revision": null
   }, {
-    "url": "/js/core.main~U.7a7f6df40d60c19390b8.js",
+    "url": "/js/core.main~U.9e228ef6839d12561f65.js",
     "revision": null
   }, {
-    "url": "/js/core.main~account_dist_account_js_a.961f7d6345c2a03ff8f6.js",
+    "url": "/js/core.main~account_dist_account_js_a.a73bf007adc780d1aec4.js",
     "revision": null
   }, {
-    "url": "/js/core.main~account_dist_account_js_account-limits_js_501e634c.f7ab2243fb8b0c983aec.js",
+    "url": "/js/core.main~account_dist_account_js_account-limits_js_501e634c.7aff950c9a991ffc5b36.js",
     "revision": null
   }, {
-    "url": "/js/core.main~account_dist_account_js_address-details_js_0928415f.7774805fb915afc668ce.js",
+    "url": "/js/core.main~account_dist_account_js_address-details_js_0928415f.a4e0f5d4a33986615f35.js",
     "revision": null
   }, {
-    "url": "/js/core.main~account_dist_account_js_api-token_js_a71678f7.2102090f62c1cc82366b.js",
+    "url": "/js/core.main~account_dist_account_js_api-token_js_a71678f7.4513020bf90444dbd538.js",
     "revision": null
   }, {
-    "url": "/js/core.main~account_dist_account_js_currency-selector_js_f2f9c8d9.c591c0465a3abc7678bd.js",
+    "url": "/js/core.main~account_dist_account_js_currency-selector_js_f2f9c8d9.df5311c5b7ec229f3668.js",
     "revision": null
   }, {
-    "url": "/js/core.main~account_dist_account_js_financial-details_js_0e7eaa58.84df9374b7546bf089c7.js",
+    "url": "/js/core.main~account_dist_account_js_financial-details_js_0e7eaa58.672f537611aa5e0dae7b.js",
     "revision": null
   }, {
-    "url": "/js/core.main~account_dist_account_js_personal-details_js_21b2d6f5.39434393ad50299a2661.js",
+    "url": "/js/core.main~account_dist_account_js_personal-details_js_21b2d6f5.7b81e291d90cef19016a.js",
     "revision": null
   }, {
-    "url": "/js/core.main~account_dist_account_js_self-exclusion_js_6be4b9cc.7317a49762c27051709a.js",
+    "url": "/js/core.main~account_dist_account_js_self-exclusion_js_6be4b9cc.dfc1c901df9f86e0ba1b.js",
     "revision": null
   }, {
-    "url": "/js/core.main~account_dist_account_js_terms-of-use_js_d9e09153.6d888fb3ab6cda470943.js",
+    "url": "/js/core.main~account_dist_account_js_terms-of-use_js_d9e09153.62afcb5928fee250fcd5.js",
     "revision": null
   }, {
-    "url": "/js/core.main~c.26e1e2019d3698b8619b.js",
+    "url": "/js/core.main~c.acb62cd4ac6b2198c843.js",
     "revision": null
   }, {
-    "url": "/js/core.main~cashier_dist_cashier_js_cashier-store_js_77e8332f.b06ec704e6d6ce643b4a.js",
+    "url": "/js/core.main~cashier_dist_cashier_js_cashier-store_js_77e8332f.80a74521f2a8691a9023.js",
     "revision": null
   }, {
-    "url": "/js/core.main~components_src_components_a.ccae061a9751a2f93e26.js",
+    "url": "/js/core.main~components_src_components_a.6fe2d79d3a2e00a7c426.js",
     "revision": null
   }, {
-    "url": "/js/core.main~components_src_components_c.c1902b49b4744038bb2e.js",
+    "url": "/js/core.main~components_src_components_c.4b5e4c3490b8b86b252f.js",
     "revision": null
   }, {
-    "url": "/js/core.main~components_src_components_l.9ff2e14958c9e4c07cbf.js",
+    "url": "/js/core.main~components_src_components_l.3225e53d08e5909c5cd8.js",
     "revision": null
   }, {
-    "url": "/js/core.main~s.6ac8d6fda24e0bab5ba1.js",
+    "url": "/js/core.main~s.8fbf13ecfa137e1d18bd.js",
     "revision": null
   }, {
-    "url": "/js/core.reality-check-modal.3c50c58f21062ceb5632.js",
+    "url": "/js/core.reality-check-modal.eab2e2d82088bbedc7ed.js",
     "revision": null
   }, {
-    "url": "/js/core.reset-or-unlink-password-modal.19ac700c70ebfb539d7c.js",
+    "url": "/js/core.reset-or-unlink-password-modal.611970a60bf520ca9b25.js",
     "revision": null
   }, {
-    "url": "/js/core.reset-password-modal.f5045e192a490c4999f6.js",
+    "url": "/js/core.reset-password-modal.db520f01afa1c4b28d3a.js",
     "revision": null
   }, {
-    "url": "/js/core.set-residence-modal.617730b294d0aeaefad3.js",
+    "url": "/js/core.set-residence-modal.3ac9145f21adad7146d6.js",
     "revision": null
   }, {
     "url": "/js/core.settings-language.f8be34a0159beb8d1e84.js",
     "revision": null
   }, {
-    "url": "/js/core.settings-theme.7294ffb7af89dd38ade5.js",
+    "url": "/js/core.settings-theme.fc8346b159c3ce301802.js",
     "revision": null
   }, {
-    "url": "/js/core.trader~account_dist_account_c.f51b4163643201099a8a.js",
+    "url": "/js/core.trader~account_dist_account_c.053decba1639e4cd2b5c.js",
     "revision": null
   }, {
-    "url": "/js/core.trader~account_dist_account_js_p.982fa0053070e6b384a4.js",
+    "url": "/js/core.trader~account_dist_account_js_p.cbdf875b7227933e39d8.js",
     "revision": null
   }, {
-    "url": "/js/core.trader~account_dist_account_js_reset-trading-password-modal_js_ff517517.7ecbdd4d6ee0d8059f28.js",
+    "url": "/js/core.trader~account_dist_account_js_reset-trading-password-modal_js_ff517517.2ff455a22b95d442d9fc.js",
     "revision": null
   }, {
-    "url": "/js/core.trader~trader_dist_trader_js_trader_js_4e59f282.d8d029f0f64c4f79dadb.js",
+    "url": "/js/core.trader~trader_dist_trader_js_trader_js_4e59f282.bdca9b01a58d7edc0c9b.js",
     "revision": null
   }, {
     "url": "/js/core.vendors-node_modules_attr-accept_dist_es_index_js-node_modules_babel-polyfill_lib_index_js-no-f681a3.08cd2e02c4c583323fed.js",
@@ -315,7 +315,7 @@ define(['./workbox-6ad7267b'], (function (workbox) { 'use strict';
     "url": "/js/core.vendors-node_modules_web-push-notifications_lib_index_js.0b27a6a46326bdb2fa4f.js",
     "revision": null
   }, {
-    "url": "/js/core.welcome-modal~Ap.87c62d67809833175203.js",
+    "url": "/js/core.welcome-modal~Ap.31f64a0d19179dbff99e.js",
     "revision": null
   }, {
     "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_cfds_svg_af25ac66.1a71e744aad539675cd1.js",

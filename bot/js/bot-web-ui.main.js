@@ -232,7 +232,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_react_dom__;
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames based on template
-/******/ 			return "bot/js/bot." + chunkId + "." + {"vendors-node_modules_deriv_deriv-api_dist_DerivAPIBasic_js-node_modules_deriv_js-interpreter_-7c5351":"0d5d49a630bc8700d590","bot-web-ui-app":"cbdd300ae4859fd20abb","dalembert-xml":"476620a46ee4557c5a53","martingale-xml":"30d6bded99f974379d9e","oscars_grind-xml":"f88009ceae167b3dff25","dbot-collection":"a93810fed0b113f239de"}[chunkId] + ".js";
+/******/ 			return "bot/js/bot." + chunkId + "." + {"vendors-node_modules_deriv_deriv-api_dist_DerivAPIBasic_js-node_modules_deriv_js-interpreter_-7c5351":"0d5d49a630bc8700d590","bot-web-ui-app":"c4bf702122cf42e4acb9","dalembert-xml":"476620a46ee4557c5a53","martingale-xml":"30d6bded99f974379d9e","oscars_grind-xml":"f88009ceae167b3dff25","dbot-collection":"a93810fed0b113f239de"}[chunkId] + ".js";
 /******/ 		};
 /******/ 	})();
 /******/ 	
