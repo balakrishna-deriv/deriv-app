@@ -1,8 +1,11 @@
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
 import React from 'react';
 
-const Icon404 = ({ className }) => (
+type Icon404Props = {
+    className: string;
+};
+
+const Icon404 = ({ className }: Icon404Props) => (
     <svg className={classNames('inline-icon', className)} viewBox='0 0 163.61 82.15' height='64'>
         <defs />
         <g id='Layer_2' data-name='Layer 2'>
@@ -24,9 +27,5 @@ const Icon404 = ({ className }) => (
         </g>
     </svg>
 );
-
-Icon404.propTypes = {
-    className: PropTypes.string,
-};
 
 export { Icon404 };
