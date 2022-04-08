@@ -67,7 +67,7 @@ if (!self.define) {
     });
   };
 }
-define(['./workbox-6ad7267b'], (function (workbox) { 'use strict';
+define(['./workbox-41863580'], (function (workbox) { 'use strict';
 
   /**
   * Welcome to your Workbox-powered service worker!
@@ -90,55 +90,64 @@ define(['./workbox-6ad7267b'], (function (workbox) { 'use strict';
    */
 
   workbox.precacheAndRoute([{
-    "url": "/css/core.chunk.account-signup-modal.020c6fc85db4621428a2.css",
+    "url": "/appstore/js/appstore.appstore.64a17e82738ece90715e.js",
+    "revision": "edfed0bc7055398191efdcb90d641679"
+  }, {
+    "url": "/appstore/js/index.js",
+    "revision": "2e475164292a1814a4cdbd50e0777617"
+  }, {
+    "url": "/css/core.chunk.account-signup-modal.c1871b4f7f76e9697bce.css",
     "revision": null
   }, {
-    "url": "/css/core.chunk.complaints-policy.910e70714d90c104b90f.css",
+    "url": "/css/core.chunk.complaints-policy.53d18a47133c1c361e4b.css",
     "revision": null
   }, {
-    "url": "/css/core.chunk.set-residence-modal.3878c29db0c68440cf97.css",
+    "url": "/css/core.chunk.set-residence-modal.afdf6e9925f0446996ba.css",
     "revision": null
   }, {
-    "url": "/css/core.chunk.trader~account_dist_account_css_reset-trading-password-modal_css_e0dafe2b.15d2a40d139e511a9b36.css",
+    "url": "/css/core.chunk.trader~account_dist_account_css_reset-trading-password-modal_css_e0dafe2b.6f4eaff62bb21641f116.css",
     "revision": null
   }, {
-    "url": "/css/core.main~A.61dbe0f5bd7996ac4100.main.css",
+    "url": "/css/core.main~A.650fe71472626875ee11.main.css",
     "revision": null
   }, {
-    "url": "/css/core.main~c.c7074606c3c2e9081d54.main.css",
+    "url": "/css/core.main~c.546c5c1c2267849ea77b.main.css",
     "revision": null
   }, {
-    "url": "/css/core.main~components_src_components_a.f8763fb68c31b823f1c8.main.css",
+    "url": "/css/core.main~components_src_components_a.e040a5952c1e43143876.main.css",
     "revision": null
   }, {
-    "url": "/css/core.main~components_src_components_c.853d4b0b2afbe79e0c69.main.css",
+    "url": "/css/core.main~components_src_components_c.c90a894b3ab4669dc6dd.main.css",
     "revision": null
   }, {
-    "url": "/css/core.main~components_src_components_l.81b89ed12ea0c6661027.main.css",
+    "url": "/css/core.main~components_src_components_l.92ed0efb45c7f65f12c9.main.css",
     "revision": null
   }, {
-    "url": "/css/core.main~s.6222db0df985512aa301.main.css",
+    "url": "/css/core.main~s.1bd276563b9865aa43a8.main.css",
     "revision": null
   }, {
-    "url": "/css/core.vendors-node_modules_deriv_deriv-api_dist_DerivAPIBasic_js-node_modules_deriv_deriv-onboardin-113c25.505d413c34558ce88a17.main.css",
+    "url": "/css/core.vendors-node_modules_deriv_deriv-api_dist_DerivAPIBasic_js-node_modules_deriv_deriv-onboardin-113c25.ddf2ce5d46c59196b44c.main.css",
     "revision": null
   }, {
     "url": "/favicon.ico",
     "revision": "0cb8c9c65c9adde7eec4f6f79e2f4076"
   }, {
-    "url": "/js/core.account-info.08d603ad6c668659b25b.js",
+    "url": "/js/core.account-info.ce00e035b989b3ecadbc.js",
     "revision": null
   }, {
-    "url": "/js/core.account-signup-modal.edf0f2f8c0c635c48b85.js",
+    "url": "/js/core.account-signup-modal.6526661b0f5ae0bb1b7c.js",
     "revision": null
   }, {
-    "url": "/js/core.account.cd062e109459f4ba6dd4.js",
+    "url": "/js/core.account.44cb5fb286ce80b030f1.js",
     "revision": null
   }, {
-    "url": "/js/core.bot.61c7ececcc5814053567.js",
+    "url": "/js/core.appstore.f58c1f29bf4a6fd116e3.js",
     "revision": null
   }, {
-    "url": "/js/core.cashier.91cfa8d74a6b80bc01b0.js",
+    "url": "/js/core.bot.cc8e8f7180b8d35f8e87.js",
+    "revision": null
+  }, {
+    "url": "/js/core.cashier.4f6ac00a37e575d326eb.js",
     "revision": null
   }, {
     "url": "/js/core.close-mx-mlt-account-modal.2ef0f326eaab056bf53d.js",
@@ -147,109 +156,106 @@ define(['./workbox-6ad7267b'], (function (workbox) { 'use strict';
     "url": "/js/core.complaints-policy.abfdb9f5be30c477c424.js",
     "revision": null
   }, {
-    "url": "/js/core.dashboard~Modules_Dashboard_d.d4d97d529a10d3c92188.js",
+    "url": "/js/core.main~App_C.999de31173fde10d153c.js",
     "revision": null
   }, {
-    "url": "/js/core.main~App_C.9764d3d9de215ee49499.js",
+    "url": "/js/core.main~App_Components_E.bf3e148a229e461de42b.js",
     "revision": null
   }, {
-    "url": "/js/core.main~App_Components_E.5df00ed0d3f36d79a95a.js",
+    "url": "/js/core.main~App_Cons.173c1363fdc866f2dceb.js",
     "revision": null
   }, {
-    "url": "/js/core.main~App_Cons.cbdd81e4993c19b5eeb6.js",
+    "url": "/js/core.main~As.886320f686bf878be0e7.js",
     "revision": null
   }, {
-    "url": "/js/core.main~As.1c118318a513e40240c1.js",
+    "url": "/js/core.main~Se.63cd82da9b6a55d429c0.js",
     "revision": null
   }, {
-    "url": "/js/core.main~Se.5715af6d5e18f59c6410.js",
+    "url": "/js/core.main~Stores_c.78fb539a5fe1b400a0c1.js",
     "revision": null
   }, {
-    "url": "/js/core.main~Stores_b.022af612996b3cf50b38.js",
+    "url": "/js/core.main~Stores_m.6bcff9500b2d342e8459.js",
     "revision": null
   }, {
-    "url": "/js/core.main~Stores_m.d844e942946342a810f5.js",
+    "url": "/js/core.main~U.3d48a7e11e002022ba0e.js",
     "revision": null
   }, {
-    "url": "/js/core.main~U.9e228ef6839d12561f65.js",
+    "url": "/js/core.main~account_dist_account_js_a.8111429453a6b3edbe86.js",
     "revision": null
   }, {
-    "url": "/js/core.main~account_dist_account_js_a.a73bf007adc780d1aec4.js",
+    "url": "/js/core.main~account_dist_account_js_account-limits_js_501e634c.656ac7a3c55e2065d024.js",
     "revision": null
   }, {
-    "url": "/js/core.main~account_dist_account_js_account-limits_js_501e634c.7aff950c9a991ffc5b36.js",
+    "url": "/js/core.main~account_dist_account_js_address-details_js_0928415f.8b6539db9b002f1e08ad.js",
     "revision": null
   }, {
-    "url": "/js/core.main~account_dist_account_js_address-details_js_0928415f.a4e0f5d4a33986615f35.js",
+    "url": "/js/core.main~account_dist_account_js_api-token_js_a71678f7.6c2b0c0a2df08747e44a.js",
     "revision": null
   }, {
-    "url": "/js/core.main~account_dist_account_js_api-token_js_a71678f7.4513020bf90444dbd538.js",
+    "url": "/js/core.main~account_dist_account_js_currency-selector_js_f2f9c8d9.e5a3a3898e2fddc2ed8b.js",
     "revision": null
   }, {
-    "url": "/js/core.main~account_dist_account_js_currency-selector_js_f2f9c8d9.df5311c5b7ec229f3668.js",
+    "url": "/js/core.main~account_dist_account_js_financial-details_js_0e7eaa58.e9b4c4b7cef47363b61a.js",
     "revision": null
   }, {
-    "url": "/js/core.main~account_dist_account_js_financial-details_js_0e7eaa58.672f537611aa5e0dae7b.js",
+    "url": "/js/core.main~account_dist_account_js_personal-details_js_21b2d6f5.156df3e6d1de1c4408f2.js",
     "revision": null
   }, {
-    "url": "/js/core.main~account_dist_account_js_personal-details_js_21b2d6f5.7b81e291d90cef19016a.js",
+    "url": "/js/core.main~account_dist_account_js_self-exclusion_js_6be4b9cc.8580604fd8e769505e87.js",
     "revision": null
   }, {
-    "url": "/js/core.main~account_dist_account_js_self-exclusion_js_6be4b9cc.dfc1c901df9f86e0ba1b.js",
+    "url": "/js/core.main~account_dist_account_js_terms-of-use_js_d9e09153.589cd387e197fe11c236.js",
     "revision": null
   }, {
-    "url": "/js/core.main~account_dist_account_js_terms-of-use_js_d9e09153.62afcb5928fee250fcd5.js",
+    "url": "/js/core.main~c.b4de049252e8d88fc1b9.js",
     "revision": null
   }, {
-    "url": "/js/core.main~c.acb62cd4ac6b2198c843.js",
+    "url": "/js/core.main~cashier_dist_cashier_js_cashier-store_js_77e8332f.c948ea2ac50d22c018c8.js",
     "revision": null
   }, {
-    "url": "/js/core.main~cashier_dist_cashier_js_cashier-store_js_77e8332f.80a74521f2a8691a9023.js",
+    "url": "/js/core.main~components_src_components_a.22e0a3e37c08a471779f.js",
     "revision": null
   }, {
-    "url": "/js/core.main~components_src_components_a.6fe2d79d3a2e00a7c426.js",
+    "url": "/js/core.main~components_src_components_c.b97bcb50767688bae304.js",
     "revision": null
   }, {
-    "url": "/js/core.main~components_src_components_c.4b5e4c3490b8b86b252f.js",
+    "url": "/js/core.main~components_src_components_l.4fccb8717a5ca95d5277.js",
     "revision": null
   }, {
-    "url": "/js/core.main~components_src_components_l.3225e53d08e5909c5cd8.js",
+    "url": "/js/core.main~s.5bd35a654ada30990012.js",
     "revision": null
   }, {
-    "url": "/js/core.main~s.8fbf13ecfa137e1d18bd.js",
+    "url": "/js/core.reality-check-modal.d4430aa11fcd1887976c.js",
     "revision": null
   }, {
-    "url": "/js/core.reality-check-modal.eab2e2d82088bbedc7ed.js",
+    "url": "/js/core.reset-or-unlink-password-modal.861063c7ff47982ccb0a.js",
     "revision": null
   }, {
-    "url": "/js/core.reset-or-unlink-password-modal.611970a60bf520ca9b25.js",
+    "url": "/js/core.reset-password-modal.9e22f842ade36679c48e.js",
     "revision": null
   }, {
-    "url": "/js/core.reset-password-modal.db520f01afa1c4b28d3a.js",
+    "url": "/js/core.set-residence-modal.2862a174b0b748ebf83b.js",
     "revision": null
   }, {
-    "url": "/js/core.set-residence-modal.3ac9145f21adad7146d6.js",
+    "url": "/js/core.settings-language.eaad1ce1f5636118c194.js",
     "revision": null
   }, {
-    "url": "/js/core.settings-language.f8be34a0159beb8d1e84.js",
+    "url": "/js/core.settings-theme.97629660e446235c9261.js",
     "revision": null
   }, {
-    "url": "/js/core.settings-theme.fc8346b159c3ce301802.js",
+    "url": "/js/core.trader~account_dist_account_c.3319e993b192aeca1333.js",
     "revision": null
   }, {
-    "url": "/js/core.trader~account_dist_account_c.053decba1639e4cd2b5c.js",
+    "url": "/js/core.trader~account_dist_account_js_p.c75b19c8d9ac11a4dafe.js",
     "revision": null
   }, {
-    "url": "/js/core.trader~account_dist_account_js_p.cbdf875b7227933e39d8.js",
+    "url": "/js/core.trader~account_dist_account_js_reset-trading-password-modal_js_ff517517.21c07e2401e02d33e21f.js",
     "revision": null
   }, {
-    "url": "/js/core.trader~account_dist_account_js_reset-trading-password-modal_js_ff517517.2ff455a22b95d442d9fc.js",
+    "url": "/js/core.trader~trader_dist_trader_js_trader_js_4e59f282.d1470f89e9794dff791e.js",
     "revision": null
   }, {
-    "url": "/js/core.trader~trader_dist_trader_js_trader_js_4e59f282.bdca9b01a58d7edc0c9b.js",
-    "revision": null
-  }, {
-    "url": "/js/core.vendors-node_modules_attr-accept_dist_es_index_js-node_modules_babel-polyfill_lib_index_js-no-f681a3.08cd2e02c4c583323fed.js",
+    "url": "/js/core.vendors-node_modules_attr-accept_dist_es_index_js-node_modules_babel-polyfill_lib_index_js-no-0a26ff.241e6fdce6b10956cef9.js",
     "revision": null
   }, {
     "url": "/js/core.vendors-node_modules_contentpass_zxcvbn_lib_frequency_lists_js.6314af75fb93509061cc.js",
@@ -258,10 +264,10 @@ define(['./workbox-6ad7267b'], (function (workbox) { 'use strict';
     "url": "/js/core.vendors-node_modules_contentpass_zxcvbn_lib_main_js.3a05d03cce725e083ad0.js",
     "revision": null
   }, {
-    "url": "/js/core.vendors-node_modules_core-js_fn_regexp_escape_js-node_modules_core-js_shim_js-node_modules_cr-1e24ef.c0b0d14f0ba91e1df616.js",
+    "url": "/js/core.vendors-node_modules_core-js_fn_regexp_escape_js-node_modules_core-js_shim_js-node_modules_cr-1e24ef.e6086a3f68d1a56cfe96.js",
     "revision": null
   }, {
-    "url": "/js/core.vendors-node_modules_deriv_deriv-api_dist_DerivAPIBasic_js-node_modules_deriv_deriv-onboardin-113c25.f1949b5de0a6dde08a80.js",
+    "url": "/js/core.vendors-node_modules_deriv_deriv-api_dist_DerivAPIBasic_js-node_modules_deriv_deriv-onboardin-113c25.d3d107bebeccc27590b5.js",
     "revision": null
   }, {
     "url": "/js/core.vendors-node_modules_event-source-polyfill_src_eventsource_js-node_modules_extend_index_js-no-fba8d5.af2e65a6ae5e05c13067.js",
@@ -279,16 +285,16 @@ define(['./workbox-6ad7267b'], (function (workbox) { 'use strict';
     "url": "/js/core.vendors-node_modules_mobx-react_dist_mobxreact_esm_js.7f175c41e30414e662d4.js",
     "revision": null
   }, {
-    "url": "/js/core.vendors-node_modules_moment_moment_js.76690f1c1a7ac8f7cb6f.js",
+    "url": "/js/core.vendors-node_modules_moment_moment_js.e86bf06b0532b0dcdfc2.js",
     "revision": null
   }, {
     "url": "/js/core.vendors-node_modules_object-assign_index_js-node_modules_object-inspect_index_js-node_modules-a2e9f6.61adc0a8458097336b95.js",
     "revision": null
   }, {
-    "url": "/js/core.vendors-node_modules_promise-polyfill_src_index_js-node_modules_prop-types_index_js.5c4dd3223275beba1ee9.js",
+    "url": "/js/core.vendors-node_modules_promise-polyfill_src_index_js-node_modules_prop-types_index_js.b836b0dc31f0b5406149.js",
     "revision": null
   }, {
-    "url": "/js/core.vendors-node_modules_raf_index_js-node_modules_react-content-loader_dist_react-content-loader-574c93.17c2e0830fd83b81935c.js",
+    "url": "/js/core.vendors-node_modules_raf_index_js-node_modules_react-content-loader_dist_react-content-loader-0730e5.f7d0d5f7924b10c8fc48.js",
     "revision": null
   }, {
     "url": "/js/core.vendors-node_modules_react-lifecycles-compat_react-lifecycles-compat_es_js-node_modules_react-4a5024.23da4274723ca1a007eb.js",
@@ -309,13 +315,13 @@ define(['./workbox-6ad7267b'], (function (workbox) { 'use strict';
     "url": "/js/core.vendors-node_modules_rooks_use-mutation-observer_lib_index_esm_js-node_modules_scheduler_inde-a1a9fe.f95c2826c9ad889be437.js",
     "revision": null
   }, {
-    "url": "/js/core.vendors-node_modules_scroll-smooth_dist_index_js-node_modules_scrollparent_scrollparent_js-no-7b71e5.882481a3bdd928f24856.js",
+    "url": "/js/core.vendors-node_modules_scroll-smooth_dist_index_js-node_modules_scrollparent_scrollparent_js-no-7b71e5.67a74b03833f6dacce9e.js",
     "revision": null
   }, {
-    "url": "/js/core.vendors-node_modules_web-push-notifications_lib_index_js.0b27a6a46326bdb2fa4f.js",
+    "url": "/js/core.vendors-node_modules_web-push-notifications_lib_index_js.8888eea4015d62dffb93.js",
     "revision": null
   }, {
-    "url": "/js/core.welcome-modal~Ap.31f64a0d19179dbff99e.js",
+    "url": "/js/core.welcome-modal~Ap.8aaca7f68486ca788025.js",
     "revision": null
   }, {
     "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_cfds_svg_af25ac66.1a71e744aad539675cd1.js",
@@ -324,7 +330,7 @@ define(['./workbox-6ad7267b'], (function (workbox) { 'use strict';
     "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_digital-options-mobile_svg_a765406b.746837f1f5e1f09b43e3.js",
     "revision": null
   }, {
-    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_digital-options_svg_6a6a8cad.807227e37900ca345fbf.js",
+    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_digital-options_svg_6a6a8cad.f48c24fa9583f184adc5.js",
     "revision": null
   }, {
     "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_multipliers-mobile_svg_48db1f53.9b6d542e4b970ac5a38c.js",
@@ -384,6 +390,9 @@ define(['./workbox-6ad7267b'], (function (workbox) { 'use strict';
     "url": "/public/images/common/ng_voter_id.png",
     "revision": "47f0de9fd4bf1da1b9bda784889d7fd0"
   }, {
+    "url": "/public/images/common/trustpilot_banner.png",
+    "revision": "1561d90dfa4e20595ff9a3c4b3b8e239"
+  }, {
     "url": "/public/images/common/welcome-bg-blue.b45a36e7985e837390d4dbec26bf1dce.svg",
     "revision": "d3de1dd75990ffc283952ec5e747d03c"
   }, {
@@ -441,20 +450,17 @@ define(['./workbox-6ad7267b'], (function (workbox) { 'use strict';
     "url": "/public/sprites/brand.b3f15ed36d0d2db95a0646380655b7a2.svg",
     "revision": "20ad1e2992e66ccbba6c61f2e9079be0"
   }, {
-    "url": "/public/sprites/cashier.fc27bfcd5a3e8e0a2d2ffe74ae797e0d.svg",
-    "revision": "e511f5dcb9dca4f2cef7659855a3888a"
+    "url": "/public/sprites/cashier.b5226ef15b8e336be02e934751407c05.svg",
+    "revision": "b2a0489285f8c5265f87024f6b7983fe"
   }, {
-    "url": "/public/sprites/common.d434b547b146671b277028915f2c63ae.svg",
-    "revision": "6b0a02b60cbe2767c47170bf9d1de237"
+    "url": "/public/sprites/common.9156656266985d789c31b4e6e7246117.svg",
+    "revision": "db989c8e386539b9b1ed3f1612e5268f"
   }, {
     "url": "/public/sprites/contract.1ca5743a5b5f7fd7201608c9301cc540.svg",
     "revision": "b505df6ba2e73a30257f3ccb7e1af7e1"
   }, {
     "url": "/public/sprites/currency.bb01e214db4460f58372ecb28c62765e.svg",
     "revision": "3955f98d0403f371acffa892627a39c6"
-  }, {
-    "url": "/public/sprites/dashboard.1416f37be58e2bd4617691820715c53b.svg",
-    "revision": "05ff54d36b55c456f529b2edaf1fd83f"
   }, {
     "url": "/public/sprites/dxtrade.3a8eee97254a48a1ca9cff7ba17491c8.svg",
     "revision": "177fb07c55e16c9e2f392e73fca70a89"
