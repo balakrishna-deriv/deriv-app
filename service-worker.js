@@ -97,25 +97,22 @@ define(['./workbox-461a00f8'], (function (workbox) { 'use strict';
     "revision": "bacfb981b02dcc41b09aae2e529720d4"
   }, {
     "url": "/appstore/js/index.js",
-    "revision": "5215859e0ee1ea8f8bc1be094270633f"
+    "revision": "5770732d6aab12dbb9c9c16c740f366d"
   }, {
-    "url": "/cfd/css/cfd.cfd-app.5e19fe821e1693655c98.css",
-    "revision": "712687282e114fc3ce25f44b35cf3048"
+    "url": "/cfd/css/cfd.cfd-app.8c3af5a8e2a08b17ee93.css",
+    "revision": "609d0bd771388c68c4b266e55812f00d"
   }, {
-    "url": "/cfd/css/cfd.cfd-app.86bb0c4d74c785ef2d87.css",
-    "revision": "fbea88c80faac3901a6c9a6f7c387276"
+    "url": "/cfd/js/cfd.404.bedbbbd32e89c9ef566d.js",
+    "revision": "6815aaaea3cb9b179173f0b7959080fe"
   }, {
-    "url": "/cfd/js/cfd.404.fc25d64939f5696d4263.js",
-    "revision": "81877dfd4858efaa21ac986d8323355f"
-  }, {
-    "url": "/cfd/js/cfd.cfd-app.30fbdc65ac639e21a6f4.js",
-    "revision": "1f39cd99f1b5ddb2491747689ebf2695"
+    "url": "/cfd/js/cfd.cfd-app.b9ceee9a88ca1970583c.js",
+    "revision": "39bfaaac344c5b78161545365db7b821"
   }, {
     "url": "/cfd/js/cfd.js",
-    "revision": "117543b9fbd8fec7049a1c210f0a340b"
+    "revision": "11009f9eb95afe9816741484f5ffdfd5"
   }, {
-    "url": "/cfd/js/cfd.vendors-node_modules_classnames_index_js-node_modules_formik_dist_formik_esm_js-node_modules_-611d03.84adde2259ac28334f4f.js",
-    "revision": "31eeaef9e14503d9d6c7daa9610bcf3f"
+    "url": "/cfd/js/cfd.vendors-node_modules_classnames_index_js-node_modules_formik_dist_formik_esm_js-node_modules_-611d03.4d87207c4cf8909cc15c.js",
+    "revision": "4d34c6d23d1e6ea5117e1b7bd2a7a110"
   }, {
     "url": "/css/core.chunk.account-signup-modal.ad24b7330307616a6ae8.css",
     "revision": null
@@ -132,163 +129,160 @@ define(['./workbox-461a00f8'], (function (workbox) { 'use strict';
     "url": "/css/core.chunk.set-residence-modal.afdf6e9925f0446996ba.css",
     "revision": null
   }, {
-    "url": "/css/core.main~A.dc8f335df7c1ed2489a6.main.css",
+    "url": "/css/core.main~A.fa9e3b7aac358ae84c15.main.css",
     "revision": null
   }, {
-    "url": "/css/core.main~c.edd5ebc0e53882f33b52.main.css",
+    "url": "/css/core.main~c.c3519cd7ec97e2cd7f42.main.css",
     "revision": null
   }, {
-    "url": "/css/core.main~components_src_components_a.b25dd81654e4eaedbff0.main.css",
+    "url": "/css/core.main~components_src_components_a.edb07228a13a4183eca1.main.css",
     "revision": null
   }, {
-    "url": "/css/core.main~components_src_components_c.f333924dfe05644f18f4.main.css",
+    "url": "/css/core.main~components_src_components_c.3778d047f8cc939874a5.main.css",
     "revision": null
   }, {
-    "url": "/css/core.main~components_src_components_l.9c60e7e4d8dacfeb475f.main.css",
+    "url": "/css/core.main~components_src_components_l.d1d916615d00462c0092.main.css",
     "revision": null
   }, {
-    "url": "/css/core.main~s.b4545b196b788ed33b3c.main.css",
+    "url": "/css/core.main~s.0ce3d9ebeb0a830f58fc.main.css",
     "revision": null
   }, {
-    "url": "/css/core.vendors-node_modules_deriv_deriv-api_dist_DerivAPIBasic_js-node_modules_deriv_deriv-onboardin-450632.10512218127fe2efbfc6.main.css",
+    "url": "/css/core.vendors-node_modules_deriv_deriv-api_dist_DerivAPIBasic_js-node_modules_deriv_deriv-onboardin-a0d54e.e3d77da6e7a574e0c178.main.css",
     "revision": null
   }, {
-    "url": "/js/core.account-info.2d65bcb713d7ca7c0c19.js",
+    "url": "/js/core.account-info.d1914d7c2a0417dc8865.js",
     "revision": null
   }, {
-    "url": "/js/core.account-signup-modal.e1e11be8ca2e6fa6cddd.js",
+    "url": "/js/core.account-signup-modal.90db4cf85d33ab53d4b0.js",
     "revision": null
   }, {
-    "url": "/js/core.account.2e06cd60cf5f5533b18d.js",
+    "url": "/js/core.account.0d3d8253c24f7884fe2c.js",
     "revision": null
   }, {
-    "url": "/js/core.appstore.aa08dff485fd9d0d3ee4.js",
+    "url": "/js/core.appstore.0900e30d0db5a8944ea4.js",
     "revision": null
   }, {
-    "url": "/js/core.bot.8c26af0c9660d7e69e96.js",
+    "url": "/js/core.bot.86d345f17958e32c4423.js",
     "revision": null
   }, {
-    "url": "/js/core.cashier.1f32d51fd9bb612f27cf.js",
+    "url": "/js/core.cashier.03a66da1b53fbf8eb3e2.js",
     "revision": null
   }, {
-    "url": "/js/core.cfd~account_dist_account_c.5a8b19b9b37d318e3f4a.js",
+    "url": "/js/core.cfd~a.5b5526fed7f6cb8065cf.js",
     "revision": null
   }, {
-    "url": "/js/core.cfd~account_dist_account_js_poa-e.d9700ee9ee6e52b7d2a0.js",
+    "url": "/js/core.cfd~account_dist_account_c.b96418d358b6cd26f6e6.js",
     "revision": null
   }, {
-    "url": "/js/core.cfd~account_dist_account_js_reset-trading-password-modal_js_ff517517.688f7c6dd28b6eb3329c.js",
+    "url": "/js/core.cfd~account_dist_account_js_reset-trading-password-modal_js_ff517517.80dc337ca01b76288ca3.js",
     "revision": null
   }, {
-    "url": "/js/core.cfd~cfd_dist_cfd_js_cfd_js_3be34de1.8a0249a11522e598c497.js",
+    "url": "/js/core.close-mx-mlt-account-modal.02c058476877b48bca55.js",
     "revision": null
   }, {
-    "url": "/js/core.close-mx-mlt-account-modal.06dca10cf9a265d6dc0a.js",
+    "url": "/js/core.complaints-policy.4ae3b419552723b68fb7.js",
     "revision": null
   }, {
-    "url": "/js/core.complaints-policy.abfdb9f5be30c477c424.js",
+    "url": "/js/core.default-account_dist_account_js_sent-email-modal_js.6b011f312ed49b5b54a4.js",
     "revision": null
   }, {
-    "url": "/js/core.default-account_dist_account_js_sent-email-modal_js.48a04ebaf328d1fdd406.js",
+    "url": "/js/core.main~App_C.0e9f638994f65af636e5.js",
     "revision": null
   }, {
-    "url": "/js/core.main~App_C.351d7352145b9808be90.js",
+    "url": "/js/core.main~App_Components_E.ff3da70ad86506d16cad.js",
     "revision": null
   }, {
-    "url": "/js/core.main~App_Components_E.4164469f5c590f2a52bc.js",
+    "url": "/js/core.main~App_Cons.26a5120a156c925ee966.js",
     "revision": null
   }, {
-    "url": "/js/core.main~App_Cons.2ff44405323f0f974e73.js",
+    "url": "/js/core.main~As.5984564e01b2c1a9bbbc.js",
     "revision": null
   }, {
-    "url": "/js/core.main~As.085ff03b0fc5168b5b09.js",
+    "url": "/js/core.main~Se.cc498c9dd505e07582dd.js",
     "revision": null
   }, {
-    "url": "/js/core.main~Se.d5b3e7251b2ca61f5c6f.js",
+    "url": "/js/core.main~Stores_c.a8b4a4c6ae2f65ef19fa.js",
     "revision": null
   }, {
-    "url": "/js/core.main~Stores_c.d529c6e316be81b883a1.js",
+    "url": "/js/core.main~Stores_m.ea7f31a3a58ac35a58f0.js",
     "revision": null
   }, {
-    "url": "/js/core.main~Stores_m.c4238656018a6048f954.js",
+    "url": "/js/core.main~U.faeb24555f4765891ebf.js",
     "revision": null
   }, {
-    "url": "/js/core.main~U.441185d0ca5bfa2b8fea.js",
+    "url": "/js/core.main~account_dist_account_js_a.fc8712a99dfa6dfc5148.js",
     "revision": null
   }, {
-    "url": "/js/core.main~account_dist_account_js_a.249620d16cade1d31a31.js",
+    "url": "/js/core.main~account_dist_account_js_account-limits_js_501e634c.8ee9801b95b6eab35347.js",
     "revision": null
   }, {
-    "url": "/js/core.main~account_dist_account_js_account-limits_js_501e634c.50a76f6b2fc2274e9dfa.js",
+    "url": "/js/core.main~account_dist_account_js_address-details_js_0928415f.c2cc11dbfeff12e33393.js",
     "revision": null
   }, {
-    "url": "/js/core.main~account_dist_account_js_address-details_js_0928415f.ce02fe7f7060e073fe0f.js",
+    "url": "/js/core.main~account_dist_account_js_api-token_js_a71678f7.feda82a338084a1ce5d0.js",
     "revision": null
   }, {
-    "url": "/js/core.main~account_dist_account_js_api-token_js_a71678f7.a08a174e3e720d9f60cb.js",
+    "url": "/js/core.main~account_dist_account_js_currency-selector_js_f2f9c8d9.fa5808991706f92dc850.js",
     "revision": null
   }, {
-    "url": "/js/core.main~account_dist_account_js_currency-selector_js_f2f9c8d9.4d15f4aa6e92107566b4.js",
+    "url": "/js/core.main~account_dist_account_js_financial-details_js_0e7eaa58.86c3528909ae85a19208.js",
     "revision": null
   }, {
-    "url": "/js/core.main~account_dist_account_js_financial-details_js_0e7eaa58.b9a2fe3924594a5b24d7.js",
+    "url": "/js/core.main~account_dist_account_js_personal-details_js_21b2d6f5.8dccf2a331e288661dca.js",
     "revision": null
   }, {
-    "url": "/js/core.main~account_dist_account_js_personal-details_js_21b2d6f5.8b02caeac6efe2a45f0c.js",
+    "url": "/js/core.main~account_dist_account_js_self-exclusion_js_6be4b9cc.985ec187cbeb89768297.js",
     "revision": null
   }, {
-    "url": "/js/core.main~account_dist_account_js_self-exclusion_js_6be4b9cc.102b13f1491a3cb55d2b.js",
+    "url": "/js/core.main~account_dist_account_js_terms-of-use_js_d9e09153.5b646d210590b58419fa.js",
     "revision": null
   }, {
-    "url": "/js/core.main~account_dist_account_js_terms-of-use_js_d9e09153.31510695ef723b698f99.js",
+    "url": "/js/core.main~c.b8b77bd855c9dff9801b.js",
     "revision": null
   }, {
-    "url": "/js/core.main~c.873ece307a8cb1db37e0.js",
+    "url": "/js/core.main~cashier_dist_cashier_js_cashier-store_js_77e8332f.254f7a7322d5961132c6.js",
     "revision": null
   }, {
-    "url": "/js/core.main~cashier_dist_cashier_js_cashier-store_js_77e8332f.824851f162c3fce11a66.js",
+    "url": "/js/core.main~components_src_components_a.78a4642b66e47718eaac.js",
     "revision": null
   }, {
-    "url": "/js/core.main~components_src_components_a.131ddb63f5b2fe12045c.js",
+    "url": "/js/core.main~components_src_components_c.3330bdde3f6074823b33.js",
     "revision": null
   }, {
-    "url": "/js/core.main~components_src_components_c.ef6c08c71524e915fd0f.js",
+    "url": "/js/core.main~components_src_components_l.c8889c17cfd65af809d8.js",
     "revision": null
   }, {
-    "url": "/js/core.main~components_src_components_l.edcbec55b884f92500a9.js",
+    "url": "/js/core.main~s.0397fbf1bbeae0aaf81f.js",
     "revision": null
   }, {
-    "url": "/js/core.main~s.b71bfca341dae20885b0.js",
+    "url": "/js/core.reality-check-modal.8653653dca30db66fb82.js",
     "revision": null
   }, {
-    "url": "/js/core.reality-check-modal.e8a5acd3d813a47130e2.js",
+    "url": "/js/core.reset-email-modal.1fde5adfa031e0323ef3.js",
     "revision": null
   }, {
-    "url": "/js/core.reset-email-modal.f3a9d0132c1276ebf8a1.js",
+    "url": "/js/core.reset-or-unlink-password-modal.c5b915c94f8fcdc679a2.js",
     "revision": null
   }, {
-    "url": "/js/core.reset-or-unlink-password-modal.bce8fa87f0c3233a1010.js",
+    "url": "/js/core.reset-password-modal.2a6309f0468add36b5c7.js",
     "revision": null
   }, {
-    "url": "/js/core.reset-password-modal.ee4bc5c1bf35ca93e753.js",
-    "revision": null
-  }, {
-    "url": "/js/core.set-residence-modal.f7c03ed4ae28da5ad114.js",
+    "url": "/js/core.set-residence-modal.47454436f6c778264b8c.js",
     "revision": null
   }, {
     "url": "/js/core.settings-language.eaad1ce1f5636118c194.js",
     "revision": null
   }, {
-    "url": "/js/core.settings-theme.ea112e28e87e1b55faec.js",
+    "url": "/js/core.settings-theme.1b2700241032096e1e53.js",
     "revision": null
   }, {
-    "url": "/js/core.trader.45e8521bd13b66a5c636.js",
+    "url": "/js/core.trader.5191c5b850b1f31cfce8.js",
     "revision": null
   }, {
-    "url": "/js/core.update-email-modal.785ba17f413c9d281ea6.js",
+    "url": "/js/core.update-email-modal.ae6d8cf1cf76f15995d9.js",
     "revision": null
   }, {
-    "url": "/js/core.vendors-node_modules_attr-accept_dist_es_index_js-node_modules_babel-polyfill_lib_index_js-no-0a26ff.241e6fdce6b10956cef9.js",
+    "url": "/js/core.vendors-node_modules_attr-accept_dist_es_index_js-node_modules_babel-polyfill_lib_index_js-no-0a26ff.c8bdca68a696c1b8181f.js",
     "revision": null
   }, {
     "url": "/js/core.vendors-node_modules_contentpass_zxcvbn_lib_frequency_lists_js.6314af75fb93509061cc.js",
@@ -300,40 +294,40 @@ define(['./workbox-461a00f8'], (function (workbox) { 'use strict';
     "url": "/js/core.vendors-node_modules_core-js_fn_regexp_escape_js-node_modules_core-js_shim_js-node_modules_cr-1e24ef.e6086a3f68d1a56cfe96.js",
     "revision": null
   }, {
-    "url": "/js/core.vendors-node_modules_deriv_deriv-api_dist_DerivAPIBasic_js-node_modules_deriv_deriv-onboardin-450632.cc5c56bfa44b7e1f7131.js",
+    "url": "/js/core.vendors-node_modules_deriv_deriv-api_dist_DerivAPIBasic_js-node_modules_deriv_deriv-onboardin-a0d54e.17a353c561689b993c10.js",
     "revision": null
   }, {
-    "url": "/js/core.vendors-node_modules_event-source-polyfill_src_eventsource_js-node_modules_extend_index_js-no-fba8d5.af2e65a6ae5e05c13067.js",
+    "url": "/js/core.vendors-node_modules_emotion_hash_dist_hash_esm_js-node_modules_emotion_is-prop-valid_dist_is-36ab0b.9db7fe3442fb21f67ba2.js",
     "revision": null
   }, {
-    "url": "/js/core.vendors-node_modules_file-selector_dist_es5_index_js-node_modules_focus-lock_dist_es2015_inde-232aed.567960f24071857f550b.js",
+    "url": "/js/core.vendors-node_modules_file-selector_dist_es5_index_js-node_modules_focus-lock_dist_es2015_inde-6f23a7.18eceb8c4a77b8362ca8.js",
     "revision": null
   }, {
     "url": "/js/core.vendors-node_modules_html-escaper_esm_index_js-node_modules_html-parse-stringify_dist_html-pa-7ef592.df302d1760063ebd31c7.js",
     "revision": null
   }, {
-    "url": "/js/core.vendors-node_modules_is-callable_index_js-node_modules_is-date-object_index_js-node_modules_i-ae07a7.9ffd65670d4b7b7d4b38.js",
+    "url": "/js/core.vendors-node_modules_is-callable_index_js-node_modules_is-date-object_index_js-node_modules_i-2fb22e.2033b97765beec6a9cdb.js",
     "revision": null
   }, {
-    "url": "/js/core.vendors-node_modules_mini-create-react-context_dist_esm_index_js-node_modules_mobx-react_dist-7803fa.2d4c6b77a8344fd3531b.js",
+    "url": "/js/core.vendors-node_modules_mobx-react_dist_mobxreact_esm_js.7f175c41e30414e662d4.js",
     "revision": null
   }, {
     "url": "/js/core.vendors-node_modules_moment_moment_js.aef452b86ea61092e2b4.js",
     "revision": null
   }, {
-    "url": "/js/core.vendors-node_modules_object-assign_index_js-node_modules_object-inspect_index_js-node_modules-47ff9e.335020b5d9a7623f934b.js",
+    "url": "/js/core.vendors-node_modules_object-assign_index_js-node_modules_object-inspect_index_js-node_modules-a2e9f6.61adc0a8458097336b95.js",
     "revision": null
   }, {
-    "url": "/js/core.vendors-node_modules_promise-polyfill_src_index_js-node_modules_prop-types_index_js.3888ab3fa515b90ddc7d.js",
+    "url": "/js/core.vendors-node_modules_promise-polyfill_src_index_js-node_modules_prop-types_index_js.b836b0dc31f0b5406149.js",
     "revision": null
   }, {
-    "url": "/js/core.vendors-node_modules_raf_index_js-node_modules_react-content-loader_dist_react-content-loader-785109.2631f47db986afabc19b.js",
+    "url": "/js/core.vendors-node_modules_raf_index_js-node_modules_react-content-loader_dist_react-content-loader-0730e5.f5b51b1450b41a42d492.js",
     "revision": null
   }, {
-    "url": "/js/core.vendors-node_modules_react-lifecycles-compat_react-lifecycles-compat_es_js-node_modules_react-54b804.107dc1e0847fcd4bb2cf.js",
+    "url": "/js/core.vendors-node_modules_react-lifecycles-compat_react-lifecycles-compat_es_js-node_modules_react-4a5024.23da4274723ca1a007eb.js",
     "revision": null
   }, {
-    "url": "/js/core.vendors-node_modules_react-swipeable_es_index_js-node_modules_react-tiny-popover_dist_Popover_js.c9a955e93b28134b430f.js",
+    "url": "/js/core.vendors-node_modules_react-router-dom_esm_react-router-dom_js-node_modules_react-swipeable_es-5aae27.16487dd47e04c523fb74.js",
     "revision": null
   }, {
     "url": "/js/core.vendors-node_modules_react-transition-group_esm_CSSTransition_js-node_modules_react-transitio-85c8d7.259be7f9880d6fe824bd.js",
@@ -348,22 +342,22 @@ define(['./workbox-461a00f8'], (function (workbox) { 'use strict';
     "url": "/js/core.vendors-node_modules_rooks_use-mutation-observer_lib_index_esm_js-node_modules_scheduler_inde-a1a9fe.f95c2826c9ad889be437.js",
     "revision": null
   }, {
-    "url": "/js/core.vendors-node_modules_scroll-smooth_dist_index_js-node_modules_scrollparent_scrollparent_js-no-e650d6.3be30d79451a539d3bfb.js",
+    "url": "/js/core.vendors-node_modules_scroll-smooth_dist_index_js-node_modules_scrollparent_scrollparent_js-no-e650d6.c4d38903e5ce6119de7d.js",
     "revision": null
   }, {
-    "url": "/js/core.vendors-node_modules_web-push-notifications_lib_index_js.bd027dd80524ed7ba87a.js",
+    "url": "/js/core.vendors-node_modules_web-push-notifications_lib_index_js.12b265546434f781700d.js",
     "revision": null
   }, {
-    "url": "/js/core.welcome-modal~Ap.9746b010ec3bd54c337e.js",
+    "url": "/js/core.welcome-modal~Ap.507b4a51f1d18bbeae17.js",
     "revision": null
   }, {
     "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_cfds_svg_af25ac66.1a71e744aad539675cd1.js",
     "revision": null
   }, {
-    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_digital-options-mobile_svg_a765406b.abc7acf2f6b006fb3d9b.js",
+    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_digital-options-mobile_svg_a765406b.746837f1f5e1f09b43e3.js",
     "revision": null
   }, {
-    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_digital-options_svg_6a6a8cad.f48c24fa9583f184adc5.js",
+    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_digital-options_svg_6a6a8cad.807227e37900ca345fbf.js",
     "revision": null
   }, {
     "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_multipliers-mobile_svg_48db1f53.9b6d542e4b970ac5a38c.js",
@@ -372,10 +366,10 @@ define(['./workbox-461a00f8'], (function (workbox) { 'use strict';
     "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_multipliers_svg_67df4c4b.0424adfe4efa50488187.js",
     "revision": null
   }, {
-    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_not-sure-mobile_svg_9ad91f0b.52d93385881de977fae4.js",
+    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_not-sure-mobile_svg_9ad91f0b.b53d581de5280e10de8e.js",
     "revision": null
   }, {
-    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_not-sure_svg_a469acfa.17389f1cf89927d97693.js",
+    "url": "/js/core.welcome-modal~Assets_SvgComponents_onboarding_not-sure_svg_a469acfa.2e56a368d9cc878795a8.js",
     "revision": null
   }, {
     "url": "/public/images/app/header/dbot-logo.svg",
@@ -435,44 +429,44 @@ define(['./workbox-461a00f8'], (function (workbox) { 'use strict';
     "url": "/public/images/common/za_national_identity_card.png",
     "revision": "48c0447163401fe1d2705072a7f1c9e8"
   }, {
-    "url": "/public/sprites/brand.b3f15ed36d0d2db95a0646380655b7a2.svg",
-    "revision": "20ad1e2992e66ccbba6c61f2e9079be0"
+    "url": "/public/sprites/brand.56ec21e4fcb0a8bca6e62e47f572a733.svg",
+    "revision": "0f6041a91b6ea16d17432bd464dd7992"
   }, {
-    "url": "/public/sprites/cashier.b5226ef15b8e336be02e934751407c05.svg",
-    "revision": "b2a0489285f8c5265f87024f6b7983fe"
+    "url": "/public/sprites/cashier.a3d892c305d8e20905303cecd5fb2a1d.svg",
+    "revision": "29854ac7a9e353f64c9c0d98df6b030b"
   }, {
-    "url": "/public/sprites/common.8248629c00589b9b2f199a888de83120.svg",
-    "revision": "b2ed784cb83a08ed6868e34bde082a3e"
+    "url": "/public/sprites/common.d459a80078042e3ed2a2f2578c998305.svg",
+    "revision": "5673249638a298826457f4abe4ae30d7"
   }, {
-    "url": "/public/sprites/contract.1ca5743a5b5f7fd7201608c9301cc540.svg",
-    "revision": "b505df6ba2e73a30257f3ccb7e1af7e1"
+    "url": "/public/sprites/contract.614047cd51e852022a73b7f0c046e18c.svg",
+    "revision": "223a5b27d5ba72945b133452e94ba8b1"
   }, {
     "url": "/public/sprites/currency.bb01e214db4460f58372ecb28c62765e.svg",
     "revision": "3955f98d0403f371acffa892627a39c6"
   }, {
-    "url": "/public/sprites/dxtrade.3a8eee97254a48a1ca9cff7ba17491c8.svg",
-    "revision": "177fb07c55e16c9e2f392e73fca70a89"
+    "url": "/public/sprites/dxtrade.d9814f9b5065ec92724af3b5a7dc1d66.svg",
+    "revision": "ecfe7295e475d906786335746cc8a790"
   }, {
     "url": "/public/sprites/flag.2679f4a3231842793a9c71fec07e0f8b.svg",
     "revision": "0b6be63adf18362585e1f439d7d20bae"
   }, {
-    "url": "/public/sprites/mt5.9eefdebfceac37a07bc45349dfcb533f.svg",
-    "revision": "c7c45ecc8d96bafbcd71b31389e3d078"
+    "url": "/public/sprites/mt5.e21b32c9673248bdcd3a92c6849e7d6b.svg",
+    "revision": "7c1b377d0db98a8b159c05f2e5549f8b"
   }, {
-    "url": "/public/sprites/option.3971bb040600e58a1e30dc008551a163.svg",
-    "revision": "be90e5e9d25a16c5ebabf8c6b698dd57"
+    "url": "/public/sprites/option.007808af06aed63888e0255c02b8d914.svg",
+    "revision": "618bf860321a39216b254ac838676259"
   }, {
-    "url": "/public/sprites/stock.1a672b1203ae2066f107a58ffb137c9c.svg",
-    "revision": "d8505022d6f871323ddb92c18208246a"
+    "url": "/public/sprites/stock.73b654850474ad787a20d6770b5a69fa.svg",
+    "revision": "dac92a9001f18f2ea8f23a25d6c254e9"
   }, {
-    "url": "/public/sprites/tradetype.b9ed31953cc8da3d84bafb6f5e62ee3b.svg",
-    "revision": "04d969ea5b62d0ad45915b5ace954021"
+    "url": "/public/sprites/tradetype.bb5fa27f165da22ad14daffcea6213e0.svg",
+    "revision": "bfb97a8a82e35396e8220c2a1cd39ac9"
   }, {
-    "url": "/public/sprites/underlying.8a87b48f77ed0ef90c3956e0388cb2e1.svg",
-    "revision": "9f46924f43ab90194b035a6071eebace"
+    "url": "/public/sprites/underlying.637e9d34f377ca84f61655c57d00d64e.svg",
+    "revision": "b4a9480b8babe6a68ce25dc4fed50f72"
   }, {
-    "url": "/public/sprites/wallet.04e5a96d8a64d80ba390218d17c0a487.svg",
-    "revision": "a385d07b496daa519f7d61ca8cda77df"
+    "url": "/public/sprites/wallet.8a3b0289e2927d3f8824c107c248a919.svg",
+    "revision": "3ffdd324b42bbe3b1257d575c38d6e31"
   }], {});
   workbox.cleanupOutdatedCaches();
 
