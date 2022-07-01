@@ -6,7 +6,6 @@ on:
 
 jobs:
   generate_and_push_deriv_api_types:
-    if: github.repository == 'binary-com/deriv-app'
     runs-on: "ubuntu-latest"
     steps:
       - name: Setup node
