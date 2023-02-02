@@ -1,6 +1,6 @@
 {
   "main.css": "/css/core.main.1f78f609d33d6a43736c.main.css",
-  "main.js": "/js/core.main.f97766d055f1f07600ff.js",
+  "main.js": "/js/core.main.14204092a48b0cfcbc6f.js",
   "trader.css": "/css/core.chunk.trader.675183eed09ab9b8963a.css",
   "trader.js": "/js/core.trader.a312fd7ef75d91b716c5.js",
   "ar-json.js": "/js/core.ar-json.39e8ebedb9576491757e.js",
@@ -9,7 +9,7 @@
   "bot.js": "/js/core.bot.1c172af46d576efc0725.js",
   "cfd.css": "/css/core.chunk.cfd.9b4bae566d02d7d666df.css",
   "cfd.js": "/js/core.cfd.ab4d6f65fb47d6c0d183.js",
-  "welcome-modal.js": "/js/core.welcome-modal.3636a770c81e6581e18a.js",
+  "welcome-modal.js": "/js/core.welcome-modal.5e08be711192a191cf5e.js",
   "js/core.vendors-node_modules_deriv_deriv-charts_dist_smartcharts_js.js": "/js/core.vendors-node_modules_deriv_deriv-charts_dist_smartcharts_js.12772a58cf7a9f6244fb.js",
   "css/core.vendors-node_modules_deriv_deriv-api_dist_DerivAPIBasic_js-node_modules_enykeev_react-virtual-19ddde.main.css": "/css/core.vendors-node_modules_deriv_deriv-api_dist_DerivAPIBasic_js-node_modules_enykeev_react-virtual-19ddde.07987b17c80baed53609.main.css",
   "js/core.vendors-node_modules_deriv_deriv-api_dist_DerivAPIBasic_js-node_modules_enykeev_react-virtual-19ddde.js": "/js/core.vendors-node_modules_deriv_deriv-api_dist_DerivAPIBasic_js-node_modules_enykeev_react-virtual-19ddde.1da5d0686e426d2d3e35.js",
