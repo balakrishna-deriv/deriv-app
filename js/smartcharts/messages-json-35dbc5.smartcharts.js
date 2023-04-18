@@ -12,4 +12,4 @@ module.exports = JSON.parse("{\"[symbol] feed is delayed by [delay] minutes\":\"
 /***/ })
 
 }]);
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJtZXNzYWdlcy1qc29uLTM1ZGJjNS5zbWFydGNoYXJ0cy5qcyIsInNvdXJjZVJvb3QiOiIifQ==
+//# sourceMappingURL=messages-json-35dbc5.smartcharts.js.map
