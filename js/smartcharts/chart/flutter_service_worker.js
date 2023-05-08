@@ -4,9 +4,9 @@ const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
   "version.json": "1756499d77011c0be564a414e567db76",
-"index.html": "c0d4590c1a87fbb7293c2ebb00611f59",
-"/": "c0d4590c1a87fbb7293c2ebb00611f59",
-"main.dart.js": "81db54c78dec4eacef8aa8cf600cb70c",
+"index.html": "72c5966b24b1e99c1dfc179dd9e1673a",
+"/": "72c5966b24b1e99c1dfc179dd9e1673a",
+"main.dart.js": "59cf7e34a20ba59627cf2963f4dc5509",
 "flutter.js": "1cfe996e845b3a8a33f57607e8b09ee4",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
 "manifest.json": "a06b13fcde5dfd1e240278072e116d12",
@@ -112,7 +112,7 @@ const RESOURCES = {
 "assets/packages/deriv_chart/assets/icons/symbols/ethusd.png": "bcdd0cd2cfcaa223c3d4ccef318fd503",
 "assets/packages/deriv_chart/assets/icons/symbols/otc_sx5e.png": "ea3bd71efec331d541705e2271b3b766",
 "assets/packages/deriv_chart/assets/icons/symbols/frxeurchf.png": "1a66826ef57b967efeb3e67673609eac",
-"assets/fonts/MaterialIcons-Regular.otf": "56b614424f6666858bd52b530d2b41d1",
+"assets/fonts/MaterialIcons-Regular.otf": "016c06202b8da5b7f622844dca2c31d2",
 "assets/assets/icons/symbols/1hz300v.png": "90527d87c8da43c78bcad66528b09581",
 "assets/assets/icons/symbols/otc_aex.png": "84ab872d7286a67f2633cbbcff89f0bb",
 "assets/assets/icons/symbols/frxusdpln.png": "d980230b5ea98c9b5d002a3cb8c84c13",

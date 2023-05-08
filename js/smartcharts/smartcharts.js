@@ -53,7 +53,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"de-json":"de-json","es-json":"es-json","flutter-chart-adapter":"flutter-chart-adapter","fr-json":"fr-json","id-json":"id-json","it-json":"it-json","messages-json":"messages-json","nl-json":"nl-json","pl-json":"pl-json","pt-json":"pt-json","ru-json":"ru-json","th-json":"th-json","tr-json":"tr-json","vendors~html2canvas":"vendors~html2canvas","vendors~resize-observer-polyfill":"vendors~resize-observer-polyfill","vi-json":"vi-json","zh-json":"zh-json","zh_cn-json":"zh_cn-json","zh_tw-json":"zh_tw-json"}[chunkId]||chunkId) + "-" + {"de-json":"05e8c5","es-json":"e72473","flutter-chart-adapter":"d2a1d0","fr-json":"203444","id-json":"33fb6f","it-json":"37a62d","messages-json":"35dbc5","nl-json":"3d791b","pl-json":"9a7bda","pt-json":"2ef45d","ru-json":"14682a","th-json":"84f311","tr-json":"83ea14","vendors~html2canvas":"922e74","vendors~resize-observer-polyfill":"358f59","vi-json":"1cbbfc","zh-json":"ef96a4","zh_cn-json":"0aa75a","zh_tw-json":"786611"}[chunkId] + ".smartcharts.js"
+/******/ 		return __webpack_require__.p + "" + ({"de-json":"de-json","es-json":"es-json","flutter-chart-adapter":"flutter-chart-adapter","fr-json":"fr-json","id-json":"id-json","it-json":"it-json","messages-json":"messages-json","nl-json":"nl-json","pl-json":"pl-json","pt-json":"pt-json","ru-json":"ru-json","th-json":"th-json","tr-json":"tr-json","vendors~html2canvas":"vendors~html2canvas","vendors~resize-observer-polyfill":"vendors~resize-observer-polyfill","vi-json":"vi-json","zh-json":"zh-json","zh_cn-json":"zh_cn-json","zh_tw-json":"zh_tw-json"}[chunkId]||chunkId) + "-" + {"de-json":"05e8c5","es-json":"e72473","flutter-chart-adapter":"1239b5","fr-json":"203444","id-json":"33fb6f","it-json":"37a62d","messages-json":"35dbc5","nl-json":"3d791b","pl-json":"9a7bda","pt-json":"2ef45d","ru-json":"14682a","th-json":"84f311","tr-json":"83ea14","vendors~html2canvas":"922e74","vendors~resize-observer-polyfill":"358f59","vi-json":"1cbbfc","zh-json":"ef96a4","zh_cn-json":"0aa75a","zh_tw-json":"786611"}[chunkId] + ".smartcharts.js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -35367,20 +35367,18 @@ class RealtimeSubscription extends _Subscription__WEBPACK_IMPORTED_MODULE_2__["d
   }
 
   _getProcessTickHistoryClosure() {
-    let hasHistory = false;
     const tickHistoryPromise = Object(_utils_PendingPromise__WEBPACK_IMPORTED_MODULE_0__["default"])();
 
     const processTickHistory = resp => {
       // We assume that 1st response is the history, and subsequent
       // responses are tick stream data.
-      if (hasHistory) {
+      if (['tick', 'ohlc'].includes(resp.msg_type)) {
         this._onTick(resp);
 
         return;
       }
 
       tickHistoryPromise.resolve(resp);
-      hasHistory = true;
     };
 
     return [tickHistoryPromise, processTickHistory];
@@ -36985,6 +36983,12 @@ class ChartAdapterStore {
         },
         onEdit: index => {
           this.mainStore.studies.editStudyByIndex(index);
+        },
+        onSwap: (index1, index2) => {
+          const {
+            activeItems
+          } = this.mainStore.studies;
+          [activeItems[index1], activeItems[index2]] = [activeItems[index2], activeItems[index1]];
         }
       }
     };
@@ -41895,6 +41899,7 @@ class StudyLegendStore {
       const config = {
         id: activeItem.id,
         name: activeItem.flutter_chart_id,
+        title: "".concat(activeItem.shortname, " (").concat(activeItem.bars, ")"),
         ...this.transform(params)
       };
       (_this$mainStore$chart = this.mainStore.chartAdapter.flutterChart) === null || _this$mainStore$chart === void 0 ? void 0 : _this$mainStore$chart.config.addOrUpdateIndicator(JSON.stringify(config), index);
