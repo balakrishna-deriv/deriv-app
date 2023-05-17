@@ -53,7 +53,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"de-json":"de-json","es-json":"es-json","flutter-chart-adapter":"flutter-chart-adapter","fr-json":"fr-json","id-json":"id-json","it-json":"it-json","messages-json":"messages-json","nl-json":"nl-json","pl-json":"pl-json","pt-json":"pt-json","ru-json":"ru-json","th-json":"th-json","tr-json":"tr-json","vendors~html2canvas":"vendors~html2canvas","vendors~resize-observer-polyfill":"vendors~resize-observer-polyfill","vi-json":"vi-json","zh-json":"zh-json","zh_cn-json":"zh_cn-json","zh_tw-json":"zh_tw-json"}[chunkId]||chunkId) + "-" + {"de-json":"05e8c5","es-json":"e72473","flutter-chart-adapter":"5f27fb","fr-json":"203444","id-json":"33fb6f","it-json":"37a62d","messages-json":"35dbc5","nl-json":"3d791b","pl-json":"9a7bda","pt-json":"2ef45d","ru-json":"14682a","th-json":"84f311","tr-json":"83ea14","vendors~html2canvas":"922e74","vendors~resize-observer-polyfill":"358f59","vi-json":"1cbbfc","zh-json":"ef96a4","zh_cn-json":"0aa75a","zh_tw-json":"786611"}[chunkId] + ".smartcharts.js"
+/******/ 		return __webpack_require__.p + "" + ({"de-json":"de-json","es-json":"es-json","flutter-chart-adapter":"flutter-chart-adapter","fr-json":"fr-json","id-json":"id-json","it-json":"it-json","messages-json":"messages-json","nl-json":"nl-json","pl-json":"pl-json","pt-json":"pt-json","ru-json":"ru-json","th-json":"th-json","tr-json":"tr-json","vendors~html2canvas":"vendors~html2canvas","vendors~resize-observer-polyfill":"vendors~resize-observer-polyfill","vi-json":"vi-json","zh-json":"zh-json","zh_cn-json":"zh_cn-json","zh_tw-json":"zh_tw-json"}[chunkId]||chunkId) + "-" + {"de-json":"3dd600","es-json":"2ee0c4","flutter-chart-adapter":"6d3f75","fr-json":"b3181a","id-json":"76ce42","it-json":"650084","messages-json":"b64b2d","nl-json":"a334c2","pl-json":"f40d99","pt-json":"a1ed28","ru-json":"98f3b7","th-json":"5fef21","tr-json":"1de4ea","vendors~html2canvas":"922e74","vendors~resize-observer-polyfill":"358f59","vi-json":"975848","zh-json":"615c08","zh_cn-json":"91291a","zh_tw-json":"3bffea"}[chunkId] + ".smartcharts.js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -25559,9 +25559,16 @@ const getAwesomeOscillatorIndicatorConfig = () => ({
 
 const getDPOIndicatorConfig = () => ({
   config: {
+    lineStyle: lodash__WEBPACK_IMPORTED_MODULE_0___default.a.clone(lineStyle),
     isCentered: true
   },
   parameters: [{
+    path: 'lineStyle.color',
+    title: t.translate('Color'),
+    defaultValue: '#000000',
+    category: 'inputs',
+    type: 'colorpicker'
+  }, {
     path: 'period',
     title: t.translate('Period'),
     defaultValue: 14,
@@ -28208,13 +28215,21 @@ const ChartMode = _ref => {
     portalNodeId
   } = _ref;
   const {
+    chart,
     chartMode,
     chartType,
-    timeperiod
+    timeperiod,
+    state
   } = Object(src_store__WEBPACK_IMPORTED_MODULE_3__["useStores"])();
   const {
     menuStore
   } = chartMode;
+  const {
+    allowTickChartTypeOnly
+  } = state;
+  const {
+    isMobile
+  } = chart;
   const {
     type
   } = chartType;
@@ -28250,7 +28265,11 @@ const ChartMode = _ref => {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_Timeperiod__WEBPACK_IMPORTED_MODULE_8__["default"], {
     newDesign: true,
     portalNodeId: portalNodeId
-  })))));
+  }))), allowTickChartTypeOnly && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+    className: classnames__WEBPACK_IMPORTED_MODULE_0___default()('sc-chart-mode__section__text', {
+      'sc-chart-mode__section__text--mobile': isMobile
+    })
+  }, t.translate('Only selected charts and time intervals are available for this trade type.'))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(mobx_react_lite__WEBPACK_IMPORTED_MODULE_1__["observer"])(ChartMode));
@@ -28971,7 +28990,7 @@ const DrawToolsList = _ref3 => {
     className: "sc-dtools__list"
   }, items.map(Item => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
     key: Item.id,
-    className: "sc-dtools__list__item",
+    className: classnames__WEBPACK_IMPORTED_MODULE_0___default()('sc-dtools__list__item', "sc-dtools__".concat(Item.id)),
     onClick: () => onClick(Item.id)
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(Info, {
     Icon: Item.icon,
@@ -33210,9 +33229,13 @@ const TimeperiodItemComponent = _ref => {
     timeperiod,
     chartType,
     loader,
-    chart
+    chart,
+    state
   } = Object(src_store__WEBPACK_IMPORTED_MODULE_3__["useStores"])();
   const chartTypeId = chartType.type.id;
+  const {
+    allowTickChartTypeOnly
+  } = state;
   const {
     mainStore
   } = timeperiod;
@@ -33226,7 +33249,7 @@ const TimeperiodItemComponent = _ref => {
   const is_tick = react__WEBPACK_IMPORTED_MODULE_2___default.a.useMemo(() => category.key === 'tick', [category]);
   const is_loading = react__WEBPACK_IMPORTED_MODULE_2___default.a.useMemo(() => enableLoader(isLoading, item.interval, granularity), [isLoading, item, granularity]);
   const enable_tooltip = react__WEBPACK_IMPORTED_MODULE_2___default.a.useMemo(() => enableTooltip(isMobile, category.key, chartTypeId), [isMobile, category.key, chartTypeId]);
-  const is_disabled = react__WEBPACK_IMPORTED_MODULE_2___default.a.useMemo(() => is_tick && chartTypeId !== 'line', [is_tick, chartTypeId]);
+  const is_disabled = react__WEBPACK_IMPORTED_MODULE_2___default.a.useMemo(() => is_tick && chartTypeId !== 'line' || !is_tick && allowTickChartTypeOnly, [is_tick, chartTypeId, allowTickChartTypeOnly]);
   const is_active = item.interval === granularity;
   const handleClick = react__WEBPACK_IMPORTED_MODULE_2___default.a.useCallback(() => onClick(chartTypeId, category.key, item.interval), [chartTypeId, category, item, onClick]);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_Tooltip__WEBPACK_IMPORTED_MODULE_7__["default"], {
@@ -36570,8 +36593,8 @@ class CategoricalDisplayStore {
       const findFavItem = category => {
         const foundItems = [];
 
-        if (category.hasSubgroup) {
-          'categoryName' in category && category.subgroups.forEach(el => el.data.forEach(subcategory => {
+        if (category.hasSubgroup && 'categoryName' in category) {
+          category.subgroups.forEach(el => el.data.forEach(subcategory => {
             const foundSubItems = findFavItem(subcategory);
             foundItems.push(...foundSubItems);
           }));
@@ -36629,6 +36652,8 @@ class CategoricalDisplayStore {
         category.subgroups = Object(mobx__WEBPACK_IMPORTED_MODULE_0__["toJS"])(category.subgroups);
 
         for (const subgroup of category.subgroups) {
+          subgroup.active = true;
+
           for (const subcategory of subgroup.data) {
             filterCategory(subcategory);
           }
@@ -36722,6 +36747,7 @@ class CategoricalDisplayStore {
   }
 
   handleFilterClick(categoryId) {
+    this.focusedCategoryKey = '';
     const el = this.categoryElements[categoryId];
     const gap_top = Object.keys(this.categoryElements).indexOf(categoryId) * 40;
 
@@ -36768,22 +36794,17 @@ class CategoricalDisplayStore {
         if (item.hasSubgroup) {
           const triggered_subgroup = item.subgroups.find(subgroup => subgroup.categoryId === categoryId);
 
-          if (triggered_subgroup != undefined) {
+          if (triggered_subgroup !== undefined) {
             triggered_subgroup.active = !triggered_subgroup.active;
           }
-
-          setTimeout(() => this.handleFilterClick(categoryId), 250);
-        } else {
-          item.active = !item.active;
-
-          if (item.active) {
-            setTimeout(() => this.handleFilterClick(categoryId), 250);
-          }
         }
+
+        item.active = !item.active;
+        setTimeout(() => this.handleFilterClick(item.categoryId), 250);
       }
 
       if (item.active && item.categoryId !== 'favorite') {
-        this.activeCategories.push(categoryId);
+        this.activeCategories.push(item.categoryId);
       }
     }
 
@@ -37629,6 +37650,8 @@ class ChartState {
 
     _defineProperty(this, "should_show_eu_content", void 0);
 
+    _defineProperty(this, "allowTickChartTypeOnly", void 0);
+
     _defineProperty(this, "isStaticChart", false);
 
     _defineProperty(this, "shouldFetchTradingTimes", true);
@@ -37691,6 +37714,7 @@ class ChartState {
       should_show_eu_content: mobx__WEBPACK_IMPORTED_MODULE_0__["observable"],
       settings: mobx__WEBPACK_IMPORTED_MODULE_0__["observable"],
       showLastDigitStats: mobx__WEBPACK_IMPORTED_MODULE_0__["observable"],
+      allowTickChartTypeOnly: mobx__WEBPACK_IMPORTED_MODULE_0__["observable"],
       scrollToEpoch: mobx__WEBPACK_IMPORTED_MODULE_0__["observable"],
       clearChart: mobx__WEBPACK_IMPORTED_MODULE_0__["observable"],
       isChartClosed: mobx__WEBPACK_IMPORTED_MODULE_0__["observable"],
@@ -37744,6 +37768,7 @@ class ChartState {
       allTicks = [],
       contractInfo = {},
       showLastDigitStats = false,
+      allowTickChartTypeOnly = false,
       startEpoch,
       symbol,
       crosshairState,
@@ -37787,6 +37812,7 @@ class ChartState {
     this.should_show_eu_content = should_show_eu_content;
     this.shouldFetchTradingTimes = shouldFetchTradingTimes;
     this.shouldFetchTickHistory = shouldFetchTickHistory;
+    this.allowTickChartTypeOnly = allowTickChartTypeOnly;
     this.allTicks = allTicks;
     this.contractInfo = contractInfo;
     this.showLastDigitStats = showLastDigitStats;
@@ -39234,11 +39260,6 @@ class CrosshairStore {
 
     _defineProperty(this, "onCrosshairChanged", () => null);
 
-    _defineProperty(this, "onContextReady", () => {
-      const state = 2;
-      this.setCrosshairState(state);
-    });
-
     _defineProperty(this, "onMount", async refs => {
       await Object(mobx__WEBPACK_IMPORTED_MODULE_0__["when"])(() => this.mainStore.chartAdapter.isChartLoaded);
       const contentWindow = document.querySelector('.chartContainer');
@@ -39376,7 +39397,6 @@ class CrosshairStore {
       setCrosshairState: mobx__WEBPACK_IMPORTED_MODULE_0__["action"].bound
     });
     this.mainStore = mainStore;
-    Object(mobx__WEBPACK_IMPORTED_MODULE_0__["when"])(() => !!this.context, this.onContextReady);
   }
 
   get activeSymbol() {
@@ -42590,13 +42610,13 @@ class ViewStore {
     this.mainStore.state.setChartIsReady(false);
     this.mainStore.chartType.setChartType(layout.chartType);
     this.menuStore.setOpen(false);
+    await Object(mobx__WEBPACK_IMPORTED_MODULE_0__["when"])(() => this.mainStore.chartAdapter.isChartLoaded);
+    this.mainStore.studies.restoreStudies(layout.studyItems || []);
 
     if (typeof layout.crosshair === 'number') {
       this.mainStore.crosshair.setCrosshairState(layout.crosshair);
     }
 
-    await Object(mobx__WEBPACK_IMPORTED_MODULE_0__["when"])(() => this.mainStore.chartAdapter.isChartLoaded);
-    this.mainStore.studies.restoreStudies(layout.studyItems || []);
     finishImportLayout();
   }
 
