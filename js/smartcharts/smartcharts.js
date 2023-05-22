@@ -53,7 +53,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"de-json":"de-json","es-json":"es-json","flutter-chart-adapter":"flutter-chart-adapter","fr-json":"fr-json","id-json":"id-json","it-json":"it-json","messages-json":"messages-json","nl-json":"nl-json","pl-json":"pl-json","pt-json":"pt-json","ru-json":"ru-json","th-json":"th-json","tr-json":"tr-json","vendors~html2canvas":"vendors~html2canvas","vendors~resize-observer-polyfill":"vendors~resize-observer-polyfill","vi-json":"vi-json","zh-json":"zh-json","zh_cn-json":"zh_cn-json","zh_tw-json":"zh_tw-json"}[chunkId]||chunkId) + "-" + {"de-json":"3dd600","es-json":"2ee0c4","flutter-chart-adapter":"6d3f75","fr-json":"b3181a","id-json":"76ce42","it-json":"650084","messages-json":"b64b2d","nl-json":"a334c2","pl-json":"f40d99","pt-json":"a1ed28","ru-json":"98f3b7","th-json":"5fef21","tr-json":"1de4ea","vendors~html2canvas":"922e74","vendors~resize-observer-polyfill":"358f59","vi-json":"975848","zh-json":"615c08","zh_cn-json":"91291a","zh_tw-json":"3bffea"}[chunkId] + ".smartcharts.js"
+/******/ 		return __webpack_require__.p + "" + ({"de-json":"de-json","es-json":"es-json","flutter-chart-adapter":"flutter-chart-adapter","fr-json":"fr-json","id-json":"id-json","it-json":"it-json","messages-json":"messages-json","nl-json":"nl-json","pl-json":"pl-json","pt-json":"pt-json","ru-json":"ru-json","th-json":"th-json","tr-json":"tr-json","vendors~html2canvas":"vendors~html2canvas","vendors~resize-observer-polyfill":"vendors~resize-observer-polyfill","vi-json":"vi-json","zh-json":"zh-json","zh_cn-json":"zh_cn-json","zh_tw-json":"zh_tw-json"}[chunkId]||chunkId) + "-" + {"de-json":"3dd600","es-json":"2ee0c4","flutter-chart-adapter":"da9597","fr-json":"b3181a","id-json":"76ce42","it-json":"650084","messages-json":"b64b2d","nl-json":"a334c2","pl-json":"f40d99","pt-json":"a1ed28","ru-json":"98f3b7","th-json":"5fef21","tr-json":"1de4ea","vendors~html2canvas":"922e74","vendors~resize-observer-polyfill":"358f59","vi-json":"975848","zh-json":"615c08","zh_cn-json":"91291a","zh_tw-json":"3bffea"}[chunkId] + ".smartcharts.js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -37029,11 +37029,19 @@ class ChartAdapterStore {
         }
       };
       flutterChartElement.addEventListener('wheel', e => {
-        var _this$flutterChart2;
-
         e.preventDefault();
-        const scale = (100 - e.deltaY) / 100;
-        (_this$flutterChart2 = this.flutterChart) === null || _this$flutterChart2 === void 0 ? void 0 : _this$flutterChart2.config.scale(scale);
+
+        if (e.deltaX == 0 && e.deltaZ == 0) {
+          var _this$flutterChart2;
+
+          const scale = (100 - e.deltaY) / 100;
+          (_this$flutterChart2 = this.flutterChart) === null || _this$flutterChart2 === void 0 ? void 0 : _this$flutterChart2.controller.scale(scale);
+        } else {
+          var _this$flutterChart3;
+
+          (_this$flutterChart3 = this.flutterChart) === null || _this$flutterChart3 === void 0 ? void 0 : _this$flutterChart3.controller.scroll(e.deltaX);
+        }
+
         return false;
       }, {
         capture: true,
@@ -37079,12 +37087,12 @@ class ChartAdapterStore {
   }
 
   async onTickHistory(quotes) {
-    var _this$mainStore$chart6, _this$flutterChart3;
+    var _this$mainStore$chart6, _this$flutterChart4;
 
     await Object(mobx__WEBPACK_IMPORTED_MODULE_0__["when"])(() => this.isChartLoaded);
     this.isDataInitialized = true;
     (_this$mainStore$chart6 = this.mainStore.chart.feed) === null || _this$mainStore$chart6 === void 0 ? void 0 : _this$mainStore$chart6.updateQuotes(quotes, false);
-    (_this$flutterChart3 = this.flutterChart) === null || _this$flutterChart3 === void 0 ? void 0 : _this$flutterChart3.dataModel.onTickHistory(quotes, false);
+    (_this$flutterChart4 = this.flutterChart) === null || _this$flutterChart4 === void 0 ? void 0 : _this$flutterChart4.dataModel.onTickHistory(quotes, false);
   }
 
   async onTick(quote) {
@@ -37096,13 +37104,13 @@ class ChartAdapterStore {
     (_this$mainStore$chart9 = this.mainStore.chart.feed) === null || _this$mainStore$chart9 === void 0 ? void 0 : _this$mainStore$chart9.addQuote(quote);
 
     if (quote.ohlc) {
-      var _this$flutterChart4;
-
-      (_this$flutterChart4 = this.flutterChart) === null || _this$flutterChart4 === void 0 ? void 0 : _this$flutterChart4.dataModel.onNewCandle(quote);
-    } else if (this.getGranularity() <= 1000) {
       var _this$flutterChart5;
 
-      (_this$flutterChart5 = this.flutterChart) === null || _this$flutterChart5 === void 0 ? void 0 : _this$flutterChart5.dataModel.onNewTick(quote);
+      (_this$flutterChart5 = this.flutterChart) === null || _this$flutterChart5 === void 0 ? void 0 : _this$flutterChart5.dataModel.onNewCandle(quote);
+    } else if (this.getGranularity() <= 1000) {
+      var _this$flutterChart6;
+
+      (_this$flutterChart6 = this.flutterChart) === null || _this$flutterChart6 === void 0 ? void 0 : _this$flutterChart6.dataModel.onNewTick(quote);
     }
   }
 
@@ -37121,37 +37129,37 @@ class ChartAdapterStore {
       granularity
     } = state;
     (_chart$feed = chart.feed) === null || _chart$feed === void 0 ? void 0 : _chart$feed.fetchPaginationData((_chart$currentActiveS = chart.currentActiveSymbol) === null || _chart$currentActiveS === void 0 ? void 0 : _chart$currentActiveS.symbol, end, count, granularity, _ref => {
-      var _this$mainStore$chart10, _this$flutterChart6;
+      var _this$mainStore$chart10, _this$flutterChart7;
 
       let {
         quotes
       } = _ref;
       if (!quotes) return;
       (_this$mainStore$chart10 = this.mainStore.chart.feed) === null || _this$mainStore$chart10 === void 0 ? void 0 : _this$mainStore$chart10.updateQuotes(quotes, true);
-      (_this$flutterChart6 = this.flutterChart) === null || _this$flutterChart6 === void 0 ? void 0 : _this$flutterChart6.dataModel.onTickHistory(quotes, true);
+      (_this$flutterChart7 = this.flutterChart) === null || _this$flutterChart7 === void 0 ? void 0 : _this$flutterChart7.dataModel.onTickHistory(quotes, true);
     });
   }
 
   updateChartStyle(chartType) {
-    var _this$flutterChart7;
+    var _this$flutterChart8;
 
-    (_this$flutterChart7 = this.flutterChart) === null || _this$flutterChart7 === void 0 ? void 0 : _this$flutterChart7.config.updateChartStyle(chartType);
+    (_this$flutterChart8 = this.flutterChart) === null || _this$flutterChart8 === void 0 ? void 0 : _this$flutterChart8.config.updateChartStyle(chartType);
   }
 
   updateTheme(theme) {
-    var _this$flutterChart8;
+    var _this$flutterChart9;
 
-    (_this$flutterChart8 = this.flutterChart) === null || _this$flutterChart8 === void 0 ? void 0 : _this$flutterChart8.config.updateTheme(theme);
+    (_this$flutterChart9 = this.flutterChart) === null || _this$flutterChart9 === void 0 ? void 0 : _this$flutterChart9.config.updateTheme(theme);
   }
 
   scale(scale) {
-    var _this$flutterChart9;
+    var _this$flutterChart10;
 
-    (_this$flutterChart9 = this.flutterChart) === null || _this$flutterChart9 === void 0 ? void 0 : _this$flutterChart9.config.scale(scale);
+    (_this$flutterChart10 = this.flutterChart) === null || _this$flutterChart10 === void 0 ? void 0 : _this$flutterChart10.controller.scale(scale);
   }
 
   async updateMarkers(contractsMarker) {
-    var _this$flutterChart10;
+    var _this$flutterChart11;
 
     const transformedContractsMarker = contractsMarker.filter(c => {
       var _c$markers;
@@ -37169,7 +37177,7 @@ class ChartAdapterStore {
       return c;
     });
     await Object(mobx__WEBPACK_IMPORTED_MODULE_0__["when"])(() => this.isDataInitialized);
-    (_this$flutterChart10 = this.flutterChart) === null || _this$flutterChart10 === void 0 ? void 0 : _this$flutterChart10.config.updateMarkers(transformedContractsMarker);
+    (_this$flutterChart11 = this.flutterChart) === null || _this$flutterChart11 === void 0 ? void 0 : _this$flutterChart11.config.updateMarkers(transformedContractsMarker);
   }
 
   getXFromEpoch(epoch) {
@@ -43686,4 +43694,3 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_react_transition_group__;
 
 /******/ })["default"];
 });
-//# sourceMappingURL=smartcharts.js.map

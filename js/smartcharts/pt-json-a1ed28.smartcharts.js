@@ -12,4 +12,3 @@ module.exports = JSON.parse("{\"[symbol] feed is delayed by [delay] minutes\":\"
 /***/ })
 
 }]);
-//# sourceMappingURL=pt-json-a1ed28.smartcharts.js.map

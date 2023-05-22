@@ -10872,4 +10872,3 @@
 /***/ })
 
 }]);
-//# sourceMappingURL=vendors~html2canvas-922e74.smartcharts.js.map

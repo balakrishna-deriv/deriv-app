@@ -1126,4 +1126,3 @@ var index = function () {
 /***/ })
 
 }]);
-//# sourceMappingURL=vendors~resize-observer-polyfill-358f59.smartcharts.js.map
