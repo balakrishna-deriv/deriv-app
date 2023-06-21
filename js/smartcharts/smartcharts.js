@@ -53,7 +53,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"de-json":"de-json","es-json":"es-json","flutter-chart-adapter":"flutter-chart-adapter","fr-json":"fr-json","id-json":"id-json","it-json":"it-json","messages-json":"messages-json","nl-json":"nl-json","pl-json":"pl-json","pt-json":"pt-json","ru-json":"ru-json","th-json":"th-json","tr-json":"tr-json","vendors~html2canvas":"vendors~html2canvas","vendors~resize-observer-polyfill":"vendors~resize-observer-polyfill","vi-json":"vi-json","zh-json":"zh-json","zh_cn-json":"zh_cn-json","zh_tw-json":"zh_tw-json"}[chunkId]||chunkId) + "-" + {"de-json":"3dd600","es-json":"2ee0c4","flutter-chart-adapter":"da9597","fr-json":"b3181a","id-json":"76ce42","it-json":"650084","messages-json":"b64b2d","nl-json":"a334c2","pl-json":"f40d99","pt-json":"a1ed28","ru-json":"98f3b7","th-json":"5fef21","tr-json":"1de4ea","vendors~html2canvas":"922e74","vendors~resize-observer-polyfill":"358f59","vi-json":"975848","zh-json":"615c08","zh_cn-json":"91291a","zh_tw-json":"3bffea"}[chunkId] + ".smartcharts.js"
+/******/ 		return __webpack_require__.p + "" + ({"de-json":"de-json","es-json":"es-json","flutter-chart-adapter":"flutter-chart-adapter","fr-json":"fr-json","id-json":"id-json","it-json":"it-json","messages-json":"messages-json","nl-json":"nl-json","pl-json":"pl-json","pt-json":"pt-json","ru-json":"ru-json","th-json":"th-json","tr-json":"tr-json","vendors~html2canvas":"vendors~html2canvas","vendors~resize-observer-polyfill":"vendors~resize-observer-polyfill","vi-json":"vi-json","zh-json":"zh-json","zh_cn-json":"zh_cn-json","zh_tw-json":"zh_tw-json"}[chunkId]||chunkId) + "-" + {"de-json":"3dd600","es-json":"2ee0c4","flutter-chart-adapter":"ecd36c","fr-json":"b3181a","id-json":"76ce42","it-json":"650084","messages-json":"b64b2d","nl-json":"a334c2","pl-json":"f40d99","pt-json":"a1ed28","ru-json":"98f3b7","th-json":"5fef21","tr-json":"1de4ea","vendors~html2canvas":"922e74","vendors~resize-observer-polyfill":"358f59","vi-json":"975848","zh-json":"615c08","zh_cn-json":"91291a","zh_tw-json":"3bffea"}[chunkId] + ".smartcharts.js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -25139,12 +25139,13 @@ module.exports = {"red":"#ff444f","light_chart_text":"#555975","dark_chart_text"
 /*!**************************!*\
   !*** ./src/Constant.tsx ***!
   \**************************/
-/*! exports provided: getDrawTools, getIndicatorsTree, defaultIndicatorConfigs, getDefaultIndicatorConfig, ChartTypes, Intervals, Languages, STATE, TooltipsContent */
+/*! exports provided: getDrawTools, getTooltipLabels, getIndicatorsTree, defaultIndicatorConfigs, getDefaultIndicatorConfig, ChartTypes, Intervals, Languages, STATE, TooltipsContent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* WEBPACK VAR INJECTION */(function(t) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getDrawTools", function() { return getDrawTools; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getTooltipLabels", function() { return getTooltipLabels; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getIndicatorsTree", function() { return getIndicatorsTree; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "defaultIndicatorConfigs", function() { return defaultIndicatorConfigs; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getDefaultIndicatorConfig", function() { return getDefaultIndicatorConfig; });
@@ -25207,8 +25208,74 @@ const getDrawTools = () => ({
     text: t.translate('Vertical [num]'),
     icon: _components_Icons__WEBPACK_IMPORTED_MODULE_2__["DrawToolsVerticalIcon"]
   }
-}); //
+});
+const getTooltipLabels = (key, activeItem) => {
+  const getBars = () => "".concat((activeItem === null || activeItem === void 0 ? void 0 : activeItem.bars) ? "(".concat(activeItem.bars, ")") : '').toUpperCase();
 
+  const labels = {
+    AwesomeOscillator: {
+      labels: ['AWESOME_HIST']
+    },
+    dpo: {
+      labels: ["DETRENDED ".concat(getBars())]
+    },
+    gator: {
+      labels: ["GATOR ".concat(getBars(), "_HIST1"), "GATOR ".concat(getBars(), "_HIST2")]
+    },
+    macd: {
+      labels: ["MACD MACD ".concat(getBars()), "SIGNAL MACD ".concat(getBars()), "MACD ".concat(getBars(), "_HIST")]
+    },
+    ROC: {
+      labels: ["PRICE ROC ".concat(getBars())]
+    },
+    RSI: {
+      labels: ["RSI ".concat(getBars())]
+    },
+    StochasticOscillator: {
+      labels: ["%K STOCHASTICS ".concat(getBars()), "%D STOCHASTICS ".concat(getBars())]
+    },
+    SMI: {
+      labels: ["%K STCH MTM ".concat(getBars()), "%D STCH MTM ".concat(getBars())]
+    },
+    WilliamsR: {
+      labels: ["Williams %R ".concat(getBars())]
+    },
+    Aroon: {
+      labels: ["AROON UP ".concat(getBars()), "AROON DOWN ".concat(getBars())]
+    },
+    adx: {
+      labels: ["+DI ADX ".concat(getBars()), "-DI ADX ".concat(getBars()), "ADX ".concat(getBars()), "ADX ".concat(getBars(), "_HIST")]
+    },
+    commodity_channel_index: {
+      labels: ["CCI ".concat(getBars())]
+    },
+    ichimoku: {
+      labels: ["CONVERSION LINE ICHIMOKU CLOUDS ".concat(getBars()), "BASE LINE ICHIMOKU CLOUDS ".concat(getBars()), "LEADING SPAN A ICHIMOKU CLOUDS ".concat(getBars()), "LEADING SPAN B ICHIMOKU CLOUDS ".concat(getBars()), "LAGGING SPAN ICHIMOKU CLOUDS ".concat(getBars())]
+    },
+    ParabolicSAR: {
+      labels: ["PSAR ".concat(getBars())]
+    },
+    bollinger_bands: {
+      labels: ["BOLLINGER BANDS TOP ".concat(getBars()), "BOLLINGER BANDS MEDIAN ".concat(getBars()), "BOLLINGER BANDS BOTTOM ".concat(getBars())]
+    },
+    donchian_channel: {
+      labels: ["DONCHIAN HIGH DONCHIAN CHANNEL ".concat(getBars()), "DONCHIAN MEDIAN DONCHIAN CHANNEL ".concat(getBars()), "DONCHIAN LOW DONCHIAN CHANNEL ".concat(getBars())]
+    },
+    moving_average: {
+      labels: ["MA ".concat(getBars())]
+    },
+    moving_envelope_average: {
+      labels: ["MA ENV TOP ".concat(getBars()), "MA ENV MEDIAN ".concat(getBars()), "MA ENV BOTTOM ".concat(getBars())]
+    },
+    rainbow: {
+      labels: lodash__WEBPACK_IMPORTED_MODULE_0___default.a.range(1, 10).map(index => "SMA".concat(index, " RAINBOW MA ").concat(getBars()))
+    },
+    alligator: {
+      labels: ["JAW ALLIGATOR ".concat(getBars()), "TEETH ALLIGATOR ".concat(getBars()), "LIPS ALLIGATOR ".concat(getBars())]
+    }
+  };
+  return labels[key];
+};
 const getIndicatorsTree = () => [{
   category: 'momentum',
   name: t.translate('Momentum'),
@@ -25444,6 +25511,7 @@ const getRSIIndicatorConfig = () => ({
       value: 'oscillatorLinesConfig.overboughtValue',
       color: 'oscillatorLinesConfig.overboughtStyle.color'
     },
+    group_key: 'over_bought',
     title: t.translate('OverBought'),
     type: 'numbercolorpicker',
     category: 'parameters',
@@ -25456,6 +25524,7 @@ const getRSIIndicatorConfig = () => ({
       value: 'oscillatorLinesConfig.oversoldValue',
       color: 'oscillatorLinesConfig.oversoldStyle.color'
     },
+    group_key: 'over_sold',
     title: t.translate('OverSold'),
     type: 'numbercolorpicker',
     category: 'parameters',
@@ -25465,6 +25534,7 @@ const getRSIIndicatorConfig = () => ({
     }
   }, {
     path: 'showZones',
+    group_key: 'show_zones',
     title: t.translate('Show Zones'),
     type: 'switch',
     category: 'parameters',
@@ -25736,13 +25806,13 @@ const getStochasticOscillatorIndicatorConfig = () => ({
   },
   parameters: [{
     path: 'fastLineStyle.color',
-    title: t.translate('Color'),
+    title: t.translate('Fast'),
     defaultValue: '#000000',
     category: 'inputs',
     type: 'colorpicker'
   }, {
     path: 'slowLineStyle.color',
-    title: t.translate('Color'),
+    title: t.translate('Slow'),
     defaultValue: '#FF0000',
     category: 'inputs',
     type: 'colorpicker'
@@ -25770,6 +25840,7 @@ const getStochasticOscillatorIndicatorConfig = () => ({
       value: 'oscillatorLinesConfig.overboughtValue',
       color: 'oscillatorLinesConfig.overboughtStyle.color'
     },
+    group_key: 'over_bought',
     title: t.translate('OverBought'),
     type: 'numbercolorpicker',
     category: 'parameters',
@@ -25782,6 +25853,7 @@ const getStochasticOscillatorIndicatorConfig = () => ({
       value: 'oscillatorLinesConfig.oversoldValue',
       color: 'oscillatorLinesConfig.oversoldStyle.color'
     },
+    group_key: 'over_sold',
     title: t.translate('OverSold'),
     type: 'numbercolorpicker',
     category: 'parameters',
@@ -25791,6 +25863,7 @@ const getStochasticOscillatorIndicatorConfig = () => ({
     }
   }, {
     path: 'showZones',
+    group_key: 'show_zones',
     title: t.translate('Show Zones'),
     type: 'switch',
     category: 'parameters',
@@ -25799,32 +25872,55 @@ const getStochasticOscillatorIndicatorConfig = () => ({
 });
 
 const getSMIIndicatorConfig = () => ({
+  config: {
+    lineStyle: lodash__WEBPACK_IMPORTED_MODULE_0___default.a.clone(lineStyle),
+    signalLineStyle: lodash__WEBPACK_IMPORTED_MODULE_0___default.a.clone(lineStyle)
+  },
   parameters: [{
+    path: 'lineStyle.color',
+    group_key: '%k',
+    title: t.translate('Color'),
+    defaultValue: '#000000',
+    category: 'inputs',
+    type: 'colorpicker'
+  }, {
     path: 'period',
+    group_key: '%k',
     title: t.translate('Period'),
     defaultValue: 10,
     category: 'inputs',
     type: 'number'
   }, {
     path: 'smoothingPeriod',
+    group_key: '%k',
     title: t.translate('Smoothing Period'),
     defaultValue: 3,
     category: 'inputs',
     type: 'number'
   }, {
     path: 'doubleSmoothingPeriod',
+    group_key: '%k',
     title: t.translate('Double Smoothing Period'),
     defaultValue: 3,
     category: 'inputs',
     type: 'number'
   }, {
+    path: 'signalLineStyle.color',
+    group_key: '%d',
+    title: t.translate('Color'),
+    defaultValue: '#FF0000',
+    category: 'inputs',
+    type: 'colorpicker'
+  }, {
     path: 'signalPeriod',
+    group_key: '%d',
     title: t.translate('Signal Period'),
     defaultValue: 10,
     category: 'inputs',
     type: 'number'
   }, {
     path: 'maType',
+    group_key: '%d',
     title: t.translate('Field'),
     defaultValue: 'exponential',
     category: 'inputs',
@@ -25834,6 +25930,7 @@ const getSMIIndicatorConfig = () => ({
     paths: {
       value: 'overboughtValue'
     },
+    group_key: 'over_bought',
     title: t.translate('OverBought'),
     type: 'numbercolorpicker',
     category: 'parameters',
@@ -25845,6 +25942,7 @@ const getSMIIndicatorConfig = () => ({
     paths: {
       value: 'oversoldValue'
     },
+    group_key: 'over_sold',
     title: t.translate('OverSold'),
     type: 'numbercolorpicker',
     category: 'parameters',
@@ -25854,6 +25952,7 @@ const getSMIIndicatorConfig = () => ({
     }
   }, {
     path: 'showZones',
+    group_key: 'show_zones',
     title: t.translate('Show Zones'),
     type: 'switch',
     category: 'parameters',
@@ -25889,6 +25988,7 @@ const getWilliamsRIndicatorConfig = () => ({
       value: 'oscillatorLimits.overboughtValue',
       color: 'oscillatorLimits.overboughtStyle.color'
     },
+    group_key: 'over_bought',
     title: t.translate('OverBought'),
     type: 'numbercolorpicker',
     category: 'parameters',
@@ -25901,6 +26001,7 @@ const getWilliamsRIndicatorConfig = () => ({
       value: 'oscillatorLimits.oversoldValue',
       color: 'oscillatorLimits.oversoldStyle.color'
     },
+    group_key: 'over_sold',
     title: t.translate('OverSold'),
     type: 'numbercolorpicker',
     category: 'parameters',
@@ -25910,6 +26011,7 @@ const getWilliamsRIndicatorConfig = () => ({
     }
   }, {
     path: 'showZones',
+    group_key: 'show_zones',
     title: t.translate('Show Zones'),
     type: 'switch',
     category: 'parameters',
@@ -25968,6 +26070,7 @@ const getCCIIndicatorConfig = () => ({
       value: 'oscillatorLinesConfig.overboughtValue',
       color: 'oscillatorLinesConfig.overboughtStyle.color'
     },
+    group_key: 'over_bought',
     title: t.translate('OverBought'),
     type: 'numbercolorpicker',
     category: 'parameters',
@@ -25980,6 +26083,7 @@ const getCCIIndicatorConfig = () => ({
       value: 'oscillatorLinesConfig.oversoldValue',
       color: 'oscillatorLinesConfig.oversoldStyle.color'
     },
+    group_key: 'over_sold',
     title: t.translate('OverSold'),
     type: 'numbercolorpicker',
     category: 'parameters',
@@ -25989,6 +26093,7 @@ const getCCIIndicatorConfig = () => ({
     }
   }, {
     path: 'showZones',
+    group_key: 'show_zones',
     title: t.translate('Show Zones'),
     type: 'switch',
     category: 'parameters',
@@ -26138,7 +26243,7 @@ const getBollingerBandsIndicatorConfig = () => ({
   }, {
     path: 'period',
     title: t.translate('Period'),
-    defaultValue: 50,
+    defaultValue: 20,
     category: 'inputs',
     type: 'number'
   }, {
@@ -26316,7 +26421,8 @@ const getMAEnvIndicatorConfig = () => ({
 const getRainbowIndicatorConfig = () => ({
   config: {
     bandsCount: 10,
-    movingAverageType: 'simple'
+    movingAverageType: 'simple',
+    rainbowColors: []
   },
   parameters: [{
     path: 'period',
@@ -26331,6 +26437,66 @@ const getRainbowIndicatorConfig = () => ({
     category: 'inputs',
     type: 'select',
     options: getFieldTypeOptions()
+  }, {
+    path: 'rainbowColors[0]',
+    title: t.translate('SMA1'),
+    defaultValue: '#ff0000',
+    category: 'inputs',
+    type: 'colorpicker'
+  }, {
+    path: 'rainbowColors[1]',
+    title: t.translate('SMA2'),
+    defaultValue: '#ff7f00',
+    category: 'inputs',
+    type: 'colorpicker'
+  }, {
+    path: 'rainbowColors[2]',
+    title: t.translate('SMA3'),
+    defaultValue: '#ffff00',
+    category: 'inputs',
+    type: 'colorpicker'
+  }, {
+    path: 'rainbowColors[3]',
+    title: t.translate('SMA4'),
+    defaultValue: '#7fff00',
+    category: 'inputs',
+    type: 'colorpicker'
+  }, {
+    path: 'rainbowColors[4]',
+    title: t.translate('SMA5'),
+    defaultValue: '#00ff7f',
+    category: 'inputs',
+    type: 'colorpicker'
+  }, {
+    path: 'rainbowColors[5]',
+    title: t.translate('SMA6'),
+    defaultValue: '#00ffff',
+    category: 'inputs',
+    type: 'colorpicker'
+  }, {
+    path: 'rainbowColors[6]',
+    title: t.translate('SMA7'),
+    defaultValue: '#007fff',
+    category: 'inputs',
+    type: 'colorpicker'
+  }, {
+    path: 'rainbowColors[7]',
+    title: t.translate('SMA8'),
+    defaultValue: '#0000ff',
+    category: 'inputs',
+    type: 'colorpicker'
+  }, {
+    path: 'rainbowColors[8]',
+    title: t.translate('SMA9'),
+    defaultValue: '#7f00ff',
+    category: 'inputs',
+    type: 'colorpicker'
+  }, {
+    path: 'rainbowColors[9]',
+    title: t.translate('SMA10'),
+    defaultValue: '#ff00ff',
+    category: 'inputs',
+    type: 'colorpicker'
   }]
 });
 
@@ -27640,6 +27806,15 @@ const Barrier = _ref => {
     isSingleBarrier,
     opacityOnOverlap
   } = store;
+  const barrierRef = react__WEBPACK_IMPORTED_MODULE_2___default.a.useRef(null);
+  react__WEBPACK_IMPORTED_MODULE_2___default.a.useEffect(() => {
+    if (isInitialized && barrierRef.current) {
+      // To prevent zooming on barriers
+      barrierRef.current.addEventListener('wheel', e => {
+        e.preventDefault();
+      });
+    }
+  }, [isInitialized]);
   if (!isInitialized) return null;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
     className: classnames__WEBPACK_IMPORTED_MODULE_0___default()('barrier', {
@@ -27647,7 +27822,8 @@ const Barrier = _ref => {
     }),
     style: {
       '--shade-color': shadeColor
-    }
+    },
+    ref: barrierRef
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_PriceLine__WEBPACK_IMPORTED_MODULE_5__["default"], _extends({
     store: _high_barrier,
     width: priceLabelWidth,
@@ -32469,7 +32645,7 @@ const SettingsPanel = _ref5 => {
     height: "282px"
   }, itemGroups.map(group => group.fields.length > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(SettingsPanelGroup, {
     key: group.key,
-    title: group.key,
+    title: group.title,
     items: group.fields,
     theme: theme,
     onItemChange: onItemChange
@@ -34539,6 +34715,10 @@ class Feed {
     });
   }
 
+  getClosestValidEpoch(epoch, granularity) {
+    return Math.round(epoch / granularity) * granularity;
+  }
+
   getClosestQuoteForEpoch(epoch) {
     const index = this.findEpochIndex(epoch);
 
@@ -35567,6 +35747,35 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+/***/ }),
+
+/***/ "./src/flutter-chart/index.ts":
+/*!************************************!*\
+  !*** ./src/flutter-chart/index.ts ***!
+  \************************************/
+/*! exports provided: createChartElement */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createChartElement", function() { return createChartElement; });
+const createChartElement = () => {
+  const flutterChartElement = document.createElement('div');
+  flutterChartElement.classList.add('flutter-chart');
+  window.flutterChartElement = flutterChartElement;
+  window._flutter = {
+    loader: {
+      didCreateEngineInitializer: async engineInitializer => {
+        const appRunner = await engineInitializer.initializeEngine({
+          hostElement: window.flutterChartElement
+        });
+        appRunner === null || appRunner === void 0 ? void 0 : appRunner.runApp();
+      }
+    }
+  };
+  return flutterChartElement;
+};
 
 /***/ }),
 
@@ -36882,7 +37091,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var mobx__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! mobx */ "./node_modules/mobx/dist/mobx.esm.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! moment */ "moment");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var src_flutter_chart__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/flutter-chart */ "./src/flutter-chart/index.ts");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -36906,6 +37117,8 @@ class ChartAdapterStore {
       bottomQuote: 0
     });
 
+    _defineProperty(this, "msPerPx", void 0);
+
     _defineProperty(this, "newChart", async () => {
       var _this$flutterChart;
 
@@ -36915,7 +37128,8 @@ class ChartAdapterStore {
         chartType: this.mainStore.state.chartType,
         isLive: this.mainStore.chart.isLive || false,
         dataFitEnabled: this.mainStore.chart.dataFitEnabled || false,
-        theme: this.mainStore.chartSetting.theme
+        theme: this.mainStore.chartSetting.theme,
+        msPerPx: this.msPerPx
       });
     });
 
@@ -36977,10 +37191,12 @@ class ChartAdapterStore {
       loadHistory: mobx__WEBPACK_IMPORTED_MODULE_0__["action"].bound,
       onVisibleAreaChanged: mobx__WEBPACK_IMPORTED_MODULE_0__["action"].bound,
       onQuoteAreaChanged: mobx__WEBPACK_IMPORTED_MODULE_0__["action"].bound,
+      setMsPerPx: mobx__WEBPACK_IMPORTED_MODULE_0__["action"].bound,
       isChartLoaded: mobx__WEBPACK_IMPORTED_MODULE_0__["observable"],
       isDataInitialized: mobx__WEBPACK_IMPORTED_MODULE_0__["observable"],
       epochBounds: mobx__WEBPACK_IMPORTED_MODULE_0__["observable"].ref,
-      quoteBounds: mobx__WEBPACK_IMPORTED_MODULE_0__["observable"].ref
+      quoteBounds: mobx__WEBPACK_IMPORTED_MODULE_0__["observable"].ref,
+      msPerPx: mobx__WEBPACK_IMPORTED_MODULE_0__["observable"]
     });
     this.mainStore = mainStore;
     this.initFlutterCharts();
@@ -37015,31 +37231,17 @@ class ChartAdapterStore {
     };
 
     if (!window.flutterChartElement) {
-      const flutterChartElement = document.createElement('div');
-      flutterChartElement.classList.add('flutter-chart');
-      window.flutterChartElement = flutterChartElement;
-      window._flutter = {
-        loader: {
-          didCreateEngineInitializer: async engineInitializer => {
-            const appRunner = await engineInitializer.initializeEngine({
-              hostElement: window.flutterChartElement
-            });
-            appRunner === null || appRunner === void 0 ? void 0 : appRunner.runApp();
-          }
-        }
-      };
+      const flutterChartElement = Object(src_flutter_chart__WEBPACK_IMPORTED_MODULE_2__["createChartElement"])();
       flutterChartElement.addEventListener('wheel', e => {
         e.preventDefault();
 
         if (e.deltaX == 0 && e.deltaZ == 0) {
+          const scale = (100 - e.deltaY) / 100;
+          this.scale(scale);
+        } else {
           var _this$flutterChart2;
 
-          const scale = (100 - e.deltaY) / 100;
-          (_this$flutterChart2 = this.flutterChart) === null || _this$flutterChart2 === void 0 ? void 0 : _this$flutterChart2.controller.scale(scale);
-        } else {
-          var _this$flutterChart3;
-
-          (_this$flutterChart3 = this.flutterChart) === null || _this$flutterChart3 === void 0 ? void 0 : _this$flutterChart3.controller.scroll(e.deltaX);
+          (_this$flutterChart2 = this.flutterChart) === null || _this$flutterChart2 === void 0 ? void 0 : _this$flutterChart2.controller.scroll(e.deltaX);
         }
 
         return false;
@@ -37087,12 +37289,12 @@ class ChartAdapterStore {
   }
 
   async onTickHistory(quotes) {
-    var _this$mainStore$chart6, _this$flutterChart4;
+    var _this$mainStore$chart6, _this$flutterChart3;
 
     await Object(mobx__WEBPACK_IMPORTED_MODULE_0__["when"])(() => this.isChartLoaded);
     this.isDataInitialized = true;
     (_this$mainStore$chart6 = this.mainStore.chart.feed) === null || _this$mainStore$chart6 === void 0 ? void 0 : _this$mainStore$chart6.updateQuotes(quotes, false);
-    (_this$flutterChart4 = this.flutterChart) === null || _this$flutterChart4 === void 0 ? void 0 : _this$flutterChart4.dataModel.onTickHistory(quotes, false);
+    (_this$flutterChart3 = this.flutterChart) === null || _this$flutterChart3 === void 0 ? void 0 : _this$flutterChart3.dataModel.onTickHistory(quotes, false);
   }
 
   async onTick(quote) {
@@ -37104,13 +37306,13 @@ class ChartAdapterStore {
     (_this$mainStore$chart9 = this.mainStore.chart.feed) === null || _this$mainStore$chart9 === void 0 ? void 0 : _this$mainStore$chart9.addQuote(quote);
 
     if (quote.ohlc) {
+      var _this$flutterChart4;
+
+      (_this$flutterChart4 = this.flutterChart) === null || _this$flutterChart4 === void 0 ? void 0 : _this$flutterChart4.dataModel.onNewCandle(quote);
+    } else if (this.getGranularity() <= 1000) {
       var _this$flutterChart5;
 
-      (_this$flutterChart5 = this.flutterChart) === null || _this$flutterChart5 === void 0 ? void 0 : _this$flutterChart5.dataModel.onNewCandle(quote);
-    } else if (this.getGranularity() <= 1000) {
-      var _this$flutterChart6;
-
-      (_this$flutterChart6 = this.flutterChart) === null || _this$flutterChart6 === void 0 ? void 0 : _this$flutterChart6.dataModel.onNewTick(quote);
+      (_this$flutterChart5 = this.flutterChart) === null || _this$flutterChart5 === void 0 ? void 0 : _this$flutterChart5.dataModel.onNewTick(quote);
     }
   }
 
@@ -37129,33 +37331,41 @@ class ChartAdapterStore {
       granularity
     } = state;
     (_chart$feed = chart.feed) === null || _chart$feed === void 0 ? void 0 : _chart$feed.fetchPaginationData((_chart$currentActiveS = chart.currentActiveSymbol) === null || _chart$currentActiveS === void 0 ? void 0 : _chart$currentActiveS.symbol, end, count, granularity, _ref => {
-      var _this$mainStore$chart10, _this$flutterChart7;
+      var _this$mainStore$chart10, _this$flutterChart6;
 
       let {
         quotes
       } = _ref;
       if (!quotes) return;
       (_this$mainStore$chart10 = this.mainStore.chart.feed) === null || _this$mainStore$chart10 === void 0 ? void 0 : _this$mainStore$chart10.updateQuotes(quotes, true);
-      (_this$flutterChart7 = this.flutterChart) === null || _this$flutterChart7 === void 0 ? void 0 : _this$flutterChart7.dataModel.onTickHistory(quotes, true);
+      (_this$flutterChart6 = this.flutterChart) === null || _this$flutterChart6 === void 0 ? void 0 : _this$flutterChart6.dataModel.onTickHistory(quotes, true);
     });
   }
 
   updateChartStyle(chartType) {
-    var _this$flutterChart8;
+    var _this$flutterChart7;
 
-    (_this$flutterChart8 = this.flutterChart) === null || _this$flutterChart8 === void 0 ? void 0 : _this$flutterChart8.config.updateChartStyle(chartType);
+    (_this$flutterChart7 = this.flutterChart) === null || _this$flutterChart7 === void 0 ? void 0 : _this$flutterChart7.config.updateChartStyle(chartType);
   }
 
   updateTheme(theme) {
+    var _this$flutterChart8;
+
+    (_this$flutterChart8 = this.flutterChart) === null || _this$flutterChart8 === void 0 ? void 0 : _this$flutterChart8.config.updateTheme(theme);
+  }
+
+  async updateLeftMargin(leftMargin) {
     var _this$flutterChart9;
 
-    (_this$flutterChart9 = this.flutterChart) === null || _this$flutterChart9 === void 0 ? void 0 : _this$flutterChart9.config.updateTheme(theme);
+    await Object(mobx__WEBPACK_IMPORTED_MODULE_0__["when"])(() => this.isChartLoaded);
+    (_this$flutterChart9 = this.flutterChart) === null || _this$flutterChart9 === void 0 ? void 0 : _this$flutterChart9.config.updateLeftMargin(leftMargin);
   }
 
   scale(scale) {
     var _this$flutterChart10;
 
-    (_this$flutterChart10 = this.flutterChart) === null || _this$flutterChart10 === void 0 ? void 0 : _this$flutterChart10.controller.scale(scale);
+    this.msPerPx = (_this$flutterChart10 = this.flutterChart) === null || _this$flutterChart10 === void 0 ? void 0 : _this$flutterChart10.controller.scale(scale);
+    this.mainStore.state.saveLayout();
   }
 
   async updateMarkers(contractsMarker) {
@@ -37178,6 +37388,10 @@ class ChartAdapterStore {
     });
     await Object(mobx__WEBPACK_IMPORTED_MODULE_0__["when"])(() => this.isDataInitialized);
     (_this$flutterChart11 = this.flutterChart) === null || _this$flutterChart11 === void 0 ? void 0 : _this$flutterChart11.config.updateMarkers(transformedContractsMarker);
+  }
+
+  setMsPerPx(msPerPx) {
+    this.msPerPx = msPerPx;
   }
 
   getXFromEpoch(epoch) {
@@ -37791,7 +38005,8 @@ class ChartState {
       onGranularityChange,
       onChartTypeChange,
       isLive,
-      dataFitEnabled
+      dataFitEnabled,
+      leftMargin
     } = _ref;
     let isSymbolChanged = false;
     let isGranularityChanged = false;
@@ -37945,6 +38160,11 @@ class ChartState {
     if (dataFitEnabled != null && dataFitEnabled != undefined && this.mainStore.chart.dataFitEnabled != dataFitEnabled) {
       this.mainStore.chart.dataFitEnabled = dataFitEnabled;
     }
+
+    if (this.mainStore.chart.leftMargin != leftMargin) {
+      this.mainStore.chart.leftMargin = leftMargin;
+      this.mainStore.chartAdapter.updateLeftMargin(leftMargin);
+    }
   }
 
   setIsChartScrollingToEpoch(isScrollingToEpoch) {
@@ -38019,18 +38239,25 @@ class ChartState {
   saveLayout() {
     if (!this.chartStore.chartId) return;
     const layoutData = this.mainStore.view.getLayout();
-    Object(_utils__WEBPACK_IMPORTED_MODULE_3__["saveToLocalStorage"])("chart-layout-".concat(this.chartStore.chartId), {
+    Object(_utils__WEBPACK_IMPORTED_MODULE_3__["saveToLocalStorage"])("chart-layout-trade", {
       studyItems: layoutData.studyItems,
-      crosshair: layoutData.crosshair
+      crosshair: layoutData.crosshair,
+      msPerPx: layoutData.msPerPx
     });
   } // returns false if restoring layout fails
 
 
   restoreLayout() {
-    let layout = Object(_utils__WEBPACK_IMPORTED_MODULE_3__["createObjectFromLocalStorage"])("chart-layout-".concat(this.chartStore.chartId));
+    let layout = Object(_utils__WEBPACK_IMPORTED_MODULE_3__["createObjectFromLocalStorage"])("chart-layout-trade");
     if (!layout) return false;
     this.mainStore.view.restoreLayout(layout);
     return true;
+  }
+
+  clearLayout() {
+    var _window$flutterChart;
+
+    (_window$flutterChart = window.flutterChart) === null || _window$flutterChart === void 0 ? void 0 : _window$flutterChart.indicators.clearIndicators();
   }
 
   saveDrawings() {// TODO: implement save drawings
@@ -38127,6 +38354,8 @@ class ChartStore {
     _defineProperty(this, "shouldRenderDialogs", false);
 
     _defineProperty(this, "yAxiswidth", 60);
+
+    _defineProperty(this, "leftMargin", void 0);
 
     _defineProperty(this, "feedCall", {});
 
@@ -38410,7 +38639,8 @@ class ChartStore {
       chartData,
       feedCall,
       isLive,
-      dataFitEnabled
+      dataFitEnabled,
+      leftMargin
     } = props;
     this.feedCall = feedCall || {};
     this.api = new _binaryapi__WEBPACK_IMPORTED_MODULE_2__["BinaryAPI"](requestAPI, requestSubscribe, requestForget, requestForgetStream); // trading times and active symbols can be reused across multiple charts
@@ -38438,6 +38668,7 @@ class ChartStore {
     this.granularity = granularity !== undefined ? granularity : this.defaults.granularity;
     this.isLive = isLive || false;
     this.dataFitEnabled = dataFitEnabled || false;
+    this.leftMargin = leftMargin;
     ChartStore.chartCount += 1; // connect chart to data
 
     this.feed = new _feed__WEBPACK_IMPORTED_MODULE_5__["Feed"](this.api, this.mainStore, this.tradingTimes);
@@ -38455,9 +38686,18 @@ class ChartStore {
 
       this.loader.setState('trading-time');
       (_this$tradingTimes = this.tradingTimes) === null || _this$tradingTimes === void 0 ? void 0 : _this$tradingTimes.initialize().then(Object(mobx__WEBPACK_IMPORTED_MODULE_0__["action"])(() => {
-        var _this$state, _this$currentActiveSy2, _this$mainStore$chart2, _this$contextPromise, _this$contextPromise$, _this$tradingTimes2, _this$tradingTimes3;
+        var _this$currentActiveSy2, _this$mainStore$chart2, _this$contextPromise, _this$contextPromise$, _this$tradingTimes2, _this$tradingTimes3;
 
-        (_this$state = this.state) === null || _this$state === void 0 ? void 0 : _this$state.restoreLayout();
+        if (this.dataFitEnabled) {
+          var _this$state;
+
+          (_this$state = this.state) === null || _this$state === void 0 ? void 0 : _this$state.clearLayout();
+        } else {
+          var _this$state2;
+
+          (_this$state2 = this.state) === null || _this$state2 === void 0 ? void 0 : _this$state2.restoreLayout();
+        }
+
         this.loadChartWithInitalData(symbol, initialData === null || initialData === void 0 ? void 0 : initialData.masterData);
         this.changeSymbol( // default to first available symbol
         symbol || this.activeSymbols && Object.keys(this.activeSymbols.symbolMap)[0], this.granularity);
@@ -38475,13 +38715,13 @@ class ChartStore {
         (_this$contextPromise = this.contextPromise) === null || _this$contextPromise === void 0 ? void 0 : (_this$contextPromise$ = _this$contextPromise.resolve) === null || _this$contextPromise$ === void 0 ? void 0 : _this$contextPromise$.call(_this$contextPromise, this.context);
         this.resizeScreen();
         Object(mobx__WEBPACK_IMPORTED_MODULE_0__["reaction"])(() => {
-          var _this$state2, _this$state3;
+          var _this$state3, _this$state4;
 
-          return [(_this$state2 = this.state) === null || _this$state2 === void 0 ? void 0 : _this$state2.symbol, (_this$state3 = this.state) === null || _this$state3 === void 0 ? void 0 : _this$state3.granularity];
+          return [(_this$state3 = this.state) === null || _this$state3 === void 0 ? void 0 : _this$state3.symbol, (_this$state4 = this.state) === null || _this$state4 === void 0 ? void 0 : _this$state4.granularity];
         }, () => {
-          var _this$state4, _this$state5;
+          var _this$state5, _this$state6;
 
-          if (((_this$state4 = this.state) === null || _this$state4 === void 0 ? void 0 : _this$state4.symbol) !== undefined || ((_this$state5 = this.state) === null || _this$state5 === void 0 ? void 0 : _this$state5.granularity) !== undefined) {
+          if (((_this$state5 = this.state) === null || _this$state5 === void 0 ? void 0 : _this$state5.symbol) !== undefined || ((_this$state6 = this.state) === null || _this$state6 === void 0 ? void 0 : _this$state6.granularity) !== undefined) {
             this.changeSymbol(this.state.symbol, this.state.granularity);
           }
         });
@@ -38576,7 +38816,7 @@ class ChartStore {
     this.mainStore.state.setChartIsReady(false);
 
     const onChartLoad = err => {
-      var _this$state6;
+      var _this$state7;
 
       this.loader.hide();
       this.chartClosedOpenThemeChange(!symbolObj.exchange_is_open);
@@ -38589,7 +38829,7 @@ class ChartStore {
         return;
       }
 
-      (_this$state6 = this.state) === null || _this$state6 === void 0 ? void 0 : _this$state6.restoreDrawings();
+      (_this$state7 = this.state) === null || _this$state7 === void 0 ? void 0 : _this$state7.restoreDrawings();
 
       if (this.mainStore.chart.feed) {// this.mainStore.chart.feed.scaleChart();
       }
@@ -39236,7 +39476,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var mobx__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! mobx */ "./node_modules/mobx/dist/mobx.esm.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! moment */ "moment");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils */ "./src/utils/index.ts");
+/* harmony import */ var src_Constant__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/Constant */ "./src/Constant.tsx");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
@@ -39253,8 +39493,6 @@ class CrosshairStore {
     _defineProperty(this, "state", 2);
 
     _defineProperty(this, "node", null);
-
-    _defineProperty(this, "lastBar", {});
 
     _defineProperty(this, "showChange", false);
 
@@ -39338,35 +39576,62 @@ class CrosshairStore {
     });
 
     _defineProperty(this, "renderCrosshairTooltip", (offsetX, offsetY) => {
-      var _this$mainStore$chart;
+      var _this$mainStore$chart, _lastQuote$DT, _this$mainStore$chart2, _this$mainStore$chart3, _quoteBar$DT;
 
       // if no tooltip exists, then skip
       if (this.state !== 2) return;
       if (!this.mainStore.chartAdapter.isChartLoaded) return;
       const epoch = this.mainStore.chartAdapter.getEpochFromX(offsetX);
-      const data = (_this$mainStore$chart = this.mainStore.chart.feed) === null || _this$mainStore$chart === void 0 ? void 0 : _this$mainStore$chart.getClosestQuoteForEpoch(epoch);
+      const quotes = ((_this$mainStore$chart = this.mainStore.chart.feed) === null || _this$mainStore$chart === void 0 ? void 0 : _this$mainStore$chart.quotes) || [];
+      const lastQuote = quotes[quotes.length - 1];
+      const lastQuoteEpoch = lastQuote === null || lastQuote === void 0 ? void 0 : (_lastQuote$DT = lastQuote.DT) === null || _lastQuote$DT === void 0 ? void 0 : _lastQuote$DT.getTime();
+      const granularity = this.mainStore.chartAdapter.getGranularity();
+      const nextQuoteEpoch = lastQuoteEpoch ? lastQuoteEpoch + granularity / 2 : epoch;
+      const quoteBar = epoch <= nextQuoteEpoch ? (_this$mainStore$chart2 = this.mainStore.chart.feed) === null || _this$mainStore$chart2 === void 0 ? void 0 : _this$mainStore$chart2.getClosestQuoteForEpoch(epoch) : undefined;
+      let rows = [];
 
-      if (!data || !this.isChartReady) {
+      if (quoteBar) {
+        rows = this.calculateRows(quoteBar);
+      }
+
+      const closestEpoch = (_this$mainStore$chart3 = this.mainStore.chart.feed) === null || _this$mainStore$chart3 === void 0 ? void 0 : _this$mainStore$chart3.getClosestValidEpoch(epoch, granularity);
+      const indicatorsRows = this.getIndicatorRows((quoteBar === null || quoteBar === void 0 ? void 0 : (_quoteBar$DT = quoteBar.DT) === null || _quoteBar$DT === void 0 ? void 0 : _quoteBar$DT.getTime()) || closestEpoch || epoch);
+      rows.push(...indicatorsRows);
+
+      if (rows.length == 0 || !this.isChartReady) {
         this.updateTooltipPosition({
           left: -5000,
           top: 0,
           rows: null
         });
         return;
+      } else {
+        this.updateTooltipPosition({
+          left: offsetX,
+          top: offsetY,
+          rows
+        });
       }
+    });
 
-      let rows = null;
+    _defineProperty(this, "getIndicatorRows", epoch => {
+      const rows = [];
+      const tooltipContent = window.flutterChart.indicators.getTooltipContent(epoch);
+      const activeItems = this.mainStore.studies.activeItems || [];
+      tooltipContent.filter(c => c).forEach((item, index) => {
+        var _getTooltipLabels;
 
-      if (!Object(_utils__WEBPACK_IMPORTED_MODULE_2__["sameBar"])(data, this.lastBar)) {
-        rows = this.calculateRows(data);
-        this.lastBar = data;
-      }
-
-      this.updateTooltipPosition({
-        left: offsetX,
-        top: offsetY,
-        rows
+        const labels = ((_getTooltipLabels = Object(src_Constant__WEBPACK_IMPORTED_MODULE_2__["getTooltipLabels"])(item.name, activeItems[index])) === null || _getTooltipLabels === void 0 ? void 0 : _getTooltipLabels.labels) || [];
+        labels.forEach((label, i) => {
+          const value = item.values[i];
+          if (!value) return;
+          rows.push({
+            name: label,
+            value: item.values[i]
+          });
+        });
       });
+      return rows;
     });
 
     _defineProperty(this, "updateVisibility", visible => {
@@ -39439,7 +39704,7 @@ class CrosshairStore {
   }
 
   setCrosshairState(state) {
-    var _this$mainStore$chart2;
+    var _this$mainStore$chart4;
 
     if (!this.context) {
       return;
@@ -39450,7 +39715,7 @@ class CrosshairStore {
     this.mainStore.state.saveLayout();
     this.onCrosshairChanged(this.state);
     const isCrosshairVisible = state !== 0;
-    (_this$mainStore$chart2 = this.mainStore.chartAdapter.flutterChart) === null || _this$mainStore$chart2 === void 0 ? void 0 : _this$mainStore$chart2.config.updateCrosshairVisibility(isCrosshairVisible);
+    (_this$mainStore$chart4 = this.mainStore.chartAdapter.flutterChart) === null || _this$mainStore$chart4 === void 0 ? void 0 : _this$mainStore$chart4.config.updateCrosshairVisibility(isCrosshairVisible);
   }
 
   calculateRows(data) {
@@ -41495,30 +41760,38 @@ class SettingsDialogStore {
     const restGroup = [];
     const groups = [];
     groups.push({
-      key: '%K',
+      key: '%k',
+      title: '%K',
       fields: []
     });
     groups.push({
-      key: '%D',
+      key: '%d',
+      title: '%D',
       fields: []
     });
     groups.push({
-      key: 'OverBought',
+      key: 'over_bought',
+      title: 'Over Bought',
       fields: []
     });
     groups.push({
-      key: 'OverSold',
+      key: 'over_sold',
+      title: 'OverSold',
       fields: []
     });
     groups.push({
-      key: 'Show Zones',
+      key: 'show_zones',
+      title: 'Show Zones',
       fields: []
     });
 
     for (const index in this.items) {
       const item = this.items[index];
-      const title = item.title;
-      const group = groups.find(x => title.indexOf(x.key) !== -1);
+      const {
+        group_key,
+        title
+      } = item;
+      const group = groups.find(x => group_key === x.key);
 
       if (group) {
         item.subtitle = title.replace(group.key, '').trim();
@@ -41529,7 +41802,8 @@ class SettingsDialogStore {
     }
 
     groups.unshift({
-      key: this.formTitle || this.title,
+      key: 'others',
+      title: this.formTitle || this.title,
       fields: restGroup
     });
     return groups;
@@ -41931,7 +42205,7 @@ class StudyLegendStore {
         title: activeItem.shortname + (activeItem.bars ? " (".concat(activeItem.bars, ")") : ''),
         ...this.transform(params)
       };
-      (_this$mainStore$chart = this.mainStore.chartAdapter.flutterChart) === null || _this$mainStore$chart === void 0 ? void 0 : _this$mainStore$chart.config.addOrUpdateIndicator(JSON.stringify(config), index);
+      (_this$mainStore$chart = this.mainStore.chartAdapter.flutterChart) === null || _this$mainStore$chart === void 0 ? void 0 : _this$mainStore$chart.indicators.addOrUpdateIndicator(JSON.stringify(config), index);
       this.mainStore.state.saveLayout();
     });
 
@@ -42109,7 +42383,7 @@ class StudyLegendStore {
 
     const index = lodash__WEBPACK_IMPORTED_MODULE_0___default.a.findIndex(this.activeItems, item => item.id === id);
 
-    (_this$mainStore$chart2 = this.mainStore.chartAdapter.flutterChart) === null || _this$mainStore$chart2 === void 0 ? void 0 : _this$mainStore$chart2.config.removeIndicator(index);
+    (_this$mainStore$chart2 = this.mainStore.chartAdapter.flutterChart) === null || _this$mainStore$chart2 === void 0 ? void 0 : _this$mainStore$chart2.indicators.removeIndicator(index);
     this.deleteStudy(index);
   }
 
@@ -42161,8 +42435,11 @@ class StudyLegendStore {
   }
 
   deleteAllStudies() {
-    this.activeItems.forEach(item => this.deleteStudyById(item.id));
+    var _window$flutterChart;
+
     this.activeItems = [];
+    (_window$flutterChart = window.flutterChart) === null || _window$flutterChart === void 0 ? void 0 : _window$flutterChart.indicators.clearIndicators();
+    this.mainStore.state.saveLayout();
   }
 
   onSelectTab(tabIndex) {
@@ -42543,7 +42820,8 @@ class ViewStore {
       granularity: this.mainStore.state.granularity,
       timeUnit: this.mainStore.state.timeperiodStore.timeUnit,
       studyItems: this.mainStore.studies.activeItems,
-      crosshair: this.mainStore.crosshair.state
+      crosshair: this.mainStore.crosshair.state,
+      msPerPx: this.mainStore.chartAdapter.msPerPx
     };
   }
 
@@ -42615,6 +42893,7 @@ class ViewStore {
       this.loader.show();
     }
 
+    this.mainStore.chartAdapter.setMsPerPx(layout.msPerPx);
     this.mainStore.state.setChartIsReady(false);
     this.mainStore.chartType.setChartType(layout.chartType);
     this.menuStore.setOpen(false);
@@ -43402,17 +43681,17 @@ const formatCamelCase = s => {
   return capitalized.replace(/([a-z](?=[A-Z]))/g, '$1 ');
 };
 const movingAverageShortCode = {
-  doubleExponential: 'dema',
-  exponential: 'ema',
-  hull: 'hma',
-  simple: 'ma',
-  timeSeries: 'tsma',
-  triangular: 'tma',
-  tripleExponential: 'tema',
-  variable: 'vma',
-  weighted: 'wma',
-  wellesWilder: 'smma',
-  zeroLag: 'zma'
+  doubleExponential: 'DEMA',
+  exponential: 'EMA',
+  hull: 'HMA',
+  simple: 'MA',
+  timeSeries: 'TSMA',
+  triangular: 'TMA',
+  tripleExponential: 'TEMA',
+  variable: 'VMA',
+  weighted: 'WMA',
+  wellesWilder: 'SMMA',
+  zeroLag: 'ZMA'
 };
 const fieldTypeShortCode = {
   open: 'O',
@@ -43428,11 +43707,15 @@ const prepareIndicatorName = function (name) {
   let parameters = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
 
   const getStudyBars = () => {
-    const bars = parameters.filter(p => p.type === 'number' || p.path === 'movingAverageType' || p.path === 'fieldType').map(p => {
-      if (p.path === 'movingAverageType') {
+    const bars = parameters.filter(p => ['movingAverageType', 'maType', 'fieldType'].includes(p.path || '') || ['number', 'switch'].includes(p.type)).map(p => {
+      if (p.path === 'movingAverageType' || p.path === 'maType') {
         return movingAverageShortCode[p.value];
       } else if (p.path === 'fieldType') {
         return fieldTypeShortCode[p.value];
+      }
+
+      if (p.type === 'switch') {
+        return p.value ? 'Y' : 'N';
       }
 
       return p.value || p.defaultValue;
