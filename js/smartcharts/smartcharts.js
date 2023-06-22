@@ -1,13 +1,13 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("moment"), require("react"), require("react-dom"), require("react-transition-group"));
+		module.exports = factory(require("react-transition-group"), require("moment"), require("react"), require("react-dom"));
 	else if(typeof define === 'function' && define.amd)
 		define([, , , ], factory);
 	else if(typeof exports === 'object')
-		exports["smartcharts"] = factory(require("moment"), require("react"), require("react-dom"), require("react-transition-group"));
+		exports["smartcharts"] = factory(require("react-transition-group"), require("moment"), require("react"), require("react-dom"));
 	else
-		root["smartcharts"] = factory(root["moment"], root["React"], root["ReactDOM"], root["ReactTransitionGroup"]);
-})(window, function(__WEBPACK_EXTERNAL_MODULE_moment__, __WEBPACK_EXTERNAL_MODULE_react__, __WEBPACK_EXTERNAL_MODULE_react_dom__, __WEBPACK_EXTERNAL_MODULE_react_transition_group__) {
+		root["smartcharts"] = factory(root["ReactTransitionGroup"], root["moment"], root["React"], root["ReactDOM"]);
+})(window, function(__WEBPACK_EXTERNAL_MODULE_react_transition_group__, __WEBPACK_EXTERNAL_MODULE_moment__, __WEBPACK_EXTERNAL_MODULE_react__, __WEBPACK_EXTERNAL_MODULE_react_dom__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// install a JSONP callback for chunk loading
 /******/ 	function webpackJsonpCallback(data) {
@@ -53,7 +53,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"de-json":"de-json","es-json":"es-json","flutter-chart-adapter":"flutter-chart-adapter","fr-json":"fr-json","id-json":"id-json","it-json":"it-json","messages-json":"messages-json","nl-json":"nl-json","pl-json":"pl-json","pt-json":"pt-json","ru-json":"ru-json","th-json":"th-json","tr-json":"tr-json","vendors~html2canvas":"vendors~html2canvas","vendors~resize-observer-polyfill":"vendors~resize-observer-polyfill","vi-json":"vi-json","zh-json":"zh-json","zh_cn-json":"zh_cn-json","zh_tw-json":"zh_tw-json"}[chunkId]||chunkId) + "-" + {"de-json":"3dd600","es-json":"2ee0c4","flutter-chart-adapter":"86e540","fr-json":"b3181a","id-json":"76ce42","it-json":"650084","messages-json":"b64b2d","nl-json":"a334c2","pl-json":"f40d99","pt-json":"a1ed28","ru-json":"98f3b7","th-json":"5fef21","tr-json":"1de4ea","vendors~html2canvas":"922e74","vendors~resize-observer-polyfill":"358f59","vi-json":"975848","zh-json":"615c08","zh_cn-json":"91291a","zh_tw-json":"3bffea"}[chunkId] + ".smartcharts.js"
+/******/ 		return __webpack_require__.p + "" + ({"de-json":"de-json","es-json":"es-json","flutter-chart-adapter":"flutter-chart-adapter","fr-json":"fr-json","id-json":"id-json","it-json":"it-json","messages-json":"messages-json","nl-json":"nl-json","pl-json":"pl-json","pt-json":"pt-json","ru-json":"ru-json","th-json":"th-json","tr-json":"tr-json","vendors~html2canvas":"vendors~html2canvas","vendors~resize-observer-polyfill":"vendors~resize-observer-polyfill","vi-json":"vi-json","zh-json":"zh-json","zh_cn-json":"zh_cn-json","zh_tw-json":"zh_tw-json"}[chunkId]||chunkId) + "-" + {"de-json":"3dd600","es-json":"2ee0c4","flutter-chart-adapter":"4d895f","fr-json":"b3181a","id-json":"76ce42","it-json":"650084","messages-json":"b64b2d","nl-json":"a334c2","pl-json":"f40d99","pt-json":"a1ed28","ru-json":"98f3b7","th-json":"5fef21","tr-json":"1de4ea","vendors~html2canvas":"922e74","vendors~resize-observer-polyfill":"358f59","vi-json":"975848","zh-json":"615c08","zh_cn-json":"91291a","zh_tw-json":"3bffea"}[chunkId] + ".smartcharts.js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -26241,6 +26241,12 @@ const getBollingerBandsIndicatorConfig = () => ({
     category: 'inputs',
     type: 'colorpicker'
   }, {
+    path: 'fillColor',
+    title: t.translate('Fill Color'),
+    defaultValue: '#000000',
+    category: 'inputs',
+    type: 'colorpicker'
+  }, {
     path: 'period',
     title: t.translate('Period'),
     defaultValue: 20,
@@ -26266,6 +26272,12 @@ const getBollingerBandsIndicatorConfig = () => ({
     category: 'inputs',
     type: 'select',
     options: getMovingAverageTypeOptions()
+  }, {
+    path: 'showChannelFill',
+    title: t.translate('Channel Fill'),
+    type: 'switch',
+    category: 'parameters',
+    defaultValue: true
   }]
 });
 
@@ -26273,8 +26285,7 @@ const getDonchianChannelIndicatorConfig = () => ({
   config: {
     upperLineStyle: lodash__WEBPACK_IMPORTED_MODULE_0___default.a.clone(lineStyle),
     middleLineStyle: lodash__WEBPACK_IMPORTED_MODULE_0___default.a.clone(lineStyle),
-    lowerLineStyle: lodash__WEBPACK_IMPORTED_MODULE_0___default.a.clone(lineStyle),
-    fillColor: '0x1affffff'
+    lowerLineStyle: lodash__WEBPACK_IMPORTED_MODULE_0___default.a.clone(lineStyle)
   },
   parameters: [{
     path: 'upperLineStyle.color',
@@ -26291,6 +26302,12 @@ const getDonchianChannelIndicatorConfig = () => ({
   }, {
     path: 'lowerLineStyle.color',
     title: t.translate('Donchian Low'),
+    defaultValue: '#000000',
+    category: 'inputs',
+    type: 'colorpicker'
+  }, {
+    path: 'fillColor',
+    title: t.translate('Fill Color'),
     defaultValue: '#000000',
     category: 'inputs',
     type: 'colorpicker'
@@ -37650,6 +37667,7 @@ class ChartSettingStore {
       this.mainStore.state.setChartTheme(theme);
     }
 
+    this.mainStore.studies.updateTheme();
     Object(_utils_ga__WEBPACK_IMPORTED_MODULE_2__["logEvent"])(_utils_ga__WEBPACK_IMPORTED_MODULE_2__["LogCategories"].ChartControl, _utils_ga__WEBPACK_IMPORTED_MODULE_2__["LogActions"].ChartSetting, "Change theme to ".concat(theme));
     this.saveSetting();
   }
@@ -42206,7 +42224,6 @@ class StudyLegendStore {
         ...this.transform(params)
       };
       (_this$mainStore$chart = this.mainStore.chartAdapter.flutterChart) === null || _this$mainStore$chart === void 0 ? void 0 : _this$mainStore$chart.indicators.addOrUpdateIndicator(JSON.stringify(config), index);
-      this.mainStore.state.saveLayout();
     });
 
     _defineProperty(this, "renderLegend", () => {
@@ -42325,9 +42342,11 @@ class StudyLegendStore {
         parameters,
         bars: nameObj.bars
       };
-      this.activeItems.push(item);
+      Object(_utils__WEBPACK_IMPORTED_MODULE_6__["transformStudiesforTheme"])(parameters, this.mainStore.chartSetting.theme);
       this.addOrUpdateIndicator(item);
+      this.activeItems.push(item);
       this.mainStore.bottomWidgetsContainer.updateChartHeight();
+      this.mainStore.state.saveLayout();
     }
   }
 
@@ -42341,6 +42360,14 @@ class StudyLegendStore {
     });
     this.activeItems = activeItems;
     this.mainStore.bottomWidgetsContainer.updateChartHeight();
+  }
+
+  updateTheme() {
+    this.activeItems.forEach((activeItem, index) => {
+      Object(_utils__WEBPACK_IMPORTED_MODULE_6__["transformStudiesforTheme"])(activeItem.parameters, this.mainStore.chartSetting.theme);
+      this.addOrUpdateIndicator(activeItem, index);
+    });
+    this.mainStore.state.saveLayout();
   } // Temporary prevent user from adding more than 5 indicators
   // TODO All traces can be removed after new design for studies
 
@@ -42416,6 +42443,7 @@ class StudyLegendStore {
       const index = lodash__WEBPACK_IMPORTED_MODULE_0___default.a.findIndex(this.activeItems, item => item.id === this.settingsDialog.id);
 
       this.addOrUpdateIndicator(item, index);
+      this.mainStore.state.saveLayout();
     }
   }
 
@@ -43427,7 +43455,7 @@ function logEvent(category, action, label) {
 /*!****************************!*\
   !*** ./src/utils/index.ts ***!
   \****************************/
-/*! exports provided: createObjectFromLocalStorage, saveToLocalStorage, getStringValue, getTimeUnit, getIntervalInSeconds, is_browser, stableSort, sameBar, downloadFileInBrowser, getUTCEpoch, getUTCDate, getLocalDate, calculateTimeUnitInterval, displayMilliseconds, cloneCategory, cloneCategories, ARROW_HEIGHT, ARROW_COLORS, DIRECTIONS, formatCamelCase, prepareIndicatorName, renderSVGString, wrapText, stringToSlug, makeElementDraggable, lerp */
+/*! exports provided: createObjectFromLocalStorage, saveToLocalStorage, getStringValue, getTimeUnit, getIntervalInSeconds, is_browser, stableSort, sameBar, downloadFileInBrowser, getUTCEpoch, getUTCDate, getLocalDate, calculateTimeUnitInterval, displayMilliseconds, cloneCategory, cloneCategories, ARROW_HEIGHT, ARROW_COLORS, DIRECTIONS, formatCamelCase, prepareIndicatorName, renderSVGString, wrapText, stringToSlug, makeElementDraggable, lerp, transformStudiesforTheme */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -43458,6 +43486,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "stringToSlug", function() { return stringToSlug; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "makeElementDraggable", function() { return makeElementDraggable; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "lerp", function() { return lerp; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "transformStudiesforTheme", function() { return transformStudiesforTheme; });
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
+
 function createObjectFromLocalStorage(key) {
   const val = localStorage.getItem(key);
 
@@ -43794,6 +43826,28 @@ const lerp = (a, b, t) => {
   a = (_a = a) !== null && _a !== void 0 ? _a : 0;
   b = (_b = b) !== null && _b !== void 0 ? _b : 0;
   return a * (1.0 - t) + b * t;
+};
+const transformStudiesforTheme = (value, theme) => {
+  if (lodash__WEBPACK_IMPORTED_MODULE_0___default.a.isString(value) && (value.startsWith('#') || value.toLowerCase().startsWith('0x'))) {
+    let color = value;
+
+    if (theme === 'light' && color === '#FFFFFF') {
+      return '#000000';
+    } else if (theme === 'dark' && color === '#000000') {
+      return '#FFFFFF';
+    }
+
+    return color;
+  } else if (lodash__WEBPACK_IMPORTED_MODULE_0___default.a.isObject(value)) {
+    const map = value;
+    Object.keys(value).forEach(key => {
+      map[key] = transformStudiesforTheme(map[key], theme);
+    });
+  } else if (lodash__WEBPACK_IMPORTED_MODULE_0___default.a.isArray(value)) {
+    value.map(item => transformStudiesforTheme(item, theme));
+  }
+
+  return value;
 };
 
 /***/ }),
