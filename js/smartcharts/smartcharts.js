@@ -53,7 +53,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"de-json":"de-json","es-json":"es-json","flutter-chart-adapter":"flutter-chart-adapter","fr-json":"fr-json","id-json":"id-json","it-json":"it-json","messages-json":"messages-json","nl-json":"nl-json","pl-json":"pl-json","pt-json":"pt-json","ru-json":"ru-json","th-json":"th-json","tr-json":"tr-json","vendors~html2canvas":"vendors~html2canvas","vendors~resize-observer-polyfill":"vendors~resize-observer-polyfill","vi-json":"vi-json","zh-json":"zh-json","zh_cn-json":"zh_cn-json","zh_tw-json":"zh_tw-json"}[chunkId]||chunkId) + "-" + {"de-json":"3dd600","es-json":"2ee0c4","flutter-chart-adapter":"4d895f","fr-json":"b3181a","id-json":"76ce42","it-json":"650084","messages-json":"b64b2d","nl-json":"a334c2","pl-json":"f40d99","pt-json":"a1ed28","ru-json":"98f3b7","th-json":"5fef21","tr-json":"1de4ea","vendors~html2canvas":"922e74","vendors~resize-observer-polyfill":"358f59","vi-json":"975848","zh-json":"615c08","zh_cn-json":"91291a","zh_tw-json":"3bffea"}[chunkId] + ".smartcharts.js"
+/******/ 		return __webpack_require__.p + "" + ({"de-json":"de-json","es-json":"es-json","flutter-chart-adapter":"flutter-chart-adapter","fr-json":"fr-json","id-json":"id-json","it-json":"it-json","messages-json":"messages-json","nl-json":"nl-json","pl-json":"pl-json","pt-json":"pt-json","ru-json":"ru-json","th-json":"th-json","tr-json":"tr-json","vendors~html2canvas":"vendors~html2canvas","vendors~resize-observer-polyfill":"vendors~resize-observer-polyfill","vi-json":"vi-json","zh-json":"zh-json","zh_cn-json":"zh_cn-json","zh_tw-json":"zh_tw-json"}[chunkId]||chunkId) + "-" + {"de-json":"3dd600","es-json":"2ee0c4","flutter-chart-adapter":"af404e","fr-json":"b3181a","id-json":"76ce42","it-json":"650084","messages-json":"b64b2d","nl-json":"a334c2","pl-json":"f40d99","pt-json":"a1ed28","ru-json":"98f3b7","th-json":"5fef21","tr-json":"1de4ea","vendors~html2canvas":"922e74","vendors~resize-observer-polyfill":"358f59","vi-json":"975848","zh-json":"615c08","zh_cn-json":"91291a","zh_tw-json":"3bffea"}[chunkId] + ".smartcharts.js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -26397,6 +26397,12 @@ const getMAEnvIndicatorConfig = () => ({
     category: 'inputs',
     type: 'colorpicker'
   }, {
+    path: 'fillColor',
+    title: t.translate('Fill Color'),
+    defaultValue: '#000000',
+    category: 'inputs',
+    type: 'colorpicker'
+  }, {
     path: 'period',
     title: t.translate('Period'),
     defaultValue: 50,
@@ -26432,6 +26438,12 @@ const getMAEnvIndicatorConfig = () => ({
     category: 'inputs',
     type: 'select',
     options: getMovingAverageTypeOptions()
+  }, {
+    path: 'showChannelFill',
+    title: t.translate('Channel Fill'),
+    type: 'switch',
+    category: 'parameters',
+    defaultValue: true
   }]
 });
 
@@ -37146,7 +37158,8 @@ class ChartAdapterStore {
         isLive: this.mainStore.chart.isLive || false,
         dataFitEnabled: this.mainStore.chart.dataFitEnabled || false,
         theme: this.mainStore.chartSetting.theme,
-        msPerPx: this.msPerPx
+        msPerPx: this.msPerPx,
+        pipSize: this.mainStore.chart.pip
       });
     });
 
@@ -42442,6 +42455,7 @@ class StudyLegendStore {
 
       const index = lodash__WEBPACK_IMPORTED_MODULE_0___default.a.findIndex(this.activeItems, item => item.id === this.settingsDialog.id);
 
+      this.activeItems[index] = item;
       this.addOrUpdateIndicator(item, index);
       this.mainStore.state.saveLayout();
     }
