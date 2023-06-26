@@ -53,7 +53,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"de-json":"de-json","es-json":"es-json","flutter-chart-adapter":"flutter-chart-adapter","fr-json":"fr-json","id-json":"id-json","it-json":"it-json","messages-json":"messages-json","nl-json":"nl-json","pl-json":"pl-json","pt-json":"pt-json","ru-json":"ru-json","th-json":"th-json","tr-json":"tr-json","vendors~html2canvas":"vendors~html2canvas","vendors~resize-observer-polyfill":"vendors~resize-observer-polyfill","vi-json":"vi-json","zh-json":"zh-json","zh_cn-json":"zh_cn-json","zh_tw-json":"zh_tw-json"}[chunkId]||chunkId) + "-" + {"de-json":"3dd600","es-json":"2ee0c4","flutter-chart-adapter":"af404e","fr-json":"b3181a","id-json":"76ce42","it-json":"650084","messages-json":"b64b2d","nl-json":"a334c2","pl-json":"f40d99","pt-json":"a1ed28","ru-json":"98f3b7","th-json":"5fef21","tr-json":"1de4ea","vendors~html2canvas":"922e74","vendors~resize-observer-polyfill":"358f59","vi-json":"975848","zh-json":"615c08","zh_cn-json":"91291a","zh_tw-json":"3bffea"}[chunkId] + ".smartcharts.js"
+/******/ 		return __webpack_require__.p + "" + ({"de-json":"de-json","es-json":"es-json","flutter-chart-adapter":"flutter-chart-adapter","fr-json":"fr-json","id-json":"id-json","it-json":"it-json","messages-json":"messages-json","nl-json":"nl-json","pl-json":"pl-json","pt-json":"pt-json","ru-json":"ru-json","th-json":"th-json","tr-json":"tr-json","vendors~html2canvas":"vendors~html2canvas","vendors~resize-observer-polyfill":"vendors~resize-observer-polyfill","vi-json":"vi-json","zh-json":"zh-json","zh_cn-json":"zh_cn-json","zh_tw-json":"zh_tw-json"}[chunkId]||chunkId) + "-" + {"de-json":"3dd600","es-json":"2ee0c4","flutter-chart-adapter":"11cc58","fr-json":"b3181a","id-json":"76ce42","it-json":"650084","messages-json":"b64b2d","nl-json":"a334c2","pl-json":"f40d99","pt-json":"a1ed28","ru-json":"98f3b7","th-json":"5fef21","tr-json":"1de4ea","vendors~html2canvas":"922e74","vendors~resize-observer-polyfill":"358f59","vi-json":"975848","zh-json":"615c08","zh_cn-json":"91291a","zh_tw-json":"3bffea"}[chunkId] + ".smartcharts.js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -37153,7 +37153,7 @@ class ChartAdapterStore {
 
       await Object(mobx__WEBPACK_IMPORTED_MODULE_0__["when"])(() => this.isChartLoaded);
       (_this$flutterChart = this.flutterChart) === null || _this$flutterChart === void 0 ? void 0 : _this$flutterChart.config.newChart({
-        granularity: this.getGranularity(),
+        granularity: this.getGranularityInMs(),
         chartType: this.mainStore.state.chartType,
         isLive: this.mainStore.chart.isLive || false,
         dataFitEnabled: this.mainStore.chart.dataFitEnabled || false,
@@ -37311,7 +37311,7 @@ class ChartAdapterStore {
     };
   }
 
-  getGranularity() {
+  getGranularityInMs() {
     var _this$mainStore$chart5;
 
     let granularity = this.mainStore.state.granularity || ((_this$mainStore$chart5 = this.mainStore.chart.feed) === null || _this$mainStore$chart5 === void 0 ? void 0 : _this$mainStore$chart5.getQuotesInterval()) || 1;
@@ -37339,7 +37339,7 @@ class ChartAdapterStore {
       var _this$flutterChart4;
 
       (_this$flutterChart4 = this.flutterChart) === null || _this$flutterChart4 === void 0 ? void 0 : _this$flutterChart4.dataModel.onNewCandle(quote);
-    } else if (this.getGranularity() <= 1000) {
+    } else if (this.getGranularityInMs() < 60000) {
       var _this$flutterChart5;
 
       (_this$flutterChart5 = this.flutterChart) === null || _this$flutterChart5 === void 0 ? void 0 : _this$flutterChart5.dataModel.onNewTick(quote);
@@ -39599,7 +39599,8 @@ class CrosshairStore {
         const price = this.mainStore.chartAdapter.getQuoteFromY(offsetY);
 
         if (price >= 0) {
-          floatPriceRef.current.innerText = "".concat(quote);
+          const quoteLabel = Number(quote).toFixed(this.mainStore.chart.pip);
+          floatPriceRef.current.innerText = "".concat(quoteLabel);
         }
 
         floatPriceRef.current.style.transform = "translate(0px, ".concat(offsetY - height / 2, "px)");
@@ -39616,7 +39617,7 @@ class CrosshairStore {
       const quotes = ((_this$mainStore$chart = this.mainStore.chart.feed) === null || _this$mainStore$chart === void 0 ? void 0 : _this$mainStore$chart.quotes) || [];
       const lastQuote = quotes[quotes.length - 1];
       const lastQuoteEpoch = lastQuote === null || lastQuote === void 0 ? void 0 : (_lastQuote$DT = lastQuote.DT) === null || _lastQuote$DT === void 0 ? void 0 : _lastQuote$DT.getTime();
-      const granularity = this.mainStore.chartAdapter.getGranularity();
+      const granularity = this.mainStore.chartAdapter.getGranularityInMs();
       const nextQuoteEpoch = lastQuoteEpoch ? lastQuoteEpoch + granularity / 2 : epoch;
       const quoteBar = epoch <= nextQuoteEpoch ? (_this$mainStore$chart2 = this.mainStore.chart.feed) === null || _this$mainStore$chart2 === void 0 ? void 0 : _this$mainStore$chart2.getClosestQuoteForEpoch(epoch) : undefined;
       let rows = [];
@@ -39798,6 +39799,11 @@ class CrosshairStore {
         display: displayName
       } = obj;
       let dsField = data[name];
+
+      if (['Open', 'Close', 'High', 'Low'].includes(name)) {
+        dsField = Number(dsField).toFixed(this.mainStore.chart.pip);
+      }
+
       const fieldName = displayName === null || displayName === void 0 ? void 0 : displayName.replace(/^(Result )(.*)/, '$2');
 
       if (dsField && (name === 'DT' || typeof dsField !== 'object')) {
@@ -42233,7 +42239,7 @@ class StudyLegendStore {
       const config = {
         id: activeItem.id,
         name: activeItem.flutter_chart_id,
-        title: activeItem.shortname + (activeItem.bars ? " (".concat(activeItem.bars, ")") : ''),
+        title: (activeItem.shortname + (activeItem.bars ? " (".concat(activeItem.bars, ")") : '')).toUpperCase(),
         ...this.transform(params)
       };
       (_this$mainStore$chart = this.mainStore.chartAdapter.flutterChart) === null || _this$mainStore$chart === void 0 ? void 0 : _this$mainStore$chart.indicators.addOrUpdateIndicator(JSON.stringify(config), index);
