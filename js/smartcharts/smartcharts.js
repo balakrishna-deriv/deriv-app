@@ -53,7 +53,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"de-json":"de-json","es-json":"es-json","flutter-chart-adapter":"flutter-chart-adapter","fr-json":"fr-json","id-json":"id-json","it-json":"it-json","messages-json":"messages-json","nl-json":"nl-json","pl-json":"pl-json","pt-json":"pt-json","ru-json":"ru-json","th-json":"th-json","tr-json":"tr-json","vendors~html2canvas":"vendors~html2canvas","vendors~resize-observer-polyfill":"vendors~resize-observer-polyfill","vi-json":"vi-json","zh-json":"zh-json","zh_cn-json":"zh_cn-json","zh_tw-json":"zh_tw-json"}[chunkId]||chunkId) + "-" + {"de-json":"3dd600","es-json":"2ee0c4","flutter-chart-adapter":"11cc58","fr-json":"b3181a","id-json":"76ce42","it-json":"650084","messages-json":"b64b2d","nl-json":"a334c2","pl-json":"f40d99","pt-json":"a1ed28","ru-json":"98f3b7","th-json":"5fef21","tr-json":"1de4ea","vendors~html2canvas":"922e74","vendors~resize-observer-polyfill":"358f59","vi-json":"975848","zh-json":"615c08","zh_cn-json":"91291a","zh_tw-json":"3bffea"}[chunkId] + ".smartcharts.js"
+/******/ 		return __webpack_require__.p + "" + ({"de-json":"de-json","es-json":"es-json","flutter-chart-adapter":"flutter-chart-adapter","fr-json":"fr-json","id-json":"id-json","it-json":"it-json","messages-json":"messages-json","nl-json":"nl-json","pl-json":"pl-json","pt-json":"pt-json","ru-json":"ru-json","th-json":"th-json","tr-json":"tr-json","vendors~html2canvas":"vendors~html2canvas","vendors~resize-observer-polyfill":"vendors~resize-observer-polyfill","vi-json":"vi-json","zh-json":"zh-json","zh_cn-json":"zh_cn-json","zh_tw-json":"zh_tw-json"}[chunkId]||chunkId) + "-" + {"de-json":"3dd600","es-json":"2ee0c4","flutter-chart-adapter":"1d9aa3","fr-json":"b3181a","id-json":"76ce42","it-json":"650084","messages-json":"b64b2d","nl-json":"a334c2","pl-json":"f40d99","pt-json":"a1ed28","ru-json":"98f3b7","th-json":"5fef21","tr-json":"1de4ea","vendors~html2canvas":"922e74","vendors~resize-observer-polyfill":"358f59","vi-json":"975848","zh-json":"615c08","zh_cn-json":"91291a","zh_tw-json":"3bffea"}[chunkId] + ".smartcharts.js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -37378,9 +37378,10 @@ class ChartAdapterStore {
     (_this$flutterChart7 = this.flutterChart) === null || _this$flutterChart7 === void 0 ? void 0 : _this$flutterChart7.config.updateChartStyle(chartType);
   }
 
-  updateTheme(theme) {
+  async updateTheme(theme) {
     var _this$flutterChart8;
 
+    await Object(mobx__WEBPACK_IMPORTED_MODULE_0__["when"])(() => this.isChartLoaded);
     (_this$flutterChart8 = this.flutterChart) === null || _this$flutterChart8 === void 0 ? void 0 : _this$flutterChart8.config.updateTheme(theme);
   }
 
