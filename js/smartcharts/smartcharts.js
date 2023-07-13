@@ -14984,6 +14984,9 @@ const Chart = props => {
   const memoizedOnCrosshairChange = react__WEBPACK_IMPORTED_MODULE_2___default().useCallback(onCrosshairChange, [t.lang]);
   react__WEBPACK_IMPORTED_MODULE_2___default().useEffect(() => {
     chartAdapter.onMount(chartContainerRef.current);
+    return () => {
+      chartAdapter.onUnmount();
+    };
   }, []);
   react__WEBPACK_IMPORTED_MODULE_2___default().useEffect(() => {
     chartAdapter.updateMarkers(markers_array);
@@ -16265,7 +16268,7 @@ const FastMarker = props => {
   props_ref.current = props;
   react__WEBPACK_IMPORTED_MODULE_1___default().useEffect(() => {
     updateCSS();
-  }, [chartAdapter.epochBounds, chartAdapter.quoteBounds, chartAdapter.isChartDataLoaded]);
+  }, [chartAdapter.epochBounds, chartAdapter.quoteBounds, chartAdapter.isFeedLoaded]);
 
   const setPosition = _ref => {
     let {
@@ -16279,7 +16282,7 @@ const FastMarker = props => {
   };
 
   const updateCSS = () => {
-    if (!chartAdapter.isChartDataLoaded || !chartAdapter.isChartLoaded) {
+    if (!chartAdapter.isFeedLoaded || !chartAdapter.isChartLoaded) {
       return;
     }
 
@@ -22750,7 +22753,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "createChartElement": () => (/* binding */ createChartElement)
 /* harmony export */ });
-const createChartElement = () => {
+const createChartElement = _ref => {
+  let {
+    onChartLoad
+  } = _ref;
+
+  if (window.flutterChartElement) {
+    onChartLoad();
+    return;
+  }
+
   const flutterChartElement = document.createElement('div');
   flutterChartElement.classList.add('flutter-chart');
   window.flutterChartElement = flutterChartElement;
@@ -22763,7 +22775,9 @@ const createChartElement = () => {
         appRunner?.runApp();
       }
     }
-  };
+  }; // @ts-ignore
+
+  __webpack_require__.e(/*! import() | flutter-chart-adapter */ "flutter-chart-adapter").then(__webpack_require__.t.bind(__webpack_require__, /*! chart/main.dart.js */ "./chart_app/build/web/main.dart.js", 23));
   return flutterChartElement;
 };
 
@@ -23441,7 +23455,7 @@ class BottomWidgetsContainerStore {
         } = chartAdapter.quoteBounds;
         const mainChartHeight = chartAdapter.getYFromQuote(bottomQuote);
         const addedIndicatorsHeight = this.mainStore.chart.chartContainerHeight - mainChartHeight;
-        this.bottom = this.mainStore.chartAdapter.isChartDataLoaded && addedIndicatorsHeight > 80 ? addedIndicatorsHeight : 30;
+        this.bottom = this.mainStore.chartAdapter.isFeedLoaded && addedIndicatorsHeight > 80 ? addedIndicatorsHeight : 30;
       }, 300);
     });
 
@@ -23968,13 +23982,26 @@ class ChartAdapterStore {
       bottomQuote: 0
     });
 
-    _defineProperty(this, "isChartDataLoaded", false);
+    _defineProperty(this, "isFeedLoaded", false);
 
     _defineProperty(this, "msPerPx", void 0);
 
+    _defineProperty(this, "onWheel", e => {
+      e.preventDefault();
+
+      if (e.deltaX == 0 && e.deltaZ == 0) {
+        const value = (100 - e.deltaY) / 100;
+        this.scale(value);
+      } else {
+        window.flutterChart?.app.scroll(e.deltaX);
+      }
+
+      return false;
+    });
+
     _defineProperty(this, "newChart", async () => {
       await (0,mobx__WEBPACK_IMPORTED_MODULE_2__.when)(() => this.isChartLoaded);
-      this.isChartDataLoaded = false;
+      this.isFeedLoaded = false;
       this.flutterChart?.app.newChart({
         granularity: this.getGranularityInMs(),
         chartType: this.mainStore.state.chartType,
@@ -24044,7 +24071,7 @@ class ChartAdapterStore {
       epochBounds: mobx__WEBPACK_IMPORTED_MODULE_2__.observable.ref,
       quoteBounds: mobx__WEBPACK_IMPORTED_MODULE_2__.observable.ref,
       msPerPx: mobx__WEBPACK_IMPORTED_MODULE_2__.observable,
-      isChartDataLoaded: mobx__WEBPACK_IMPORTED_MODULE_2__.observable
+      isFeedLoaded: mobx__WEBPACK_IMPORTED_MODULE_2__.observable
     });
     this.mainStore = mainStore;
     this.initFlutterCharts();
@@ -24077,33 +24104,22 @@ class ChartAdapterStore {
         }
       }
     };
-
-    if (!window.flutterChartElement) {
-      const flutterChartElement = (0,src_flutter_chart__WEBPACK_IMPORTED_MODULE_1__.createChartElement)();
-      flutterChartElement.addEventListener('wheel', e => {
-        e.preventDefault();
-
-        if (e.deltaX == 0 && e.deltaZ == 0) {
-          const scale = (100 - e.deltaY) / 100;
-          this.scale(scale);
-        } else {
-          this.flutterChart?.controller.scroll(e.deltaX);
-        }
-
-        return false;
-      }, {
-        capture: true,
-        passive: false
-      }); // @ts-ignore
-
-      __webpack_require__.e(/*! import() | flutter-chart-adapter */ "flutter-chart-adapter").then(__webpack_require__.t.bind(__webpack_require__, /*! chart/main.dart.js */ "./chart_app/build/web/main.dart.js", 23));
-    } else {
-      this.onChartLoad();
-    }
+    (0,src_flutter_chart__WEBPACK_IMPORTED_MODULE_1__.createChartElement)({
+      onChartLoad: this.onChartLoad
+    });
   }
 
-  async onMount(element) {
+  onMount(element) {
     element.appendChild(window.flutterChartElement);
+    window.flutterChartElement.addEventListener('wheel', this.onWheel, {
+      capture: true
+    });
+  }
+
+  onUnmount() {
+    window.flutterChartElement?.removeEventListener('wheel', this.onWheel, {
+      capture: true
+    });
   }
 
   onChartLoad() {
@@ -24134,7 +24150,7 @@ class ChartAdapterStore {
 
   async onTickHistory(quotes) {
     await (0,mobx__WEBPACK_IMPORTED_MODULE_2__.when)(() => this.isChartLoaded);
-    this.isChartDataLoaded = true;
+    this.isFeedLoaded = true;
     this.mainStore.chart.feed?.updateQuotes(quotes, false);
     this.flutterChart?.feed.onTickHistory(quotes, false);
   }
@@ -24198,7 +24214,7 @@ class ChartAdapterStore {
   }
 
   scale(scale) {
-    this.msPerPx = this.flutterChart?.controller.scale(scale);
+    this.msPerPx = this.flutterChart?.app.scale(scale);
     this.mainStore.state.saveLayout();
   }
 
@@ -24214,7 +24230,7 @@ class ChartAdapterStore {
       });
       return c;
     });
-    await (0,mobx__WEBPACK_IMPORTED_MODULE_2__.when)(() => this.isChartDataLoaded); //  console.log(transformedContractsMarker);
+    await (0,mobx__WEBPACK_IMPORTED_MODULE_2__.when)(() => this.isFeedLoaded); //  console.log(transformedContractsMarker);
 
     this.flutterChart?.config.updateMarkers(transformedContractsMarker);
   }
@@ -25061,7 +25077,8 @@ class ChartState {
   saveLayout() {
     if (!this.chartStore.chartId) return;
     const layoutData = this.mainStore.view.getLayout();
-    (0,_utils__WEBPACK_IMPORTED_MODULE_2__.saveToLocalStorage)(`chart-layout-trade`, {
+    const id = this.mainStore.chart.chartId;
+    (0,_utils__WEBPACK_IMPORTED_MODULE_2__.saveToLocalStorage)(`chart-layout-${id}`, {
       studyItems: layoutData.studyItems,
       crosshair: layoutData.crosshair,
       msPerPx: layoutData.msPerPx
@@ -25070,7 +25087,8 @@ class ChartState {
 
 
   restoreLayout() {
-    let layout = (0,_utils__WEBPACK_IMPORTED_MODULE_2__.createObjectFromLocalStorage)(`chart-layout-trade`);
+    const id = this.mainStore.chart.chartId;
+    let layout = (0,_utils__WEBPACK_IMPORTED_MODULE_2__.createObjectFromLocalStorage)(`chart-layout-${id}`);
     if (!layout) return false;
     this.mainStore.view.restoreLayout(layout);
     return true;
@@ -29292,7 +29310,7 @@ class TimeperiodStore {
       mainStore
     });
     this._serverTime = _utils_ServerTime__WEBPACK_IMPORTED_MODULE_2__["default"].getInstance();
-    (0,mobx__WEBPACK_IMPORTED_MODULE_4__.when)(() => this.mainStore.chartAdapter.isChartDataLoaded, this.onDataInitialized);
+    (0,mobx__WEBPACK_IMPORTED_MODULE_4__.when)(() => this.mainStore.chartAdapter.isFeedLoaded, this.onDataInitialized);
   }
 
   get loader() {
@@ -35057,7 +35075,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_moment__;
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames based on template
-/******/ 			return "" + chunkId + "-" + {"resize-observer-polyfill":"0d4d88","de-json":"c2367a","es-json":"8386e2","fr-json":"23fce9","id-json":"e73e6f","it-json":"3b63d6","messages-json":"0ec5a1","nl-json":"ca0b7a","pl-json":"416283","pt-json":"f11672","ru-json":"8bee31","th-json":"b8a162","tr-json":"234e98","vi-json":"bdda81","zh-json":"17200e","zh_cn-json":"4f946e","zh_tw-json":"56a5e8","html2canvas":"5d2804","flutter-chart-adapter":"0dd395"}[chunkId] + ".smartcharts.js";
+/******/ 			return "" + chunkId + "-" + {"resize-observer-polyfill":"0d4d88","de-json":"c2367a","es-json":"8386e2","fr-json":"23fce9","id-json":"e73e6f","it-json":"3b63d6","messages-json":"0ec5a1","nl-json":"ca0b7a","pl-json":"416283","pt-json":"f11672","ru-json":"8bee31","th-json":"b8a162","tr-json":"234e98","vi-json":"bdda81","zh-json":"17200e","zh_cn-json":"4f946e","zh_tw-json":"56a5e8","html2canvas":"5d2804","flutter-chart-adapter":"95e3de"}[chunkId] + ".smartcharts.js";
 /******/ 		};
 /******/ 	})();
 /******/ 	
